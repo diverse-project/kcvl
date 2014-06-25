@@ -9,7 +9,6 @@ public class KCVLRuntimeModule extends fr.inria.diverse.kcvl.AbstractKCVLRuntime
 	@Override
 	public Class<? extends IDerivedStateComputer> bindIDerivedStateComputer()
 	{
-		System.out.println("Binded");
 		return KCvlPostProcessor.class;
 	}
 }

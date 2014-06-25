@@ -10,16 +10,16 @@ import fr.inria.diverse.kcvl.services.KCVLGrammarAccess
 
 /**
  * This class contains custom formatting description.
- * 
+ *
  * see : http://www.eclipse.org/Xtext/documentation.html#formatting
- * on how and when to use it 
- * 
+ * on how and when to use it
+ *
  * Also see {@link org.eclipse.xtext.xtext.XtextFormattingTokenSerializer} as an example
  */
 public class KCVLFormatter extends AbstractDeclarativeFormatter {
-	
+
 	@Inject extension KCVLGrammarAccess
-	
+
 	override protected configureFormatting(FormattingConfig c) {
 		for(pair: findKeywordPairs('{', '}')) {
 			c.setIndentation(pair.first, pair.second)

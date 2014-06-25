@@ -9,6 +9,7 @@ import org.omg.CVLMetamodelMaster.cvl.ObjectHandle
 import org.omg.CVLMetamodelMaster.cvl.LinkHandle
 
 import static extension fr.inria.diverse.kcvl.KCvlUtils.*
+import org.omg.CVLMetamodelMaster.cvl.ChoiceResolutuion
 
 class KCvlPostProcessor implements IDerivedStateComputer
 {
@@ -35,12 +36,15 @@ class KCvlPostProcessor implements IDerivedStateComputer
 						}
 
 					VSpec:
-						resolutionTime = resolutionTime ?: ""						
+						resolutionTime = resolutionTime ?: ""
+
+					ChoiceResolutuion:
+						resolvedVSpec = resolvedChoice
 				}
 			]
 		}
 	}
-	
+
 	override discardDerivedState(DerivedStateAwareResource resource) {
 		// TODO: Do we really need to discard the modification? Seems to work...
 	}

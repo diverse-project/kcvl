@@ -9,5 +9,5 @@ package fr.inria.diverse.kcvl.ui.outline
  * see http://www.eclipse.org/Xtext/documentation.html#outline
  */
 class KCVLOutlineTreeProvider extends org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider {
-	
+
 }

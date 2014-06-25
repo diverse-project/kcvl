@@ -87,7 +87,7 @@ VClassifier returns VClassifier:
 ;
 
 ChoiceResolutuion returns ChoiceResolutuion:
-	'ChoiceResolution' name = ID '=' decision = BOOLEAN 'forSpec' resolvedVSpec = [VSpec | ID] 'forChoice' resolvedChoice = [Choice | ID]
+	'ChoiceResolution' name = ID '=' decision = BOOLEAN 'for' resolvedChoice = [Choice | ID]
 	('{'
 		child += VSpecResolution (child += VSpecResolution)*
 	'}')?

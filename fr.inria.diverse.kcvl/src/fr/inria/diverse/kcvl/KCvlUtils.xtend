@@ -9,5 +9,5 @@ class KCvlUtils
 	def static resolve(BaseModelHandle obj) {
 		val rs = new ResourceSetImpl
 		return rs.getEObject(URI.createURI(obj.referenceString), true)
-	}	
+	}
 }
