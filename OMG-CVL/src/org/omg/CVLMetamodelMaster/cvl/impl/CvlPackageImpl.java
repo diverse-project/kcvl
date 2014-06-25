@@ -3036,7 +3036,7 @@ public class CvlPackageImpl extends EPackageImpl implements CvlPackage {
 
 		initEClass(vSpecEClass, VSpec.class, "VSpec", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVSpec_GroupMultiplicity(), this.getMultiplicityInterval(), null, "groupMultiplicity", null, 0, 1, VSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getVSpec_ResolutionTime(), ecorePackage.getEString(), "resolutionTime", null, 0, 1, VSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getVSpec_ResolutionTime(), ecorePackage.getEString(), "resolutionTime", null, 1, 1, VSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getVSpec_OwnedVSpecDerivation(), this.getVSpecDerivation(), null, "ownedVSpecDerivation", null, 0, 1, VSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getVSpec_Child(), this.getVSpec(), null, "child", null, 0, -1, VSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
@@ -3102,7 +3102,7 @@ public class CvlPackageImpl extends EPackageImpl implements CvlPackage {
 		initEReference(getObjectSubstitution_ReplacementObject(), this.getObjectHandle(), null, "replacementObject", null, 1, 1, ObjectSubstitution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(objectHandleEClass, ObjectHandle.class, "ObjectHandle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getObjectHandle_MOFRef(), ecorePackage.getEString(), "MOFRef", null, 0, 1, ObjectHandle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getObjectHandle_MOFRef(), ecorePackage.getEString(), "MOFRef", null, 1, 1, ObjectHandle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(baseModelHandleEClass, BaseModelHandle.class, "BaseModelHandle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBaseModelHandle_Reference(), ecorePackage.getEObject(), null, "reference", null, 0, 1, BaseModelHandle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3154,7 +3154,7 @@ public class CvlPackageImpl extends EPackageImpl implements CvlPackage {
 		initEReference(getLinkAssignment_NewEnd(), this.getObjectHandle(), null, "newEnd", null, 1, 1, LinkAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(linkHandleEClass, LinkHandle.class, "LinkHandle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLinkHandle_MOFRef(), ecorePackage.getEString(), "MOFRef", null, 0, 1, LinkHandle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getLinkHandle_MOFRef(), ecorePackage.getEString(), "MOFRef", null, 1, 1, LinkHandle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(configurableUnitEClass, ConfigurableUnit.class, "ConfigurableUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConfigurableUnit_OwnedVSpec(), this.getVSpec(), null, "ownedVSpec", null, 0, -1, ConfigurableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

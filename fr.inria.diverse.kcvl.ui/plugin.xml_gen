@@ -11,6 +11,7 @@
             default="true"
             extensions="kcvl"
             id="fr.inria.diverse.kcvl.KCVL"
+            matchingStrategy="fr.inria.diverse.kcvl.ui.KCVLExecutableExtensionFactory:org.eclipse.xtext.xbase.ui.editor.JavaEditorInputMatcher"
             name="KCVL Editor">
         </editor>
     </extension>
@@ -373,6 +374,133 @@
 	        <keywordReference id="fr.inria.diverse.kcvl.ui.keyword_KCVL"/>
 	    </page>
 	</extension>
+
+<!-- Type Hierarchy  -->
+	<extension
+		point="org.eclipse.ui.handlers">
+		<handler 
+			class="fr.inria.diverse.kcvl.ui.KCVLExecutableExtensionFactory:org.eclipse.xtext.xbase.ui.hierarchy.OpenTypeHierarchyHandler"
+			commandId="org.eclipse.xtext.xbase.ui.hierarchy.OpenTypeHierarchy">
+			<activeWhen>
+				<reference
+					definitionId="fr.inria.diverse.kcvl.KCVL.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+		<handler 
+			class="fr.inria.diverse.kcvl.ui.KCVLExecutableExtensionFactory:org.eclipse.xtext.xbase.ui.hierarchy.QuickTypeHierarchyHandler"
+			commandId="org.eclipse.jdt.ui.edit.text.java.open.hierarchy">
+			<activeWhen>
+				<reference
+					definitionId="fr.inria.diverse.kcvl.KCVL.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.open">
+			<command commandId="org.eclipse.xtext.xbase.ui.hierarchy.OpenTypeHierarchy"
+				style="push"
+				tooltip="Open Type Hierarchy">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="fr.inria.diverse.kcvl.KCVL.Editor.opened"/>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.open">
+			<command commandId="org.eclipse.jdt.ui.edit.text.java.open.hierarchy"
+				style="push"
+				tooltip="Quick Type Hierarchy">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="fr.inria.diverse.kcvl.KCVL.Editor.opened"/>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<!-- Call Hierachy -->
+	<extension
+		point="org.eclipse.ui.handlers">
+		<handler 
+			class="fr.inria.diverse.kcvl.ui.KCVLExecutableExtensionFactory:org.eclipse.xtext.xbase.ui.hierarchy.OpenCallHierachyHandler"
+			commandId="org.eclipse.xtext.xbase.ui.hierarchy.OpenCallHierarchy">
+			<activeWhen>
+				<reference
+					definitionId="fr.inria.diverse.kcvl.KCVL.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.open">
+			<command commandId="org.eclipse.xtext.xbase.ui.hierarchy.OpenCallHierarchy"
+				style="push"
+				tooltip="Open Call Hierarchy">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="fr.inria.diverse.kcvl.KCVL.Editor.opened"/>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory class="fr.inria.diverse.kcvl.ui.KCVLExecutableExtensionFactory:org.eclipse.xtext.builder.smap.StratumBreakpointAdapterFactory"
+         adaptableType="org.eclipse.xtext.ui.editor.XtextEditor">
+         <adapter type="org.eclipse.debug.ui.actions.IToggleBreakpointsTarget"/>
+      </factory> 
+   </extension>
+   <extension point="org.eclipse.ui.editorActions">
+      <editorContribution targetID="fr.inria.diverse.kcvl.KCVL" 
+                          id="fr.inria.diverse.kcvl.KCVL.ide.rulerActions">
+	     <action
+	             label="Not Used"
+	             class="fr.inria.diverse.kcvl.ui.KCVLExecutableExtensionFactory:org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
+	             style="push"
+	             actionID="RulerDoubleClick"
+	             id="fr.inria.diverse.kcvl.KCVL.doubleClickBreakpointAction"/>
+	  </editorContribution>
+   </extension>
+   <extension point="org.eclipse.ui.popupMenus">
+      <viewerContribution
+         targetID="example.rulerContextMenuId"
+         id="fr.inria.diverse.kcvl.KCVL.ide.RulerPopupActions">
+         <action
+            label="Toggle Breakpoint"
+            class="fr.inria.diverse.kcvl.ui.KCVLExecutableExtensionFactory:org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
+            menubarPath="additions"
+            id="fr.inria.diverse.kcvl.KCVL.ide.rulerContextMenu.toggleBreakpointAction">
+         </action>
+      </viewerContribution>
+   </extension>
+   
+    <!-- Introduce Local Variable Refactoring -->
+	<extension point="org.eclipse.ui.handlers">
+		<handler 
+			class="fr.inria.diverse.kcvl.ui.KCVLExecutableExtensionFactory:org.eclipse.xtext.xbase.ui.refactoring.ExtractVariableHandler"
+			commandId="org.eclipse.xtext.xbase.ui.refactoring.ExtractLocalVariable">
+			<activeWhen>
+				<reference
+					definitionId="fr.inria.diverse.kcvl.KCVL.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+    <extension point="org.eclipse.ui.menus">
+         <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.edit">
+         <command commandId="org.eclipse.xtext.xbase.ui.refactoring.ExtractLocalVariable"
+               style="push">
+            <visibleWhen checkEnabled="false">
+               <reference
+                     definitionId="fr.inria.diverse.kcvl.KCVL.Editor.opened">
+               </reference>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>  
 
   <extension point="org.eclipse.compare.contentViewers">
     <viewer id="fr.inria.diverse.kcvl.KCVL.compare.contentViewers"

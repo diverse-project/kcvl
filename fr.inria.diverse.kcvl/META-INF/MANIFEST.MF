@@ -12,10 +12,11 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.emf.codegen.ecore;resolution:=optional,
  org.eclipse.emf.mwe.utils;resolution:=optional,
  org.eclipse.emf.mwe2.launch;resolution:=optional,
- OMG-CVL;bundle-version="1.0.10",
  org.eclipse.xtext.util,
  org.antlr.runtime,
- org.eclipse.xtext.common.types
+ org.eclipse.xtext.common.types,
+ OMG-CVL;bundle-version="1.0.10",
+ org.eclipse.xtext.xbase.lib
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
@@ -27,4 +28,5 @@ Export-Package: fr.inria.diverse.kcvl,
  fr.inria.diverse.kcvl.validation,
  fr.inria.diverse.kcvl.scoping,
  fr.inria.diverse.kcvl.generator,
- fr.inria.diverse.kcvl.formatting
+ fr.inria.diverse.kcvl.formatting,
+ fr.inria.diverse.kcvl.jvmmodel

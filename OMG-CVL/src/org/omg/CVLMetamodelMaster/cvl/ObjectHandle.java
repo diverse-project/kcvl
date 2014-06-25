@@ -38,7 +38,7 @@ public interface ObjectHandle extends BaseModelHandle {
 	 * @return the value of the '<em>MOF Ref</em>' attribute.
 	 * @see #setMOFRef(String)
 	 * @see org.omg.CVLMetamodelMaster.cvl.CvlPackage#getObjectHandle_MOFRef()
-	 * @model ordered="false"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	String getMOFRef();

@@ -67,7 +67,7 @@ public interface VSpec extends VPackageable {
 	 * @return the value of the '<em>Resolution Time</em>' attribute.
 	 * @see #setResolutionTime(String)
 	 * @see org.omg.CVLMetamodelMaster.cvl.CvlPackage#getVSpec_ResolutionTime()
-	 * @model ordered="false"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	String getResolutionTime();
