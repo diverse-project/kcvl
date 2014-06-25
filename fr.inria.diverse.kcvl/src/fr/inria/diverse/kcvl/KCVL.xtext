@@ -231,10 +231,10 @@ LinkAssignment returns LinkAssignment:
 		('expression' expression=STRING)?
 		('bindingVspec' '(' bindingVspec+=[VSpec|STRING] ( "," bindingVspec+=[VSpec|STRING])* ')' )?
 		('precedenceConstraint' '(' precedenceConstraint+=[VariationPoint|STRING] ( "," precedenceConstraint+=[VariationPoint|STRING])* ')' )?
-		('choice ' '(' bindingChoice+=[Choice|STRING] ( "," bindingChoice+=[Choice|STRING])* ')' )?
-		'link' link = LinkHandle
-		'linkEndIdentifier' linkEndIdentifier=STRING
-		'newEnd' newEnd = ObjectHandle
+		'link' link = (LinkHandle | SimpleLinkHandle)
+		'linkEndIdentifier' linkEndIdentifier = STRING
+		'newEnd' newEnd = (ObjectHandle | SimpleObjectHandle)
+		('choice' bindingChoice += [Choice|ID] ("," bindingChoice+=[Choice|ID])*)?
 	'}';
 
 ConfigurableUnit returns ConfigurableUnit:
@@ -301,8 +301,8 @@ LinkExistence returns LinkExistence:
 		('expression' expression=STRING)?
 		('bindingVspec' '(' bindingVspec+=[VSpec|STRING] ( "," bindingVspec+=[VSpec|STRING])* ')' )?
 		('precedenceConstraint' '(' precedenceConstraint+=[VariationPoint|STRING] ( "," precedenceConstraint+=[VariationPoint|STRING])* ')' )?
-		('choice' bindingChoice += [Choice | ID] ("," bindingChoice+=[Choice | ID])*)?
 		'link' optionalLink = (LinkHandle | SimpleLinkHandle)
+		('choice' bindingChoice += [Choice | ID] ("," bindingChoice+=[Choice | ID])*)?
 	'}';
 
 OpaqueVariationPoint returns OpaqueVariationPoint:
