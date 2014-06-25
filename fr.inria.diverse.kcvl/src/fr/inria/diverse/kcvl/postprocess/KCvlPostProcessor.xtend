@@ -28,7 +28,6 @@ class KCvlPostProcessor implements IDerivedStateComputer
 
 	def dispatch void completeAST(ObjectHandle it) {
 		try {
-			println("CompleteAST(ObjectHandle)")
 			MOFRef = MOFRef ?: ""
 			reference = reference ?: resolve
 		} catch (Exception e) {
@@ -38,7 +37,6 @@ class KCvlPostProcessor implements IDerivedStateComputer
 
 	def dispatch void completeAST(LinkHandle it) {
 		try {
-			println("CompleteAST(LinkHandle)")
 			MOFRef = MOFRef ?: ""
 			reference = reference ?: resolve
 		} catch (Exception e) {
@@ -47,12 +45,10 @@ class KCvlPostProcessor implements IDerivedStateComputer
 	}
 
 	def dispatch void completeAST(VSpec it) {
-		println("CompleteAST(VSpec)")
 		resolutionTime = resolutionTime ?: ""
 	}
 
 	def dispatch void completeAST(ChoiceResolutuion it) {
-		println("CompleteAST(ChoiceResolutuion)")
 		resolvedVSpec = resolvedChoice
 	}
 
