@@ -41,11 +41,11 @@ VP EOLEExample {
 	}
 	
 	VP resolution {
-		ChoiceResolution EOLERes = true forSpec EOLE forChoice EOLE {
-			ChoiceResolution PublicationRes = true forSpec Publication forChoice Publication
-			ChoiceResolution ProcessingRes = true forSpec Processing forChoice Processing {
-				ChoiceResolution MeteoRes = true forSpec Meteo forChoice Meteo
-				ChoiceResolution ImageRes = true forSpec Image forChoice Image
+		ChoiceResolution EOLERes = true for EOLE {
+			ChoiceResolution PublicationRes = true for Publication
+			ChoiceResolution ProcessingRes = true for Processing {
+				ChoiceResolution MeteoRes = true for Meteo
+				ChoiceResolution ImageRes = true for Image
 			}
 		}
 	}
