@@ -1,10 +1,12 @@
 package fr.inria.diverse.kcvl.validation
 
-import org.eclipse.xtext.validation.Check
+import fr.inria.diverse.kcvl.KCvlUtils
 
 import org.omg.CVLMetamodelMaster.cvl.ObjectHandle
 import org.omg.CVLMetamodelMaster.cvl.CvlPackage
 import org.omg.CVLMetamodelMaster.cvl.BaseModelHandle
+
+import org.eclipse.xtext.validation.Check
 
 class KCVLValidator extends AbstractKCVLValidator
 {
@@ -12,7 +14,12 @@ class KCVLValidator extends AbstractKCVLValidator
 	@Check
 	def checkReferencedEObjectExists(BaseModelHandle obj) {
 		if (obj.reference === null)
-			error("Cannot resolve reference to EObject", CvlPackage.Literals.BASE_MODEL_HANDLE__REFERENCE_STRING)
+			try {
+				KCvlUtils.resolve(obj)
+				error("Cannot resolve reference to EObject", CvlPackage.Literals.BASE_MODEL_HANDLE__REFERENCE_STRING)
+			} catch (Exception e) {
+				error("Cannot resolve reference to EObject: " + e.message, CvlPackage.Literals.BASE_MODEL_HANDLE__REFERENCE_STRING)	
+			}
 	}
 
 	@Check
