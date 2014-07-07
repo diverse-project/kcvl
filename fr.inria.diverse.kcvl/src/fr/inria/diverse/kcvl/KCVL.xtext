@@ -695,7 +695,7 @@ SimpleLinkHandle returns LinkHandle:
 ;
 
 CompleteLinkHandle returns LinkHandle:
-	'(' 'mofRef' ':' MOFRef = STRING ',' 'reference' ':' referenceString = STRING ')'
+	'(' 'linkMofRef' ':' MOFRef = STRING ',' 'reference' ':' referenceString = STRING ')'
 ;
 
 BaseModelHandle_Impl returns BaseModelHandle:
