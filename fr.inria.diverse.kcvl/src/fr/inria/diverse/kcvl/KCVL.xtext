@@ -135,16 +135,14 @@ ReplacementFragmentType returns ReplacementFragmentType:
 	'}';
 
 ObjectSubstitution returns ObjectSubstitution:
-	'ObjectSubstitution'
-	name=STRING
-	'{'
-		('mappingExpression' mappingExpression=STRING)?
-		('expression' expression=STRING)?
-		('bindingVspec' '(' bindingVspec+=[VSpec|STRING] ( "," bindingVspec+=[VSpec|STRING])* ')' )?
-		('precedenceConstraint' '(' precedenceConstraint+=[VariationPoint|STRING] ( "," precedenceConstraint+=[VariationPoint|STRING])* ')' )?
-		('bindingChoice' '(' bindingChoice+=[Choice|STRING] ( "," bindingChoice+=[Choice|STRING])* ')' )?
-		'placementObject' placementObject=ObjectHandle
-		'replacementObject' replacementObject=ObjectHandle
+	'ObjectSubstitution' name = ID '{'
+		('mapping' mappingExpression = STRING)?
+		('expression' expression = STRING)?
+		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])*)?
+		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
+		('bindingChoice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
+		'placement' placementObject = ObjectHandle
+		'replacement' replacementObject = ObjectHandle
 	'}';
 
 Variable returns Variable:
