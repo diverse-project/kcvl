@@ -222,7 +222,7 @@ ObjectExistence returns ObjectExistence:
 		('bindingVspec' '(' bindingVspec+=[VSpec|STRING] ( "," bindingVspec+=[VSpec|STRING])* ')' )?
 		('precedenceConstraint' '(' precedenceConstraint+=[VariationPoint|STRING] ( "," precedenceConstraint+=[VariationPoint|STRING])* ')' )?
 		//('bindingChoice' '(' bindingChoice+=[Choice|STRING] ( "," bindingChoice+=[Choice|STRING])* ')' )?
-		('exist' optionalObject += (ObjectHandle | SimpleObjectHandle))*
+		('exist' optionalObject += ObjectHandle)*
 		('choice' bindingChoice += [Choice|ID] ("," bindingChoice+=[Choice|ID])*)?
 	'}';
 
@@ -234,7 +234,7 @@ LinkAssignment returns LinkAssignment:
 		('precedenceConstraint' '(' precedenceConstraint+=[VariationPoint|STRING] ( "," precedenceConstraint+=[VariationPoint|STRING])* ')' )?
 		'link' link = (LinkHandle | SimpleLinkHandle)
 		'linkEndIdentifier' linkEndIdentifier = STRING
-		'newEnd' newEnd = (ObjectHandle | SimpleObjectHandle)
+		'newEnd' newEnd = ObjectHandle
 		('choice' bindingChoice += [Choice|ID] ("," bindingChoice+=[Choice|ID])*)?
 	'}';
 
@@ -490,11 +490,15 @@ ToReplacement returns ToReplacement:
 		('toPlacement' toPlacement=ToPlacement)?
 	'}';
 
+ObjectHandle returns ObjectHandle:
+	SimpleObjectHandle | CompleteObjectHandle
+;
+
 SimpleObjectHandle returns ObjectHandle:
 	referenceString = STRING
 ;
 
-ObjectHandle returns ObjectHandle:
+CompleteObjectHandle returns ObjectHandle:
 	'(' 'mofRef' ':' MOFRef = STRING ',' 'reference' ':' referenceString = STRING ')'
 ;
 
