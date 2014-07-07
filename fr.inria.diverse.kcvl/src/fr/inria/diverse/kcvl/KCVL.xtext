@@ -246,7 +246,7 @@ LinkAssignment returns LinkAssignment:
 		('expression' expression = STRING)?
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])*)?
 		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
-		'link' link = (LinkHandle | SimpleLinkHandle)
+		'link' link = LinkHandle
 		'linkEndIdentifier' linkEndIdentifier = STRING
 		'newEnd' newEnd = ObjectHandle
 		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
@@ -350,7 +350,7 @@ LinkExistence returns LinkExistence:
 		('expression' expression = STRING)?
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])*)?
 		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
-		'link' optionalLink = (LinkHandle | SimpleLinkHandle)
+		'link' optionalLink = LinkHandle
 		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 	'}'
 ;
@@ -686,11 +686,15 @@ enum PrimitiveTypeEnum returns PrimitiveTypeEnum:
 				String = 'String' | Boolean = 'Boolean' | Integer = 'Integer' | Real = 'Real' | UnlimitedNatural = 'UnlimitedNatural'
 ;
 
+LinkHandle returns LinkHandle:
+	SimpleLinkHandle | CompleteLinkHandle
+;
+
 SimpleLinkHandle returns LinkHandle:
 	referenceString = STRING
 ;
 
-LinkHandle returns LinkHandle:
+CompleteLinkHandle returns LinkHandle:
 	'(' 'mofRef' ':' MOFRef = STRING ',' 'reference' ':' referenceString = STRING ')'
 ;
 
