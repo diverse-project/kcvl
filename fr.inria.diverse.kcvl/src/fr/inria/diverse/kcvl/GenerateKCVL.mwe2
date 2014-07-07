@@ -4,9 +4,9 @@ import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
-var grammarURI = "classpath:/fr/inria/diverse/kcvl/KCVL.xtext"
-var fileExtensions = "kcvl"
 var projectName = "fr.inria.diverse.kcvl"
+var grammarURI = "platform:/resource/${projectName}/src/fr/inria/diverse/kcvl/KCVL.xtext"
+var fileExtensions = "kcvl"
 var runtimeProject = "../${projectName}"
 var generateXtendStub = true
 
