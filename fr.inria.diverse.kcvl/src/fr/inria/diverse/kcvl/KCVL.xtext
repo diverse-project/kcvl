@@ -418,31 +418,25 @@ OCLConstraint returns OCLConstraint:
 	'}';
 
 PatternIntegration returns PatternIntegration:
-	multi?='multi'
-	'PatternIntegration'
-	name=STRING
-	'{'
-		('mappingExpression' mappingExpression=STRING)?
-		('expression' expression=STRING)?
-		('bindingVspec' '(' bindingVspec+=[VSpec|STRING] ( "," bindingVspec+=[VSpec|STRING])* ')' )?
-		('precedenceConstraint' '(' precedenceConstraint+=[VariationPoint|STRING] ( "," precedenceConstraint+=[VariationPoint|STRING])* ')' )?
-		('bindingChoice' '(' bindingChoice+=[Choice|STRING] ( "," bindingChoice+=[Choice|STRING])* ')' )?
-		'bindingClassifier' bindingClassifier=[VClassifier|STRING]
-		('substitutes' '(' substitutes+=[ObjectSubstitution|STRING] ( "," substitutes+=[ObjectSubstitution|STRING])* ')' )?
+	'PatternIntegration' name = ID (multi ?= '[*]')? '{'
+		('mapping' mappingExpression = STRING)?
+		('expression' expression = STRING)?
+		('vspecs' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])*)?
+		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
+		('choices' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
+		'classifier' bindingClassifier = [VClassifier]
+		('substitutes' substitutes += [ObjectSubstitution] (',' substitutes += [ObjectSubstitution])*)?
 	'}';
 
 PatternFusion returns PatternFusion:
-	multi?='multi'
-	'PatternFusion'
-	name=STRING
-	'{'
-		('mappingExpression' mappingExpression=STRING)?
-		('expression' expression=STRING)?
-		('bindingVspec' '(' bindingVspec+=[VSpec|STRING] ( "," bindingVspec+=[VSpec|STRING])* ')' )?
-		('precedenceConstraint' '(' precedenceConstraint+=[VariationPoint|STRING] ( "," precedenceConstraint+=[VariationPoint|STRING])* ')' )?
-		('bindingChoice' '(' bindingChoice+=[Choice|STRING] ( "," bindingChoice+=[Choice|STRING])* ')' )?
-		'bindingClassifier' bindingClassifier=[VClassifier|STRING]
-		('substitutes' '(' substitutes+=[ObjectSubstitution|STRING] ( "," substitutes+=[ObjectSubstitution|STRING])* ')' )?
+	'PatternFusion' name = ID (multi ?= '[*]')? '{'
+		('mapping' mappingExpression = STRING)?
+		('expression' expression = STRING)?
+		('vspecs' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])*)?
+		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
+		('choices' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
+		'classifier' bindingClassifier = [VClassifier]
+		('substitutes' substitutes += [ObjectSubstitution] (',' substitutes += [ObjectSubstitution])*)?
 	'}';
 
 StructuralOrganisationalPattern returns StructuralOrganisationalPattern:
