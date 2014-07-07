@@ -1,21 +1,25 @@
 VP EOLEExample {
 	VP VAM {
-		choice EOLE {
-			defaultResolution
-			
-			choice Publication[0..1]
-			
-			choice Processing[1..2] {
-				defaultResolution
-				impliedByParent
-				
-				choice Meteo[1..3] {
-					choice Temperature
-					choice Pressure
-					choice Hygrometry
+		Choice EOLE {
+			default
+
+			Choice Publication[0..1]
+
+			Choice Processing[1..2] {
+				default
+				implied
+
+				Choice Meteo[1..3] {
+					Choice Temperature
+					Choice Pressure
+					Choice Hygrometry
 				}
-				
-				choice Image
+
+				Choice Image
+			}
+
+			VClassifier MyClassifier {
+				instanceMultiplicity [0..2]
 			}
 		}
 	}
@@ -26,20 +30,33 @@ VP EOLEExample {
 			exist "/KCVLTest/FSM.ecore#myIdFoo"
 			choice Pressure
 		}
-		
+
+		ObjectSubstitution o1 {
+			placement "/KCVLTest/FSM.ecore#//@eClassifiers.1/@eAttributes.0"
+			replacement "/KCVLTest/FSM.ecore#myIdFoo"
+		}
+
 		LinkExistence Foo {
-			link (mofRef: "aRef", reference: "/KCVLTest/FSM.ecore#myIdFoo") // Alternative
+			link "/KCVLTest/FSM.ecore#myIdFoo" // Alternative
 			choice Meteo
 		}
-		
+
 		LinkAssignment Bar {
 			link "/KCVLTest/FSM.ecore#//@eClassifiers.0/@eReferences.0"
 			linkEndIdentifier "Bar"
 			newEnd "/KCVLTest/FSM.ecore#//@eClassifiers.2"
 			choice Image, Meteo
 		}
+
+		PatternIntegration FooBar[*] {
+			classifier MyClassifier
+		}
+
+		PatternFusion BarFoo {
+			classifier MyClassifier
+		}
 	}
-	
+
 	VP resolution {
 		ChoiceResolution EOLERes = true for EOLE {
 			ChoiceResolution PublicationRes = true for Publication
@@ -50,3 +67,4 @@ VP EOLEExample {
 		}
 	}
 }
+
