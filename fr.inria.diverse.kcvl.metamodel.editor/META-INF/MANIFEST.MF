@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: fr.inria.diverse.kcvl.metamodel
+Bundle-Name: fr.inria.diverse.kcvl.metamodel.editor
 Bundle-SymbolicName: fr.inria.diverse.kcvl.metamodel.editor;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
