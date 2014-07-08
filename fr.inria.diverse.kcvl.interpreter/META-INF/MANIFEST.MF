@@ -3,20 +3,19 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Interpreter
 Bundle-SymbolicName: fr.inria.diverse.kcvl.interpreter
 Bundle-Version: 1.0.0.qualifier
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
+Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;bundle-version="2.9.2",
  org.eclipse.xtend.lib,
  com.google.guava,
- org.eclipse.xtext.xbase.lib,
  fr.inria.diverse.kcvl.metamodel;bundle-version="0.1.0",
  org.eclipse.emf.ecore.xmi;bundle-version="2.9.1",
- org.varymde.cvlmappingvaribilitychoice;bundle-version="1.0.10",
  org.eclipse.xtext;bundle-version="2.5.3",
  org.eclipse.uml2.uml;bundle-version="4.1.1",
- MovidaDerivation;bundle-version="1.0.0",
- HasFeature;bundle-version="1.0.10",
- org.codehaus.groovy;bundle-version="2.0.7"
+ org.codehaus.groovy;bundle-version="2.0.7",
+ fr.inria.diverse.kcvl.fd2assets;bundle-version="0.1.0",
+ org.eclipse.ui;bundle-version="3.8.2",
+ org.varymde.cvlmappingvaribilitychoice;bundle-version="1.0.10",
+ MovidaDerivation;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: fr.inria.diverse.kcvl.interpreter

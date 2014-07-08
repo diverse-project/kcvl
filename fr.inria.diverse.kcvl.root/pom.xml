@@ -51,7 +51,7 @@
 	</repositories>
 
 	<build>
-        <sourceDirectory>src/main/java/src-gen/</sourceDirectory>
+        <sourceDirectory>src/main/java/</sourceDirectory>
 		<pluginManagement>
 			<plugins>
 				<plugin>
