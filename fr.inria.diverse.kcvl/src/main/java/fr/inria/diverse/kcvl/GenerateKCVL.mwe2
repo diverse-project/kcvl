@@ -5,7 +5,7 @@ import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
 var projectName = "fr.inria.diverse.kcvl"
-var grammarURI = "platform:/resource/${projectName}/src/fr/inria/diverse/kcvl/KCVL.xtext"
+var grammarURI = "platform:/resource/${projectName}/src/main/java/fr/inria/diverse/kcvl/KCVL.xtext"
 var fileExtensions = "kcvl"
 var runtimeProject = "../${projectName}"
 var generateXtendStub = true
@@ -28,11 +28,20 @@ Workflow {
 		directory = "${runtimeProject}.ui/src-gen"
 	}
 
+	component = DirectoryCleaner {
+		directory = "${runtimeProject}.tests/src-gen"
+	}
+
+	component = DirectoryCleaner {
+		directory = "${runtimeProject}/src/fr"
+	}
+
 	component = Generator {
 		pathRtProject = runtimeProject
 		pathUiProject = "${runtimeProject}.ui"
 		projectNameRt = projectName
 		projectNameUi = "${projectName}.ui"
+
 		language = auto-inject {
 			uri = grammarURI
 
@@ -106,7 +115,7 @@ Workflow {
 			}
 			
 			// generates junit test support classes into Generator#pathTestProject
-			fragment = junit.Junit4Fragment auto-inject {}
+			//fragment = junit.Junit4Fragment auto-inject {}
 
 			// project wizard (optional) 
 			// fragment = projectWizard.SimpleProjectWizardFragment auto-inject {
