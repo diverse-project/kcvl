@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: fr.inria.diverse.kcvl.metamodel
+Bundle-SymbolicName: fr.inria.diverse.kcvl.metamodel;singleton:=true
+Bundle-Version: 0.1.0
+Bundle-ClassPath: .
+Bundle-Vendor: DIVERSE
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.omg.CVLMetamodelMaster.cvl,
+ org.omg.CVLMetamodelMaster.cvl.impl,
+ org.omg.CVLMetamodelMaster.cvl.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport
+Bundle-ActivationPolicy: lazy
