@@ -251,9 +251,7 @@
    <extension
          point="org.eclipse.xtext.builder.participant">
       <participant
-            class="fr.inria.diverse.kcvl.ui.KCVLExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
-            fileExtensions="kcvl"
-            >
+            class="fr.inria.diverse.kcvl.ui.KCVLExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
       </participant>
    </extension>
    <extension
@@ -503,30 +501,6 @@
          </command>
       </menuContribution>
    </extension>  
-   <!-- Open implementation -->
-   <extension point="org.eclipse.ui.handlers">
-      <handler
-            class="fr.inria.diverse.kcvl.ui.KCVLExecutableExtensionFactory:org.eclipse.xtext.xbase.ui.navigation.OpenImplementationHandler"
-            commandId="org.eclipse.xtext.xbase.ui.OpenImplementationCommand">
-            <activeWhen>
-				<reference
-					definitionId="fr.inria.diverse.kcvl.KCVL.Editor.opened">
-				</reference>
-			</activeWhen>
-      </handler>
-   </extension>
- <extension point="org.eclipse.ui.menus">
-       <menuContribution
-            locationURI="menu:navigate?after=open.ext4">
-         <command commandId="org.eclipse.xtext.xbase.ui.OpenImplementationCommand">
-		<visibleWhen checkEnabled="false">
-              <reference
-                 definitionId="fr.inria.diverse.kcvl.KCVL.Editor.opened">
-              </reference>
-		</visibleWhen>
-         </command>
-      </menuContribution>
-   </extension>
 
   <extension point="org.eclipse.compare.contentViewers">
     <viewer id="fr.inria.diverse.kcvl.KCVL.compare.contentViewers"
