@@ -17,7 +17,7 @@ Workflow {
 		registerGeneratedEPackage = "org.eclipse.xtext.xbase.XbasePackage"
 		registerGenModelFile = "platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel"
 		registerGeneratedEPackage = "org.omg.CVLMetamodelMaster.cvl.CvlPackage"
-		registerGenModelFile = "platform:/resource/fr.inria.diverse.kcvl.metamodel/CVLMetamodel.genmodel"
+		registerGenModelFile = "platform:/resource/fr.inria.diverse.kcvl.metamodel/model/CVLMetamodel.genmodel"
 	}
 
 	component = DirectoryCleaner {

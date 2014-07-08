@@ -2,19 +2,16 @@
 <?eclipse version="3.0"?>
 
 <!--
- <copyright>
- </copyright>
-
- $Id$
 -->
 
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated CVLMetamodel -->
       <package
             uri="http:///org.omg/CVLMetamodel/cvl"
             class="org.omg.CVLMetamodelMaster.cvl.CvlPackage"
-            genModel="CVLMetamodel.genmodel"/>
+            genModel="model/CVLMetamodel.genmodel"/>
    </extension>
 
 </plugin>

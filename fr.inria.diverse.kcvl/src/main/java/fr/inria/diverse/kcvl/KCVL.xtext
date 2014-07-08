@@ -1,6 +1,6 @@
 grammar fr.inria.diverse.kcvl.KCVL with org.eclipse.xtext.xbase.Xbase
 
-import "platform:/resource/fr.inria.diverse.kcvl.metamodel/CVLMetamodel.ecore#//cvl"
+import "platform:/resource/fr.inria.diverse.kcvl.metamodel/model/CVLMetamodel.ecore#//cvl"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 VPackage returns VPackage:
