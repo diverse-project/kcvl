@@ -15,8 +15,8 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.xtext.util,
  org.antlr.runtime,
  org.eclipse.xtext.common.types,
- OMG-CVL;bundle-version="1.0.10",
- org.eclipse.xtext.xbase.lib
+ org.eclipse.xtext.xbase.lib,
+ fr.inria.diverse.kcvl.metamodel;bundle-version="0.1.0"
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
