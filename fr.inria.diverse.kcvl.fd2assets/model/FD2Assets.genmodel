@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.inria.diverse.kcvl.fd2assets/src/main/java"
+    editDirectory="/fr.inria.diverse.kcvl.fd2assets.edit/src/main/java" editorDirectory="/fr.inria.diverse.kcvl.fd2assets.editor/src/main/java"
+    modelPluginID="fr.inria.diverse.kcvl.fd2assets" modelName="FD2Assets" modelPluginClass=""
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>FD2Assets.ecore</foreignModel>
+  <genPackages prefix="Fd2assets" basePackage="fr.inria.diverse.kcvl" disposableProviderFactory="true"
+      ecorePackage="FD2Assets.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="FD2Assets.ecore#//Operator">
+      <genEnumLiterals ecoreEnumLiteral="FD2Assets.ecore#//Operator/Or"/>
+      <genEnumLiterals ecoreEnumLiteral="FD2Assets.ecore#//Operator/And"/>
+      <genEnumLiterals ecoreEnumLiteral="FD2Assets.ecore#//Operator/Xor"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="FD2Assets.ecore#//CompareOperator">
+      <genEnumLiterals ecoreEnumLiteral="FD2Assets.ecore#//CompareOperator/sup"/>
+      <genEnumLiterals ecoreEnumLiteral="FD2Assets.ecore#//CompareOperator/supeq"/>
+      <genEnumLiterals ecoreEnumLiteral="FD2Assets.ecore#//CompareOperator/inf"/>
+      <genEnumLiterals ecoreEnumLiteral="FD2Assets.ecore#//CompareOperator/infeq"/>
+      <genEnumLiterals ecoreEnumLiteral="FD2Assets.ecore#//CompareOperator/eq"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="FD2Assets.ecore#//UnaryOperator">
+      <genEnumLiterals ecoreEnumLiteral="FD2Assets.ecore#//UnaryOperator/Not"/>
+      <genEnumLiterals ecoreEnumLiteral="FD2Assets.ecore#//UnaryOperator/op"/>
+    </genEnums>
+    <genClasses ecoreClass="FD2Assets.ecore#//RestrictionRuleset">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FD2Assets.ecore#//RestrictionRuleset/cvlmodel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FD2Assets.ecore#//RestrictionRuleset/rule"/>
+    </genClasses>
+    <genClasses ecoreClass="FD2Assets.ecore#//RestrictionRule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FD2Assets.ecore#//RestrictionRule/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FD2Assets.ecore#//RestrictionRule/expression"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="FD2Assets.ecore#//Expression"/>
+    <genClasses ecoreClass="FD2Assets.ecore#//HasChoice">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FD2Assets.ecore#//HasChoice/choiceName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FD2Assets.ecore#//HasChoice/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="FD2Assets.ecore#//BinExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FD2Assets.ecore#//BinExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FD2Assets.ecore#//BinExpression/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FD2Assets.ecore#//BinExpression/op"/>
+    </genClasses>
+    <genClasses ecoreClass="FD2Assets.ecore#//UnaryExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FD2Assets.ecore#//UnaryExpression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FD2Assets.ecore#//UnaryExpression/op"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="FD2Assets.ecore#//Condition"/>
+    <genClasses ecoreClass="FD2Assets.ecore#//ConditionExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FD2Assets.ecore#//ConditionExpression/featureAttibuteName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FD2Assets.ecore#//ConditionExpression/op"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FD2Assets.ecore#//ConditionExpression/value"/>
+    </genClasses>
+    <genClasses ecoreClass="FD2Assets.ecore#//BinCondition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FD2Assets.ecore#//BinCondition/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FD2Assets.ecore#//BinCondition/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FD2Assets.ecore#//BinCondition/op"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
