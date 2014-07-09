@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: fr.inria.diverse.kcvl.derivationengine
 Bundle-SymbolicName: fr.inria.diverse.kcvl.derivationengine;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-Activator: fr.inria.exec_selection.Activator
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase;resolution:=optional,
  org.apache.log4j,
@@ -81,5 +80,10 @@ Bundle-ClassPath: .,
  lib/modelgenerator.jar,
  lib/fsm.jar,
  lib/org.eclipse.uml2.uml_3.0.1.v200908281330.jar
-Export-Package: fr.inria.file_methods.method
+Export-Package: fr.inria.exec_derivation.core,
+ fr.inria.exec_derivation.popup.actions,
+ fr.inria.exec_selection,
+ fr.inria.exec_selection.wizard,
+ fr.inria.file_methods.method
+Bundle-Activator: fr.inria.exec_selection.Activator
 
