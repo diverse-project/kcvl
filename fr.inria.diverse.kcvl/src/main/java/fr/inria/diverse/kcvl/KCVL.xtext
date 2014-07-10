@@ -488,7 +488,7 @@ PatternFusion returns PatternFusion:
 ;
 
 StructuralOrganisationalPattern returns StructuralOrganisationalPattern:
-	'StructuralOrganisationalPattern' name = ID (multi ?= '[*]') '{'
+	'StructuralOrganisationalPattern' name = ID (multi ?= '[*]')? '{'
 		('mapping' mappingExpression = STRING)?
 		('expression' expression = STRING)?
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])*)?
