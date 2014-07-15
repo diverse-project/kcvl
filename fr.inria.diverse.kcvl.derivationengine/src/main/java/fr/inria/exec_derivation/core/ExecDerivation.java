@@ -38,14 +38,18 @@ import org.eclipse.emf.diffmerge.patterns.core.util.BasicPatternApplication;
 import org.eclipse.emf.diffmerge.patterns.core.util.locations.BasicCompositeLocation;
 import org.eclipse.emf.diffmerge.patterns.core.util.locations.BasicElementLocation;
 import org.eclipse.emf.diffmerge.patterns.core.util.locations.BasicReferenceLocation;
+import org.eclipse.emf.diffmerge.patterns.repositories.catalogs.operations.OpenCatalogOperation;
 import org.eclipse.emf.diffmerge.patterns.templates.engine.operations.ApplyTemplatePatternOperation;
 import org.eclipse.emf.diffmerge.patterns.templates.gen.templatepatterns.TemplatePatternRole;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.console.ConsolePlugin;
@@ -84,8 +88,29 @@ public class ExecDerivation implements PatternIntegration {
 	 */
 	SemanticDeleteOfObject toD;
 
-	public void callProductDerivation(final URI file) {
-		// Retrieve the URI file in the session
+	public void callProductDerivation(URI file) {
+		if (file.toString().endsWith("kcvl")) {
+			try {
+				XtextResourceSet rs = new XtextResourceSet() ;
+				Resource oldRes = rs.getResource(file,  true) ;
+				EcoreUtil.resolveAll(oldRes) ;
+				URI newUri = file.trimFileExtension().appendFileExtension("cvl") ;
+				Resource newRes = rs.createResource(newUri) ;
+				newRes.getContents().addAll(oldRes.getContents()) ;
+				newRes.save(null) ;
+				file = newUri ;
+
+				Session sess = SessionManager.INSTANCE.getSessions().iterator().next() ;
+
+				AddSemanticResourceCommand addCommandToSession = new AddSemanticResourceCommand(
+						sess, file, null);
+				sess.getTransactionalEditingDomain().getCommandStack()
+				        .execute(addCommandToSession);
+			} catch (Exception e) {
+				e.printStackTrace() ;
+			}
+		}
+
 		for (Session s : SessionManager.INSTANCE.getSessions()) {
 			for (Resource r : s.getSemanticResources()) {
 				if (file.toString().equals(r.getURI().toString())) {
@@ -134,14 +159,18 @@ public class ExecDerivation implements PatternIntegration {
 
 		}
 
-		XtextResourceSet rs = new XtextResourceSet();
-		v.setResourceSet(rs);
+		// FIXME: No more XtextResourceSet for the moment
+		//XtextResourceSet rs = new XtextResourceSet();
+		//v.setResourceSet(rs);
 
 		// Retrieve session
 		final Session sess = SessionManager.INSTANCE
 				.getSession(resolvedModelRes);
 		final TransactionalEditingDomain domain = sess
 				.getTransactionalEditingDomain();
+
+		// Use the session resourceSet instead
+		v.setResourceSet(domain.getResourceSet());
 
 		domain.getCommandStack().execute(new RecordingCommand(domain) {
 
