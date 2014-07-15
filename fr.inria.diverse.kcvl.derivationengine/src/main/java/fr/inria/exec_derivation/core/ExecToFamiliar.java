@@ -23,18 +23,21 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleManager;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
+import org.eclipse.xtext.resource.XtextResourceSet;
 import org.omg.CVLMetamodelMaster.cvl.VPackage;
 
-//import fr.inria.diverse.kcvl.interpreter.CVL2Familiar;
+import fr.varymde.cvl.vary.CVL2Familiar;
 
 /**
  * This class permits to execute product derivation from a given resolution
@@ -61,7 +64,28 @@ public class ExecToFamiliar {
 	 * @resolutionModelPath : the path for the resolution model where user
 	 *                      choices (selected or unselected features are stored)
 	 */
-	public void callReportProduction(final URI file) {
+	public void callReportProduction(URI file) {
+		if (file.toString().endsWith("kcvl")) {
+			try {
+				XtextResourceSet rs = new XtextResourceSet() ;
+				Resource oldRes = rs.getResource(file,  true) ;
+				EcoreUtil.resolveAll(oldRes) ;
+				URI newUri = file.trimFileExtension().appendFileExtension("cvl") ;
+				Resource newRes = rs.createResource(newUri) ;
+				newRes.getContents().addAll(oldRes.getContents()) ;
+				newRes.save(null) ;
+				file = newUri ;
+
+				Session sess = SessionManager.INSTANCE.getSessions().iterator().next() ;
+
+				AddSemanticResourceCommand addCommandToSession = new AddSemanticResourceCommand(
+						sess, file, null);
+				sess.getTransactionalEditingDomain().getCommandStack()
+				        .execute(addCommandToSession);
+			} catch (Exception e) {
+				e.printStackTrace() ;
+			}
+		}
 
 		// Retrieve the URI file in the session
 		for (Session s : SessionManager.INSTANCE.getSessions()) {
