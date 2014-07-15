@@ -410,8 +410,8 @@ public class ExecDerivation implements PatternIntegration {
 		for (Pair<EObject, EObject> entry : substitutes) {
 			if (((TemplatePatternRole) entry.getL()).acceptsAddition()) {
 				applicationSpec.addLocation((IPatternRole) entry.getL(),
-						new BasicReferenceLocation(entry.getR().eContainer(),
-								entry.getR().eContainmentFeature()));
+						//new BasicReferenceLocation(entry.getR().eContainer(),
+						new BasicElementLocation(entry.getR()));
 				if (ob == null)
 					ob = entry.getR();
 
@@ -421,16 +421,26 @@ public class ExecDerivation implements PatternIntegration {
 		}
 
 		for (IPatternRole ob1 : rolestointegrate) {
-			applicationSpec.addLocation(
+			/*applicationSpec.addLocation(
 					ob1,
 					new BasicReferenceLocation(ob.eContainer(), ob
-							.eContainmentFeature()));
+							.eContainmentFeature()));*/
+			applicationSpec.addLocation((IPatternRole) ob1,
+					//new BasicReferenceLocation(entry.getR().eContainer(),
+					new BasicElementLocation(ob));
 		}
 
 		boolean res = applicationSpec.isComplete();
 		//TODO
+		/*final IModelOperation<IPatternInstance> patternApplicationOperation = new ApplyTemplatePatternOperation(
+				applicationSpec, true, "$name$", 1, 1, null, null);*/
+		Pair<EObject, EObject> current = substitutes.iterator().next() ;
+		Resource patternRes = current.getL().eResource();
+		Resource modelRes = current.getR().eResource();
+		System.out.println("patternRes = " + patternRes);
+		System.out.println("modelRes = " + modelRes);
 		final IModelOperation<IPatternInstance> patternApplicationOperation = new ApplyTemplatePatternOperation(
-				applicationSpec, true, "$name$", 1, 1, null, null);
+				applicationSpec, true, "$name$", 1, 1, patternRes, modelRes);
 
 		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
 			public void run() {
