@@ -86,10 +86,18 @@ VClassifier returns VClassifier:
 ;
 
 ChoiceResolutuion returns ChoiceResolutuion:
+	ComplexChoiceResolution | SimpleChoiceResolution
+;
+
+ComplexChoiceResolution returns ChoiceResolutuion:
 	'ChoiceResolution' name = ID '=' decision = BOOLEAN 'for' resolvedChoice = [Choice | ID]
 	('{'
 		child += VSpecResolution (child += VSpecResolution)*
 	'}')?
+;
+
+SimpleChoiceResolution returns ChoiceResolutuion:
+	'choose' resolvedChoice = [Choice | ID]
 ;
 
 VInstance returns VInstance:
@@ -469,7 +477,7 @@ PatternIntegration returns PatternIntegration:
 		('expression' expression = STRING)?
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])*)?
 		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
-		('bindingChoice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
+		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 		'classifier' bindingClassifier = [VClassifier]
 		('substitutes' substitutes += [ObjectSubstitution] (',' substitutes += [ObjectSubstitution])*)?
 	'}'
@@ -481,8 +489,8 @@ PatternFusion returns PatternFusion:
 		('expression' expression = STRING)?
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])*)?
 		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
-		('bindingChoice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
-		'classifier' bindingClassifier = [VClassifier]
+		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
+		('classifier' bindingClassifier = [VClassifier])?
 		('substitutes' substitutes += [ObjectSubstitution] (',' substitutes += [ObjectSubstitution])*)?
 	'}'
 ;
@@ -493,7 +501,7 @@ StructuralOrganisationalPattern returns StructuralOrganisationalPattern:
 		('expression' expression = STRING)?
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])*)?
 		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
-		('bindingChoice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
+		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 		'bindingClassifier' bindingClassifier = [VClassifier]
 		('substitutes' substitutes += [ObjectSubstitution] (',' substitutes += [ObjectSubstitution])*)?
 	'}'
