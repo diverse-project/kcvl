@@ -286,7 +286,9 @@ public class ExecDerivation implements PatternIntegration {
 		// Si applicationSpec.isComplete(), on poursuit.
 		boolean res = applicationSpec.isComplete();
 		IModelOperation<IPatternInstance> patternApplicationOperation = new ApplyTemplatePatternOperation(
-				applicationSpec, true, "$name$", 1, 1,null,null);
+				applicationSpec, true, "$name$", 1, 1,
+				substitutes.iterator().next().getL().eResource(),
+				substitutes.iterator().next().getR().eResource());
 		CorePatternsPlugin.getDefault().getModelEnvironment()
 				.execute(patternApplicationOperation);
 
