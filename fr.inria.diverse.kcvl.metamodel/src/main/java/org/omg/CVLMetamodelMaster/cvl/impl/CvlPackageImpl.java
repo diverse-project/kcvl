@@ -3080,7 +3080,7 @@ public class CvlPackageImpl extends EPackageImpl implements CvlPackage {
 		initEAttribute(getChoiceVariationPoint_Expression(), ecorePackage.getEString(), "expression", null, 0, 1, ChoiceVariationPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(repeatableVariationPointEClass, RepeatableVariationPoint.class, "RepeatableVariationPoint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRepeatableVariationPoint_BindingClassifier(), this.getVClassifier(), null, "bindingClassifier", null, 1, 1, RepeatableVariationPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRepeatableVariationPoint_BindingClassifier(), this.getVClassifier(), null, "bindingClassifier", null, 0, 1, RepeatableVariationPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(boundaryElementBindingEClass, BoundaryElementBinding.class, "BoundaryElementBinding", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -35,7 +35,7 @@ public interface RepeatableVariationPoint extends VariationPoint {
 	 * @return the value of the '<em>Binding Classifier</em>' reference.
 	 * @see #setBindingClassifier(VClassifier)
 	 * @see org.omg.CVLMetamodelMaster.cvl.CvlPackage#getRepeatableVariationPoint_BindingClassifier()
-	 * @model required="true" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
 	VClassifier getBindingClassifier();

@@ -212,7 +212,7 @@
         <details key="documentation" value="&lt;p>An instantiable variation point is a variation point which can be instantiated, i.e. applied zero or more times. It must be bound to a classifier VSpec &lt;/p>"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="bindingClassifier" ordered="false"
-          lowerBound="1" eType="#//cvl/VClassifier"/>
+          eType="#//cvl/VClassifier"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BoundaryElementBinding" abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

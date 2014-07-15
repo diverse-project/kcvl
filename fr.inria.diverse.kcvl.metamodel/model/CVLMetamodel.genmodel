@@ -8,7 +8,8 @@
   <foreignModel>CVLMetamodel.ecore</foreignModel>
   <genPackages prefix="CVLMetamodelMaster" basePackage="org.omg" disposableProviderFactory="true"
       ecorePackage="CVLMetamodel.ecore#/">
-    <nestedGenPackages prefix="Cvl" disposableProviderFactory="true" ecorePackage="CVLMetamodel.ecore#//cvl">
+    <nestedGenPackages prefix="Cvl" basePackage="org.omg.CVLMetamodelMaster" disposableProviderFactory="true"
+        ecorePackage="CVLMetamodel.ecore#//cvl">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="CVLMetamodel.ecore#//cvl/PrimitiveTypeEnum">
         <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//cvl/PrimitiveTypeEnum/String"/>
         <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//cvl/PrimitiveTypeEnum/Boolean"/>

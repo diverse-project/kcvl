@@ -1,13 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: fr.inria.diverse.kcvl.metamodel.editor
+Bundle-Name: %pluginName
 Bundle-SymbolicName: fr.inria.diverse.kcvl.metamodel.editor;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.omg.CVLMetamodelMaster.cvl.presentation.CVLMetamodelEditorPlugin$Implementation
-Bundle-Vendor: DIVERSE
+Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.omg.CVLMetamodelMaster.cvl.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
