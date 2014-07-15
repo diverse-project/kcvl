@@ -71,15 +71,13 @@ Import-Package:
  org.eclipse.ui.console,
  fr.unice.polytech.modalis.familiar.test
 Bundle-ClassPath: .,
- lib/groovy-all-1.8.6.jar,
- lib/guava-15.0-rc1.jar,
- lib/hamcrest-core-1.1.jar,
- lib/kcvlinterpreter.jar,
- lib/org.eclipse.xtend.lib-2.4.3.jar,
- lib/org.eclipse.xtext.xbase.lib-2.4.3.jar,
- lib/modelgenerator.jar,
- lib/fsm.jar,
- lib/org.eclipse.uml2.uml_3.0.1.v200908281330.jar
+ lib/cvlderivation.jar,
+ lib/FAMILIAR-1.0.10.jar,
+ lib/hasfeature.jar,
+ lib/movidaderivation.jar,
+ lib/scala-library.jar,
+ lib/language.library.core-2.0.1-SNAPSHOT.jar,
+ lib/language.model-2.0.1-SNAPSHOT.jar
 Export-Package: fr.inria.exec_derivation.core,
  fr.inria.exec_derivation.popup.actions,
  fr.inria.exec_selection,

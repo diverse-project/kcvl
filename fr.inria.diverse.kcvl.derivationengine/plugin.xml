@@ -38,6 +38,40 @@
                menubarPath="fr.inria.exec_derivation.menu2/group1">
          </action>
       </objectContribution>
+      <objectContribution
+            id="fr.inria.exec_derivation.contribution1"
+            nameFilter="*.kcvl"
+            objectClass="org.eclipse.core.resources.IResource">
+         <menu
+               id="fr.inria.exec_derivation.menu2"
+               label="CVL"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="fr.inria.exec_derivation.popup.actions.ProductDerivationAction"
+               enablesFor="1"
+               id="fr.inria.exec_derivation.newAction"
+               label="Derive Product"
+               menubarPath="fr.inria.exec_derivation.menu2/group1">
+         </action>
+         <action
+               class="fr.inria.exec_derivation.popup.actions.CVLSynthesisAction"
+               enablesFor="1"
+               id="fr.inria.exec_derivation.newAction2"
+               label="CVL CounterExample Synthesis"
+               menubarPath="fr.inria.exec_derivation.menu2/group1">
+         </action>
+         <action
+               class="fr.inria.exec_derivation.popup.actions.ToFamiliarAction"
+               enablesFor="1"
+               id="fr.inria.exec_derivation.newAction1"
+               label="FAMILIAR Report"
+               menubarPath="fr.inria.exec_derivation.menu2/group1">
+         </action>
+      </objectContribution>
    </extension>
    
 </plugin>
