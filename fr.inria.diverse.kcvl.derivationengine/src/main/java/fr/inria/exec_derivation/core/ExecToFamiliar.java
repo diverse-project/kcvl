@@ -111,12 +111,12 @@ public class ExecToFamiliar {
 
 				// Derive domain model
 
-				/*MessageConsole myConsole = findConsole("cvl");
+				MessageConsole myConsole = findConsole("cvl");
 				MessageConsoleStream out = myConsole.newMessageStream();
 				PrintStream oldout = System.out;
 				System.setOut(new PrintStream(out));
-				CVL2Familiar cvl2Familiar = new CVL2Familiar();
-				String s = cvl2Familiar.toFamiliar((VPackage) resolvedModelRes.getContents().get(0));
+				//CVL2Familiar cvl2Familiar = CVL2Familiar.toFamiliar(null);//new CVL2Familiar();
+				String s = CVL2Familiar.toFamiliar((VPackage) resolvedModelRes.getContents().get(0));
 				
 				
 				URI newuri = resolvedModelRes.getURI();
@@ -160,7 +160,7 @@ public class ExecToFamiliar {
 				
 				
 				System.setOut(oldout);
-								;*/
+								;
 
 			}
 		});
