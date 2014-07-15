@@ -57,6 +57,7 @@ import static org.eclipse.xtext.xbase.lib.BooleanExtensions.*
 import org.omg.CVLMetamodelMaster.cvl.PatternIntegration
 import org.omg.CVLMetamodelMaster.cvl.PatternFusion
 import org.omg.CVLMetamodelMaster.cvl.StructuralOrganisationalPattern
+import org.eclipse.emf.ecore.resource.ResourceSet
 
 /**
  * class used to pass the context during the derivation. 
@@ -74,7 +75,7 @@ public class Derivator {
 	@Property
 	var fr.inria.diverse.kcvl.interpreter.PatternIntegration patternintegration = null
 	@Property
-	var XtextResourceSet resourceSet = null
+	var ResourceSet resourceSet = null
 
 	@Property
 	var Context ctx = new Context
