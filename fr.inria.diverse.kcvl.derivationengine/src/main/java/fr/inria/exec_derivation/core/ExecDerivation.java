@@ -351,14 +351,19 @@ public class ExecDerivation implements PatternIntegration {
 		for (IPatternRole ob1 : rolestointegrate) {
 			applicationSpec.addLocation(
 					ob1,
-					new BasicReferenceLocation(ob.eContainer(), ob
-							.eContainmentFeature()));
+					new BasicElementLocation(ob.eContainer()));
+					/*new BasicReferenceLocation(ob.eContainer(), ob
+							.eContainmentFeature()));*/
 		}
 
 		boolean res = applicationSpec.isComplete();
 
+		/*final IModelOperation<IPatternInstance> patternApplicationOperation = new ApplyTemplatePatternOperation(
+				applicationSpec, true, "$name$", 1, 1,null,null);*/
 		final IModelOperation<IPatternInstance> patternApplicationOperation = new ApplyTemplatePatternOperation(
-				applicationSpec, true, "$name$", 1, 1,null,null);
+				applicationSpec, true, "$name$", 1, 1,
+				substitutes.iterator().next().getL().eResource(),
+				substitutes.iterator().next().getR().eResource());
 
 		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
 			public void run() {
