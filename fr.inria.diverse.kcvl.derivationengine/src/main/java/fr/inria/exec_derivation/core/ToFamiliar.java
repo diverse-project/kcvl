@@ -1,7 +1,7 @@
 package fr.inria.exec_derivation.core;
 
-import fr.unice.polytech.modalis.familiar.test.FMLTest;
-import fr.unice.polytech.modalis.familiar.variable.FeatureModelVariable;
+import fr.familiar.test.FMLTest;
+import fr.familiar.variable.FeatureModelVariable;
 
 
 

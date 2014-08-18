@@ -67,7 +67,7 @@ Import-Package:
  org.eclipse.emf.ecore.xmi.impl,
  org.eclipse.emf.transaction,
  org.eclipse.ui.console,
- fr.unice.polytech.modalis.familiar.test
+ fr.familiar.test
 Bundle-ClassPath: .,
  lib/cvlderivation.jar,
  lib/hasfeature.jar,
