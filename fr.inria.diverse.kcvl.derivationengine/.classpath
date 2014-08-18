@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry excluding="fr/inria/exec_derivation/core/ExecDerivationBackup.java" kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/generated-sources/xtend"/>
 	<classpathentry exported="true" kind="lib" path="lib/language.library.core-2.0.1-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/language.model-2.0.1-SNAPSHOT.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>

@@ -4,3 +4,7 @@ xtend-gen/
 bin/
 target/
 
+/hs_err_pid6373.log
+/hs_err_pid6595.log
+/hs_err_pid7541.log
+/hs_err_pid7958.log
