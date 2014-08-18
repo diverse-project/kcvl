@@ -70,7 +70,6 @@ Import-Package:
  fr.unice.polytech.modalis.familiar.test
 Bundle-ClassPath: .,
  lib/cvlderivation.jar,
- lib/FAMILIAR-1.0.10.jar,
  lib/hasfeature.jar,
  lib/movidaderivation.jar,
  lib/scala-library.jar,
