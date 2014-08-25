@@ -4,16 +4,16 @@ import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
-var grammarURI = "classpath:/org/varymde/Cvlmappingvaribilitychoice.xtext"
-var file.extensions = "cvlmappingvaribilitychoice"
 var projectName = "org.varymde.cvlmappingvaribilitychoice"
+var grammarURI = "platform:/resource/${projectName}/src/org/varymde/Cvlmappingvaribilitychoice.xtext"
+var file.extensions = "cvlmappingvaribilitychoice"
 var runtimeProject = "../${projectName}"
 
 Workflow {
 	bean = StandaloneSetup {
 		scanClassPath  = true
 		platformUri = "${runtimeProject}/.."
-		registerGeneratedEPackage = "fd2assets.Fd2assetsPackage"
+		registerGeneratedEPackage = "fr.inria.diverse.kcvl.fd2assets.Fd2assetsPackage"
 	
 		// registerGenModelFile = "platform:/resource/HasFeature/FD2Assets.genmodel"
 	
