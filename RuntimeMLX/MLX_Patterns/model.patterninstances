@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.eclipse.emf.diffmerge.patterns.support:CommonPatternInstanceSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.emf.diffmerge.patterns.support="http://org.eclipse.emf.patterns/support/1.0.0" xmlns:org.eclipse.emf.diffmerge.patterns.templates="http://org.eclipse.com/emf/diffmerge/patterns/templates/1.0.0" id="_uNEXYD17EeSyf9HTXvGqnQ">
+  <ownedInstances id="_yj_7YD17EeSyf9HTXvGqnQ">
+    <roleBindings id="_ykCXoD17EeSyf9HTXvGqnQ">
+      <roleSymbol id="_ykC-sD17EeSyf9HTXvGqnQ" name="subject" repositoryId="_vIlkcD17EeSyf9HTXvGqnQ" patternId="_uKasAD17EeSyf9HTXvGqnQ" lastPath="platform:/resource/MLX_Patterns/mlx.patterns#_uKasAD17EeSyf9HTXvGqnQ" roleId="_wibsQD17EeSyf9HTXvGqnQ"/>
+      <location xsi:type="org.eclipse.emf.diffmerge.patterns.support:ReferenceLocation" id="_ykBwkD17EeSyf9HTXvGqnQ" elementId="_YW0c0D17EeSyf9HTXvGqnQ">
+        <reference href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </location>
+    </roleBindings>
+    <roleBindings id="_ykC-sj17EeSyf9HTXvGqnQ">
+      <roleSymbol id="_ykC-sz17EeSyf9HTXvGqnQ" name="watcher" repositoryId="_vIlkcD17EeSyf9HTXvGqnQ" patternId="_uKasAD17EeSyf9HTXvGqnQ" lastPath="platform:/resource/MLX_Patterns/mlx.patterns#_uKasAD17EeSyf9HTXvGqnQ" roleId="_xSFnkD17EeSyf9HTXvGqnQ"/>
+      <location xsi:type="org.eclipse.emf.diffmerge.patterns.support:ReferenceLocation" id="_ykC-sT17EeSyf9HTXvGqnQ" elementId="_YW0c0D17EeSyf9HTXvGqnQ">
+        <reference href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </location>
+    </roleBindings>
+    <patternVersion id="_ykBJgT17EeSyf9HTXvGqnQ" version="1.0">
+      <patternSymbol id="_ykBJgD17EeSyf9HTXvGqnQ" name="SimpleObserver" repositoryId="_vIlkcD17EeSyf9HTXvGqnQ" patternId="_uKasAD17EeSyf9HTXvGqnQ" lastPath="platform:/resource/MLX_Patterns/mlx.patterns#_uKasAD17EeSyf9HTXvGqnQ"/>
+    </patternVersion>
+    <patternData xsi:type="org.eclipse.emf.diffmerge.patterns.templates:TemplatePatternData" id="_ykFa8D17EeSyf9HTXvGqnQ" namingRule="$name$">
+      <instanceIds id="_ykGCAT17EeSyf9HTXvGqnQ" key="_bMdNMD17EeSyf9HTXvGqnQ">
+        <value id="_ykGCAD17EeSyf9HTXvGqnQ" templateId="_yjoH9D17EeSyf9HTXvGqnQ" multipart="MAIN"/>
+      </instanceIds>
+      <instanceIds id="_ykHQIj17EeSyf9HTXvGqnQ" key="_i7ofYD17EeSyf9HTXvGqnQ">
+        <value id="_ykHQIT17EeSyf9HTXvGqnQ" templateId="_yjoH9T17EeSyf9HTXvGqnQ" multipart="MAIN"/>
+      </instanceIds>
+      <instanceIds id="_ykHQJz17EeSyf9HTXvGqnQ" key="_cEdMMD17EeSyf9HTXvGqnQ">
+        <value id="_ykHQJj17EeSyf9HTXvGqnQ" templateId="_yjoH9j17EeSyf9HTXvGqnQ" multipart="MAIN"/>
+      </instanceIds>
+      <instanceIds id="_ykHQLD17EeSyf9HTXvGqnQ" key="_jqABQD17EeSyf9HTXvGqnQ">
+        <value id="_ykHQKz17EeSyf9HTXvGqnQ" templateId="_yjoH9z17EeSyf9HTXvGqnQ" multipart="MAIN"/>
+      </instanceIds>
+      <instanceIds id="_ykHQMT17EeSyf9HTXvGqnQ" key="_j4zSQD17EeSyf9HTXvGqnQ">
+        <value id="_ykHQMD17EeSyf9HTXvGqnQ" templateId="_yjoH-D17EeSyf9HTXvGqnQ" multipart="MAIN"/>
+      </instanceIds>
+      <instanceIds id="_ykHQNj17EeSyf9HTXvGqnQ" key="_kKmM4D17EeSyf9HTXvGqnQ">
+        <value id="_ykHQNT17EeSyf9HTXvGqnQ" templateId="_yjoH-T17EeSyf9HTXvGqnQ" multipart="MAIN"/>
+      </instanceIds>
+      <instanceIds id="_ykHQOz17EeSyf9HTXvGqnQ" key="_dCLYsD17EeSyf9HTXvGqnQ">
+        <value id="_ykHQOj17EeSyf9HTXvGqnQ" templateId="_yjoH-j17EeSyf9HTXvGqnQ" multipart="MAIN"/>
+      </instanceIds>
+      <instanceIds id="_ykHQQD17EeSyf9HTXvGqnQ" key="_fY-Q8D17EeSyf9HTXvGqnQ">
+        <value id="_ykHQPz17EeSyf9HTXvGqnQ" templateId="_yjoH-z17EeSyf9HTXvGqnQ" multipart="MAIN"/>
+      </instanceIds>
+      <instanceIds id="_ykHQRT17EeSyf9HTXvGqnQ" key="_hOCVID17EeSyf9HTXvGqnQ">
+        <value id="_ykHQRD17EeSyf9HTXvGqnQ" templateId="_yjoH_D17EeSyf9HTXvGqnQ" multipart="MAIN"/>
+      </instanceIds>
+      <instanceIds id="_ykHQSj17EeSyf9HTXvGqnQ" key="_hOC8MD17EeSyf9HTXvGqnQ">
+        <value id="_ykHQST17EeSyf9HTXvGqnQ" templateId="_yjoH_T17EeSyf9HTXvGqnQ" multipart="MAIN"/>
+      </instanceIds>
+      <instanceIds id="_ykHQTz17EeSyf9HTXvGqnQ" key="_hOavoD17EeSyf9HTXvGqnQ">
+        <value id="_ykHQTj17EeSyf9HTXvGqnQ" templateId="_yjoH_j17EeSyf9HTXvGqnQ" multipart="MAIN"/>
+      </instanceIds>
+      <instanceIds id="_ykHQVD17EeSyf9HTXvGqnQ" key="_hOavoT17EeSyf9HTXvGqnQ">
+        <value id="_ykHQUz17EeSyf9HTXvGqnQ" templateId="_yjoH_z17EeSyf9HTXvGqnQ" multipart="MAIN"/>
+      </instanceIds>
+      <instanceIds id="_ykHQWT17EeSyf9HTXvGqnQ" key="_hObWsD17EeSyf9HTXvGqnQ">
+        <value id="_ykHQWD17EeSyf9HTXvGqnQ" templateId="_yjoIAD17EeSyf9HTXvGqnQ" multipart="MAIN"/>
+      </instanceIds>
+      <instanceIds id="_ykH3MD17EeSyf9HTXvGqnQ" key="_hOwt4D17EeSyf9HTXvGqnQ">
+        <value id="_ykHQXT17EeSyf9HTXvGqnQ" templateId="_yjoIAT17EeSyf9HTXvGqnQ" multipart="MAIN"/>
+      </instanceIds>
+      <instanceIds id="_ykH3NT17EeSyf9HTXvGqnQ" key="_hOwt4T17EeSyf9HTXvGqnQ">
+        <value id="_ykH3ND17EeSyf9HTXvGqnQ" templateId="_yjoIAj17EeSyf9HTXvGqnQ" multipart="MAIN"/>
+      </instanceIds>
+      <templateIds id="_ykGpET17EeSyf9HTXvGqnQ" key="_yjoH9D17EeSyf9HTXvGqnQ">
+        <value id="_ykGpED17EeSyf9HTXvGqnQ">
+          <instanceParts id="_ykHQID17EeSyf9HTXvGqnQ" key="MAIN" value="_bMdNMD17EeSyf9HTXvGqnQ"/>
+        </value>
+      </templateIds>
+      <templateIds id="_ykHQJD17EeSyf9HTXvGqnQ" key="_yjoH9T17EeSyf9HTXvGqnQ">
+        <value id="_ykHQIz17EeSyf9HTXvGqnQ">
+          <instanceParts id="_ykHQJT17EeSyf9HTXvGqnQ" key="MAIN" value="_i7ofYD17EeSyf9HTXvGqnQ"/>
+        </value>
+      </templateIds>
+      <templateIds id="_ykHQKT17EeSyf9HTXvGqnQ" key="_yjoH9j17EeSyf9HTXvGqnQ">
+        <value id="_ykHQKD17EeSyf9HTXvGqnQ">
+          <instanceParts id="_ykHQKj17EeSyf9HTXvGqnQ" key="MAIN" value="_cEdMMD17EeSyf9HTXvGqnQ"/>
+        </value>
+      </templateIds>
+      <templateIds id="_ykHQLj17EeSyf9HTXvGqnQ" key="_yjoH9z17EeSyf9HTXvGqnQ">
+        <value id="_ykHQLT17EeSyf9HTXvGqnQ">
+          <instanceParts id="_ykHQLz17EeSyf9HTXvGqnQ" key="MAIN" value="_jqABQD17EeSyf9HTXvGqnQ"/>
+        </value>
+      </templateIds>
+      <templateIds id="_ykHQMz17EeSyf9HTXvGqnQ" key="_yjoH-D17EeSyf9HTXvGqnQ">
+        <value id="_ykHQMj17EeSyf9HTXvGqnQ">
+          <instanceParts id="_ykHQND17EeSyf9HTXvGqnQ" key="MAIN" value="_j4zSQD17EeSyf9HTXvGqnQ"/>
+        </value>
+      </templateIds>
+      <templateIds id="_ykHQOD17EeSyf9HTXvGqnQ" key="_yjoH-T17EeSyf9HTXvGqnQ">
+        <value id="_ykHQNz17EeSyf9HTXvGqnQ">
+          <instanceParts id="_ykHQOT17EeSyf9HTXvGqnQ" key="MAIN" value="_kKmM4D17EeSyf9HTXvGqnQ"/>
+        </value>
+      </templateIds>
+      <templateIds id="_ykHQPT17EeSyf9HTXvGqnQ" key="_yjoH-j17EeSyf9HTXvGqnQ">
+        <value id="_ykHQPD17EeSyf9HTXvGqnQ">
+          <instanceParts id="_ykHQPj17EeSyf9HTXvGqnQ" key="MAIN" value="_dCLYsD17EeSyf9HTXvGqnQ"/>
+        </value>
+      </templateIds>
+      <templateIds id="_ykHQQj17EeSyf9HTXvGqnQ" key="_yjoH-z17EeSyf9HTXvGqnQ">
+        <value id="_ykHQQT17EeSyf9HTXvGqnQ">
+          <instanceParts id="_ykHQQz17EeSyf9HTXvGqnQ" key="MAIN" value="_fY-Q8D17EeSyf9HTXvGqnQ"/>
+        </value>
+      </templateIds>
+      <templateIds id="_ykHQRz17EeSyf9HTXvGqnQ" key="_yjoH_D17EeSyf9HTXvGqnQ">
+        <value id="_ykHQRj17EeSyf9HTXvGqnQ">
+          <instanceParts id="_ykHQSD17EeSyf9HTXvGqnQ" key="MAIN" value="_hOCVID17EeSyf9HTXvGqnQ"/>
+        </value>
+      </templateIds>
+      <templateIds id="_ykHQTD17EeSyf9HTXvGqnQ" key="_yjoH_T17EeSyf9HTXvGqnQ">
+        <value id="_ykHQSz17EeSyf9HTXvGqnQ">
+          <instanceParts id="_ykHQTT17EeSyf9HTXvGqnQ" key="MAIN" value="_hOC8MD17EeSyf9HTXvGqnQ"/>
+        </value>
+      </templateIds>
+      <templateIds id="_ykHQUT17EeSyf9HTXvGqnQ" key="_yjoH_j17EeSyf9HTXvGqnQ">
+        <value id="_ykHQUD17EeSyf9HTXvGqnQ">
+          <instanceParts id="_ykHQUj17EeSyf9HTXvGqnQ" key="MAIN" value="_hOavoD17EeSyf9HTXvGqnQ"/>
+        </value>
+      </templateIds>
+      <templateIds id="_ykHQVj17EeSyf9HTXvGqnQ" key="_yjoH_z17EeSyf9HTXvGqnQ">
+        <value id="_ykHQVT17EeSyf9HTXvGqnQ">
+          <instanceParts id="_ykHQVz17EeSyf9HTXvGqnQ" key="MAIN" value="_hOavoT17EeSyf9HTXvGqnQ"/>
+        </value>
+      </templateIds>
+      <templateIds id="_ykHQWz17EeSyf9HTXvGqnQ" key="_yjoIAD17EeSyf9HTXvGqnQ">
+        <value id="_ykHQWj17EeSyf9HTXvGqnQ">
+          <instanceParts id="_ykHQXD17EeSyf9HTXvGqnQ" key="MAIN" value="_hObWsD17EeSyf9HTXvGqnQ"/>
+        </value>
+      </templateIds>
+      <templateIds id="_ykH3Mj17EeSyf9HTXvGqnQ" key="_yjoIAT17EeSyf9HTXvGqnQ">
+        <value id="_ykH3MT17EeSyf9HTXvGqnQ">
+          <instanceParts id="_ykH3Mz17EeSyf9HTXvGqnQ" key="MAIN" value="_hOwt4D17EeSyf9HTXvGqnQ"/>
+        </value>
+      </templateIds>
+      <templateIds id="_ykH3Nz17EeSyf9HTXvGqnQ" key="_yjoIAj17EeSyf9HTXvGqnQ">
+        <value id="_ykH3Nj17EeSyf9HTXvGqnQ">
+          <instanceParts id="_ykH3OD17EeSyf9HTXvGqnQ" key="MAIN" value="_hOwt4T17EeSyf9HTXvGqnQ"/>
+        </value>
+      </templateIds>
+      <unfoldedIds>_i7ofYD17EeSyf9HTXvGqnQ</unfoldedIds>
+      <unfoldedIds>_jqABQD17EeSyf9HTXvGqnQ</unfoldedIds>
+      <unfoldedIds>_j4zSQD17EeSyf9HTXvGqnQ</unfoldedIds>
+      <unfoldedIds>_kKmM4D17EeSyf9HTXvGqnQ</unfoldedIds>
+      <unfoldedIds>_dCLYsD17EeSyf9HTXvGqnQ</unfoldedIds>
+      <unfoldedIds>_fY-Q8D17EeSyf9HTXvGqnQ</unfoldedIds>
+      <unfoldedIds>_hOCVID17EeSyf9HTXvGqnQ</unfoldedIds>
+      <unfoldedIds>_hOC8MD17EeSyf9HTXvGqnQ</unfoldedIds>
+      <unfoldedIds>_hOavoD17EeSyf9HTXvGqnQ</unfoldedIds>
+      <unfoldedIds>_hOavoT17EeSyf9HTXvGqnQ</unfoldedIds>
+      <unfoldedIds>_hObWsD17EeSyf9HTXvGqnQ</unfoldedIds>
+      <unfoldedIds>_hOwt4D17EeSyf9HTXvGqnQ</unfoldedIds>
+      <unfoldedIds>_hOwt4T17EeSyf9HTXvGqnQ</unfoldedIds>
+    </patternData>
+  </ownedInstances>
+</org.eclipse.emf.diffmerge.patterns.support:CommonPatternInstanceSet>
