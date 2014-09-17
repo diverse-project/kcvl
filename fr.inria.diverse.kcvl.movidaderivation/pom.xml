@@ -10,11 +10,10 @@
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>fr.inria.diverse.kcvl.interpreter</artifactId>
+	<artifactId>fr.inria.diverse.kcvl.movidaderivation</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
-	<name>KCVL Interpreter</name>
+	<name>KCVL Movida Derivation</name>
 	<packaging>eclipse-plugin</packaging>
-
 
 	<build>
 		<plugins>
@@ -43,4 +42,11 @@
 			</plugin>
 		</plugins>
 	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.ecore</artifactId>
+			<version>2.8.0-v20120911-0500</version>
+		</dependency>
+	</dependencies>	
 </project>

@@ -47,21 +47,7 @@
          unpack="false"/>
 
    <plugin
-         id="fr.inria.diverse.kcvl.metamodel.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="fr.inria.diverse.kcvl.metamodel.editor"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="MovidaDerivation"
+         id="fr.inria.diverse.kcvl.movidaderivation"
          download-size="0"
          install-size="0"
          version="0.0.0"

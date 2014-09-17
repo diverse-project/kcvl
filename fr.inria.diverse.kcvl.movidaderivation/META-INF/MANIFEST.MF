@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: fr.inria.diverse.kcvl.movidaderivation
+Bundle-SymbolicName: fr.inria.diverse.kcvl.movidaderivation
+Bundle-Version: 0.1.0.qualifier
+Export-Package: com.thales.movida.derivation.service
+Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.10.0"

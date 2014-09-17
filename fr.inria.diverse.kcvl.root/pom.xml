@@ -12,8 +12,13 @@
 		<module>../fr.inria.diverse.kcvl</module>
 		<module>../fr.inria.diverse.kcvl.metamodel</module>
 		<module>../fr.inria.diverse.kcvl.ui</module>
+		<module>../fr.inria.diverse.kcvl.fd2assets</module>
+		<module>../org.varymde.cvlmappingvaribilitychoice</module>
+		<module>../fr.inria.diverse.kcvl.movidaderivation</module>
 		<module>../fr.inria.diverse.kcvl.sdk</module>
 		<module>../fr.inria.diverse.kcvl.p2updatesite</module>
+		<module>../fr.inria.diverse.kcvl.interpreter</module>
+		<module>../fr.inria.diverse.kcvl.derivationengine</module>
 	</modules>
 
 	<properties>
@@ -23,6 +28,8 @@
 		<xtext.version>2.6.0</xtext.version>
 		<xtext-repo.url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</xtext-repo.url>
 		<kepler-repo.url>http://download.eclipse.org/releases/kepler/</kepler-repo.url>
+		<sirius-repo.url>http://download.eclipse.org/sirius/updates/releases/1.0.1/luna</sirius-repo.url>
+		<groovy-repo.url>http://dist.springsource.org/release/GRECLIPSE/e4.2/</groovy-repo.url>
 	</properties>
 	
 	<repositories>
@@ -41,6 +48,28 @@
 			<id>xtext</id>
 			<layout>p2</layout>
 			<url>${xtext-repo.url}</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>groovy</id>
+			<layout>p2</layout>
+			<url>${groovy-repo.url}</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>sirius</id>
+			<layout>p2</layout>
+			<url>${sirius-repo.url}</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>

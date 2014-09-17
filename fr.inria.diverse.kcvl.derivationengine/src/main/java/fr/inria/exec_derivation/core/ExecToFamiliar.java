@@ -151,7 +151,8 @@ public class ExecToFamiliar {
 				
 				System.err.println(s);
 				try {
-					System.out.println(new ToFamiliar().generateReport(s));
+					System.out.println("Familiar stub ;)");
+					//System.out.println(new ToFamiliar().generateReport(s));
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
