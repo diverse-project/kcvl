@@ -48,13 +48,14 @@ Import-Package:
  org.eclipse.emf.transaction,
  org.eclipse.ui.console
 Bundle-ClassPath: .,
- lib/cvlderivation.jar,
- lib/hasfeature.jar,
- lib/movidaderivation.jar,
- lib/scala-library.jar,
- lib/language.library.core-2.0.1-SNAPSHOT.jar,
- lib/language.model-2.0.1-SNAPSHOT.jar,
- lib/diffmerge.jar
+ dependencies/cvlderivation.jar,
+ dependencies/hasfeature.jar,
+ dependencies/movidaderivation.jar,
+ dependencies/scala-library.jar,
+ dependencies/language.library.core-2.0.1-SNAPSHOT.jar,
+ dependencies/language.model-2.0.1-SNAPSHOT.jar,
+ dependencies/diffmerge.jar,
+ dependencies/FAMILIAR-1.0.10.jar
 Export-Package: fr.inria.exec_derivation.core,
  fr.inria.exec_derivation.popup.actions,
  fr.inria.exec_selection,
