@@ -170,8 +170,8 @@ public class Derivator {
 		//call to remove
 		//stdio.writeln("Remove object from resources")
 		if (semanticDelete == null) {
-			toRemove.forEach[o1| EcoreUtil.delete(o1) ]
-			ctx.objectSubstitution.keySet().forEach[o1|EcoreUtil.delete(o1)]
+			toRemove.forEach[o1| EcoreUtil::delete(o1) ]
+			ctx.objectSubstitution.keySet().forEach[o1|EcoreUtil::delete(o1)]
 		} else
 			toRemove.forEach[o1|semanticDelete.delete(o1)]
 
@@ -247,7 +247,7 @@ public class Derivator {
 				ctx.unSelectedVP.add(e)
 			else if (e.getMappingExpression() != null && !"".equals(e.getMappingExpression())) {
 
-				var temp = File.createTempFile(e.getName(), ".cvlmappingvaribilitychoice")
+				var temp = File::createTempFile(e.getName(), ".cvlmappingvaribilitychoice")
 				var tempo = new FileOutputStream(temp)
 				var tempopr = new PrintWriter(tempo)
 
@@ -260,25 +260,25 @@ public class Derivator {
 				if (resourceSet == null) {
 					var injector = new CvlmappingvaribilitychoiceStandaloneSetup().createInjectorAndDoEMFRegistration();
 
-					if (!EPackage.Registry.INSTANCE.containsKey(Fd2assetsPackage.eINSTANCE.getNsURI())) {
-						EPackage.Registry.INSTANCE.put(Fd2assetsPackage.eINSTANCE.getNsURI(),
-							Fd2assetsPackage.eINSTANCE);
+					if (!EPackage$Registry::INSTANCE.containsKey(Fd2assetsPackage::eINSTANCE.getNsURI())) {
+						EPackage$Registry::INSTANCE.put(Fd2assetsPackage::eINSTANCE.getNsURI(),
+							Fd2assetsPackage::eINSTANCE);
 					}
 
 					var resourceFactory = injector.getInstance(typeof(IResourceFactory));
 					var serviceProvider = injector.getInstance(
 						typeof(IResourceServiceProvider));
-					Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("cvlmappingvaribilitychoice",
+					Resource$Factory$Registry::INSTANCE.getExtensionToFactoryMap().put("cvlmappingvaribilitychoice",
 						resourceFactory);
-					IResourceServiceProvider.Registry.INSTANCE.getExtensionToFactoryMap().
+					IResourceServiceProvider$Registry::INSTANCE.getExtensionToFactoryMap().
 						put("CM", serviceProvider);
 					resourceSet = injector.getInstance(typeof(XtextResourceSet));
 				}
-				var uri = URI.createFileURI(temp.getAbsolutePath());
+				var uri = URI::createFileURI(temp.getAbsolutePath());
 
 				//Resource xtextResource = resourceSet.createResource(uri);
 				var xtextResource = resourceSet.getResource(uri, true);
-				EcoreUtil.resolveAll(xtextResource);
+				EcoreUtil::resolveAll(xtextResource);
 
 				//println("evel "+ evaluateHasChoiceExpression(xtextResource.getContents().get(0), true))
 				if (evaluateHasChoiceExpression(xtextResource.getContents().get(0), true)) {
@@ -317,9 +317,9 @@ public class Derivator {
 			return res;
 		} else if (o instanceof   BinExpression) {
 			val e = o as BinExpression
-			if (e.getOp().getValue() == Operator.OR.getValue()) {
+			if (e.getOp().getValue() == Operator::OR.getValue()) {
 				res = evaluateHasChoiceExpression(e.getLeft(), res) || evaluateHasChoiceExpression(e.getRight(), res)
-			} else if (e.getOp().getValue() == Operator.XOR.getValue()) {
+			} else if (e.getOp().getValue() == Operator::XOR.getValue()) {
 				res = xor(evaluateHasChoiceExpression(e.getLeft(), res),evaluateHasChoiceExpression(e.getRight(), res))
 
 			} else {
@@ -330,7 +330,7 @@ public class Derivator {
 			return res;
 		} else if (o instanceof   UnaryExpression) {
 			val e = o as UnaryExpression
-			if (e.getOp().getValue() == UnaryOperator.NOT.getValue()) {
+			if (e.getOp().getValue() == UnaryOperator::NOT.getValue()) {
 				res = !evaluateHasChoiceExpression(e.getLeft(), res)
 			} else {
 				res = evaluateHasChoiceExpression(e.getLeft(), res)
@@ -351,9 +351,9 @@ public class Derivator {
 			return res;
 		} else if (o instanceof BinCondition) {
 			val e = o as BinCondition
-			if (e.getOp().getValue() == Operator.OR.getValue()) {
+			if (e.getOp().getValue() == Operator::OR.getValue()) {
 				res = evaluateHasChoiceExpression(e.getLeft(), res) || evaluateHasChoiceExpression(e.getRight(), res)
-			} else if (e.getOp().getValue() == Operator.XOR.getValue()) {
+			} else if (e.getOp().getValue() == Operator::XOR.getValue()) {
 				res = xor(evaluateHasChoiceExpression(e.getLeft(), res), evaluateHasChoiceExpression(e.getRight(), res))
 
 			} else {
@@ -374,17 +374,17 @@ public class Derivator {
 				var PrimitiveValueSpecification valuespec = ctx.choiceParameter.get(vlist.take(0)).getValue() as PrimitiveValueSpecification
 				var typename = valuespec.getType().getName()
 				if ("int".equalsIgnoreCase(typename) || "integer".equalsIgnoreCase(typename)) {
-					var value = Integer.parseInt(valuespec.getValue())
-					var value1 = Integer.parseInt(e.getValue())
-					if (e.getOp().getValue() == CompareOperator.EQ.getValue()) {
+					var value = Integer::parseInt(valuespec.getValue())
+					var value1 = Integer::parseInt(e.getValue())
+					if (e.getOp().getValue() == CompareOperator::EQ.getValue()) {
 						res2 = (value == value1)
-					} else if (e.getOp().getValue() == CompareOperator.INF.getValue()) {
+					} else if (e.getOp().getValue() == CompareOperator::INF.getValue()) {
 						res2 = (value1 < value)
-					} else if (e.getOp().getValue() == CompareOperator.INFEQ.getValue()) {
+					} else if (e.getOp().getValue() == CompareOperator::INFEQ.getValue()) {
 						res2 = (value1 <= value)
-					} else if (e.getOp().getValue() == CompareOperator.SUP.getValue()) {
+					} else if (e.getOp().getValue() == CompareOperator::SUP.getValue()) {
 						res2 = (value1 > value)
-					} else if (e.getOp().getValue() == CompareOperator.SUPEQ.getValue()) {
+					} else if (e.getOp().getValue() == CompareOperator::SUPEQ.getValue()) {
 						res2 = (value1 >= value)
 					}
 				} else {
@@ -392,15 +392,15 @@ public class Derivator {
 					var value1 = e.getValue()
 
 					//println(value +  " "+ value1)
-					if (e.getOp().getValue() == CompareOperator.EQ.getValue()) {
+					if (e.getOp().getValue() == CompareOperator::EQ.getValue()) {
 						res2 = (value1.equals(value))
-					} else if (e.getOp().getValue() == CompareOperator.INF.getValue()) {
+					} else if (e.getOp().getValue() == CompareOperator::INF.getValue()) {
 						res2 = (value1.compareTo(value) < 0)
-					} else if (e.getOp().getValue() == CompareOperator.INFEQ.getValue()) {
+					} else if (e.getOp().getValue() == CompareOperator::INFEQ.getValue()) {
 						res2 = (value1.compareTo(value) <= 0)
-					} else if (e.getOp().getValue() == CompareOperator.SUP.getValue()) {
+					} else if (e.getOp().getValue() == CompareOperator::SUP.getValue()) {
 						res2 = value1.compareTo(value) > 0
-					} else if (e.getOp().getValue() == CompareOperator.SUPEQ.getValue()) {
+					} else if (e.getOp().getValue() == CompareOperator::SUPEQ.getValue()) {
 						res2 = (value1.compareTo(value) >= 0)
 					}
 				}
@@ -430,20 +430,20 @@ public class Derivator {
         var obj = e.getSlotOwner().getReference();
         // name of the property
         if (obj.eClass().getEAllStructuralFeatures().size()>0){
-        var struct = obj.eClass().getEAllStructuralFeatures().filter(st | { st.getName().toLowerCase().equals(e.getSlotIdentifier().toLowerCase()) }).get(0)
+        var struct = obj.eClass().getEAllStructuralFeatures().filter(st | { st.getName().toLowerCase().equals(e.getSlotIdentifier().toLowerCase()) }).head
         //    	  e.getBindingVariable()
         //Value to Set
         if (ctx.choiceParameter.get(e.getBindingVariable()).getValue() instanceof PrimitiveValueSpecification) {
           var Object value = null
 
           if ((ctx.choiceParameter.get(e.getBindingVariable()).getValue() as PrimitiveValueSpecification).getType().getName().equals("Integer")) {
-            value = Integer.parseInt((ctx.choiceParameter.get(e.getBindingVariable()).getValue() as PrimitiveValueSpecification).getValue().trim())
+            value = Integer::parseInt((ctx.choiceParameter.get(e.getBindingVariable()).getValue() as PrimitiveValueSpecification).getValue().trim())
           } else if ((ctx.choiceParameter.get(e.getBindingVariable()).getValue() as PrimitiveValueSpecification) .getType().getName().equals("Boolean")) { 
-          	value = Boolean.parseBoolean((ctx.choiceParameter.get(e.getBindingVariable()).getValue()as PrimitiveValueSpecification).getValue())
+          	value = Boolean::parseBoolean((ctx.choiceParameter.get(e.getBindingVariable()).getValue()as PrimitiveValueSpecification).getValue())
           }
 
           else if ((ctx.choiceParameter.get(e.getBindingVariable()).getValue() as  PrimitiveValueSpecification).getType().getName().equals("Real")) {
-            value = Double.parseDouble(( ctx.choiceParameter.get(e.getBindingVariable()).getValue() as PrimitiveValueSpecification).getValue())
+            value = Double::parseDouble(( ctx.choiceParameter.get(e.getBindingVariable()).getValue() as PrimitiveValueSpecification).getValue())
 
           } else if ((ctx.choiceParameter.get(e.getBindingVariable()).getValue() as PrimitiveValueSpecification).getType().getName().equals("String")) {
             value = (ctx.choiceParameter.get(e.getBindingVariable()).getValue() as PrimitiveValueSpecification).getValue()
@@ -464,8 +464,8 @@ public class Derivator {
 		ctx.objectSubstitution.put(e.getPlacementObject().getReference(), e.getReplacementObject().getReference())
       }
       
-      else if (o instanceof  PatternIntegration ) {
-		val e = o as PatternIntegration
+      else if (o instanceof org.omg.CVLMetamodelMaster.cvl.PatternIntegration ) {
+		val e = o as org.omg.CVLMetamodelMaster.cvl.PatternIntegration
 		val map = new ArrayList<Pair<EObject,EObject>>()
 		e.substitutes.forEach[e1 | map.add(new Pair(e1.placementObject.getReference(), e1.replacementObject.getReference()))
 				var r = findRoot(e1.replacementObject.getReference());
@@ -540,7 +540,7 @@ public class Derivator {
         var structs = obj.eClass().getEAllStructuralFeatures().filter[st | st.getName().equals(name)]
         if (structs.size() > 0) {
 
-          var struct = structs.get(0)
+          var struct = structs.head
           //element to Set
           obj.eSet(struct, e.getNewEnd().getReference())
         } else {
@@ -573,11 +573,11 @@ public class Derivator {
             var Object value = null
 
             if ((variableAssignement.getValue() as PrimitiveValueSpecification).getType().getName().equals("Integer")) {
-              value = Integer.parseInt((variableAssignement.getValue() as PrimitiveValueSpecification).getValue().trim())
-            } else if ((variableAssignement.getValue() as PrimitiveValueSpecification).getType().getName().equals("Boolean")) { value = Boolean.parseBoolean((variableAssignement.getValue() as PrimitiveValueSpecification).getValue()) }
+              value = Integer::parseInt((variableAssignement.getValue() as PrimitiveValueSpecification).getValue().trim())
+            } else if ((variableAssignement.getValue() as PrimitiveValueSpecification).getType().getName().equals("Boolean")) { value = Boolean::parseBoolean((variableAssignement.getValue() as PrimitiveValueSpecification).getValue()) }
 
             else if ((variableAssignement.getValue() as PrimitiveValueSpecification).getType().getName().equals("Real")) {
-              value = Double.parseDouble((variableAssignement.getValue() as PrimitiveValueSpecification).getValue())
+              value = Double::parseDouble((variableAssignement.getValue() as PrimitiveValueSpecification).getValue())
 
             } else if ((variableAssignement.getValue() as PrimitiveValueSpecification).getType().getName().equals("String")) {
               value = (variableAssignement.getValue() as PrimitiveValueSpecification).getValue()

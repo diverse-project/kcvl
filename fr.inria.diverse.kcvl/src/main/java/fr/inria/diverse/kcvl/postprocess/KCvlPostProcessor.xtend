@@ -18,7 +18,7 @@ class KCvlPostProcessor implements IDerivedStateComputer
 	override installDerivedState(DerivedStateAwareResource resource, boolean preLinkingPhase) {
 		val root = resource.parseResult?.rootASTElement as VPackage
 
-		if (root !== null)
+		if (root != null)
 			root.eAllContents.forEach[completeAST]
 	}
 
