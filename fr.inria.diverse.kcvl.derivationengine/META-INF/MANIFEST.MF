@@ -3,11 +3,11 @@ Bundle-ManifestVersion: 2
 Bundle-Name: fr.inria.diverse.kcvl.derivationengine
 Bundle-SymbolicName: fr.inria.diverse.kcvl.derivationengine;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Require-Bundle: org.eclipse.xtext,
- org.eclipse.xtext.xbase;resolution:=optional,
+Require-Bundle: org.eclipse.xtext;bundle-version="[2.3.1,2.6.3)",
+ org.eclipse.xtext.xbase;bundle-version="[2.3.1,2.6.3)";resolution:=optional,
  org.apache.log4j,
  org.apache.commons.logging;resolution:=optional,
- org.eclipse.xtext.generator;resolution:=optional,
+ org.eclipse.xtext.generator;bundle-version="[2.3.1,2.6.3)";resolution:=optional,
  org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
