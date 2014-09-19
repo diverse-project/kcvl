@@ -6,7 +6,7 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: fr.inria.diverse.kcvl; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext;bundle-version="[2.3.1,2.6.3)";visibility:=reexport,
- org.eclipse.xtext.xbase;bundle-version="[2.3.1,2.6.3)";visibility:=reexport,
+ org.eclipse.xtext.xbase;bundle-version="[2.3.1,2.6.3)",
  org.eclipse.xtext.generator;bundle-version="[2.3.1,2.6.3)";resolution:=optional,
  org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
  org.eclipse.emf.codegen.ecore;resolution:=optional,
@@ -18,7 +18,8 @@ Require-Bundle: org.eclipse.xtext;bundle-version="[2.3.1,2.6.3)";visibility:=ree
  org.eclipse.xtext.xbase.lib;bundle-version="[2.3.1,2.6.3)",
  fr.inria.diverse.kcvl.metamodel;bundle-version="0.1.0",
  org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional
-Import-Package: org.apache.log4j
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: fr.inria.diverse.kcvl,
  fr.inria.diverse.kcvl.services,
