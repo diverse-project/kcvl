@@ -5,15 +5,15 @@ Bundle-Vendor: INRIA
 Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: org.varymde.cvlmappingvaribilitychoice; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.xtext;bundle-version="[2.3.1,2.6.3)",
- org.eclipse.xtext.xbase;bundle-version="[2.3.1,2.6.3)";resolution:=optional,
+Require-Bundle: org.eclipse.xtext;bundle-version="2.3.1",
+ org.eclipse.xtext.xbase;bundle-version="2.3.1";resolution:=optional,
  org.apache.log4j,
  org.apache.commons.logging;resolution:=optional,
- org.eclipse.xtext.generator;bundle-version="[2.3.1,2.6.3)";resolution:=optional,
+ org.eclipse.xtext.generator;bundle-version="2.3.1";resolution:=optional,
  org.eclipse.emf.codegen.ecore;resolution:=optional,
  org.eclipse.emf.mwe.utils;resolution:=optional,
  org.eclipse.emf.mwe2.launch;resolution:=optional,
- org.eclipse.xtext.util;bundle-version="[2.3.1,2.6.3)",
+ org.eclipse.xtext.util;bundle-version="2.3.1",
  org.antlr.runtime,
  fr.inria.diverse.kcvl.fd2assets;bundle-version="0.1.0"
 Import-Package: org.apache.log4j,
