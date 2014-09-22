@@ -13,6 +13,8 @@ import org.omg.CVLMetamodelMaster.cvl.ChoiceResolutuion
 
 import static extension fr.inria.diverse.kcvl.KCvlUtils.*
 import org.omg.CVLMetamodelMaster.cvl.Variable
+import org.omg.CVLMetamodelMaster.cvl.VariableValueAssignment
+import org.omg.CVLMetamodelMaster.cvl.PrimitiveValueSpecification
 
 class KCvlPostProcessor implements IDerivedStateComputer
 {
@@ -61,7 +63,16 @@ class KCvlPostProcessor implements IDerivedStateComputer
 	def dispatch void completeAST(Variable it) {
 		resolutionTime = resolutionTime ?: ""
 	}
-
+	
+	def dispatch void completeAST(PrimitiveValueSpecification it) {
+		if (type == null) // Simple declaration
+		{
+			if (eContainer instanceof VariableValueAssignment) {
+				type = (eContainer as VariableValueAssignment).resolvedVariable.type
+			}
+		}
+	}
+	
 	def dispatch void completeAST(EObject o) {
 		// ...
 	}

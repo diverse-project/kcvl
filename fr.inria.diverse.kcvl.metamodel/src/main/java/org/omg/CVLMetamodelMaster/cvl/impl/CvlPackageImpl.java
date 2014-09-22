@@ -3277,7 +3277,7 @@ public class CvlPackageImpl extends EPackageImpl implements CvlPackage {
 		initEAttribute(getConfigurableUnitUsage_LinkEndIdentifier(), ecorePackage.getEString(), "linkEndIdentifier", null, 1, 1, ConfigurableUnitUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(primitiveValueSpecificationEClass, PrimitiveValueSpecification.class, "PrimitiveValueSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPrimitiveValueSpecification_Expression(), this.getOCLExpression(), null, "expression", null, 1, 1, PrimitiveValueSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getPrimitiveValueSpecification_Expression(), this.getOCLExpression(), null, "expression", null, 0, 1, PrimitiveValueSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getPrimitiveValueSpecification_Value(), ecorePackage.getEString(), "value", null, 0, 1, PrimitiveValueSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(oclConstraintEClass, OCLConstraint.class, "OCLConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

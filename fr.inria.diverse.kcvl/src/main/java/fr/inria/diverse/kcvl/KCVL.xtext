@@ -98,6 +98,9 @@ ComplexChoiceResolution returns ChoiceResolutuion:
 
 SimpleChoiceResolution returns ChoiceResolutuion:
 	'choose' resolvedChoice = [Choice | ID]
+	('{'
+		child += VSpecResolution (child += VSpecResolution)*
+	'}')?
 ;
 
 VInstance returns VInstance:
@@ -185,7 +188,15 @@ ComplexVariable returns Variable:
 	'}'
 ;
 
-VariableValueAssignment returns VariableValueAssignment:
+VariableValueAssignment:
+	SimpleVariableValueAssignment | ComplexVariableValueAssignment
+;
+
+SimpleVariableValueAssignment returns VariableValueAssignment:
+	'VariableValueAssignment' resolvedVariable = [Variable] '=' value = ValueSpecification
+;
+
+ComplexVariableValueAssignment returns VariableValueAssignment:
 	'VariableValueAssignment' name = ID '{'
 		'resolvedVSpec' resolvedVSpec = [VSpec]
 		'resolvedVariable' resolvedVariable = [Variable]
@@ -614,7 +625,15 @@ ReplacementFragmentSpecification returns ReplacementFragmentSpecification:
 	'}'
 ;
 
-PrimitiveValueSpecification returns PrimitiveValueSpecification:
+PrimitiveValueSpecification:
+	SimplePrimitiveValueSpecification | ComplexPrimitiveValueSpecification
+;
+
+SimplePrimitiveValueSpecification returns PrimitiveValueSpecification:
+	value = STRING
+;
+
+ComplexPrimitiveValueSpecification returns PrimitiveValueSpecification:
 	'PrimitiveValueSpecification'
 	'{'
 		('value' value = STRING)?
