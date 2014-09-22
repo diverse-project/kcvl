@@ -195,7 +195,7 @@ VariableValueAssignment returns VariableValueAssignment:
 ;
 
 PrimitveType returns PrimitveType:
-	'PrimitiveType' name = STRING '{'
+	'PrimitiveType' name = ID '{'
 		'type' type = PrimitiveTypeEnum
 	'}'
 ;
