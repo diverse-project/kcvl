@@ -12,6 +12,7 @@ import org.omg.CVLMetamodelMaster.cvl.LinkHandle
 import org.omg.CVLMetamodelMaster.cvl.ChoiceResolutuion
 
 import static extension fr.inria.diverse.kcvl.KCvlUtils.*
+import org.omg.CVLMetamodelMaster.cvl.Variable
 
 class KCvlPostProcessor implements IDerivedStateComputer
 {
@@ -55,6 +56,10 @@ class KCvlPostProcessor implements IDerivedStateComputer
 		}
 
 		resolvedVSpec = resolvedChoice
+	}
+	
+	def dispatch void completeAST(Variable it) {
+		name = name ?: ""
 	}
 
 	def dispatch void completeAST(EObject o) {

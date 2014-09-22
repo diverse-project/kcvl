@@ -165,9 +165,17 @@ ObjectSubstitution returns ObjectSubstitution:
 	'}'
 ;
 
-Variable returns Variable:
+Variable:
+	SimpleVariable | ComplexVariable
+;
+
+SimpleVariable returns Variable:
+	'Variable' name = ID ':' type = [Variabletype]
+;
+
+ComplexVariable returns Variable:
 	'Variable' name = ID '{'
-		'resolutionTime' resolutionTime = STRING
+		('resolutionTime' resolutionTime = STRING)?
 		('replacementFragmentTypesubsetstype' replacementFragmentTypesubsetstype = [ReplacementFragmentType])?
 		'type' type = [Variabletype]
 		('groupMultiplicity' groupMultiplicity = MultiplicityInterval)?
