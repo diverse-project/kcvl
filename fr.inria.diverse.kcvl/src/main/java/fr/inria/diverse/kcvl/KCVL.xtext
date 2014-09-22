@@ -10,7 +10,7 @@ VPackage returns VPackage:
 ;
 
 VPackageable returns VPackageable:
-	VPackage | VSpec | VariationPoint | VSpecResolution/* | VSpecDerivation | Constraint | OVPType | VInterface | VConfiguration*/
+	VPackage | VSpec | VariationPoint | VSpecResolution | Variabletype/* | VSpecDerivation | Constraint | OVPType | VInterface | VConfiguration*/
 ;
 
 VSpecDerivation returns VSpecDerivation:
@@ -187,12 +187,9 @@ VariableValueAssignment returns VariableValueAssignment:
 ;
 
 PrimitveType returns PrimitveType:
-	type = PrimitiveTypeEnum
-	/*'PrimitveType'
-	name=STRING
-	'{'
-		'type' type=PrimitiveTypeEnum
-	'}'*/
+	'PrimitiveType' name = STRING '{'
+		'type' type = PrimitiveTypeEnum
+	'}'
 ;
 
 ObjectType returns ObjectType:
