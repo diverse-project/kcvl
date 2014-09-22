@@ -195,9 +195,7 @@ VariableValueAssignment returns VariableValueAssignment:
 ;
 
 PrimitveType returns PrimitveType:
-	'PrimitiveType' name = ID '{'
-		'type' type = PrimitiveTypeEnum
-	'}'
+	'PrimitiveType' name = ID ':' type = PrimitiveTypeEnum
 ;
 
 ObjectType returns ObjectType:
