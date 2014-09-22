@@ -59,7 +59,7 @@ class KCvlPostProcessor implements IDerivedStateComputer
 	}
 	
 	def dispatch void completeAST(Variable it) {
-		name = name ?: ""
+		resolutionTime = resolutionTime ?: ""
 	}
 
 	def dispatch void completeAST(EObject o) {
