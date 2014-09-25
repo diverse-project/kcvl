@@ -705,7 +705,7 @@ RealLiteralExp returns RealLiteralExp:
 ;
 
 enum Operation returns Operation:
-				logNot = 'logNot' | logAnd = 'logAnd' | logOr = 'logOr' | logImplies = 'logImplies' | logXor = 'logXor' | logIff = 'logIff' | arithPlus = 'arithPlus' | arithMinus = 'arithMinus' | arithNeg = 'arithNeg' | arithMult = 'arithMult' | arithDev = 'arithDev' | strConc = 'strConc' | eq = 'eq' | lte = 'lte' | gte = 'gte' | lt = 'lt' | gt = 'gt' | isDefined = 'isDefined' | isUndefined = 'isUndefined'
+	logNot = 'not' | logAnd = 'and' | logOr = 'or' | logImplies = 'implies' | logXor = 'xor' | logIff = 'iff' | arithPlus = 'arithPlus' | arithMinus = 'arithMinus' | arithNeg = 'arithNeg' | arithMult = 'arithMult' | arithDev = 'arithDev' | strConc = 'strConc' | eq = 'eq' | lte = 'lte' | gte = 'gte' | lt = 'lt' | gt = 'gt' | isDefined = 'isDefined' | isUndefined = 'isUndefined'
 ;
 
 EDouble returns ecore::EDouble:
