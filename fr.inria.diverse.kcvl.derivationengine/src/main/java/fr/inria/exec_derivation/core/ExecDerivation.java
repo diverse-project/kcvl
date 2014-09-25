@@ -50,6 +50,8 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.console.ConsolePlugin;
@@ -117,6 +119,24 @@ public class ExecDerivation implements PatternIntegration {
 					resolvedModelRes = r;
 				}
 			}
+		}
+		
+		// If not found, we cannot do anything
+		if (resolvedModelRes == null) {
+			PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
+			    public void run() {
+				    Shell activeShell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+				    
+				    MessageBox dialog = 
+							  new MessageBox(activeShell, SWT.ICON_ERROR | SWT.OK);
+							dialog.setText("Cannot proceed");
+							dialog.setMessage("KCVL file needs to be attached to the Sirius session " +
+									"of the target model before proceeding.");
+							dialog.open();
+				}
+			});
+			
+			return ;
 		}
 
 		/*
