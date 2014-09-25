@@ -18,6 +18,7 @@ import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -41,6 +42,7 @@ import org.eclipse.emf.diffmerge.patterns.core.util.locations.BasicReferenceLoca
 import org.eclipse.emf.diffmerge.patterns.repositories.catalogs.operations.OpenCatalogOperation;
 import org.eclipse.emf.diffmerge.patterns.templates.engine.operations.ApplyTemplatePatternOperation;
 import org.eclipse.emf.diffmerge.patterns.templates.gen.templatepatterns.TemplatePatternRole;
+import org.eclipse.emf.diffmerge.patterns.templates.gen.templatepatterns.impl.TemplatePatternRoleImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -316,8 +318,8 @@ public class ExecDerivation implements PatternIntegration {
 	}
 
 	public boolean fusionPattern(List<Pair<EObject, EObject>> substitutes) {
-
-		IPatternRole r = (IPatternRole) substitutes.iterator().next().getL();
+		TemplatePatternRoleImpl r = (TemplatePatternRoleImpl) substitutes.iterator().next().getL();
+		//IPatternRole r = (IPatternRole) substitutes.iterator().next().getL();
 		IPattern myPattern = r.getPattern();
 
 		BasicPatternApplication applicationSpec = new BasicPatternApplication(
