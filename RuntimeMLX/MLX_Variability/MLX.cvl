@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ASCII"?>
+<CVLMetamodel.cvl:VPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CVLMetamodel.cvl="http:///org.omg/CVLMetamodel/cvl" name="MLX">
+  <packageElement xsi:type="CVLMetamodel.cvl:VPackage" name="vam">
+    <packageElement xsi:type="CVLMetamodel.cvl:Choice" name="SafetyElements" resolutionTime="">
+      <child xsi:type="CVLMetamodel.cvl:Choice" name="Watchdog" resolutionTime=""/>
+      <child xsi:type="CVLMetamodel.cvl:Choice" name="ErrorDebouncing" resolutionTime=""/>
+      <child xsi:type="CVLMetamodel.cvl:Choice" name="MarchTestOnInit" resolutionTime=""/>
+      <child xsi:type="CVLMetamodel.cvl:Choice" name="ErrorHandling" resolutionTime="">
+        <groupMultiplicity upper="1" lower="1"/>
+        <child xsi:type="CVLMetamodel.cvl:Choice" name="FailSafeMode" resolutionTime=""/>
+        <child xsi:type="CVLMetamodel.cvl:Choice" name="SoftResetOnError" resolutionTime=""/>
+      </child>
+      <child xsi:type="CVLMetamodel.cvl:Choice" name="SelfCalibration" resolutionTime="" defaultResolution="true" isImpliedByParent="true">
+        <child xsi:type="CVLMetamodel.cvl:Choice" name="OverGain" resolutionTime="" defaultResolution="true" isImpliedByParent="true"/>
+        <child xsi:type="CVLMetamodel.cvl:Choice" name="OverTemperature" resolutionTime=""/>
+      </child>
+      <child xsi:type="CVLMetamodel.cvl:Choice" name="BackgroundSelfTesting" resolutionTime="">
+        <child xsi:type="CVLMetamodel.cvl:Choice" name="RamTesting" resolutionTime=""/>
+        <child xsi:type="CVLMetamodel.cvl:Choice" name="RomTesting" resolutionTime=""/>
+        <child xsi:type="CVLMetamodel.cvl:Choice" name="AdcClippingCheck" resolutionTime=""/>
+      </child>
+    </packageElement>
+  </packageElement>
+  <packageElement xsi:type="CVLMetamodel.cvl:VPackage" name="vrm">
+    <packageElement xsi:type="CVLMetamodel.cvl:ObjectExistence" name="ElementExists" bindingChoice="//@packageElement.0/@packageElement.0/@child.5/@child.1">
+      <optionalObject referenceString="/MLX_Architecture/model.uml#_lzproUSdEeS19pjR4qmFDQ" MOFRef="">
+        <reference href="../MLX_Architecture/model.uml#_lzproUSdEeS19pjR4qmFDQ"/>
+      </optionalObject>
+    </packageElement>
+    <packageElement xsi:type="CVLMetamodel.cvl:ObjectSubstitution" name="SubjectBinding">
+      <placementObject referenceString="/MLX_Patterns/MLX.patterns#_hci98EScEeS19pjR4qmFDQ" MOFRef="">
+        <reference href="/MLX_Patterns/MLX.patterns#_hci98EScEeS19pjR4qmFDQ"/>
+      </placementObject>
+      <replacementObject referenceString="/MLX_Architecture/model.uml#_uq2yUEScEeS19pjR4qmFDQ" MOFRef="">
+        <reference href="../MLX_Architecture/model.uml#_uq2yUEScEeS19pjR4qmFDQ"/>
+      </replacementObject>
+    </packageElement>
+    <packageElement xsi:type="CVLMetamodel.cvl:ObjectSubstitution" name="WatcherBinding">
+      <placementObject referenceString="/MLX_Patterns/MLX.patterns#_htj1cEScEeS19pjR4qmFDQ" MOFRef="">
+        <reference href="/MLX_Patterns/MLX.patterns#_htj1cEScEeS19pjR4qmFDQ"/>
+      </placementObject>
+      <replacementObject referenceString="/MLX_Architecture/model.uml#_wc1tUEScEeS19pjR4qmFDQ" MOFRef="">
+        <reference href="../MLX_Architecture/model.uml#_wc1tUEScEeS19pjR4qmFDQ"/>
+      </replacementObject>
+    </packageElement>
+    <packageElement xsi:type="CVLMetamodel.cvl:PatternFusion" name="WeaveObserver" bindingChoice="//@packageElement.0/@packageElement.0/@child.3/@child.0" substitutes="//@packageElement.1/@packageElement.1 //@packageElement.1/@packageElement.2"/>
+  </packageElement>
+  <packageElement xsi:type="CVLMetamodel.cvl:VPackage" name="resolution">
+    <packageElement xsi:type="CVLMetamodel.cvl:ChoiceResolutuion" name="unnamed" resolvedVSpec="//@packageElement.0/@packageElement.0" resolvedChoice="//@packageElement.0/@packageElement.0" decision="true"/>
+    <packageElement xsi:type="CVLMetamodel.cvl:ChoiceResolutuion" name="unnamed" resolvedVSpec="//@packageElement.0/@packageElement.0/@child.5" resolvedChoice="//@packageElement.0/@packageElement.0/@child.5" decision="true"/>
+    <packageElement xsi:type="CVLMetamodel.cvl:ChoiceResolutuion" name="unnamed" resolvedVSpec="//@packageElement.0/@packageElement.0/@child.5/@child.1" resolvedChoice="//@packageElement.0/@packageElement.0/@child.5/@child.1" decision="true"/>
+    <packageElement xsi:type="CVLMetamodel.cvl:ChoiceResolutuion" name="unnamed" resolvedVSpec="//@packageElement.0/@packageElement.0/@child.3" resolvedChoice="//@packageElement.0/@packageElement.0/@child.3" decision="true"/>
+    <packageElement xsi:type="CVLMetamodel.cvl:ChoiceResolutuion" name="unnamed" resolvedVSpec="//@packageElement.0/@packageElement.0/@child.3/@child.0" resolvedChoice="//@packageElement.0/@packageElement.0/@child.3/@child.0" decision="true"/>
+  </packageElement>
+</CVLMetamodel.cvl:VPackage>

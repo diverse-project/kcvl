@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:CVLMetamodel.cvl="http:///org.omg/CVLMetamodel/cvl" xmlns:org.eclipse.emf.diffmerge.patterns.core="http://org.eclipse.com/emf/diffmerge/patterns/core/1.0.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xmi:id="_GXh6oESrEeSkloO2oQ-6Xw" version="8.1.1">
+  <models xmi:type="uml:Model" href="/MLX_Architecture/model.uml#_onKxkEScEeS19pjR4qmFDQ"/>
+  <models xmi:type="org.eclipse.emf.diffmerge.patterns.core:PatternRepository" href="/MLX_Patterns/MLX.patterns#_c1Hf0EScEeS19pjR4qmFDQ"/>
+  <models xmi:type="uml:Model" href="/MLX_Architecture/model.uml#_onKxkEScEeS19pjR4qmFDQ"/>
+  <models xmi:type="org.eclipse.emf.diffmerge.patterns.core:PatternRepository" href="/MLX_Patterns/MLX.patterns#_c1Hf0EScEeS19pjR4qmFDQ"/>
+  <models xmi:type="uml:Model" href="/MLX_Architecture/model.uml#_onKxkEScEeS19pjR4qmFDQ"/>
+  <models xmi:type="CVLMetamodel.cvl:VPackage" href="MLX.cvl#/"/>
+</viewpoint:DAnalysis>

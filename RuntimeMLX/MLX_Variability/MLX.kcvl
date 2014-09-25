@@ -1,0 +1,62 @@
+VP MLX {
+	VP vam {
+		Choice SafetyElements {
+			Choice Watchdog
+			Choice ErrorDebouncing
+			Choice MarchTestOnInit
+			
+			Choice ErrorHandling[1..1] {
+				Choice FailSafeMode
+				Choice SoftResetOnError
+			}
+			
+			Choice SelfCalibration {
+				default implied
+				
+				Choice OverGain { default implied }
+				Choice OverTemperature
+			}
+			
+			Choice BackgroundSelfTesting {
+				Choice RamTesting
+				Choice RomTesting
+				Choice AdcClippingCheck
+			}
+		}
+		
+		OCLConstraint Y {
+			context SafetyElements
+			expression implies(BackgroundSelfTesting, ErrorHandling)
+		}
+	}
+	
+	VP vrm {
+		ObjectExistence ElementExists {
+			exist "/MLX_Architecture/model.uml#_lzproUSdEeS19pjR4qmFDQ"
+			choice RomTesting
+		}
+		
+		ObjectSubstitution SubjectBinding {
+			placement "/MLX_Patterns/MLX.patterns#_hci98EScEeS19pjR4qmFDQ"
+			replacement "/MLX_Architecture/model.uml#_uq2yUEScEeS19pjR4qmFDQ"
+		}
+		
+		ObjectSubstitution WatcherBinding {
+			placement "/MLX_Patterns/MLX.patterns#_htj1cEScEeS19pjR4qmFDQ"
+			replacement "/MLX_Architecture/model.uml#_wc1tUEScEeS19pjR4qmFDQ"
+		}
+		
+		PatternFusion WeaveObserver {
+			choice FailSafeMode
+			substitutes SubjectBinding, WatcherBinding
+		}
+	}
+	
+	VP resolution {
+		choose SafetyElements
+		choose BackgroundSelfTesting
+			choose RomTesting
+		choose ErrorHandling
+			choose FailSafeMode
+	}
+}

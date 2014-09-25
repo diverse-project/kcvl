@@ -1,0 +1,7 @@
+fm1 = FM (SafetyElements : [Watchdog][ErrorDebouncing][MarchTestOnInit][ErrorHandling][SelfCalibration][BackgroundSelfTesting]; ErrorHandling : FailSafeMode SoftResetOnError; SelfCalibration : [OverGain][OverTemperature]; BackgroundSelfTesting : [RamTesting][RomTesting][AdcClippingCheck]; SafetyElements -> SelfCalibration; SelfCalibration -> OverGain;  )
+c = counting fm1
+d = cores fm1
+e = deads fm1
+println c
+println d
+println e
