@@ -10,7 +10,7 @@ VPackage returns VPackage:
 ;
 
 VPackageable returns VPackageable:
-	VPackage | VSpec | VariationPoint | VSpecResolution | Variabletype/* | VSpecDerivation | Constraint | OVPType | VInterface | VConfiguration*/
+	VPackage | VSpec | VariationPoint | VSpecResolution | Variabletype | Constraint/* | VSpecDerivation | OVPType | VInterface | VConfiguration*/
 ;
 
 VSpecDerivation returns VSpecDerivation:
