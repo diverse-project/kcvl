@@ -9,7 +9,7 @@
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>org.varymde.cvlmappingvaribilitychoice</artifactId>
+	<artifactId>fr.inria.diverse.kcvl.cvlmappingvaribilitychoice</artifactId>
 	<packaging>eclipse-plugin</packaging>
 
 	<name>CVL Mapping Variability Choice Language</name>

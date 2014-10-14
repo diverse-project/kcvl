@@ -13,7 +13,7 @@
 		<module>../fr.inria.diverse.kcvl.metamodel</module>
 		<module>../fr.inria.diverse.kcvl.ui</module>
 		<module>../fr.inria.diverse.kcvl.fd2assets</module>
-		<module>../org.varymde.cvlmappingvaribilitychoice</module>
+		<module>../fr.inria.diverse.kcvl.cvlmappingvaribilitychoice</module>
 		<module>../fr.inria.diverse.kcvl.movidaderivation</module>
 		<module>../fr.inria.diverse.kcvl.sdk</module>
 		<module>../fr.inria.diverse.kcvl.p2updatesite</module>

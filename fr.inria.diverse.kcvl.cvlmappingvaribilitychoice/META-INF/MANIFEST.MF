@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.varymde.cvlmappingvaribilitychoice
+Bundle-Name: fr.inria.diverse.kcvl.cvlmappingvaribilitychoice
 Bundle-Vendor: INRIA
 Bundle-Version: 0.1.0.qualifier
-Bundle-SymbolicName: org.varymde.cvlmappingvaribilitychoice; singleton:=true
+Bundle-SymbolicName: fr.inria.diverse.kcvl.cvlmappingvaribilitychoice;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext;bundle-version="[2.3.1,2.3.2)",
  org.eclipse.xtext.xbase;bundle-version="[2.3.1,2.3.2)";resolution:=optional,
