@@ -113,7 +113,7 @@
 	</pluginRepositories>
 
 	<build>
-        <sourceDirectory>src/main/java/</sourceDirectory>
+		<!--<sourceDirectory>src/main/java/</sourceDirectory>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -125,7 +125,6 @@
 							<goals>
 								<goal>compile</goal>
 								<goal>testCompile</goal>
-								<!--<goal>xtend-test-install-debug-info</goal>-->
 							</goals>
 						</execution>
 					</executions>
@@ -134,7 +133,7 @@
 					</configuration>
 				</plugin>
 			</plugins>
-		</pluginManagement>
+		</pluginManagement>-->
 		
 		<plugins>
 			<plugin>
