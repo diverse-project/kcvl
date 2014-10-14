@@ -15,53 +15,5 @@
 	<name>KCVL Interpreter</name>
 	<packaging>eclipse-plugin</packaging>
 
-
-	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.eclipse.xtend</groupId>
-					<artifactId>xtend-maven-plugin</artifactId>
-					<version>${xtend.version}</version>
-					<executions>
-						<execution>
-							<goals>
-								<goal>compile</goal>
-								<goal>testCompile</goal>
-							</goals>
-						</execution>
-					</executions>
-					<configuration>
-							<outputDirectory>src/main/xtend-gen</outputDirectory>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-
-		<plugins>
-			<plugin>
-				<groupId>org.eclipse.xtend</groupId>
-				<artifactId>xtend-maven-plugin</artifactId>
-				<version>${xtend.version}</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>compile</goal>
-							<goal>testCompile</goal>
-							<!--<goal>xtend-install-debug-info</goal>
-							<goal>xtend-test-install-debug-info</goal>-->
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.0</version>
-				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 </project>
+

@@ -113,7 +113,7 @@
 	</pluginRepositories>
 
 	<build>
-		<!--<sourceDirectory>src/main/java/</sourceDirectory>
+		<sourceDirectory>src/main/java/</sourceDirectory>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -129,11 +129,11 @@
 						</execution>
 					</executions>
 					<configuration>
-						<outputDirectory>src/main/xtend-gen</outputDirectory>
+						<outputDirectory>${basedir}/src/main/xtend-gen</outputDirectory>
 					</configuration>
 				</plugin>
 			</plugins>
-		</pluginManagement>-->
+		</pluginManagement>
 		
 		<plugins>
 			<plugin>

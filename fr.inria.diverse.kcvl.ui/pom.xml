@@ -14,27 +14,5 @@
 
 	<name>KCVL Language UI</name>
 
-	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.eclipse.xtend</groupId>
-					<artifactId>xtend-maven-plugin</artifactId>
-					<version>${xtend.version}</version>
-					<executions>
-						<execution>
-							<goals>
-								<goal>compile</goal>
-								<goal>testCompile</goal>
-							</goals>
-						</execution>
-					</executions>
-					<configuration>
-							<outputDirectory>src/main/xtend-gen</outputDirectory>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
 </project>
 
