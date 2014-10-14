@@ -2,7 +2,12 @@
 <feature
       id="fr.inria.diverse.kcvl.sdk"
       label="KCVL SDK Feature "
-      version="0.1.0.qualifier">
+      version="0.1.0.qualifier"
+      provider-name="DiverSE">
+
+   <description>
+      KCVL is an implementation of the CVL language, with a textual editor, derivation engines and interpreter, and bindings to the FAMILIAR tool.
+   </description>
 
    <plugin
          id="fr.inria.diverse.kcvl"

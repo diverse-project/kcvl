@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-	<feature url="features/fr.inria.diverse.kcvl.sdk_0.1.0.qualifier.jar" id="fr.inria.diverse.kcvl.sdk" version="0.1.0.qualifier"/>
-	   <!--   <category name="kcvl"/>
+   <feature url="features/fr.inria.diverse.kcvl.sdk_0.1.0.qualifier.jar" id="fr.inria.diverse.kcvl.sdk" version="0.1.0.qualifier">
+      <category name="KCVL"/>
    </feature>
-   <feature url="features/de.ovgu.featureide_2.7.1.201409121724.jar" id="de.ovgu.featureide" version="2.7.1.201409121724">
-      <category name="kcvl"/>
-   </feature>
-   <feature url="features/Familiar_1.0.10.jar" id="Familiar" version="1.0.10">
-      <category name="kcvl"/>
-   </feature>
-   <feature url="features/org.eclipse.emf.diffmerge.sdk.feature_0.3.0.201409121724.jar" id="org.eclipse.emf.diffmerge.sdk.feature" version="0.3.0.201409121724">
-      <category name="kcvl"/>
-   </feature>-->
-   <category-def name="kcvl" label="kcvl"/>
+   <category-def name="KCVL" label="KCVL">
+      <description>
+         Implementation of the Common Variability Language by DiverSE
+      </description>
+   </category-def>
 </site>
