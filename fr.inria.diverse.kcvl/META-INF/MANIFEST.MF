@@ -20,8 +20,7 @@ Require-Bundle: org.eclipse.xtext;bundle-version="[2.3.1,2.3.2)";visibility:=ree
  org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
  org.eclipse.emf.ecore,
  org.eclipse.emf.common
-Import-Package: org.apache.log4j,
- org.eclipse.xtext.xbase.lib
+Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: fr.inria.diverse.kcvl,
  fr.inria.diverse.kcvl.services,
