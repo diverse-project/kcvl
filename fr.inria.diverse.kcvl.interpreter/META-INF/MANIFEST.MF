@@ -5,18 +5,18 @@ Bundle-SymbolicName: fr.inria.diverse.kcvl.interpreter
 Bundle-Version: 0.1.0.qualifier
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;bundle-version="2.9.2",
- org.eclipse.xtend.lib;bundle-version="2.3.1",
+ org.eclipse.xtend.lib;bundle-version="[2.3.1,2.3.2)",
  com.google.guava,
  fr.inria.diverse.kcvl.metamodel;bundle-version="0.1.0",
  org.eclipse.emf.ecore.xmi;bundle-version="2.9.1",
- org.eclipse.xtext;bundle-version="2.3.1",
+ org.eclipse.xtext;bundle-version="[2.3.1,2.3.2)",
  org.eclipse.uml2.uml;bundle-version="4.1.1",
  org.codehaus.groovy,
  fr.inria.diverse.kcvl.fd2assets;bundle-version="0.1.0",
  org.eclipse.ui;bundle-version="3.8.2",
  org.varymde.cvlmappingvaribilitychoice;bundle-version="0.1.0",
  fr.inria.diverse.kcvl.movidaderivation;bundle-version="0.1.0",
- org.eclipse.xtext.xbase.lib;bundle-version="2.3.1"
+ org.eclipse.xtext.xbase.lib;bundle-version="[2.3.1,2.3.2)"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: fr.inria.diverse.kcvl.interpreter

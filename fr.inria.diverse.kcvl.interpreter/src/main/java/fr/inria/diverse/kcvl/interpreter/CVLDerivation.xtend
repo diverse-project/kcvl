@@ -647,7 +647,7 @@ public class Derivator {
               }
             ]
             
-            colleToRemove.forEach[element |  col.remove(element); col.add(ctx.objectSubstitution.get(element)) ]
+            //colleToRemove.forEach[element |  col.remove(element); col.add(ctx.objectSubstitution.get(element)) ]
 
             //else
             //	stdio.writeln("col est nulle " + o.toString)
@@ -702,7 +702,7 @@ public class Derivator {
                 colleToRemove.add(o1 as EObject)
               }
             })
-                    colleToRemove.forEach(element | col.remove(element))
+//                    colleToRemove.forEach(element | col.remove(element))
             //else
             //	stdio.writeln("col est nulle " + o.toString)
           }

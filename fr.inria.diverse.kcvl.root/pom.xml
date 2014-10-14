@@ -25,20 +25,35 @@
 		<emf.version>2.9.1-v20130827-0309</emf.version>
 		<tycho.version>0.19.0</tycho.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<xtext.version>2.6.0</xtext.version>
+		<!--<xtext.version>2.3.1.v201208210947</xtext.version>-->
+		<xtext.version>2.3.1</xtext.version>
+		<xtend.version>2.3.1</xtend.version>
 		<xtext-repo.url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</xtext-repo.url>
+		<xtext-repo2.url>http://build.eclipse.org/common/xtext/maven/maven-snapshot/final/</xtext-repo2.url>
 		<kepler-repo.url>http://download.eclipse.org/releases/kepler/</kepler-repo.url>
+		<juno-repo.url>http://download.eclipse.org/releases/juno/</juno-repo.url>
 		<sirius-repo.url>http://download.eclipse.org/sirius/updates/releases/1.0.1/luna</sirius-repo.url>
 		<groovy-repo.url>http://dist.springsource.org/release/GRECLIPSE/e4.2/</groovy-repo.url>
 	</properties>
 	
 	<repositories>
 		<repository>
+			<id>juno</id>
+			<layout>p2</layout>
+			<url>${juno-repo.url}</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
 			<id>kepler</id>
 			<layout>p2</layout>
 			<url>${kepler-repo.url}</url>
 			<releases>
-				<enabled>false</enabled>
+				<enabled>true</enabled>
 			</releases>
 			<snapshots>
 				<enabled>true</enabled>
@@ -48,6 +63,17 @@
 			<id>xtext</id>
 			<layout>p2</layout>
 			<url>${xtext-repo.url}</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>xtext2</id>
+			<layout>p2</layout>
+			<url>${xtext-repo2.url}</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -78,6 +104,13 @@
 			</snapshots>
 		</repository>
 	</repositories>
+	
+	<pluginRepositories>
+		<pluginRepository>
+			<id>xtend</id>
+			<url>http://build.eclipse.org/common/xtend/maven</url>
+		</pluginRepository>
+	</pluginRepositories>
 
 	<build>
         <sourceDirectory>src/main/java/</sourceDirectory>
@@ -86,14 +119,13 @@
 				<plugin>
 					<groupId>org.eclipse.xtend</groupId>
 					<artifactId>xtend-maven-plugin</artifactId>
-					<version>${xtext.version}</version>
+					<version>${xtend.version}</version>
 					<executions>
 						<execution>
 							<goals>
 								<goal>compile</goal>
-								<goal>xtend-install-debug-info</goal>
 								<goal>testCompile</goal>
-								<goal>xtend-test-install-debug-info</goal>
+								<!--<goal>xtend-test-install-debug-info</goal>-->
 							</goals>
 						</execution>
 					</executions>
@@ -114,6 +146,7 @@
 			<plugin>
 				<groupId>org.eclipse.xtend</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>
+				<version>${xtend.version}</version>
 			</plugin>
 		</plugins>
 	</build>

@@ -20,14 +20,14 @@
 			<plugin>
 				<groupId>org.eclipse.xtend</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>
-				<version>${xtext.version}</version>
+				<version>${xtend.version}</version>
 				<executions>
 					<execution>
 						<goals>
 							<goal>compile</goal>
 							<goal>testCompile</goal>
-							<goal>xtend-install-debug-info</goal>
-							<goal>xtend-test-install-debug-info</goal>
+							<!--<goal>xtend-install-debug-info</goal>
+							<goal>xtend-test-install-debug-info</goal>-->
 						</goals>
 					</execution>
 				</executions>
