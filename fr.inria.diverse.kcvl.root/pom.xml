@@ -19,6 +19,7 @@
 		<module>../fr.inria.diverse.kcvl.p2updatesite</module>
 		<module>../fr.inria.diverse.kcvl.interpreter</module>
 		<module>../fr.inria.diverse.kcvl.derivationengine</module>
+		<module>../org.eclipse.emf.diffmerge.patterns</module>
 	</modules>
 
 	<properties>
