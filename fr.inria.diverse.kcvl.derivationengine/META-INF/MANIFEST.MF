@@ -46,6 +46,7 @@ Import-Package:
  org.eclipse.emf.diffmerge.patterns.core,
  org.eclipse.emf.diffmerge.patterns.core.api,
  org.eclipse.emf.diffmerge.patterns.core.api.ext,
+ org.eclipse.emf.diffmerge.patterns.core.api.locations,
  org.eclipse.emf.diffmerge.patterns.core.gen.corepatterns.impl,
  org.eclipse.emf.diffmerge.patterns.core.util,
  org.eclipse.emf.diffmerge.patterns.core.util.locations,
