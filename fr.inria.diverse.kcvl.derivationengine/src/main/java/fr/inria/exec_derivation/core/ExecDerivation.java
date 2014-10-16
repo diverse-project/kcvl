@@ -23,9 +23,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -141,26 +144,31 @@ public class ExecDerivation implements PatternIntegration {
 			return ;
 		}
 
-		/*
-		 * Resource pattern_res = null; Resource melody_res = null;
-		 * 
-		 * List<IFile> files = new ArrayList<IFile>(); for (Resource r :
-		 * resolvedModelRes.getResourceSet().getResources()) { if
-		 * ("patterns".equals(r.getURI().fileExtension())) pattern_res = r; else
-		 * if ("melodymodeller".equals(r.getURI().fileExtension())) { melody_res
-		 * = r; } }
-		 * 
-		 * String fileString = URI.decode(pattern_res.getURI().path());
-		 * System.err.println(fileString); IFile file1 =
-		 * ResourcesPlugin.getWorkspace().getRoot() .getFile(new
-		 * Path(fileString)); files.add(file1);
-		 * 
-		 * OpenCatalogsOperation operation = new OpenCatalogsOperation(files,
-		 * melody_res.getResourceSet()); // <une collection de IFiles ou d�URIs
-		 * de tes catalogues>);
-		 * CorePatternsPlugin.getDefault().getModelAccessor(
-		 * ).execute(operation);
-		 */
+		Resource pattern_res = null;
+		Resource model_res = null;
+
+		List<IFile> files = new ArrayList<IFile>();
+		for (Resource r : resolvedModelRes.getResourceSet().getResources()) {
+			if ("patterns".equals(r.getURI().fileExtension()))
+				pattern_res = r;
+			else if ("melodymodeller".equals(r.getURI().fileExtension())) {
+				model_res = r;
+			} else if ("uml".equals(r.getURI().fileExtension())) {
+				model_res = r;
+			}
+		}
+
+		String fileString = URI.decode(pattern_res.getURI().path());
+		System.err.println(fileString);
+		IFile file1 = ResourcesPlugin.getWorkspace().getRoot()
+				.getFile(new Path(fileString));
+		files.add(file1);
+
+		OpenCatalogOperation operation = new OpenCatalogOperation(files,
+				model_res.getResourceSet()); // <une collection de IFiles ou
+												// d�URIs de tes catalogues>);
+		CorePatternsPlugin.getDefault().getModelEnvironment()
+				.execute(operation);
 
 		final Derivator v = new Derivator();
 		v.setPatternintegration(this);
