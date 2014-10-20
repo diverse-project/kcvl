@@ -158,17 +158,19 @@ public class ExecDerivation implements PatternIntegration {
 			}
 		}
 
-		String fileString = URI.decode(pattern_res.getURI().path());
-		System.err.println(fileString);
-		IFile file1 = ResourcesPlugin.getWorkspace().getRoot()
-				.getFile(new Path(fileString));
-		files.add(file1);
-
-		OpenCatalogOperation operation = new OpenCatalogOperation(files,
-				model_res.getResourceSet()); // <une collection de IFiles ou
-												// d�URIs de tes catalogues>);
-		CorePatternsPlugin.getDefault().getModelEnvironment()
+		if (pattern_res != null) {
+			String fileString = URI.decode(pattern_res.getURI().path());
+			System.err.println(fileString);
+			IFile file1 = ResourcesPlugin.getWorkspace().getRoot()
+					.getFile(new Path(fileString));
+			files.add(file1);
+	
+			OpenCatalogOperation operation = new OpenCatalogOperation(files,
+					model_res.getResourceSet()); // <une collection de IFiles ou
+													// d�URIs de tes catalogues>);
+			CorePatternsPlugin.getDefault().getModelEnvironment()
 				.execute(operation);
+		}
 
 		final Derivator v = new Derivator();
 		v.setPatternintegration(this);
