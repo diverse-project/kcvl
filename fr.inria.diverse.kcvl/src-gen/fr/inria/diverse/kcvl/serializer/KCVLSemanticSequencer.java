@@ -1568,7 +1568,7 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         (name=ID decision=BOOLEAN resolvedChoice=[Choice|ID] (child+=VSpecResolution child+=VSpecResolution*)?) | 
-	 *         (resolvedChoice=[Choice|ID] (child+=VSpecResolution child+=VSpecResolution*)?)
+	 *         (resolvedChoice=[Choice|ID] decision=BOOLEAN)
 	 *     )
 	 */
 	protected void sequence_ChoiceResolutuion_ComplexChoiceResolution_SimpleChoiceResolution(EObject context, ChoiceResolutuion semanticObject) {
@@ -2247,7 +2247,7 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (resolvedChoice=[Choice|ID] (child+=VSpecResolution child+=VSpecResolution*)?)
+	 *     (resolvedChoice=[Choice|ID] decision=BOOLEAN)
 	 */
 	protected void sequence_SimpleChoiceResolution(EObject context, ChoiceResolutuion semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -97,10 +97,7 @@ ComplexChoiceResolution returns ChoiceResolutuion:
 ;
 
 SimpleChoiceResolution returns ChoiceResolutuion:
-	'choose' resolvedChoice = [Choice | ID]
-	('{'
-		child += VSpecResolution (child += VSpecResolution)*
-	'}')?
+	'resolution' 'for' resolvedChoice = [Choice | ID] '=' decision = BOOLEAN 
 ;
 
 VInstance returns VInstance:

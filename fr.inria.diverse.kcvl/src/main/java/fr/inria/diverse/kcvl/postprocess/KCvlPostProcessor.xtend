@@ -55,7 +55,6 @@ class KCvlPostProcessor implements IDerivedStateComputer
 	def dispatch void completeAST(ChoiceResolutuion it) {
 		if (name == null) { // SimpleChoiceResolution
 			name = "unnamed"
-			decision = true
 		}
 
 		resolvedVSpec = resolvedChoice

@@ -106,7 +106,6 @@ public class KCVLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getComplexChoiceResolutionAccess().getGroup(), "rule__ComplexChoiceResolution__Group__0");
 					put(grammarAccess.getComplexChoiceResolutionAccess().getGroup_6(), "rule__ComplexChoiceResolution__Group_6__0");
 					put(grammarAccess.getSimpleChoiceResolutionAccess().getGroup(), "rule__SimpleChoiceResolution__Group__0");
-					put(grammarAccess.getSimpleChoiceResolutionAccess().getGroup_2(), "rule__SimpleChoiceResolution__Group_2__0");
 					put(grammarAccess.getVInstanceAccess().getGroup(), "rule__VInstance__Group__0");
 					put(grammarAccess.getVInstanceAccess().getGroup_7(), "rule__VInstance__Group_7__0");
 					put(grammarAccess.getFragmentSubstitutionAccess().getGroup(), "rule__FragmentSubstitution__Group__0");
@@ -507,9 +506,8 @@ public class KCVLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getComplexChoiceResolutionAccess().getResolvedChoiceAssignment_5(), "rule__ComplexChoiceResolution__ResolvedChoiceAssignment_5");
 					put(grammarAccess.getComplexChoiceResolutionAccess().getChildAssignment_6_1(), "rule__ComplexChoiceResolution__ChildAssignment_6_1");
 					put(grammarAccess.getComplexChoiceResolutionAccess().getChildAssignment_6_2(), "rule__ComplexChoiceResolution__ChildAssignment_6_2");
-					put(grammarAccess.getSimpleChoiceResolutionAccess().getResolvedChoiceAssignment_1(), "rule__SimpleChoiceResolution__ResolvedChoiceAssignment_1");
-					put(grammarAccess.getSimpleChoiceResolutionAccess().getChildAssignment_2_1(), "rule__SimpleChoiceResolution__ChildAssignment_2_1");
-					put(grammarAccess.getSimpleChoiceResolutionAccess().getChildAssignment_2_2(), "rule__SimpleChoiceResolution__ChildAssignment_2_2");
+					put(grammarAccess.getSimpleChoiceResolutionAccess().getResolvedChoiceAssignment_2(), "rule__SimpleChoiceResolution__ResolvedChoiceAssignment_2");
+					put(grammarAccess.getSimpleChoiceResolutionAccess().getDecisionAssignment_4(), "rule__SimpleChoiceResolution__DecisionAssignment_4");
 					put(grammarAccess.getVInstanceAccess().getNameAssignment_1(), "rule__VInstance__NameAssignment_1");
 					put(grammarAccess.getVInstanceAccess().getResolvedVSpecAssignment_4(), "rule__VInstance__ResolvedVSpecAssignment_4");
 					put(grammarAccess.getVInstanceAccess().getTypeAssignment_6(), "rule__VInstance__TypeAssignment_6");

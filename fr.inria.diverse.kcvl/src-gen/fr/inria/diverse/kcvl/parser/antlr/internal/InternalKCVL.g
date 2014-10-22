@@ -1603,9 +1603,13 @@ ruleSimpleChoiceResolution returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='choose' 
+(	otherlv_0='resolution' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getSimpleChoiceResolutionAccess().getChooseKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getSimpleChoiceResolutionAccess().getResolutionKeyword_0());
+    }
+	otherlv_1='for' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getSimpleChoiceResolutionAccess().getForKeyword_1());
     }
 (
 (
@@ -1614,57 +1618,35 @@ ruleSimpleChoiceResolution returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getSimpleChoiceResolutionRule());
 	        }
         }
-	otherlv_1=RULE_ID
+	otherlv_2=RULE_ID
 	{
-		newLeafNode(otherlv_1, grammarAccess.getSimpleChoiceResolutionAccess().getResolvedChoiceChoiceCrossReference_1_0()); 
+		newLeafNode(otherlv_2, grammarAccess.getSimpleChoiceResolutionAccess().getResolvedChoiceChoiceCrossReference_2_0()); 
 	}
 
 )
-)(	otherlv_2='{' 
+)	otherlv_3='=' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getSimpleChoiceResolutionAccess().getLeftCurlyBracketKeyword_2_0());
+    	newLeafNode(otherlv_3, grammarAccess.getSimpleChoiceResolutionAccess().getEqualsSignKeyword_3());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSimpleChoiceResolutionAccess().getChildVSpecResolutionParserRuleCall_2_1_0()); 
+	        newCompositeNode(grammarAccess.getSimpleChoiceResolutionAccess().getDecisionBOOLEANParserRuleCall_4_0()); 
 	    }
-		lv_child_3_0=ruleVSpecResolution		{
+		lv_decision_4_0=ruleBOOLEAN		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSimpleChoiceResolutionRule());
 	        }
-       		add(
+       		set(
        			$current, 
-       			"child",
-        		lv_child_3_0, 
-        		"VSpecResolution");
+       			"decision",
+        		lv_decision_4_0, 
+        		"BOOLEAN");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getSimpleChoiceResolutionAccess().getChildVSpecResolutionParserRuleCall_2_2_0()); 
-	    }
-		lv_child_4_0=ruleVSpecResolution		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getSimpleChoiceResolutionRule());
-	        }
-       		add(
-       			$current, 
-       			"child",
-        		lv_child_4_0, 
-        		"VSpecResolution");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)*	otherlv_5='}' 
-    {
-    	newLeafNode(otherlv_5, grammarAccess.getSimpleChoiceResolutionAccess().getRightCurlyBracketKeyword_2_3());
-    }
-)?)
+))
 ;
 
 

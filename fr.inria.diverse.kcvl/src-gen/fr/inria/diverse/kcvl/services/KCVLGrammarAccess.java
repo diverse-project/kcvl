@@ -844,57 +844,45 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	public class SimpleChoiceResolutionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SimpleChoiceResolution");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cChooseKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cResolvedChoiceAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cResolvedChoiceChoiceCrossReference_1_0 = (CrossReference)cResolvedChoiceAssignment_1.eContents().get(0);
-		private final RuleCall cResolvedChoiceChoiceIDTerminalRuleCall_1_0_1 = (RuleCall)cResolvedChoiceChoiceCrossReference_1_0.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cLeftCurlyBracketKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cChildAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cChildVSpecResolutionParserRuleCall_2_1_0 = (RuleCall)cChildAssignment_2_1.eContents().get(0);
-		private final Assignment cChildAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cChildVSpecResolutionParserRuleCall_2_2_0 = (RuleCall)cChildAssignment_2_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		private final Keyword cResolutionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cForKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cResolvedChoiceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cResolvedChoiceChoiceCrossReference_2_0 = (CrossReference)cResolvedChoiceAssignment_2.eContents().get(0);
+		private final RuleCall cResolvedChoiceChoiceIDTerminalRuleCall_2_0_1 = (RuleCall)cResolvedChoiceChoiceCrossReference_2_0.eContents().get(1);
+		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cDecisionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDecisionBOOLEANParserRuleCall_4_0 = (RuleCall)cDecisionAssignment_4.eContents().get(0);
 		
 		//SimpleChoiceResolution returns ChoiceResolutuion:
-		//	"choose" resolvedChoice=[Choice] ("{" child+=VSpecResolution child+=VSpecResolution* "}")?;
+		//	"resolution" "for" resolvedChoice=[Choice] "=" decision=BOOLEAN;
 		public ParserRule getRule() { return rule; }
 
-		//"choose" resolvedChoice=[Choice] ("{" child+=VSpecResolution child+=VSpecResolution* "}")?
+		//"resolution" "for" resolvedChoice=[Choice] "=" decision=BOOLEAN
 		public Group getGroup() { return cGroup; }
 
-		//"choose"
-		public Keyword getChooseKeyword_0() { return cChooseKeyword_0; }
+		//"resolution"
+		public Keyword getResolutionKeyword_0() { return cResolutionKeyword_0; }
+
+		//"for"
+		public Keyword getForKeyword_1() { return cForKeyword_1; }
 
 		//resolvedChoice=[Choice]
-		public Assignment getResolvedChoiceAssignment_1() { return cResolvedChoiceAssignment_1; }
+		public Assignment getResolvedChoiceAssignment_2() { return cResolvedChoiceAssignment_2; }
 
 		//[Choice]
-		public CrossReference getResolvedChoiceChoiceCrossReference_1_0() { return cResolvedChoiceChoiceCrossReference_1_0; }
+		public CrossReference getResolvedChoiceChoiceCrossReference_2_0() { return cResolvedChoiceChoiceCrossReference_2_0; }
 
 		//ID
-		public RuleCall getResolvedChoiceChoiceIDTerminalRuleCall_1_0_1() { return cResolvedChoiceChoiceIDTerminalRuleCall_1_0_1; }
+		public RuleCall getResolvedChoiceChoiceIDTerminalRuleCall_2_0_1() { return cResolvedChoiceChoiceIDTerminalRuleCall_2_0_1; }
 
-		//("{" child+=VSpecResolution child+=VSpecResolution* "}")?
-		public Group getGroup_2() { return cGroup_2; }
+		//"="
+		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2_0() { return cLeftCurlyBracketKeyword_2_0; }
+		//decision=BOOLEAN
+		public Assignment getDecisionAssignment_4() { return cDecisionAssignment_4; }
 
-		//child+=VSpecResolution
-		public Assignment getChildAssignment_2_1() { return cChildAssignment_2_1; }
-
-		//VSpecResolution
-		public RuleCall getChildVSpecResolutionParserRuleCall_2_1_0() { return cChildVSpecResolutionParserRuleCall_2_1_0; }
-
-		//child+=VSpecResolution*
-		public Assignment getChildAssignment_2_2() { return cChildAssignment_2_2; }
-
-		//VSpecResolution
-		public RuleCall getChildVSpecResolutionParserRuleCall_2_2_0() { return cChildVSpecResolutionParserRuleCall_2_2_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_2_3() { return cRightCurlyBracketKeyword_2_3; }
+		//BOOLEAN
+		public RuleCall getDecisionBOOLEANParserRuleCall_4_0() { return cDecisionBOOLEANParserRuleCall_4_0; }
 	}
 
 	public class VInstanceElements extends AbstractParserRuleElementFinder {
@@ -8058,7 +8046,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SimpleChoiceResolution returns ChoiceResolutuion:
-	//	"choose" resolvedChoice=[Choice] ("{" child+=VSpecResolution child+=VSpecResolution* "}")?;
+	//	"resolution" "for" resolvedChoice=[Choice] "=" decision=BOOLEAN;
 	public SimpleChoiceResolutionElements getSimpleChoiceResolutionAccess() {
 		return (pSimpleChoiceResolution != null) ? pSimpleChoiceResolution : (pSimpleChoiceResolution = new SimpleChoiceResolutionElements());
 	}
