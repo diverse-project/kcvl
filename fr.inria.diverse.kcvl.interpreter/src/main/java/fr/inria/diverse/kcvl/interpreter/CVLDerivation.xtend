@@ -1,5 +1,6 @@
 package fr.inria.diverse.kcvl.interpreter
 
+import java.util.Collections
 import com.thales.movida.derivation.service.SemanticDeleteOfObject
 import fr.inria.diverse.kcvl.fd2assets.BinCondition
 import fr.inria.diverse.kcvl.fd2assets.BinExpression
@@ -63,362 +64,278 @@ import org.eclipse.emf.ecore.resource.ResourceSet
  * class used to pass the context during the derivation. 
  * Can be put in a Stack for the VClassifier
  */
-public class Derivator {
-
-	
-
-
+class Derivator
+{
 	@Property
-	var SemanticDeleteOfObject semanticDelete = null
-	
-	
+	SemanticDeleteOfObject semanticDelete
 	@Property
-	var fr.inria.diverse.kcvl.interpreter.PatternIntegration patternintegration = null
+	fr.inria.diverse.kcvl.interpreter.PatternIntegration patternIntegration
 	@Property
-	var ResourceSet resourceSet = null
-
+	ResourceSet resourceSet
 	@Property
-	var Context ctx = new Context
-
+	Context ctx = new Context
 	@Property
-	var ctxs = new ArrayList<Context>
-
-
+	List<Context> ctxs = newArrayList
 	@Property
-	var toRemove = new ArrayList<EObject>()
-	
+	List<EObject> toRemove = newArrayList
 	@Property
-	var notSelected = new ArrayList<EObject>()
-
+	List<EObject> notSelected = newArrayList
 	@Property
-	var domainResources = new ArrayList<Resource>()
-	
-	
+	List<Resource> domainResources = newArrayList
+	@Property
+	List<EObject> roots = newArrayList
 
-	val roots = new ArrayList<EObject>()
-
-	// var stdio = new k2.io.StdIOClass()
-	def EObject findRoot(EObject e) {
-		if (e.eContainer() == null || e.eContainer() instanceof  Resource) {
-			//println("find root " + e)
-			return e
-
-		} else
-			return findRoot(e.eContainer())
-	}
-
-	def start(VPackage o) {
+	def void start(VPackage o) {
 		ctxs.add(ctx)
 		populateChoiceResolution(o)
-		if (!checkChoiceResolution()) {
-			println("no choice resolution in the cvl file")
+
+		if (!checkChoiceResolution) {
+			println("No choice resolution in the CVL model")
 			return
 		}
 
-		println("number of choice resolve to true : " + ctx.selectedChoice.size())
-		println("number of choice resolve to false : " + ctx.unSelectedChoice.size())
+		println("Number of choices resolved to true: " + ctx.selectedChoices.size)
+		println("Number of choices resolved to false: " + ctx.unselectedChoices.size)
 
-		ctxs.forEach [ e |
+		ctxs.forEach[e |
 			ctx = e
 			findBinding(o)
-			println("number of realisation resolve to true : " + ctx.selectedVP.size())
-			println("number of realisation resolve to false : " + ctx.unSelectedVP.size())
-			ctx.unSelectedVP.filter[e1|
-				{
-					(e1 instanceof ObjectExistence || e1 instanceof LinkExistence)
-				}].forEach[e2|executeDerivation(e2)]
-			ctx.selectedVP.filter[e1|
-				{
-					!(e1 instanceof  ObjectExistence || e1 instanceof LinkExistence)
-				}].forEach[e2|executeDerivation(e2)]
+
+			println("Number of realizations resolved to true: " + ctx.selectedVPs.size)
+			println("Number of realizations resolved to false: " + ctx.unselectedVPs.size)
+
+			ctx.unselectedVPs
+				.filter[it instanceof ObjectExistence || it instanceof LinkExistence]
+				.forEach[executeDerivation(it)]
+			ctx.selectedVPs
+				.filter[!(it instanceof ObjectExistence || it instanceof LinkExistence)]
+				.forEach[executeDerivation(it)]
 		]
 
-		//println(notSelected.first)
-		
+		notSelected.forEach[
+			val r = findRoot(it)
+			
+			if (!roots.contains(r))
+				roots += r
+		]
 
-		notSelected.forEach[e1|
-			{
-				var r = findRoot(e1);
-				if(!roots.contains(r)) roots.add(r)
-			}]
-
-		//notSelected.forEach(rem|println("toremove from object substitution " + rem))
-		
-
-		roots.forEach(root| { //println(root + "\n" + root.eResource())
-			domainResources.add(root.eResource())}
-		)
-		
-		
-		//println("roots "+ roots.size)
-		//println("domainR "+ domainResources.size)
-		roots.forEach[root|this.substituteObject(root)]
-		roots.forEach[root|this.removeObject(root)]
+		roots.forEach[domainResources.add(eResource)]
+		roots.forEach[substituteObject(it)]
+		roots.forEach[removeObject(it)]
 
 		if (semanticDelete == null) {
-
-			//stdio.writeln("call fix references")
-			val it = roots.iterator()
-			while (it.hasNext()) {
-				val root = it.next()
-				fixReference(root)
-			}
+			roots.forEach[fixReference(it)]
+			toRemove.forEach[EcoreUtil::delete(it)]
+			ctx.objectSubstitutions.keySet.forEach[EcoreUtil::delete(it)]
 		}
-
-		//toRemove.forEach(rem | println("toremove in follwoing the link " + rem))
-		//ctx.objectSubstitution.keySet().forEach(rem | println("toremove from object subtitution " + rem))
-		//call to remove
-		//stdio.writeln("Remove object from resources")
-		if (semanticDelete == null) {
-			toRemove.forEach[o1| EcoreUtil::delete(o1) ]
-			ctx.objectSubstitution.keySet().forEach[o1|EcoreUtil::delete(o1)]
-		} else
-			toRemove.forEach[o1|semanticDelete.delete(o1)]
-
+		else
+			toRemove.forEach[semanticDelete.delete(it)]
 	}
 
-	def Boolean checkChoiceResolution() {
-		return (ctx.selectedChoice.size > 0 || ctx.unSelectedChoice.size > 0)
-	}
-
-	def void populateChoiceResolution(EObject o) {
-		if (o instanceof VPackage) {
-			val e = o as VPackage;
-			e.getPackageElement().forEach(e1|populateChoiceResolution(e1))
-		} else if (o instanceof VInstance) {
-			val e = o as VInstance;
-			var old = ctx
-			ctx = new Context
-			ctxs.add(ctx)
-			e.getChild().forEach(e1|populateChoiceResolution(e1))
-			ctx = old
-		} else if (o instanceof ChoiceResolutuion) {
-			val e = o as  ChoiceResolutuion;
-
-			if (e.isDecision()) {
-				ctx.selectedChoice.add(e.getResolvedChoice())
-				ctx.currentChoice = e.getResolvedChoice()
-			} else {
-				ctx.unSelectedChoice.add(e.getResolvedChoice())
+	def private void populateChoiceResolution(EObject o) {
+		switch o {
+			VPackage: {
+				o.packageElement.forEach[populateChoiceResolution(it)]
 			}
-			e.getChild().forEach(e1|populateChoiceResolution(e1))
-		} else if (o instanceof VConfiguration) {
-			val e = o as VConfiguration;
-
-			e.getMember().forEach[e1|populateChoiceResolution(e1)]
-		} else if (o instanceof VariableValueAssignment) {
-			val e = o as VariableValueAssignment;
-			ctx.choiceParameter.put(e.getResolvedVariable(), e)
-			if (e.getResolvedVariable().eContainer() != null && e.getResolvedVariable().eContainer() instanceof Choice) {
-				if (ctx.choiceParameterC.containsKey(e.getResolvedVariable().eContainer() as Choice)) {
-					ctx.choiceParameterC.get(e.getResolvedVariable().eContainer() as Choice).add(e.getResolvedVariable())
+			VInstance: {
+				val oldCtx = ctx
+				ctx = new Context
+				ctxs.add(ctx)
+				o.child.forEach[populateChoiceResolution(it)]
+				ctx = oldCtx
+			}
+			ChoiceResolutuion: {
+				if (o.decision) {
+					ctx.selectedChoices.add(o.resolvedChoice)
+					ctx.currentChoice = o.resolvedChoice
 				} else {
-					var v = new ArrayList<Variable>()
-					v.add(e.getResolvedVariable())
-					ctx.choiceParameterC.put(e.getResolvedVariable().eContainer() as Choice, v)
+					ctx.unselectedChoices.add(o.resolvedChoice)
 				}
-
-			} else
-				println("Problem")
-
+			}
+			VConfiguration: {
+				o.member.forEach[populateChoiceResolution(it)]
+			}
+			VariableValueAssignment: {
+				val variableContainer = o.resolvedVariable.eContainer as Choice
+				ctx.choiceParameter.put(o.resolvedVariable, o)
+				
+				if (variableContainer != null)
+					if (ctx.choiceParameterC.containsKey(variableContainer))
+						ctx.choiceParameterC.get(variableContainer).add(o.resolvedVariable)
+					else
+						ctx.choiceParameterC.put(variableContainer, Collections::singletonList(o.resolvedVariable))
+			}
 		}
 	}
 
 	def void findBinding(EObject o) {
-		if (o instanceof VPackage) {
-			val e = o as VPackage
-			e.getPackageElement().forEach[e1|findBinding(e1)]
-		} else if (o instanceof VClassifier) {
-			val e = o as VClassifier
-			e.getChild().forEach[e1|findBinding(e1)]
-		} //case e : VInterface |{
-		//  e.getMember().forEach(e1 | findBinding(e1))
-		// }
-		else if (o instanceof  ConfigurableUnit) {
-			val e = o as ConfigurableUnit
-			e.getOwnedVariationPoint().forEach[e1|findBinding(e1)]
-		} else if (o instanceof  ChoiceVariationPoint) {
-			val e = o as ChoiceVariationPoint
-			if (e.getBindingChoice() != null  && e.getBindingChoice().size >0 && ctx.selectedChoice.containsAll(e.getBindingChoice()) &&
-				(e.getMappingExpression() == null || "".equals(e.getMappingExpression())))
-				ctx.selectedVP.add(e)
-			else if (ctx.unSelectedChoice.containsAll(e.getBindingChoice()) &&
-				(e.getMappingExpression() == null || "".equals(e.getMappingExpression())))
-				ctx.unSelectedVP.add(e)
-			else if (e.getMappingExpression() != null && !"".equals(e.getMappingExpression())) {
-
-				var temp = File::createTempFile(e.getName(), ".cvlmappingvaribilitychoice")
-				var tempo = new FileOutputStream(temp)
-				var tempopr = new PrintWriter(tempo)
-
-				tempopr.write(e.getName() + " {\n" + e.getName() + " : " + e.getMappingExpression() + "\n}\n")
-				tempopr.flush();
-				tempopr.close();
-
-				tempo.close();
-
-				if (resourceSet == null) {
-					var injector = new CvlmappingvaribilitychoiceStandaloneSetup().createInjectorAndDoEMFRegistration();
-
-					if (!EPackage$Registry::INSTANCE.containsKey(Fd2assetsPackage::eINSTANCE.getNsURI())) {
-						EPackage$Registry::INSTANCE.put(Fd2assetsPackage::eINSTANCE.getNsURI(),
-							Fd2assetsPackage::eINSTANCE);
-					}
-
-					var resourceFactory = injector.getInstance(typeof(IResourceFactory));
-					var serviceProvider = injector.getInstance(
-						typeof(IResourceServiceProvider));
-					Resource$Factory$Registry::INSTANCE.getExtensionToFactoryMap().put("cvlmappingvaribilitychoice",
-						resourceFactory);
-					IResourceServiceProvider$Registry::INSTANCE.getExtensionToFactoryMap().
-						put("CM", serviceProvider);
-					resourceSet = injector.getInstance(typeof(XtextResourceSet));
-				}
-				var uri = URI::createFileURI(temp.getAbsolutePath());
-
-				//Resource xtextResource = resourceSet.createResource(uri);
-				var xtextResource = resourceSet.getResource(uri, true);
-				EcoreUtil::resolveAll(xtextResource);
-
-				//println("evel "+ evaluateHasChoiceExpression(xtextResource.getContents().get(0), true))
-				if (evaluateHasChoiceExpression(xtextResource.getContents().get(0), true)) {
-					ctx.selectedVP.add(e)
-
-				} else {
-					ctx.unSelectedVP.add(e)
-
-				}
-
+		switch o {
+			VPackage: {
+				o.packageElement.forEach[findBinding(it)]
 			}
-		} else if (o instanceof ParametricVariationPoint) {
-			val e = o as ParametricVariationPoint
-			if (e.getBindingVariable().eContainer() instanceof Choice) {
-				if (ctx.selectedChoice.contains(e.getBindingVariable().eContainer() as Choice))
-					ctx.selectedVP.add(e)
+			VClassifier: {
+				o.child.forEach[findBinding(it)]
+			}
+			ConfigurableUnit: {
+				o.ownedVariationPoint.forEach[findBinding(it)]
+			}
+			ChoiceVariationPoint: {
+				val bind = o.bindingChoice
+				val exp = o.mappingExpression
+				
+				if (
+					   bind != null && !bind.empty && ctx.selectedChoices.containsAll(bind)
+					&& (exp == null || exp == "")
+				)
+					ctx.selectedVPs.add(o)
+				else if (
+					   ctx.unselectedChoices.containsAll(bind)
+					&& (exp == null || exp == "")
+				)
+					ctx.unselectedVPs.add(o)
+				else if (exp != null && exp != "") {
+					val temp = File::createTempFile(o.name, ".cvlmappingvaribilitychoice")
+					val stream = new FileOutputStream(temp)
+					val pr = new PrintWriter(stream)
+					
+					pr.write('''
+						«o.name» {
+							«o.name» : «exp»
+						}
+					''')
+					
+					pr.flush
+					pr.close
+					stream.close
+					
+					if (resourceSet == null) {
+						val injector = new CvlmappingvaribilitychoiceStandaloneSetup().createInjectorAndDoEMFRegistration
+						
+						if (!EPackage$Registry::INSTANCE.containsKey(Fd2assetsPackage::eINSTANCE.nsURI))
+							EPackage$Registry::INSTANCE.put(Fd2assetsPackage::eINSTANCE.nsURI, Fd2assetsPackage::eINSTANCE)
+						
+						val factory = injector.getInstance(typeof(IResourceFactory))
+						val provider = injector.getInstance(typeof(IResourceServiceProvider))
+						
+						Resource$Factory$Registry::INSTANCE.extensionToFactoryMap.put("cvlmappingvaribilitychoice", factory)
+						IResourceServiceProvider$Registry::INSTANCE.extensionToFactoryMap.put("CM", provider)
+						
+						resourceSet = injector.getInstance(typeof(XtextResourceSet))
+					}
+					
+					val uri = URI::createFileURI(temp.absolutePath)
+					val res = resourceSet.getResource(uri, true)
+					
+					EcoreUtil::resolveAll(res)
+					
+					if (evaluateHasChoiceExpression(res.contents.head, true))
+						ctx.selectedVPs.add(o)
+					else
+						ctx.unselectedVPs.add(o)
+				}
+			}
+			ParametricVariationPoint: {
+				if (
+					   o.bindingVariable.eContainer instanceof Choice
+					&& ctx.selectedChoices.contains(o.bindingVariable.eContainer as Choice)
+				)
+					ctx.selectedVPs.add(o)
 			}
 		}
 	}
 
-	def boolean evaluateHasChoiceExpression(EObject o, boolean result) {
-		var res = result
-		if (o instanceof  RestrictionRuleset) {
-
-			val e = o as RestrictionRuleset
-			val res1 = res
-			res = e.getRule().forall[e1|evaluateHasChoiceExpression(e1, res1)]
-
-			//println("result RestrictionRuleset " + res)
-			return res;
-		} else if (o instanceof  RestrictionRule) {
-			val e = o as RestrictionRule
-			res = evaluateHasChoiceExpression(e.getExpression(), res)
-
-			//println("result BinExpression " + res)
-			return res;
-		} else if (o instanceof   BinExpression) {
-			val e = o as BinExpression
-			if (e.getOp().getValue() == Operator::OR.getValue()) {
-				res = evaluateHasChoiceExpression(e.getLeft(), res) || evaluateHasChoiceExpression(e.getRight(), res)
-			} else if (e.getOp().getValue() == Operator::XOR.getValue()) {
-				res = xor(evaluateHasChoiceExpression(e.getLeft(), res),evaluateHasChoiceExpression(e.getRight(), res))
-
-			} else {
-				res = evaluateHasChoiceExpression(e.getLeft(), res) && evaluateHasChoiceExpression(e.getRight(), res)
+	def private boolean evaluateHasChoiceExpression(EObject o, boolean result) {
+		return switch o {
+			RestrictionRuleset: {
+				o.rule.forall[evaluateHasChoiceExpression(it, result)]
 			}
-
-			//println("result BinExpression " + res)
-			return res;
-		} else if (o instanceof   UnaryExpression) {
-			val e = o as UnaryExpression
-			if (e.getOp().getValue() == UnaryOperator::NOT.getValue()) {
-				res = !evaluateHasChoiceExpression(e.getLeft(), res)
-			} else {
-				res = evaluateHasChoiceExpression(e.getLeft(), res)
+			RestrictionRule: {
+				evaluateHasChoiceExpression(o.expression, result)
 			}
-
-			//println("result UnaryExpression " + res)
-			return res;
-		} else if (o instanceof HasChoice) {
-			val e = o as HasChoice
-			var res1 = true
-			if (e.getCondition() != null)
-				res1 = evaluateHasChoiceExpression(e.getCondition(), res1) //println(res1)
-			var res2 = false
-			res2 = ctxs.exists[ct|ct.selectedChoice.exists[e2|e2.getName().equals(e.getChoiceName())]]
-			res = res1 && res2
-
-			//println("result hasChoice " + res)
-			return res;
-		} else if (o instanceof BinCondition) {
-			val e = o as BinCondition
-			if (e.getOp().getValue() == Operator::OR.getValue()) {
-				res = evaluateHasChoiceExpression(e.getLeft(), res) || evaluateHasChoiceExpression(e.getRight(), res)
-			} else if (e.getOp().getValue() == Operator::XOR.getValue()) {
-				res = xor(evaluateHasChoiceExpression(e.getLeft(), res), evaluateHasChoiceExpression(e.getRight(), res))
-
-			} else {
-				res = evaluateHasChoiceExpression(e.getLeft(), res) && evaluateHasChoiceExpression(e.getRight(), res)
+			BinExpression: {
+				switch o.op.value {
+					case Operator::OR.value:
+						evaluateHasChoiceExpression(o.left, result) || evaluateHasChoiceExpression(o.right, result)
+					case Operator::XOR.value:
+						xor(evaluateHasChoiceExpression(o.left, result), evaluateHasChoiceExpression(o.right, result))
+					case Operator::AND.value:
+						evaluateHasChoiceExpression(o.left, result) && evaluateHasChoiceExpression(o.right, result)
+					default: false
+				}
 			}
-			return res;
-		} else if (o instanceof ConditionExpression) {
-			val e = o as ConditionExpression
-			var res2 = false
+			UnaryExpression: {
+				if (o.op.value == UnaryOperator::NOT.value)
+					!evaluateHasChoiceExpression(o.left, result)
+				else
+					evaluateHasChoiceExpression(o.left, result)
+			}
+			HasChoice: {
+				if (o.condition != null) evaluateHasChoiceExpression(o.condition, true) else true
+				&& ctxs.exists[selectedChoices.exists[name == o.choiceName]]
+			}
+			BinCondition: {
+				switch o.op.value {
+					case Operator::OR.value:
+						evaluateHasChoiceExpression(o.left, result) || evaluateHasChoiceExpression(o.right, result)
+					case Operator::XOR.value:
+						xor(evaluateHasChoiceExpression(o.left, result), evaluateHasChoiceExpression(o.right, result))
+					case Operator::AND.value:
+						evaluateHasChoiceExpression(o.left, result) && evaluateHasChoiceExpression(o.right, result)
+					default: false
+				}
+			}
+			ConditionExpression: {
+				var res2 = false
+	
+				var vlist = ctx.choiceParameter.keySet.filter[name == o.featureAttibuteName]
+	
+				if (!vlist.empty) {
+					val valuespec = ctx.choiceParameter.get(vlist.take(0)).value as PrimitiveValueSpecification
+					val typename = valuespec.type.name
 
-			//ctx.choiceParameter.keySet().forEach(f| println(f + " " + f.getName()))
-			var vlist = ctx.choiceParameter.keySet().filter(v|v.getName().equals(e.getFeatureAttibuteName()))
-
-			//println(vlist.size())
-			if (vlist.size() > 0) {
-
-				//println(ctx.choiceParameter.get(vlist.get(0)))
-				var PrimitiveValueSpecification valuespec = ctx.choiceParameter.get(vlist.take(0)).getValue() as PrimitiveValueSpecification
-				var typename = valuespec.getType().getName()
-				if ("int".equalsIgnoreCase(typename) || "integer".equalsIgnoreCase(typename)) {
-					var value = Integer::parseInt(valuespec.getValue())
-					var value1 = Integer::parseInt(e.getValue())
-					if (e.getOp().getValue() == CompareOperator::EQ.getValue()) {
-						res2 = (value == value1)
-					} else if (e.getOp().getValue() == CompareOperator::INF.getValue()) {
-						res2 = (value1 < value)
-					} else if (e.getOp().getValue() == CompareOperator::INFEQ.getValue()) {
-						res2 = (value1 <= value)
-					} else if (e.getOp().getValue() == CompareOperator::SUP.getValue()) {
-						res2 = (value1 > value)
-					} else if (e.getOp().getValue() == CompareOperator::SUPEQ.getValue()) {
-						res2 = (value1 >= value)
-					}
-				} else {
-					var value = valuespec.getValue()
-					var value1 = e.getValue()
-
-					//println(value +  " "+ value1)
-					if (e.getOp().getValue() == CompareOperator::EQ.getValue()) {
-						res2 = (value1.equals(value))
-					} else if (e.getOp().getValue() == CompareOperator::INF.getValue()) {
-						res2 = (value1.compareTo(value) < 0)
-					} else if (e.getOp().getValue() == CompareOperator::INFEQ.getValue()) {
-						res2 = (value1.compareTo(value) <= 0)
-					} else if (e.getOp().getValue() == CompareOperator::SUP.getValue()) {
-						res2 = value1.compareTo(value) > 0
-					} else if (e.getOp().getValue() == CompareOperator::SUPEQ.getValue()) {
-						res2 = (value1.compareTo(value) >= 0)
+					if ("int".equalsIgnoreCase(typename) || "integer".equalsIgnoreCase(typename)) {
+						val value = Integer::parseInt(valuespec.value)
+						val value1 = Integer::parseInt(o.value)
+						
+						switch o.op.value {
+							case CompareOperator::EQ.value:
+								res2 = (value == value1)
+							case CompareOperator::INF.value:
+								res2 = (value1 < value)
+							case CompareOperator::INFEQ.value:
+								res2 = (value1 <= value)
+							case CompareOperator::SUP.value:
+								res2 = (value1 > value)
+							case CompareOperator::SUPEQ.value:
+								res2 = (value1 >= value)
+						}
+					} else {
+						var value = valuespec.value
+						var value1 = o.value
+						
+						switch o.op.value {
+							case CompareOperator::EQ.value:
+								res2 = (value1.equals(value))
+							case CompareOperator::INF.value:
+								res2 = (value1.compareTo(value) < 0)
+							case CompareOperator::INFEQ.value:
+								res2 = (value1.compareTo(value) <= 0)
+							case CompareOperator::SUP.value:
+								res2 = value1.compareTo(value) > 0
+							case CompareOperator::SUPEQ.value:
+								res2 = (value1.compareTo(value) >= 0)
+						}
 					}
 				}
-
+				
+				res2
 			}
-			res = res2
-			return res;
+			default: result
 		}
-
-		return res;
-
 	}
 
-	def void executeDerivation(VariationPoint o) {
-    //var v: OpaqueVariationPoint = null
-    //v.getType().getSpec().getTransfromationLanguage()
-    //println("execute " + o.getName() + "  " + o.getClass())
-
+	def private void executeDerivation(VariationPoint o) {
+		
    if (o instanceof ObjectExistence) {
         val e = o as ObjectExistence
         e.getOptionalObject().forEach(e1 | notSelected.add(e1.getReference()))
@@ -433,22 +350,22 @@ public class Derivator {
         var struct = obj.eClass().getEAllStructuralFeatures().filter(st | { st.getName().toLowerCase().equals(e.getSlotIdentifier().toLowerCase()) }).head
         //    	  e.getBindingVariable()
         //Value to Set
-        if (ctx.choiceParameter.get(e.getBindingVariable()).getValue() instanceof PrimitiveValueSpecification) {
+        if (ctx.choiceParameter.get(e.getBindingVariable()).value instanceof PrimitiveValueSpecification) {
           var Object value = null
 
-          if ((ctx.choiceParameter.get(e.getBindingVariable()).getValue() as PrimitiveValueSpecification).getType().getName().equals("Integer")) {
-            value = Integer::parseInt((ctx.choiceParameter.get(e.getBindingVariable()).getValue() as PrimitiveValueSpecification).getValue().trim())
-          } else if ((ctx.choiceParameter.get(e.getBindingVariable()).getValue() as PrimitiveValueSpecification) .getType().getName().equals("Boolean")) { 
-          	value = Boolean::parseBoolean((ctx.choiceParameter.get(e.getBindingVariable()).getValue()as PrimitiveValueSpecification).getValue())
+          if ((ctx.choiceParameter.get(e.getBindingVariable()).value as PrimitiveValueSpecification).getType().getName().equals("Integer")) {
+            value = Integer::parseInt((ctx.choiceParameter.get(e.getBindingVariable()).value as PrimitiveValueSpecification).value.trim())
+          } else if ((ctx.choiceParameter.get(e.getBindingVariable()).value as PrimitiveValueSpecification) .getType().getName().equals("Boolean")) { 
+          	value = Boolean::parseBoolean((ctx.choiceParameter.get(e.getBindingVariable()).value as PrimitiveValueSpecification).value)
           }
 
-          else if ((ctx.choiceParameter.get(e.getBindingVariable()).getValue() as  PrimitiveValueSpecification).getType().getName().equals("Real")) {
-            value = Double::parseDouble(( ctx.choiceParameter.get(e.getBindingVariable()).getValue() as PrimitiveValueSpecification).getValue())
+          else if ((ctx.choiceParameter.get(e.getBindingVariable()).value as  PrimitiveValueSpecification).getType().getName().equals("Real")) {
+            value = Double::parseDouble(( ctx.choiceParameter.get(e.getBindingVariable()).value as PrimitiveValueSpecification).value)
 
-          } else if ((ctx.choiceParameter.get(e.getBindingVariable()).getValue() as PrimitiveValueSpecification).getType().getName().equals("String")) {
-            value = (ctx.choiceParameter.get(e.getBindingVariable()).getValue() as PrimitiveValueSpecification).getValue()
+          } else if ((ctx.choiceParameter.get(e.getBindingVariable()).value as PrimitiveValueSpecification).getType().getName().equals("String")) {
+            value = (ctx.choiceParameter.get(e.getBindingVariable()).value as PrimitiveValueSpecification).value
           } else {
-            value = (ctx.choiceParameter.get(e.getBindingVariable()).getValue() as PrimitiveValueSpecification).getValue()
+            value = (ctx.choiceParameter.get(e.getBindingVariable()).value as PrimitiveValueSpecification).value
           }
           obj.eSet(struct, value)
         }
@@ -461,7 +378,7 @@ public class Derivator {
 	//e.getPlacementObject().getReference();
 	//element to add
 	// e.getReplacementObject().getReference();
-		ctx.objectSubstitution.put(e.getPlacementObject().getReference(), e.getReplacementObject().getReference())
+		ctx.objectSubstitutions.put(e.getPlacementObject().getReference(), e.getReplacementObject().getReference())
       }
       
       else if (o instanceof org.omg.CVLMetamodelMaster.cvl.PatternIntegration ) {
@@ -475,8 +392,8 @@ public class Derivator {
 				myroots.clear
 			
 		]
-		if (patternintegration != null){
-				patternintegration.includePattern(map)
+		if (patternIntegration != null){
+				patternIntegration.includePattern(map)
 				map.clear
 		}
       }
@@ -492,8 +409,8 @@ public class Derivator {
 				myroots.clear
 			
 		]
-		if (patternintegration != null){
-				patternintegration.fusionPattern(map)
+		if (patternIntegration != null){
+				patternIntegration.fusionPattern(map)
 				map.clear
 				
 				}
@@ -509,8 +426,8 @@ public class Derivator {
 				myroots.clear
 			
 		]
-		if (patternintegration != null){
-				patternintegration.applyStructuralOrganisationalPattern(map)
+		if (patternIntegration != null){
+				patternIntegration.applyStructuralOrganisationalPattern(map)
 				map.clear				
 				}
       }
@@ -569,20 +486,20 @@ public class Derivator {
             variableAssignement = this.ctx.choiceParameter.get(variable)
           }
 
-          if (variableAssignement != null && variableAssignement.getValue() instanceof PrimitiveValueSpecification) {
+          if (variableAssignement != null && variableAssignement.value instanceof PrimitiveValueSpecification) {
             var Object value = null
 
-            if ((variableAssignement.getValue() as PrimitiveValueSpecification).getType().getName().equals("Integer")) {
-              value = Integer::parseInt((variableAssignement.getValue() as PrimitiveValueSpecification).getValue().trim())
-            } else if ((variableAssignement.getValue() as PrimitiveValueSpecification).getType().getName().equals("Boolean")) { value = Boolean::parseBoolean((variableAssignement.getValue() as PrimitiveValueSpecification).getValue()) }
+            if ((variableAssignement.value as PrimitiveValueSpecification).getType().getName().equals("Integer")) {
+              value = Integer::parseInt((variableAssignement.value as PrimitiveValueSpecification).value.trim())
+            } else if ((variableAssignement.value as PrimitiveValueSpecification).getType().getName().equals("Boolean")) { value = Boolean::parseBoolean((variableAssignement.value as PrimitiveValueSpecification).value) }
 
-            else if ((variableAssignement.getValue() as PrimitiveValueSpecification).getType().getName().equals("Real")) {
-              value = Double::parseDouble((variableAssignement.getValue() as PrimitiveValueSpecification).getValue())
+            else if ((variableAssignement.value as PrimitiveValueSpecification).getType().getName().equals("Real")) {
+              value = Double::parseDouble((variableAssignement.value as PrimitiveValueSpecification).value)
 
-            } else if ((variableAssignement.getValue() as PrimitiveValueSpecification).getType().getName().equals("String")) {
-              value = (variableAssignement.getValue() as PrimitiveValueSpecification).getValue()
+            } else if ((variableAssignement.value as PrimitiveValueSpecification).getType().getName().equals("String")) {
+              value = (variableAssignement.value as PrimitiveValueSpecification).value
             } else {
-              value = (variableAssignement.getValue() as PrimitiveValueSpecification).getValue()
+              value = (variableAssignement.value as PrimitiveValueSpecification).value
             }
             args.put(variable.getName(), value)
           }}]
@@ -642,19 +559,19 @@ public class Derivator {
           if (col != null) {
             val colleToRemove = new ArrayList< EObject>()
             col.forEach[o1 | 
-              if (ctx.objectSubstitution.keySet().exists[objtoremove | objtoremove.equals(o1)]) {
+              if (ctx.objectSubstitutions.keySet().exists[objtoremove | objtoremove.equals(o1)]) {
                 colleToRemove.add(o1) 
               }
             ]
             
-            colleToRemove.forEach[EObject element |  col.remove(element); col.add(ctx.objectSubstitution.get(element)) ]
+            colleToRemove.forEach[EObject element |  col.remove(element); col.add(ctx.objectSubstitutions.get(element)) ]
 
             //else
             //	stdio.writeln("col est nulle " + o.toString)
           
         } else {
-          if (ctx.objectSubstitution.keySet().exists[objtoremove |  objtoremove.equals(o) ]) {
-            obj.eSet(prop as EStructuralFeature, ctx.objectSubstitution.get(o))
+          if (ctx.objectSubstitutions.keySet().exists[objtoremove |  objtoremove.equals(o) ]) {
+            obj.eSet(prop as EStructuralFeature, ctx.objectSubstitutions.get(o))
           }
         }
       
@@ -791,4 +708,15 @@ public class Derivator {
 		var l = v as String
 	}
 
+	def private EObject findRoot(EObject e) {
+		return
+			if (e.eContainer == null || e.eContainer instanceof Resource)
+				e
+			else
+				findRoot(e.eContainer)
+	}
+	
+	def private boolean checkChoiceResolution() {
+		return !ctx.selectedChoices.empty || !ctx.unselectedChoices.empty
+	}
 }
