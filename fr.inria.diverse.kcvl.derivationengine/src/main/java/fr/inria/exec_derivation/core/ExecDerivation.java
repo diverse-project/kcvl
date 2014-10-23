@@ -270,7 +270,7 @@ public class ExecDerivation implements PatternIntegration {
 				System.err.println(v.getDomainResources().size());
 				
 				// Save model
-				for (Resource res1 : v.getDomainResources()) {
+				/*for (Resource res1 : v.getDomainResources()) {
 					URI newuri = res1.getURI();
 					newuri = newuri.trimFileExtension();
 					newuri = URI.createURI(newuri.toString() + "_new");
@@ -290,15 +290,13 @@ public class ExecDerivation implements PatternIntegration {
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-
-				}
+				}*/
 			}
 		});
 
 		// We undo the command to not keep some modifications in base model
 		// resource
-		domain.getCommandStack().undo();
-
+		//domain.getCommandStack().undo();
 	}
 
 	public boolean includePattern(List<Pair<EObject, EObject>> substitutes) {
