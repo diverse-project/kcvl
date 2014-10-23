@@ -1,6 +1,5 @@
 package fr.inria.diverse.kcvl.interpreter
 
-import java.util.Collections
 import com.thales.movida.derivation.service.SemanticDeleteOfObject
 import fr.inria.diverse.kcvl.fd2assets.BinCondition
 import fr.inria.diverse.kcvl.fd2assets.BinExpression
@@ -19,15 +18,18 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.PrintWriter
 import java.util.ArrayList
+import java.util.Collections
 import java.util.HashMap
 import java.util.List
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EObject
-import org.eclipse.emf.ecore.EPackage
+import org.eclipse.emf.ecore.EPackage$Registry
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.util.EcoreUtil
+import org.eclipse.xtend.lib.Property
 import org.eclipse.xtext.resource.IResourceFactory
 import org.eclipse.xtext.resource.IResourceServiceProvider
 import org.eclipse.xtext.resource.XtextResourceSet
@@ -44,22 +46,20 @@ import org.omg.CVLMetamodelMaster.cvl.ObjectSubstitution
 import org.omg.CVLMetamodelMaster.cvl.OpaqueVariationPoint
 import org.omg.CVLMetamodelMaster.cvl.ParametricSlotAssignmet
 import org.omg.CVLMetamodelMaster.cvl.ParametricVariationPoint
+import org.omg.CVLMetamodelMaster.cvl.PatternFusion
 import org.omg.CVLMetamodelMaster.cvl.PrimitiveValueSpecification
+import org.omg.CVLMetamodelMaster.cvl.StructuralOrganisationalPattern
 import org.omg.CVLMetamodelMaster.cvl.VClassifier
 import org.omg.CVLMetamodelMaster.cvl.VConfiguration
 import org.omg.CVLMetamodelMaster.cvl.VInstance
 import org.omg.CVLMetamodelMaster.cvl.VPackage
-import org.omg.CVLMetamodelMaster.cvl.Variable
 import org.omg.CVLMetamodelMaster.cvl.VariableValueAssignment
 import org.omg.CVLMetamodelMaster.cvl.VariationPoint
 import org.varymde.CvlmappingvaribilitychoiceStandaloneSetup
 
-import static org.eclipse.xtext.xbase.lib.BooleanExtensions.*
+import static extension org.eclipse.xtext.xbase.lib.BooleanExtensions.*
 import org.omg.CVLMetamodelMaster.cvl.PatternIntegration
-import org.omg.CVLMetamodelMaster.cvl.PatternFusion
-import org.omg.CVLMetamodelMaster.cvl.StructuralOrganisationalPattern
-import org.eclipse.emf.ecore.resource.ResourceSet
-import org.eclipse.ui.internal.presentations.util.ReplaceDragHandler$DragCookie
+import org.omg.CVLMetamodelMaster.cvl.PatternIntegration
 
 /**
  * Derive a target product starting from a root VPackage
