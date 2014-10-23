@@ -285,8 +285,6 @@ class Derivator
 				}
 			}
 			ConditionExpression: {
-				var res2 = false
-	
 				var vlist = ctx.choiceParameter.keySet.filter[name == o.featureAttibuteName]
 	
 				if (!vlist.empty) {
@@ -299,15 +297,15 @@ class Derivator
 						
 						switch o.op.value {
 							case CompareOperator::EQ.value:
-								res2 = (value == value1)
+								value == value1
 							case CompareOperator::INF.value:
-								res2 = (value1 < value)
+								value1 < value
 							case CompareOperator::INFEQ.value:
-								res2 = (value1 <= value)
+								value1 <= value
 							case CompareOperator::SUP.value:
-								res2 = (value1 > value)
+								value1 > value
 							case CompareOperator::SUPEQ.value:
-								res2 = (value1 >= value)
+								value1 >= value
 						}
 					} else {
 						var value = valuespec.value
@@ -315,20 +313,18 @@ class Derivator
 						
 						switch o.op.value {
 							case CompareOperator::EQ.value:
-								res2 = (value1.equals(value))
+								value1.equals(value)
 							case CompareOperator::INF.value:
-								res2 = (value1.compareTo(value) < 0)
+								value1.compareTo(value) < 0
 							case CompareOperator::INFEQ.value:
-								res2 = (value1.compareTo(value) <= 0)
+								value1.compareTo(value) <= 0
 							case CompareOperator::SUP.value:
-								res2 = value1.compareTo(value) > 0
+								value1.compareTo(value) > 0
 							case CompareOperator::SUPEQ.value:
-								res2 = (value1.compareTo(value) >= 0)
+								value1.compareTo(value) >= 0
 						}
 					}
 				}
-				
-				res2
 			}
 			default: result
 		}
