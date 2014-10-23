@@ -13,10 +13,12 @@
  ******************************************************************************/
 package fr.inria.exec_derivation.core;
 
+import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -266,31 +268,36 @@ public class ExecDerivation implements PatternIntegration {
 				}
 				
 				System.err.println(v.getDomainResources().size());
+				
 				// Save model
-				/*
-				 * for (Resource res1 : v.getDomainResources()) { URI newuri =
-				 * res1.getURI(); newuri = newuri.trimFileExtension(); newuri =
-				 * URI.createURI(newuri.toString() + "_new");
-				 * System.err.println("newuri " + newuri); newuri =
-				 * newuri.appendFileExtension(res1.getURI() .fileExtension());
-				 * Resource copy = domain.getResourceSet().createResource(
-				 * newuri); EcoreUtil.Copier copier = new EcoreUtil.Copier();
-				 * 
-				 * for (EObject root : res1.getContents()) {
-				 * copy.getContents().add(copier.copy(root)); }
-				 * copier.copyReferences(); try {
-				 * copy.save(Collections.emptyMap()); } catch (IOException e) {
-				 * e.printStackTrace(); }
-				 * 
-				 * }
-				 */
+				for (Resource res1 : v.getDomainResources()) {
+					URI newuri = res1.getURI();
+					newuri = newuri.trimFileExtension();
+					newuri = URI.createURI(newuri.toString() + "_new");
+					System.err.println("newuri " + newuri);
+					newuri = newuri.appendFileExtension(res1.getURI()
+							.fileExtension());
+					Resource copy = domain.getResourceSet().createResource(
+							newuri);
+					EcoreUtil.Copier copier = new EcoreUtil.Copier();
 
+					for (EObject root : res1.getContents()) {
+						copy.getContents().add(copier.copy(root));
+					}
+					copier.copyReferences();
+					try {
+						copy.save(Collections.emptyMap());
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+
+				}
 			}
 		});
 
 		// We undo the command to not keep some modifications in base model
 		// resource
-		// domain.getCommandStack().undo();
+		domain.getCommandStack().undo();
 
 	}
 
