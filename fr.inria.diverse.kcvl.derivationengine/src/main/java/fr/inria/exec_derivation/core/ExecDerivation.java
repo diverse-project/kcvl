@@ -163,6 +163,9 @@ public class ExecDerivation implements PatternIntegration {
 
 		if (pattern_res != null) {
 			String fileString = URI.decode(pattern_res.getURI().path());
+			if (fileString.startsWith("/resource/")) {
+				fileString = fileString.substring(9);
+			}
 			IFile file1 = ResourcesPlugin.getWorkspace().getRoot()
 					.getFile(new Path(fileString));
 			EditingDomain domain = CorePatternsPlugin.getDefault().getModelEnvironment().getEditingDomain(file1);
