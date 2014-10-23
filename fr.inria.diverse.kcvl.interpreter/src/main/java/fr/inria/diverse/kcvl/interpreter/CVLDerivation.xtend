@@ -59,10 +59,12 @@ import org.omg.CVLMetamodelMaster.cvl.PatternIntegration
 import org.omg.CVLMetamodelMaster.cvl.PatternFusion
 import org.omg.CVLMetamodelMaster.cvl.StructuralOrganisationalPattern
 import org.eclipse.emf.ecore.resource.ResourceSet
+import org.eclipse.ui.internal.presentations.util.ReplaceDragHandler$DragCookie
 
 /**
- * class used to pass the context during the derivation. 
- * Can be put in a Stack for the VClassifier
+ * Derive a target product starting from a root VPackage
+ * Uses @Context as context provider during derivation
+ * Requires a @PatternIntegration implementation for patterns
  */
 class Derivator
 {
@@ -106,25 +108,25 @@ class Derivator
 
 			ctx.unselectedVPs
 				.filter[it instanceof ObjectExistence || it instanceof LinkExistence]
-				.forEach[executeDerivation(it)]
+				.forEach[it.executeDerivation]
 			ctx.selectedVPs
 				.filter[!(it instanceof ObjectExistence || it instanceof LinkExistence)]
-				.forEach[executeDerivation(it)]
+				.forEach[it.executeDerivation]
 		]
 
 		notSelected.forEach[
-			val r = findRoot(it)
+			val r = it.findRoot
 			
 			if (!roots.contains(r))
 				roots += r
 		]
 
 		roots.forEach[domainResources.add(eResource)]
-		roots.forEach[substituteObject(it)]
-		roots.forEach[removeObject(it)]
+		roots.forEach[it.substituteObject]
+		roots.forEach[it.removeObject]
 
 		if (semanticDelete == null) {
-			roots.forEach[fixReference(it)]
+			roots.forEach[it.fixReference]
 			toRemove.forEach[EcoreUtil::delete(it)]
 			ctx.objectSubstitutions.keySet.forEach[EcoreUtil::delete(it)]
 		}
@@ -135,13 +137,13 @@ class Derivator
 	def private void populateChoiceResolution(EObject o) {
 		switch o {
 			VPackage: {
-				o.packageElement.forEach[populateChoiceResolution(it)]
+				o.packageElement.forEach[it.populateChoiceResolution]
 			}
 			VInstance: {
 				val oldCtx = ctx
 				ctx = new Context
 				ctxs.add(ctx)
-				o.child.forEach[populateChoiceResolution(it)]
+				o.child.forEach[it.populateChoiceResolution]
 				ctx = oldCtx
 			}
 			ChoiceResolutuion: {
@@ -153,7 +155,7 @@ class Derivator
 				}
 			}
 			VConfiguration: {
-				o.member.forEach[populateChoiceResolution(it)]
+				o.member.forEach[it.populateChoiceResolution]
 			}
 			VariableValueAssignment: {
 				val variableContainer = o.resolvedVariable.eContainer as Choice
@@ -168,16 +170,16 @@ class Derivator
 		}
 	}
 
-	def void findBinding(EObject o) {
+	def private void findBinding(EObject o) {
 		switch o {
 			VPackage: {
-				o.packageElement.forEach[findBinding(it)]
+				o.packageElement.forEach[it.findBinding]
 			}
 			VClassifier: {
-				o.child.forEach[findBinding(it)]
+				o.child.forEach[it.findBinding]
 			}
 			ConfigurableUnit: {
-				o.ownedVariationPoint.forEach[findBinding(it)]
+				o.ownedVariationPoint.forEach[it.findBinding]
 			}
 			ChoiceVariationPoint: {
 				val bind = o.bindingChoice
@@ -331,251 +333,197 @@ class Derivator
 	}
 
 	def private void executeDerivation(VariationPoint o) {
-		
-   if (o instanceof ObjectExistence) {
-        val e = o as ObjectExistence
-        e.getOptionalObject().forEach(e1 | notSelected.add(e1.getReference()))
-      }
-      else if (o instanceof ParametricSlotAssignmet ) {
-          val e = o as ParametricSlotAssignmet
-          // Object to modify
-        
-        var obj = e.getSlotOwner().getReference();
-        // name of the property
-        if (obj.eClass().getEAllStructuralFeatures().size()>0){
-        var struct = obj.eClass().getEAllStructuralFeatures().filter(st | { st.getName().toLowerCase().equals(e.getSlotIdentifier().toLowerCase()) }).head
-        //    	  e.getBindingVariable()
-        //Value to Set
-        if (ctx.choiceParameter.get(e.getBindingVariable()).value instanceof PrimitiveValueSpecification) {
-          var Object value = null
+		switch o {
+			ObjectExistence: {
+				o.optionalObject.forEach[notSelected.add(reference)]
+			}
+			ParametricSlotAssignmet: {
+				val obj = o.slotOwner.reference
 
-          if ((ctx.choiceParameter.get(e.getBindingVariable()).value as PrimitiveValueSpecification).getType().getName().equals("Integer")) {
-            value = Integer::parseInt((ctx.choiceParameter.get(e.getBindingVariable()).value as PrimitiveValueSpecification).value.trim())
-          } else if ((ctx.choiceParameter.get(e.getBindingVariable()).value as PrimitiveValueSpecification) .getType().getName().equals("Boolean")) { 
-          	value = Boolean::parseBoolean((ctx.choiceParameter.get(e.getBindingVariable()).value as PrimitiveValueSpecification).value)
-          }
-
-          else if ((ctx.choiceParameter.get(e.getBindingVariable()).value as  PrimitiveValueSpecification).getType().getName().equals("Real")) {
-            value = Double::parseDouble(( ctx.choiceParameter.get(e.getBindingVariable()).value as PrimitiveValueSpecification).value)
-
-          } else if ((ctx.choiceParameter.get(e.getBindingVariable()).value as PrimitiveValueSpecification).getType().getName().equals("String")) {
-            value = (ctx.choiceParameter.get(e.getBindingVariable()).value as PrimitiveValueSpecification).value
-          } else {
-            value = (ctx.choiceParameter.get(e.getBindingVariable()).value as PrimitiveValueSpecification).value
-          }
-          obj.eSet(struct, value)
-        }
-        }
-
-      }
-
-      else if (o instanceof  ObjectSubstitution ) { //element to remove
-      val e = o as ObjectSubstitution
-	//e.getPlacementObject().getReference();
-	//element to add
-	// e.getReplacementObject().getReference();
-		ctx.objectSubstitutions.put(e.getPlacementObject().getReference(), e.getReplacementObject().getReference())
-      }
-      
-      else if (o instanceof org.omg.CVLMetamodelMaster.cvl.PatternIntegration ) {
-		val e = o as org.omg.CVLMetamodelMaster.cvl.PatternIntegration
-		val map = new ArrayList<Pair<EObject,EObject>>()
-		e.substitutes.forEach[e1 | map.add(new Pair(e1.placementObject.getReference(), e1.replacementObject.getReference()))
-				var r = findRoot(e1.replacementObject.getReference());
-				val myroots = new ArrayList<EObject>()
-				if(!myroots.contains(r)) myroots.add(r)
-				myroots.forEach(root|domainResources.add(root.eResource()))
-				myroots.clear
-			
-		]
-		if (patternIntegration != null){
-				patternIntegration.includePattern(map)
-				map.clear
-		}
-      }
-      
-           else if (o instanceof  PatternFusion ) {
-		val e = o as PatternFusion 
-		val map = new ArrayList<Pair<EObject,EObject>>()
-		e.substitutes.forEach[e1 | map.add(new Pair(e1.placementObject.getReference(), e1.replacementObject.getReference()))
-				var r = findRoot(e1.replacementObject.getReference());
-				val myroots = new ArrayList<EObject>()
-				if(!myroots.contains(r)) myroots.add(r)
-				myroots.forEach(root|domainResources.add(root.eResource()))
-				myroots.clear
-			
-		]
-		if (patternIntegration != null){
-				patternIntegration.fusionPattern(map)
-				map.clear
+				if (
+					   !obj.eClass.EAllStructuralFeatures.empty
+					&& ctx.choiceParameter.get(o.bindingVariable).value instanceof PrimitiveValueSpecification
+				) {
+					val valueSpec = ctx.choiceParameter.get(o.bindingVariable) as PrimitiveValueSpecification
+					val struct = obj.eClass.EAllStructuralFeatures.findFirst[name.toLowerCase == o.slotIdentifier.toLowerCase]
+					val valueToSet =
+						switch valueSpec.type.name {
+							case "Integer": Integer::parseInt(valueSpec.value.trim)
+							case "Boolean": Boolean::parseBoolean(valueSpec.value.trim)
+							case "Real": Double::parseDouble(valueSpec.value.trim)
+							case "String": valueSpec.value
+							default: valueSpec.value
+						}
+					
+					obj.eSet(struct, valueToSet)
+				}
+			}
+			ObjectSubstitution: {
+				ctx.objectSubstitutions.put(o.placementObject.reference, o.replacementObject.reference)
+			}
+			org.omg.CVLMetamodelMaster.cvl.PatternIntegration: {
+				val map = new ArrayList<Pair<EObject, EObject>>
 				
+				o.substitutes.forEach[
+					map.add(new Pair(placementObject.reference, replacementObject.reference))
+					domainResources.add(replacementObject.reference.findRoot.eResource)
+				]
+				
+				if (patternIntegration != null) {
+					patternIntegration.includePattern(map)
+					map.clear
 				}
-      }
-      else if (o instanceof  StructuralOrganisationalPattern){
-      		val e = o as StructuralOrganisationalPattern
-		val map = new ArrayList<Pair<EObject,EObject>>()
-		e.substitutes.forEach[e1 | map.add(new Pair(e1.placementObject.getReference(), e1.replacementObject.getReference()))
-				var r = findRoot(e1.replacementObject.getReference());
-				val myroots = new ArrayList<EObject>()
-				if(!myroots.contains(r)) myroots.add(r)
-				myroots.forEach(root|domainResources.add(root.eResource()))
-				myroots.clear
-			
-		]
-		if (patternIntegration != null){
-				patternIntegration.applyStructuralOrganisationalPattern(map)
-				map.clear				
+			}
+			PatternFusion: {
+				val map = new ArrayList<Pair<EObject, EObject>>
+				
+				o.substitutes.forEach[
+					map.add(new Pair(placementObject.reference, replacementObject.reference))
+					domainResources.add(replacementObject.reference.findRoot.eResource)
+				]
+				
+				if (patternIntegration != null) {
+					patternIntegration.fusionPattern(map)
+					map.clear
 				}
-      }
-      
-      else if (o instanceof  FragmentSubstitution ) {
+			}
+			StructuralOrganisationalPattern: {
+				val map = new ArrayList<Pair<EObject, EObject>>
+				
+				o.substitutes.forEach[
+					map.add(new Pair(placementObject.reference, replacementObject.reference))
+					domainResources.add(replacementObject.reference.findRoot.eResource)
+				]
+				
+				if (patternIntegration != null) {
+					patternIntegration.applyStructuralOrganisationalPattern(map)
+					map.clear
+				}
+			}
+			FragmentSubstitution: {
+				// TODO: FragmentSubstitution
+			}
+			LinkExistence: {
+				notSelected.add(o.optionalLink.reference)
+			}
+			LinkAssignment: {
+				val obj = o.link.reference
+				val name =
+					if (o.link.MOFRef.contains(":")) o.link.MOFRef.split(":").head
+					else o.link.MOFRef
+				
+				val struct = obj.eClass.EAllStructuralFeatures.findFirst[f | f.name == name]
+				
+				if (struct != null)
+					obj.eSet(struct, o.newEnd.reference)
+			}
+			CompositeVariationPoint: {
+				o.children.forEach[it.executeDerivation]
+			}
+			OpaqueVariationPoint: {
+				val binding = new Binding
+				val ctx_ = new ArrayList<EObject>
+				val args = new HashMap<String, Object>
+				
+				o.sourceObject.forEach[ctx_ += reference]
+				
+				if (!o.bindingChoice.empty) {
+					val choice = o.bindingChoice.head
+					val vars = ctx.choiceParameterC.get(choice)
+					
+					vars.forEach[v |
+						val varAssignment = if (v != null) ctx.choiceParameter.get(v) else null
+						
+						if (varAssignment != null && varAssignment.value instanceof PrimitiveValueSpecification) {
+							val valueSpec = varAssignment.value as PrimitiveValueSpecification
+							val valueToSet =
+								switch valueSpec.type.name {
+									case "Integer": Integer::parseInt(valueSpec.value.trim)
+									case "Boolean": Boolean::parseBoolean(valueSpec.value.trim)
+									case "Real": Double::parseDouble(valueSpec.value.trim)
+									case "String": valueSpec.value
+									default: valueSpec.value
+								}
+							
+							args.put(v.name, valueToSet)
+						}
+					]
+				}
+				
+				binding.setVariable("ctx", ctx_)
+				binding.setVariable("args", args)
+				binding.setVariable("notSelected", notSelected)
+				
+				val shell = new GroovyShell(binding)
+				shell.evaluate(o.expression)
+				// TODO: We do nothing with the result?!
+			}
+		}
+	}
+	
+	// TODO: Implement me?
+	def private Object evalExpression(EObject o, VPackage root, ChoiceResolutuion parent) {
+		return null
+	}
 
-      }
-      else if (o instanceof  LinkExistence ) {
-      	 val e = o as LinkExistence
-        //To improve
-        notSelected.add(e.getOptionalLink().getReference())
-      }
-       else if (o instanceof  LinkAssignment ) {
-       	 val e = o as LinkAssignment
-        // Object to modify
-        var obj = e.getLink().getReference()
-        // name of the property
-
-        var nametmp = e.getLink().getMOFRef()
-
-        //        println("name " + name)
-        if (nametmp.contains(":")) nametmp = nametmp.split(":").get(0)
-        val name = nametmp
-        //        println("name " + name)
-        //        println(obj + " "  + obj.eClass())
-        //        obj.eClass().getEAllStructuralFeatures().forEach(st | println(st.getName()))
-        var structs = obj.eClass().getEAllStructuralFeatures().filter[st | st.getName().equals(name)]
-        if (structs.size() > 0) {
-
-          var struct = structs.head
-          //element to Set
-          obj.eSet(struct, e.getNewEnd().getReference())
-        } else {
-          println("cannot execute this element")
-        }
-      }
-       else if (o instanceof  CompositeVariationPoint){
-       	 val e = o as CompositeVariationPoint
-        e.getChildren().forEach(e1 | executeDerivation(e1))
-      }
-       else if (o instanceof OpaqueVariationPoint ) {
-       	 val e = o as OpaqueVariationPoint
-        var binding = new Binding();
-        val _ctx = new ArrayList<EObject>()
-        val args = new HashMap<String, Object>()
-        e.getSourceObject().forEach(obj | { _ctx.add(obj.getReference()) })
-
-        if (e.getBindingChoice().size() > 0) {
-
-          var choice = e.getBindingChoice().get(0)
-          var List<Variable> variables  = this.ctx.choiceParameterC.get(e.getBindingChoice().get(0))
-
-          variables.forEach[ variable |{ 
-          var VariableValueAssignment variableAssignement = null
-          if (variable != null) {
-            variableAssignement = this.ctx.choiceParameter.get(variable)
-          }
-
-          if (variableAssignement != null && variableAssignement.value instanceof PrimitiveValueSpecification) {
-            var Object value = null
-
-            if ((variableAssignement.value as PrimitiveValueSpecification).getType().getName().equals("Integer")) {
-              value = Integer::parseInt((variableAssignement.value as PrimitiveValueSpecification).value.trim())
-            } else if ((variableAssignement.value as PrimitiveValueSpecification).getType().getName().equals("Boolean")) { value = Boolean::parseBoolean((variableAssignement.value as PrimitiveValueSpecification).value) }
-
-            else if ((variableAssignement.value as PrimitiveValueSpecification).getType().getName().equals("Real")) {
-              value = Double::parseDouble((variableAssignement.value as PrimitiveValueSpecification).value)
-
-            } else if ((variableAssignement.value as PrimitiveValueSpecification).getType().getName().equals("String")) {
-              value = (variableAssignement.value as PrimitiveValueSpecification).value
-            } else {
-              value = (variableAssignement.value as PrimitiveValueSpecification).value
-            }
-            args.put(variable.getName(), value)
-          }}]
-        }
-        binding.setVariable("ctx", _ctx);
-        binding.setVariable("args", args);
-
-        binding.setVariable("notSelected", notSelected);
-        var shell = new GroovyShell(binding);
-        shell.evaluate(e.getExpression());
-
-        //binding.getVariable("x").equals(new Integer(123));
-
-      }
-
-
-  }
-
-  def Object evalExpression(EObject o , VPackage root, ChoiceResolutuion parent) {
-
-  }
-
-  def void substituteObject(EObject obj) {
-    if (obj != null) {
-      val List<EStructuralFeature> props  = new ArrayList<EStructuralFeature>()
-     
-      
-      
-      props.addAll(
-        obj.eClass().getEAllReferences().filter[prop |  prop.isContainment() ])
-      props.forEach[prop | 
-        var o = obj.eGet(prop as EStructuralFeature, true)
-        if ((prop as EStructuralFeature).isMany) {
-          var List<? extends  EObject> col = o as List<? extends  EObject>
-          var it1 = 0
-          while (it1 < col.size())
-          {
-            
-            this.substituteObject(col.get(it1) as EObject)
-            it1=it1+1
-          }
-        } else {
-        	if (o instanceof EObject)
-	          substituteObject(o as EObject)
-        }
-        
-      ]
-      
-      props.clear
-      
-      props.addAll(obj.eClass().getEAllStructuralFeatures().filter[prop | !prop.isDerived() && !prop.isTransient()])
-     props.forEach[prop | 
-        val o = obj.eGet(prop as EStructuralFeature, true)
-        if ((prop as EStructuralFeature).isMany) {
-          val  List<EObject> col =  new ArrayList< EObject>()
-          col.addAll(o as List<? extends  EObject>)
-          if (col != null) {
-            val colleToRemove = new ArrayList< EObject>()
-            col.forEach[o1 | 
-              if (ctx.objectSubstitutions.keySet().exists[objtoremove | objtoremove.equals(o1)]) {
-                colleToRemove.add(o1) 
-              }
-            ]
-            
-            colleToRemove.forEach[EObject element |  col.remove(element); col.add(ctx.objectSubstitutions.get(element)) ]
-
-            //else
-            //	stdio.writeln("col est nulle " + o.toString)
-          
-        } else {
-          if (ctx.objectSubstitutions.keySet().exists[objtoremove |  objtoremove.equals(o) ]) {
-            obj.eSet(prop as EStructuralFeature, ctx.objectSubstitutions.get(o))
-          }
-        }
-      
-      }
-      ]
-      
-      }
-}    
+	def void substituteObject(EObject obj) {
+	    if (obj != null) {
+	      val List<EStructuralFeature> props  = new ArrayList<EStructuralFeature>()
+	     
+	      
+	      
+	      props.addAll(
+	        obj.eClass().getEAllReferences().filter[prop |  prop.isContainment() ])
+	      props.forEach[prop | 
+	        var o = obj.eGet(prop as EStructuralFeature, true)
+	        if ((prop as EStructuralFeature).isMany) {
+	          var List<? extends  EObject> col = o as List<? extends  EObject>
+	          var it1 = 0
+	          while (it1 < col.size())
+	          {
+	            
+	            this.substituteObject(col.get(it1) as EObject)
+	            it1=it1+1
+	          }
+	        } else {
+	        	if (o instanceof EObject)
+		          substituteObject(o as EObject)
+	        }
+	        
+	      ]
+	      
+	      props.clear
+	      
+	      props.addAll(obj.eClass().getEAllStructuralFeatures().filter[prop | !prop.isDerived() && !prop.isTransient()])
+	     props.forEach[prop | 
+	        val o = obj.eGet(prop as EStructuralFeature, true)
+	        if ((prop as EStructuralFeature).isMany) {
+	          val  List<EObject> col =  new ArrayList< EObject>()
+	          col.addAll(o as List<? extends  EObject>)
+	          if (col != null) {
+	            val colleToRemove = new ArrayList< EObject>()
+	            col.forEach[o1 | 
+	              if (ctx.objectSubstitutions.keySet().exists[objtoremove | objtoremove.equals(o1)]) {
+	                colleToRemove.add(o1) 
+	              }
+	            ]
+	            
+	            colleToRemove.forEach[EObject element |  col.remove(element); col.add(ctx.objectSubstitutions.get(element)) ]
+	
+	            //else
+	            //	stdio.writeln("col est nulle " + o.toString)
+	          
+	        } else {
+	          if (ctx.objectSubstitutions.keySet().exists[objtoremove |  objtoremove.equals(o) ]) {
+	            obj.eSet(prop as EStructuralFeature, ctx.objectSubstitutions.get(o))
+	          }
+	        }
+	      
+	      }
+	      ]
+	      
+	      }
+	}       
   
 
   def void fixReference(EObject obj)  {

@@ -12,13 +12,17 @@ import org.omg.CVLMetamodelMaster.cvl.Variable
 import org.omg.CVLMetamodelMaster.cvl.VariableValueAssignment
 import org.omg.CVLMetamodelMaster.cvl.VariationPoint
 
+/**
+ * Used as context during the CVL derivation
+ * May be used in a stack for VClassifiers and so
+ */
 public class Context
 {
-  // List of selected choices
+	// List of selected choices
 	@Property
 	List<Choice> selectedChoices = newArrayList
  
-  // List of unselected choices
+	// List of unselected choices
 	@Property
 	List<Choice> unselectedChoices  = newArrayList
 	  
