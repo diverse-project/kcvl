@@ -50,6 +50,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.sirius.business.api.session.Session;
@@ -160,16 +161,13 @@ public class ExecDerivation implements PatternIntegration {
 
 		if (pattern_res != null) {
 			String fileString = URI.decode(pattern_res.getURI().path());
-			System.err.println(fileString);
 			IFile file1 = ResourcesPlugin.getWorkspace().getRoot()
 					.getFile(new Path(fileString));
-			files.add(file1);
-	
-			OpenCatalogOperation operation = new OpenCatalogOperation(files,
-					model_res.getResourceSet()); // <une collection de IFiles ou
-													// d�URIs de tes catalogues>);
-			CorePatternsPlugin.getDefault().getModelEnvironment()
-				.execute(operation);
+			EditingDomain domain = CorePatternsPlugin.getDefault().getModelEnvironment().getEditingDomain(file1);
+			OpenCatalogOperation operation = new OpenCatalogOperation(file1,
+					(TransactionalEditingDomain) domain);
+			System.out.println("openCatalogResult="+CorePatternsPlugin.getDefault().getModelEnvironment()
+				.execute(operation));
 		}
 
 		final Derivator v = new Derivator();
