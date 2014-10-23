@@ -38,6 +38,8 @@ import org.eclipse.emf.diffmerge.patterns.core.api.IPattern;
 import org.eclipse.emf.diffmerge.patterns.core.api.IPatternInstance;
 import org.eclipse.emf.diffmerge.patterns.core.api.IPatternRole;
 import org.eclipse.emf.diffmerge.patterns.core.api.ext.IModelOperation;
+import org.eclipse.emf.diffmerge.patterns.core.api.locations.IElementLocation;
+import org.eclipse.emf.diffmerge.patterns.core.api.locations.ILocation;
 import org.eclipse.emf.diffmerge.patterns.core.util.BasicPatternApplication;
 import org.eclipse.emf.diffmerge.patterns.core.util.locations.BasicCompositeLocation;
 import org.eclipse.emf.diffmerge.patterns.core.util.locations.BasicElementLocation;
@@ -377,17 +379,38 @@ public class ExecDerivation implements PatternIntegration {
 			// loc.getOwnedLocations().add(new BasicElementLocation(element_p))
 
 		}
-
-		for (IPatternRole ob1 : rolestointegrate) {
-			applicationSpec.addLocation(
-					ob1,
-					new BasicElementLocation(ob.eContainer()));
-					/*new BasicReferenceLocation(ob.eContainer(), ob
-							.eContainmentFeature()));*/
+		for (IPatternRole rr : rolestointegrate) {
+			if (applicationSpec.getLocation(rr) == null) {
+				TemplatePatternRole role = (TemplatePatternRole) rr;
+				System.out.println(role + " is unbinded, trying to guess");
+				
+				if (role.isDerivable(true)) {
+					List<EObject> evalResult = role.getMergeDerivationRule().deriveCandidateElements(applicationSpec);
+					for (EObject o : evalResult) {
+						System.out.println("Found match "+o);
+					}
+					
+					if (evalResult.size() != 1) {
+						System.out.println("Don't know how to manage evalResult.size != 1");
+						return false;
+					} else {
+						EObject match = evalResult.get(0);
+						IElementLocation newLocation = new BasicElementLocation(match);
+						applicationSpec.setLocation(role, newLocation);
+					}
+				}
+//				else {
+//					applicationSpec.addLocation(
+//						rr,
+//						new BasicElementLocation(ob.eContainer()));
+//						/*new BasicReferenceLocation(ob.eContainer(), ob
+//								.eContainmentFeature()));*/
+//				}
+			}
 		}
 
 		boolean res = applicationSpec.isComplete();
-
+		
 		/*final IModelOperation<IPatternInstance> patternApplicationOperation = new ApplyTemplatePatternOperation(
 				applicationSpec, true, "$name$", 1, 1,null,null);*/
 		final IModelOperation<IPatternInstance> patternApplicationOperation = new ApplyTemplatePatternOperation(
