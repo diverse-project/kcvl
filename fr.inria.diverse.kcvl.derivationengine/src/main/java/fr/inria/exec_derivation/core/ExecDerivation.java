@@ -173,7 +173,7 @@ public class ExecDerivation implements PatternIntegration {
 		}
 
 		final Derivator v = new Derivator();
-		v.setPatternintegration(this);
+		v.setPatternIntegration(this);
 
 		IExtensionRegistry extensionRegistry = Platform.getExtensionRegistry();
 
