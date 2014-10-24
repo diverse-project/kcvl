@@ -5792,7 +5792,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cBindingClassifierVClassifierCrossReference_9_1_0 = (CrossReference)cBindingClassifierAssignment_9_1.eContents().get(0);
 		private final RuleCall cBindingClassifierVClassifierIDTerminalRuleCall_9_1_0_1 = (RuleCall)cBindingClassifierVClassifierCrossReference_9_1_0.eContents().get(1);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
-		private final Keyword cSubstitutesKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Keyword cBindingsKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
 		private final Assignment cSubstitutesAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
 		private final CrossReference cSubstitutesObjectSubstitutionCrossReference_10_1_0 = (CrossReference)cSubstitutesAssignment_10_1.eContents().get(0);
 		private final RuleCall cSubstitutesObjectSubstitutionIDTerminalRuleCall_10_1_0_1 = (RuleCall)cSubstitutesObjectSubstitutionCrossReference_10_1_0.eContents().get(1);
@@ -5807,14 +5807,14 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		//	"PatternFusion" name=ID multi?="[*]"? "{" ("mapping" mappingExpression=STRING)? ("expression" expression=STRING)?
 		//	("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
 		//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("choice"
-		//	bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? ("classifier" bindingClassifier=[VClassifier])?
-		//	("substitutes" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}";
+		//	bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? ("classifier" bindingClassifier=[VClassifier])? ("bindings"
+		//	substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}";
 		public ParserRule getRule() { return rule; }
 
 		//"PatternFusion" name=ID multi?="[*]"? "{" ("mapping" mappingExpression=STRING)? ("expression" expression=STRING)?
 		//("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
 		//precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("choice"
-		//bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? ("classifier" bindingClassifier=[VClassifier])? ("substitutes"
+		//bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? ("classifier" bindingClassifier=[VClassifier])? ("bindings"
 		//substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}"
 		public Group getGroup() { return cGroup; }
 
@@ -5965,11 +5965,11 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getBindingClassifierVClassifierIDTerminalRuleCall_9_1_0_1() { return cBindingClassifierVClassifierIDTerminalRuleCall_9_1_0_1; }
 
-		//("substitutes" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)?
+		//("bindings" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)?
 		public Group getGroup_10() { return cGroup_10; }
 
-		//"substitutes"
-		public Keyword getSubstitutesKeyword_10_0() { return cSubstitutesKeyword_10_0; }
+		//"bindings"
+		public Keyword getBindingsKeyword_10_0() { return cBindingsKeyword_10_0; }
 
 		//substitutes+=[ObjectSubstitution]
 		public Assignment getSubstitutesAssignment_10_1() { return cSubstitutesAssignment_10_1; }
@@ -8587,8 +8587,8 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	//	"PatternFusion" name=ID multi?="[*]"? "{" ("mapping" mappingExpression=STRING)? ("expression" expression=STRING)?
 	//	("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
 	//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("choice"
-	//	bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? ("classifier" bindingClassifier=[VClassifier])?
-	//	("substitutes" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}";
+	//	bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? ("classifier" bindingClassifier=[VClassifier])? ("bindings"
+	//	substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}";
 	public PatternFusionElements getPatternFusionAccess() {
 		return (pPatternFusion != null) ? pPatternFusion : (pPatternFusion = new PatternFusionElements());
 	}

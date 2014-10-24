@@ -513,7 +513,7 @@ PatternFusion returns PatternFusion:
 		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
 		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 		('classifier' bindingClassifier = [VClassifier])?
-		('substitutes' substitutes += [ObjectSubstitution] (',' substitutes += [ObjectSubstitution])*)?
+		('bindings' substitutes += [ObjectSubstitution] (',' substitutes += [ObjectSubstitution])*)?
 	'}'
 ;
 

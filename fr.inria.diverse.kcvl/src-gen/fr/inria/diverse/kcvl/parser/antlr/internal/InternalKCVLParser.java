@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_HEX", "RULE_DECIMAL", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'VP'", "'{'", "'}'", "'Choice'", "'default'", "'implied'", "'resolutionTime'", "'derivation'", "'VSpecDerivation'", "'for'", "'VClassifier'", "'instanceMultiplicity'", "'ChoiceResolution'", "'='", "'resolution'", "'VInstance'", "'resolvedVSpec'", "'type'", "'FragmentSubstitution'", "'[*]'", "'mapping'", "'expression'", "'bindingVspec'", "','", "'precedence'", "'bindingChoice'", "'bindingClassifier'", "'placement'", "'replacement'", "'boundaryElementBindings'", "'PlacementFragment'", "'precedenceConstraint'", "'('", "'placementBoundaryElements'", "'ReplacementFragmentType'", "'replacementBoundaryElements'", "'placementFragments'", "'ObjectSubstitution'", "'RoleBinding'", "'role'", "'target'", "'Variable'", "':'", "'replacementFragmentTypesubsetstype'", "'groupMultiplicity'", "'ownedVSpecDerivation'", "'defaultValue'", "'VariableValueAssignment'", "'resolvedVariable'", "'value'", "'PrimitiveType'", "'ObjectType'", "'metaClass'", "'Constraint'", "'context'", "'SlotAssignment'", "'slotIdentifier'", "'SlotOwner'", "'ObjectExistence'", "'exist'", "'choice'", "'LinkAssignment'", "'link'", "'linkEndIdentifier'", "'newEnd'", "'ConfigurableUnit'", "'bindingCVSpec'", "'unitInterface'", "'children'", "'ownedVSpec'", "'ownedVariationPoint'", "'ownedConstraint'", "'ownedVSpecResolution'", "'configurableContainerObject'", "'CompositeVariationPoint'", "'CVSpec'", "'extension'", "'child'", "'isPartial'", "'VConfiguration'", "'super'", "'resolvedVIRef'", "'member'", "'OpaqueConstraint'", "'constraint'", "'constraintLanguage'", "'LinkExistence'", "'OpaqueVariationPoint'", "'placeHolder'", "'sourceObject'", "'SlotValueExistence'", "'slotOwner'", "'ParametricLinkAssignment'", "'bindingVariable'", "'ParametricObjectSubstitution'", "'placementObject'", "'ParametricSlotAssignmet'", "'ChoiceDerivation'", "'derivedVSpec'", "'derivingConstraint'", "'VariableDerivation'", "'derivingExpression'", "'CVSpecDerivation'", "'memberDerivation'", "'ConfigurableUnitUsage'", "'usedUnit'", "'usageReference'", "'OCLConstraint'", "'PatternIntegration'", "'classifier'", "'substitutes'", "'PatternFusion'", "'StructuralOrganisationalPattern'", "'['", "'..'", "']'", "'true'", "'false'", "'ToBinding'", "'toPlacement'", "'toReplacement'", "'FromBinding'", "'fromPlacement'", "'fromReplacement'", "'ToPlacement'", "'propertyName'", "'insideBoundaryElement'", "'outsideBoundaryElement'", "'ToReplacement'", "'mofRef'", "'reference'", "')'", "'FromPlacement'", "'FromReplacement'", "'ObjectSpecification'", "'object'", "'ReplacementFragmentSpecification'", "'PrimitiveValueSpecification'", "'OCLExpression'", "'bool'", "'BooleanLiteralExp'", "'StringLiteralExp'", "'string'", "'NumericLiteralExp'", "'IntegerLiteralExp'", "'integer'", "'UnlimitedLiteralExp'", "'unlimited'", "'RealLiteralExp'", "'real'", "'-'", "'.'", "'E'", "'e'", "'linkMofRef'", "'OVPSemanticSpec'", "'modelTransformation'", "'transfromationLanguage'", "'+='", "'||'", "'&&'", "'=='", "'!='", "'instanceof'", "'>='", "'<='", "'>'", "'<'", "'->'", "'=>'", "'<>'", "'?:'", "'<=>'", "'+'", "'*'", "'**'", "'/'", "'%'", "'!'", "'as'", "'?.'", "'*.'", "'|'", "';'", "'if'", "'else'", "'switch'", "'case'", "'while'", "'do'", "'var'", "'val'", "'::'", "'new'", "'null'", "'typeof'", "'throw'", "'return'", "'try'", "'finally'", "'catch'", "'?'", "'extends'", "'&'", "'not'", "'and'", "'or'", "'implies'", "'xor'", "'iff'", "'plus'", "'minus'", "'neg'", "'mult'", "'dev'", "'strConc'", "'eq'", "'lte'", "'gte'", "'lt'", "'gt'", "'isDefined'", "'isUndefined'", "'String'", "'Boolean'", "'Integer'", "'Real'", "'UnlimitedNatural'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_HEX", "RULE_DECIMAL", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'VP'", "'{'", "'}'", "'Choice'", "'default'", "'implied'", "'resolutionTime'", "'derivation'", "'VSpecDerivation'", "'for'", "'VClassifier'", "'instanceMultiplicity'", "'ChoiceResolution'", "'='", "'resolution'", "'VInstance'", "'resolvedVSpec'", "'type'", "'FragmentSubstitution'", "'[*]'", "'mapping'", "'expression'", "'bindingVspec'", "','", "'precedence'", "'bindingChoice'", "'bindingClassifier'", "'placement'", "'replacement'", "'boundaryElementBindings'", "'PlacementFragment'", "'precedenceConstraint'", "'('", "'placementBoundaryElements'", "'ReplacementFragmentType'", "'replacementBoundaryElements'", "'placementFragments'", "'ObjectSubstitution'", "'RoleBinding'", "'role'", "'target'", "'Variable'", "':'", "'replacementFragmentTypesubsetstype'", "'groupMultiplicity'", "'ownedVSpecDerivation'", "'defaultValue'", "'VariableValueAssignment'", "'resolvedVariable'", "'value'", "'PrimitiveType'", "'ObjectType'", "'metaClass'", "'Constraint'", "'context'", "'SlotAssignment'", "'slotIdentifier'", "'SlotOwner'", "'ObjectExistence'", "'exist'", "'choice'", "'LinkAssignment'", "'link'", "'linkEndIdentifier'", "'newEnd'", "'ConfigurableUnit'", "'bindingCVSpec'", "'unitInterface'", "'children'", "'ownedVSpec'", "'ownedVariationPoint'", "'ownedConstraint'", "'ownedVSpecResolution'", "'configurableContainerObject'", "'CompositeVariationPoint'", "'CVSpec'", "'extension'", "'child'", "'isPartial'", "'VConfiguration'", "'super'", "'resolvedVIRef'", "'member'", "'OpaqueConstraint'", "'constraint'", "'constraintLanguage'", "'LinkExistence'", "'OpaqueVariationPoint'", "'placeHolder'", "'sourceObject'", "'SlotValueExistence'", "'slotOwner'", "'ParametricLinkAssignment'", "'bindingVariable'", "'ParametricObjectSubstitution'", "'placementObject'", "'ParametricSlotAssignmet'", "'ChoiceDerivation'", "'derivedVSpec'", "'derivingConstraint'", "'VariableDerivation'", "'derivingExpression'", "'CVSpecDerivation'", "'memberDerivation'", "'ConfigurableUnitUsage'", "'usedUnit'", "'usageReference'", "'OCLConstraint'", "'PatternIntegration'", "'classifier'", "'substitutes'", "'PatternFusion'", "'bindings'", "'StructuralOrganisationalPattern'", "'['", "'..'", "']'", "'true'", "'false'", "'ToBinding'", "'toPlacement'", "'toReplacement'", "'FromBinding'", "'fromPlacement'", "'fromReplacement'", "'ToPlacement'", "'propertyName'", "'insideBoundaryElement'", "'outsideBoundaryElement'", "'ToReplacement'", "'mofRef'", "'reference'", "')'", "'FromPlacement'", "'FromReplacement'", "'ObjectSpecification'", "'object'", "'ReplacementFragmentSpecification'", "'PrimitiveValueSpecification'", "'OCLExpression'", "'bool'", "'BooleanLiteralExp'", "'StringLiteralExp'", "'string'", "'NumericLiteralExp'", "'IntegerLiteralExp'", "'integer'", "'UnlimitedLiteralExp'", "'unlimited'", "'RealLiteralExp'", "'real'", "'-'", "'.'", "'E'", "'e'", "'linkMofRef'", "'OVPSemanticSpec'", "'modelTransformation'", "'transfromationLanguage'", "'+='", "'||'", "'&&'", "'=='", "'!='", "'instanceof'", "'>='", "'<='", "'>'", "'<'", "'->'", "'=>'", "'<>'", "'?:'", "'<=>'", "'+'", "'*'", "'**'", "'/'", "'%'", "'!'", "'as'", "'?.'", "'*.'", "'|'", "';'", "'if'", "'else'", "'switch'", "'case'", "'while'", "'do'", "'var'", "'val'", "'::'", "'new'", "'null'", "'typeof'", "'throw'", "'return'", "'try'", "'finally'", "'catch'", "'?'", "'extends'", "'&'", "'not'", "'and'", "'or'", "'implies'", "'xor'", "'iff'", "'plus'", "'minus'", "'neg'", "'mult'", "'dev'", "'strConc'", "'eq'", "'lte'", "'gte'", "'lt'", "'gt'", "'isDefined'", "'isUndefined'", "'String'", "'Boolean'", "'Integer'", "'Real'", "'UnlimitedNatural'"
     };
     public static final int T__144=144;
     public static final int T__143=143;
@@ -159,6 +159,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final int T__124=124;
     public static final int T__123=123;
     public static final int T__120=120;
+    public static final int T__241=241;
     public static final int T__240=240;
     public static final int RULE_SL_COMMENT=10;
     public static final int T__119=119;
@@ -411,7 +412,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==13||LA1_0==16||LA1_0==23||LA1_0==25||(LA1_0>=27 && LA1_0<=28)||LA1_0==31||LA1_0==43||LA1_0==47||(LA1_0>=50 && LA1_0<=51)||LA1_0==54||LA1_0==60||(LA1_0>=63 && LA1_0<=64)||LA1_0==66||LA1_0==68||LA1_0==71||LA1_0==74||LA1_0==78||(LA1_0>=87 && LA1_0<=88)||LA1_0==91||LA1_0==96||(LA1_0>=99 && LA1_0<=100)||LA1_0==103||LA1_0==105||LA1_0==107||LA1_0==109||LA1_0==117||(LA1_0>=120 && LA1_0<=121)||(LA1_0>=124 && LA1_0<=125)) ) {
+                if ( (LA1_0==13||LA1_0==16||LA1_0==23||LA1_0==25||(LA1_0>=27 && LA1_0<=28)||LA1_0==31||LA1_0==43||LA1_0==47||(LA1_0>=50 && LA1_0<=51)||LA1_0==54||LA1_0==60||(LA1_0>=63 && LA1_0<=64)||LA1_0==66||LA1_0==68||LA1_0==71||LA1_0==74||LA1_0==78||(LA1_0>=87 && LA1_0<=88)||LA1_0==91||LA1_0==96||(LA1_0>=99 && LA1_0<=100)||LA1_0==103||LA1_0==105||LA1_0==107||LA1_0==109||LA1_0==117||(LA1_0>=120 && LA1_0<=121)||LA1_0==124||LA1_0==126) ) {
                     alt1=1;
                 }
 
@@ -584,7 +585,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             case 117:
             case 121:
             case 124:
-            case 125:
+            case 126:
                 {
                 alt2=3;
                 }
@@ -1559,7 +1560,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 alt6=17;
                 }
                 break;
-            case 125:
+            case 126:
                 {
                 alt6=18;
                 }
@@ -2051,10 +2052,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt7=2;
             int LA7_0 = input.LA(1);
 
-            if ( (LA7_0==131) ) {
+            if ( (LA7_0==132) ) {
                 alt7=1;
             }
-            else if ( (LA7_0==134) ) {
+            else if ( (LA7_0==135) ) {
                 alt7=2;
             }
             else {
@@ -2191,10 +2192,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==137) ) {
+            if ( (LA8_0==138) ) {
                 alt8=1;
             }
-            else if ( (LA8_0==145) ) {
+            else if ( (LA8_0==146) ) {
                 alt8=2;
             }
             else {
@@ -2331,10 +2332,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==141) ) {
+            if ( (LA9_0==142) ) {
                 alt9=1;
             }
-            else if ( (LA9_0==146) ) {
+            else if ( (LA9_0==147) ) {
                 alt9=2;
             }
             else {
@@ -2472,18 +2473,18 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:730:1: (this_ObjectSpecification_0= ruleObjectSpecification | this_ReplacementFragmentSpecification_1= ruleReplacementFragmentSpecification | this_PrimitiveValueSpecification_2= rulePrimitiveValueSpecification )
             int alt10=3;
             switch ( input.LA(1) ) {
-            case 147:
+            case 148:
                 {
                 alt10=1;
                 }
                 break;
-            case 149:
+            case 150:
                 {
                 alt10=2;
                 }
                 break;
             case RULE_STRING:
-            case 150:
+            case 151:
                 {
                 alt10=3;
                 }
@@ -2997,10 +2998,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             else if ( (LA13_0==45) ) {
                 int LA13_2 = input.LA(2);
 
-                if ( (LA13_2==167) ) {
+                if ( (LA13_2==168) ) {
                     alt13=2;
                 }
-                else if ( (LA13_2==142) ) {
+                else if ( (LA13_2==143) ) {
                     alt13=1;
                 }
                 else {
@@ -3158,7 +3159,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:920:1: (this_OCLExpression_Impl_0= ruleOCLExpression_Impl | this_VSpecRef_1= ruleVSpecRef | this_OperationCallExp_2= ruleOperationCallExp | this_BooleanLiteralExp_3= ruleBooleanLiteralExp | this_StringLiteralExp_4= ruleStringLiteralExp | this_NumericLiteralExp_Impl_5= ruleNumericLiteralExp_Impl | this_IntegerLiteralExp_6= ruleIntegerLiteralExp | this_UnlimitedLiteralExp_7= ruleUnlimitedLiteralExp | this_RealLiteralExp_8= ruleRealLiteralExp )
             int alt14=9;
             switch ( input.LA(1) ) {
-            case 151:
+            case 152:
                 {
                 alt14=1;
                 }
@@ -3168,7 +3169,6 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 alt14=2;
                 }
                 break;
-            case 217:
             case 218:
             case 219:
             case 220:
@@ -3187,36 +3187,37 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             case 233:
             case 234:
             case 235:
+            case 236:
                 {
                 alt14=3;
                 }
                 break;
-            case 152:
+            case 153:
                 {
                 alt14=4;
                 }
                 break;
-            case 154:
+            case 155:
                 {
                 alt14=5;
                 }
                 break;
-            case 156:
+            case 157:
                 {
                 alt14=6;
                 }
                 break;
-            case 157:
+            case 158:
                 {
                 alt14=7;
                 }
                 break;
-            case 159:
+            case 160:
                 {
                 alt14=8;
                 }
                 break;
-            case 161:
+            case 162:
                 {
                 alt14=9;
                 }
@@ -3562,7 +3563,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt15=2;
             int LA15_0 = input.LA(1);
 
-            if ( (LA15_0==126) ) {
+            if ( (LA15_0==127) ) {
                 alt15=1;
             }
             switch (alt15) {
@@ -4206,7 +4207,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt23=2;
             int LA23_0 = input.LA(1);
 
-            if ( (LA23_0==126) ) {
+            if ( (LA23_0==127) ) {
                 alt23=1;
             }
             switch (alt23) {
@@ -6155,7 +6156,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                         int alt42=2;
                         int LA42_0 = input.LA(1);
 
-                        if ( (LA42_0==131||LA42_0==134) ) {
+                        if ( (LA42_0==132||LA42_0==135) ) {
                             alt42=1;
                         }
 
@@ -6598,7 +6599,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                         int alt48=2;
                         int LA48_0 = input.LA(1);
 
-                        if ( (LA48_0==137||LA48_0==145) ) {
+                        if ( (LA48_0==138||LA48_0==146) ) {
                             alt48=1;
                         }
 
@@ -6825,7 +6826,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                         int alt50=2;
                         int LA50_0 = input.LA(1);
 
-                        if ( (LA50_0==141||LA50_0==146) ) {
+                        if ( (LA50_0==142||LA50_0==147) ) {
                             alt50=1;
                         }
 
@@ -12605,7 +12606,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                         int alt107=2;
                         int LA107_0 = input.LA(1);
 
-                        if ( (LA107_0==31||LA107_0==43||(LA107_0>=50 && LA107_0<=51)||LA107_0==68||LA107_0==71||LA107_0==74||LA107_0==78||LA107_0==87||(LA107_0>=99 && LA107_0<=100)||LA107_0==103||LA107_0==105||LA107_0==107||LA107_0==109||LA107_0==117||LA107_0==121||(LA107_0>=124 && LA107_0<=125)) ) {
+                        if ( (LA107_0==31||LA107_0==43||(LA107_0>=50 && LA107_0<=51)||LA107_0==68||LA107_0==71||LA107_0==74||LA107_0==78||LA107_0==87||(LA107_0>=99 && LA107_0<=100)||LA107_0==103||LA107_0==105||LA107_0==107||LA107_0==109||LA107_0==117||LA107_0==121||LA107_0==124||LA107_0==126) ) {
                             alt107=1;
                         }
 
@@ -12781,7 +12782,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                         int alt111=2;
                         int LA111_0 = input.LA(1);
 
-                        if ( (LA111_0==31||LA111_0==43||(LA111_0>=50 && LA111_0<=51)||LA111_0==68||LA111_0==71||LA111_0==74||LA111_0==78||LA111_0==87||(LA111_0>=99 && LA111_0<=100)||LA111_0==103||LA111_0==105||LA111_0==107||LA111_0==109||LA111_0==117||LA111_0==121||(LA111_0>=124 && LA111_0<=125)) ) {
+                        if ( (LA111_0==31||LA111_0==43||(LA111_0>=50 && LA111_0<=51)||LA111_0==68||LA111_0==71||LA111_0==74||LA111_0==78||LA111_0==87||(LA111_0>=99 && LA111_0<=100)||LA111_0==103||LA111_0==105||LA111_0==107||LA111_0==109||LA111_0==117||LA111_0==121||LA111_0==124||LA111_0==126) ) {
                             alt111=1;
                         }
 
@@ -13467,7 +13468,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                         int alt121=2;
                         int LA121_0 = input.LA(1);
 
-                        if ( (LA121_0==31||LA121_0==43||(LA121_0>=50 && LA121_0<=51)||LA121_0==68||LA121_0==71||LA121_0==74||LA121_0==78||LA121_0==87||(LA121_0>=99 && LA121_0<=100)||LA121_0==103||LA121_0==105||LA121_0==107||LA121_0==109||LA121_0==117||LA121_0==121||(LA121_0>=124 && LA121_0<=125)) ) {
+                        if ( (LA121_0==31||LA121_0==43||(LA121_0>=50 && LA121_0<=51)||LA121_0==68||LA121_0==71||LA121_0==74||LA121_0==78||LA121_0==87||(LA121_0>=99 && LA121_0<=100)||LA121_0==103||LA121_0==105||LA121_0==107||LA121_0==109||LA121_0==117||LA121_0==121||LA121_0==124||LA121_0==126) ) {
                             alt121=1;
                         }
 
@@ -19121,7 +19122,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 int alt175=2;
                 int LA175_0 = input.LA(1);
 
-                if ( (LA175_0==31||LA175_0==43||(LA175_0>=50 && LA175_0<=51)||LA175_0==68||LA175_0==71||LA175_0==74||LA175_0==78||LA175_0==87||(LA175_0>=99 && LA175_0<=100)||LA175_0==103||LA175_0==105||LA175_0==107||LA175_0==109||LA175_0==117||LA175_0==121||(LA175_0>=124 && LA175_0<=125)) ) {
+                if ( (LA175_0==31||LA175_0==43||(LA175_0>=50 && LA175_0<=51)||LA175_0==68||LA175_0==71||LA175_0==74||LA175_0==78||LA175_0==87||(LA175_0>=99 && LA175_0<=100)||LA175_0==103||LA175_0==105||LA175_0==107||LA175_0==109||LA175_0==117||LA175_0==121||LA175_0==124||LA175_0==126) ) {
                     alt175=1;
                 }
 
@@ -20231,7 +20232,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePatternFusion"
-    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7299:1: rulePatternFusion returns [EObject current=null] : (otherlv_0= 'PatternFusion' ( (lv_name_1_0= RULE_ID ) ) ( (lv_multi_2_0= '[*]' ) )? otherlv_3= '{' (otherlv_4= 'mapping' ( (lv_mappingExpression_5_0= RULE_STRING ) ) )? (otherlv_6= 'expression' ( (lv_expression_7_0= RULE_STRING ) ) )? (otherlv_8= 'bindingVspec' ( (otherlv_9= RULE_ID ) ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* )? (otherlv_12= 'precedence' ( (otherlv_13= RULE_ID ) ) (otherlv_14= ',' ( (otherlv_15= RULE_ID ) ) )* )? (otherlv_16= 'choice' ( (otherlv_17= RULE_ID ) ) (otherlv_18= ',' ( (otherlv_19= RULE_ID ) ) )* )? (otherlv_20= 'classifier' ( (otherlv_21= RULE_ID ) ) )? (otherlv_22= 'substitutes' ( (otherlv_23= RULE_ID ) ) (otherlv_24= ',' ( (otherlv_25= RULE_ID ) ) )* )? otherlv_26= '}' ) ;
+    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7299:1: rulePatternFusion returns [EObject current=null] : (otherlv_0= 'PatternFusion' ( (lv_name_1_0= RULE_ID ) ) ( (lv_multi_2_0= '[*]' ) )? otherlv_3= '{' (otherlv_4= 'mapping' ( (lv_mappingExpression_5_0= RULE_STRING ) ) )? (otherlv_6= 'expression' ( (lv_expression_7_0= RULE_STRING ) ) )? (otherlv_8= 'bindingVspec' ( (otherlv_9= RULE_ID ) ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* )? (otherlv_12= 'precedence' ( (otherlv_13= RULE_ID ) ) (otherlv_14= ',' ( (otherlv_15= RULE_ID ) ) )* )? (otherlv_16= 'choice' ( (otherlv_17= RULE_ID ) ) (otherlv_18= ',' ( (otherlv_19= RULE_ID ) ) )* )? (otherlv_20= 'classifier' ( (otherlv_21= RULE_ID ) ) )? (otherlv_22= 'bindings' ( (otherlv_23= RULE_ID ) ) (otherlv_24= ',' ( (otherlv_25= RULE_ID ) ) )* )? otherlv_26= '}' ) ;
     public final EObject rulePatternFusion() throws RecognitionException {
         EObject current = null;
 
@@ -20266,11 +20267,11 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7302:28: ( (otherlv_0= 'PatternFusion' ( (lv_name_1_0= RULE_ID ) ) ( (lv_multi_2_0= '[*]' ) )? otherlv_3= '{' (otherlv_4= 'mapping' ( (lv_mappingExpression_5_0= RULE_STRING ) ) )? (otherlv_6= 'expression' ( (lv_expression_7_0= RULE_STRING ) ) )? (otherlv_8= 'bindingVspec' ( (otherlv_9= RULE_ID ) ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* )? (otherlv_12= 'precedence' ( (otherlv_13= RULE_ID ) ) (otherlv_14= ',' ( (otherlv_15= RULE_ID ) ) )* )? (otherlv_16= 'choice' ( (otherlv_17= RULE_ID ) ) (otherlv_18= ',' ( (otherlv_19= RULE_ID ) ) )* )? (otherlv_20= 'classifier' ( (otherlv_21= RULE_ID ) ) )? (otherlv_22= 'substitutes' ( (otherlv_23= RULE_ID ) ) (otherlv_24= ',' ( (otherlv_25= RULE_ID ) ) )* )? otherlv_26= '}' ) )
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7303:1: (otherlv_0= 'PatternFusion' ( (lv_name_1_0= RULE_ID ) ) ( (lv_multi_2_0= '[*]' ) )? otherlv_3= '{' (otherlv_4= 'mapping' ( (lv_mappingExpression_5_0= RULE_STRING ) ) )? (otherlv_6= 'expression' ( (lv_expression_7_0= RULE_STRING ) ) )? (otherlv_8= 'bindingVspec' ( (otherlv_9= RULE_ID ) ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* )? (otherlv_12= 'precedence' ( (otherlv_13= RULE_ID ) ) (otherlv_14= ',' ( (otherlv_15= RULE_ID ) ) )* )? (otherlv_16= 'choice' ( (otherlv_17= RULE_ID ) ) (otherlv_18= ',' ( (otherlv_19= RULE_ID ) ) )* )? (otherlv_20= 'classifier' ( (otherlv_21= RULE_ID ) ) )? (otherlv_22= 'substitutes' ( (otherlv_23= RULE_ID ) ) (otherlv_24= ',' ( (otherlv_25= RULE_ID ) ) )* )? otherlv_26= '}' )
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7302:28: ( (otherlv_0= 'PatternFusion' ( (lv_name_1_0= RULE_ID ) ) ( (lv_multi_2_0= '[*]' ) )? otherlv_3= '{' (otherlv_4= 'mapping' ( (lv_mappingExpression_5_0= RULE_STRING ) ) )? (otherlv_6= 'expression' ( (lv_expression_7_0= RULE_STRING ) ) )? (otherlv_8= 'bindingVspec' ( (otherlv_9= RULE_ID ) ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* )? (otherlv_12= 'precedence' ( (otherlv_13= RULE_ID ) ) (otherlv_14= ',' ( (otherlv_15= RULE_ID ) ) )* )? (otherlv_16= 'choice' ( (otherlv_17= RULE_ID ) ) (otherlv_18= ',' ( (otherlv_19= RULE_ID ) ) )* )? (otherlv_20= 'classifier' ( (otherlv_21= RULE_ID ) ) )? (otherlv_22= 'bindings' ( (otherlv_23= RULE_ID ) ) (otherlv_24= ',' ( (otherlv_25= RULE_ID ) ) )* )? otherlv_26= '}' ) )
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7303:1: (otherlv_0= 'PatternFusion' ( (lv_name_1_0= RULE_ID ) ) ( (lv_multi_2_0= '[*]' ) )? otherlv_3= '{' (otherlv_4= 'mapping' ( (lv_mappingExpression_5_0= RULE_STRING ) ) )? (otherlv_6= 'expression' ( (lv_expression_7_0= RULE_STRING ) ) )? (otherlv_8= 'bindingVspec' ( (otherlv_9= RULE_ID ) ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* )? (otherlv_12= 'precedence' ( (otherlv_13= RULE_ID ) ) (otherlv_14= ',' ( (otherlv_15= RULE_ID ) ) )* )? (otherlv_16= 'choice' ( (otherlv_17= RULE_ID ) ) (otherlv_18= ',' ( (otherlv_19= RULE_ID ) ) )* )? (otherlv_20= 'classifier' ( (otherlv_21= RULE_ID ) ) )? (otherlv_22= 'bindings' ( (otherlv_23= RULE_ID ) ) (otherlv_24= ',' ( (otherlv_25= RULE_ID ) ) )* )? otherlv_26= '}' )
             {
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7303:1: (otherlv_0= 'PatternFusion' ( (lv_name_1_0= RULE_ID ) ) ( (lv_multi_2_0= '[*]' ) )? otherlv_3= '{' (otherlv_4= 'mapping' ( (lv_mappingExpression_5_0= RULE_STRING ) ) )? (otherlv_6= 'expression' ( (lv_expression_7_0= RULE_STRING ) ) )? (otherlv_8= 'bindingVspec' ( (otherlv_9= RULE_ID ) ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* )? (otherlv_12= 'precedence' ( (otherlv_13= RULE_ID ) ) (otherlv_14= ',' ( (otherlv_15= RULE_ID ) ) )* )? (otherlv_16= 'choice' ( (otherlv_17= RULE_ID ) ) (otherlv_18= ',' ( (otherlv_19= RULE_ID ) ) )* )? (otherlv_20= 'classifier' ( (otherlv_21= RULE_ID ) ) )? (otherlv_22= 'substitutes' ( (otherlv_23= RULE_ID ) ) (otherlv_24= ',' ( (otherlv_25= RULE_ID ) ) )* )? otherlv_26= '}' )
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7303:3: otherlv_0= 'PatternFusion' ( (lv_name_1_0= RULE_ID ) ) ( (lv_multi_2_0= '[*]' ) )? otherlv_3= '{' (otherlv_4= 'mapping' ( (lv_mappingExpression_5_0= RULE_STRING ) ) )? (otherlv_6= 'expression' ( (lv_expression_7_0= RULE_STRING ) ) )? (otherlv_8= 'bindingVspec' ( (otherlv_9= RULE_ID ) ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* )? (otherlv_12= 'precedence' ( (otherlv_13= RULE_ID ) ) (otherlv_14= ',' ( (otherlv_15= RULE_ID ) ) )* )? (otherlv_16= 'choice' ( (otherlv_17= RULE_ID ) ) (otherlv_18= ',' ( (otherlv_19= RULE_ID ) ) )* )? (otherlv_20= 'classifier' ( (otherlv_21= RULE_ID ) ) )? (otherlv_22= 'substitutes' ( (otherlv_23= RULE_ID ) ) (otherlv_24= ',' ( (otherlv_25= RULE_ID ) ) )* )? otherlv_26= '}'
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7303:1: (otherlv_0= 'PatternFusion' ( (lv_name_1_0= RULE_ID ) ) ( (lv_multi_2_0= '[*]' ) )? otherlv_3= '{' (otherlv_4= 'mapping' ( (lv_mappingExpression_5_0= RULE_STRING ) ) )? (otherlv_6= 'expression' ( (lv_expression_7_0= RULE_STRING ) ) )? (otherlv_8= 'bindingVspec' ( (otherlv_9= RULE_ID ) ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* )? (otherlv_12= 'precedence' ( (otherlv_13= RULE_ID ) ) (otherlv_14= ',' ( (otherlv_15= RULE_ID ) ) )* )? (otherlv_16= 'choice' ( (otherlv_17= RULE_ID ) ) (otherlv_18= ',' ( (otherlv_19= RULE_ID ) ) )* )? (otherlv_20= 'classifier' ( (otherlv_21= RULE_ID ) ) )? (otherlv_22= 'bindings' ( (otherlv_23= RULE_ID ) ) (otherlv_24= ',' ( (otherlv_25= RULE_ID ) ) )* )? otherlv_26= '}' )
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7303:3: otherlv_0= 'PatternFusion' ( (lv_name_1_0= RULE_ID ) ) ( (lv_multi_2_0= '[*]' ) )? otherlv_3= '{' (otherlv_4= 'mapping' ( (lv_mappingExpression_5_0= RULE_STRING ) ) )? (otherlv_6= 'expression' ( (lv_expression_7_0= RULE_STRING ) ) )? (otherlv_8= 'bindingVspec' ( (otherlv_9= RULE_ID ) ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* )? (otherlv_12= 'precedence' ( (otherlv_13= RULE_ID ) ) (otherlv_14= ',' ( (otherlv_15= RULE_ID ) ) )* )? (otherlv_16= 'choice' ( (otherlv_17= RULE_ID ) ) (otherlv_18= ',' ( (otherlv_19= RULE_ID ) ) )* )? (otherlv_20= 'classifier' ( (otherlv_21= RULE_ID ) ) )? (otherlv_22= 'bindings' ( (otherlv_23= RULE_ID ) ) (otherlv_24= ',' ( (otherlv_25= RULE_ID ) ) )* )? otherlv_26= '}'
             {
             otherlv_0=(Token)match(input,124,FOLLOW_124_in_rulePatternFusion15790); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -20814,21 +20815,21 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7507:4: (otherlv_22= 'substitutes' ( (otherlv_23= RULE_ID ) ) (otherlv_24= ',' ( (otherlv_25= RULE_ID ) ) )* )?
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7507:4: (otherlv_22= 'bindings' ( (otherlv_23= RULE_ID ) ) (otherlv_24= ',' ( (otherlv_25= RULE_ID ) ) )* )?
             int alt200=2;
             int LA200_0 = input.LA(1);
 
-            if ( (LA200_0==123) ) {
+            if ( (LA200_0==125) ) {
                 alt200=1;
             }
             switch (alt200) {
                 case 1 :
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7507:6: otherlv_22= 'substitutes' ( (otherlv_23= RULE_ID ) ) (otherlv_24= ',' ( (otherlv_25= RULE_ID ) ) )*
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7507:6: otherlv_22= 'bindings' ( (otherlv_23= RULE_ID ) ) (otherlv_24= ',' ( (otherlv_25= RULE_ID ) ) )*
                     {
-                    otherlv_22=(Token)match(input,123,FOLLOW_123_in_rulePatternFusion16188); if (state.failed) return current;
+                    otherlv_22=(Token)match(input,125,FOLLOW_125_in_rulePatternFusion16188); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_22, grammarAccess.getPatternFusionAccess().getSubstitutesKeyword_10_0());
+                          	newLeafNode(otherlv_22, grammarAccess.getPatternFusionAccess().getBindingsKeyword_10_0());
                           
                     }
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7511:1: ( (otherlv_23= RULE_ID ) )
@@ -21027,7 +21028,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7566:1: (otherlv_0= 'StructuralOrganisationalPattern' ( (lv_name_1_0= RULE_ID ) ) ( (lv_multi_2_0= '[*]' ) )? otherlv_3= '{' (otherlv_4= 'mapping' ( (lv_mappingExpression_5_0= RULE_STRING ) ) )? (otherlv_6= 'expression' ( (lv_expression_7_0= RULE_STRING ) ) )? (otherlv_8= 'bindingVspec' ( (otherlv_9= RULE_ID ) ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* )? (otherlv_12= 'precedence' ( (otherlv_13= RULE_ID ) ) (otherlv_14= ',' ( (otherlv_15= RULE_ID ) ) )* )? (otherlv_16= 'choice' ( (otherlv_17= RULE_ID ) ) (otherlv_18= ',' ( (otherlv_19= RULE_ID ) ) )* )? otherlv_20= 'bindingClassifier' ( (otherlv_21= RULE_ID ) ) (otherlv_22= 'substitutes' ( (otherlv_23= RULE_ID ) ) (otherlv_24= ',' ( (otherlv_25= RULE_ID ) ) )* )? otherlv_26= '}' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7566:3: otherlv_0= 'StructuralOrganisationalPattern' ( (lv_name_1_0= RULE_ID ) ) ( (lv_multi_2_0= '[*]' ) )? otherlv_3= '{' (otherlv_4= 'mapping' ( (lv_mappingExpression_5_0= RULE_STRING ) ) )? (otherlv_6= 'expression' ( (lv_expression_7_0= RULE_STRING ) ) )? (otherlv_8= 'bindingVspec' ( (otherlv_9= RULE_ID ) ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* )? (otherlv_12= 'precedence' ( (otherlv_13= RULE_ID ) ) (otherlv_14= ',' ( (otherlv_15= RULE_ID ) ) )* )? (otherlv_16= 'choice' ( (otherlv_17= RULE_ID ) ) (otherlv_18= ',' ( (otherlv_19= RULE_ID ) ) )* )? otherlv_20= 'bindingClassifier' ( (otherlv_21= RULE_ID ) ) (otherlv_22= 'substitutes' ( (otherlv_23= RULE_ID ) ) (otherlv_24= ',' ( (otherlv_25= RULE_ID ) ) )* )? otherlv_26= '}'
             {
-            otherlv_0=(Token)match(input,125,FOLLOW_125_in_ruleStructuralOrganisationalPattern16340); if (state.failed) return current;
+            otherlv_0=(Token)match(input,126,FOLLOW_126_in_ruleStructuralOrganisationalPattern16340); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getStructuralOrganisationalPatternAccess().getStructuralOrganisationalPatternKeyword_0());
@@ -21743,7 +21744,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7829:1: (otherlv_0= '[' ( (lv_lower_1_0= RULE_INT ) ) otherlv_2= '..' ( (lv_upper_3_0= RULE_INT ) ) otherlv_4= ']' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7829:3: otherlv_0= '[' ( (lv_lower_1_0= RULE_INT ) ) otherlv_2= '..' ( (lv_upper_3_0= RULE_INT ) ) otherlv_4= ']'
             {
-            otherlv_0=(Token)match(input,126,FOLLOW_126_in_ruleMultiplicityInterval16887); if (state.failed) return current;
+            otherlv_0=(Token)match(input,127,FOLLOW_127_in_ruleMultiplicityInterval16887); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getMultiplicityIntervalAccess().getLeftSquareBracketKeyword_0());
@@ -21779,7 +21780,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,127,FOLLOW_127_in_ruleMultiplicityInterval16921); if (state.failed) return current;
+            otherlv_2=(Token)match(input,128,FOLLOW_128_in_ruleMultiplicityInterval16921); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getMultiplicityIntervalAccess().getFullStopFullStopKeyword_2());
@@ -21815,7 +21816,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,128,FOLLOW_128_in_ruleMultiplicityInterval16955); if (state.failed) return current;
+            otherlv_4=(Token)match(input,129,FOLLOW_129_in_ruleMultiplicityInterval16955); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getMultiplicityIntervalAccess().getRightSquareBracketKeyword_4());
@@ -21900,10 +21901,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt212=2;
             int LA212_0 = input.LA(1);
 
-            if ( (LA212_0==129) ) {
+            if ( (LA212_0==130) ) {
                 alt212=1;
             }
-            else if ( (LA212_0==130) ) {
+            else if ( (LA212_0==131) ) {
                 alt212=2;
             }
             else {
@@ -21917,7 +21918,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7899:2: kw= 'true'
                     {
-                    kw=(Token)match(input,129,FOLLOW_129_in_ruleBOOLEAN17041); if (state.failed) return current;
+                    kw=(Token)match(input,130,FOLLOW_130_in_ruleBOOLEAN17041); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -21930,7 +21931,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7906:2: kw= 'false'
                     {
-                    kw=(Token)match(input,130,FOLLOW_130_in_ruleBOOLEAN17060); if (state.failed) return current;
+                    kw=(Token)match(input,131,FOLLOW_131_in_ruleBOOLEAN17060); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -22024,7 +22025,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7932:1: (otherlv_0= 'ToBinding' otherlv_1= '{' otherlv_2= 'toPlacement' ( (otherlv_3= RULE_ID ) ) otherlv_4= 'toReplacement' ( (otherlv_5= RULE_ID ) ) otherlv_6= '}' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7932:3: otherlv_0= 'ToBinding' otherlv_1= '{' otherlv_2= 'toPlacement' ( (otherlv_3= RULE_ID ) ) otherlv_4= 'toReplacement' ( (otherlv_5= RULE_ID ) ) otherlv_6= '}'
             {
-            otherlv_0=(Token)match(input,131,FOLLOW_131_in_ruleToBinding17147); if (state.failed) return current;
+            otherlv_0=(Token)match(input,132,FOLLOW_132_in_ruleToBinding17147); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getToBindingAccess().getToBindingKeyword_0());
@@ -22036,7 +22037,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_1, grammarAccess.getToBindingAccess().getLeftCurlyBracketKeyword_1());
                   
             }
-            otherlv_2=(Token)match(input,132,FOLLOW_132_in_ruleToBinding17171); if (state.failed) return current;
+            otherlv_2=(Token)match(input,133,FOLLOW_133_in_ruleToBinding17171); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getToBindingAccess().getToPlacementKeyword_2());
@@ -22067,7 +22068,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,133,FOLLOW_133_in_ruleToBinding17203); if (state.failed) return current;
+            otherlv_4=(Token)match(input,134,FOLLOW_134_in_ruleToBinding17203); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getToBindingAccess().getToReplacementKeyword_4());
@@ -22188,7 +22189,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7999:1: (otherlv_0= 'FromBinding' otherlv_1= '{' otherlv_2= 'fromPlacement' ( (otherlv_3= RULE_ID ) ) otherlv_4= 'fromReplacement' ( (otherlv_5= RULE_ID ) ) otherlv_6= '}' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:7999:3: otherlv_0= 'FromBinding' otherlv_1= '{' otherlv_2= 'fromPlacement' ( (otherlv_3= RULE_ID ) ) otherlv_4= 'fromReplacement' ( (otherlv_5= RULE_ID ) ) otherlv_6= '}'
             {
-            otherlv_0=(Token)match(input,134,FOLLOW_134_in_ruleFromBinding17318); if (state.failed) return current;
+            otherlv_0=(Token)match(input,135,FOLLOW_135_in_ruleFromBinding17318); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getFromBindingAccess().getFromBindingKeyword_0());
@@ -22200,7 +22201,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_1, grammarAccess.getFromBindingAccess().getLeftCurlyBracketKeyword_1());
                   
             }
-            otherlv_2=(Token)match(input,135,FOLLOW_135_in_ruleFromBinding17342); if (state.failed) return current;
+            otherlv_2=(Token)match(input,136,FOLLOW_136_in_ruleFromBinding17342); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getFromBindingAccess().getFromPlacementKeyword_2());
@@ -22231,7 +22232,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,136,FOLLOW_136_in_ruleFromBinding17374); if (state.failed) return current;
+            otherlv_4=(Token)match(input,137,FOLLOW_137_in_ruleFromBinding17374); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getFromBindingAccess().getFromReplacementKeyword_4());
@@ -22358,7 +22359,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8066:1: (otherlv_0= 'ToPlacement' otherlv_1= '{' otherlv_2= 'propertyName' ( (lv_propertyName_3_0= RULE_ID ) ) (otherlv_4= 'insideBoundaryElement' otherlv_5= '{' ( (lv_insideBoundaryElement_6_0= ruleObjectHandle ) )* otherlv_7= '}' )? (otherlv_8= 'outsideBoundaryElement' ( (lv_outsideBoundaryElement_9_0= ruleObjectHandle ) ) )? otherlv_10= '}' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8066:3: otherlv_0= 'ToPlacement' otherlv_1= '{' otherlv_2= 'propertyName' ( (lv_propertyName_3_0= RULE_ID ) ) (otherlv_4= 'insideBoundaryElement' otherlv_5= '{' ( (lv_insideBoundaryElement_6_0= ruleObjectHandle ) )* otherlv_7= '}' )? (otherlv_8= 'outsideBoundaryElement' ( (lv_outsideBoundaryElement_9_0= ruleObjectHandle ) ) )? otherlv_10= '}'
             {
-            otherlv_0=(Token)match(input,137,FOLLOW_137_in_ruleToPlacement17489); if (state.failed) return current;
+            otherlv_0=(Token)match(input,138,FOLLOW_138_in_ruleToPlacement17489); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getToPlacementAccess().getToPlacementKeyword_0());
@@ -22370,7 +22371,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_1, grammarAccess.getToPlacementAccess().getLeftCurlyBracketKeyword_1());
                   
             }
-            otherlv_2=(Token)match(input,138,FOLLOW_138_in_ruleToPlacement17513); if (state.failed) return current;
+            otherlv_2=(Token)match(input,139,FOLLOW_139_in_ruleToPlacement17513); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getToPlacementAccess().getPropertyNameKeyword_2());
@@ -22410,14 +22411,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt214=2;
             int LA214_0 = input.LA(1);
 
-            if ( (LA214_0==139) ) {
+            if ( (LA214_0==140) ) {
                 alt214=1;
             }
             switch (alt214) {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8096:4: otherlv_4= 'insideBoundaryElement' otherlv_5= '{' ( (lv_insideBoundaryElement_6_0= ruleObjectHandle ) )* otherlv_7= '}'
                     {
-                    otherlv_4=(Token)match(input,139,FOLLOW_139_in_ruleToPlacement17548); if (state.failed) return current;
+                    otherlv_4=(Token)match(input,140,FOLLOW_140_in_ruleToPlacement17548); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_4, grammarAccess.getToPlacementAccess().getInsideBoundaryElementKeyword_4_0());
@@ -22498,14 +22499,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt215=2;
             int LA215_0 = input.LA(1);
 
-            if ( (LA215_0==140) ) {
+            if ( (LA215_0==141) ) {
                 alt215=1;
             }
             switch (alt215) {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8126:5: otherlv_8= 'outsideBoundaryElement' ( (lv_outsideBoundaryElement_9_0= ruleObjectHandle ) )
                     {
-                    otherlv_8=(Token)match(input,140,FOLLOW_140_in_ruleToPlacement17609); if (state.failed) return current;
+                    otherlv_8=(Token)match(input,141,FOLLOW_141_in_ruleToPlacement17609); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_8, grammarAccess.getToPlacementAccess().getOutsideBoundaryElementKeyword_5_0());
@@ -22659,7 +22660,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,141,FOLLOW_141_in_ruleToReplacement17736); if (state.failed) return current;
+            otherlv_1=(Token)match(input,142,FOLLOW_142_in_ruleToReplacement17736); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getToReplacementAccess().getToReplacementKeyword_1());
@@ -22675,14 +22676,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt217=2;
             int LA217_0 = input.LA(1);
 
-            if ( (LA217_0==139) ) {
+            if ( (LA217_0==140) ) {
                 alt217=1;
             }
             switch (alt217) {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8187:3: otherlv_3= 'insideBoundaryElement' otherlv_4= '{' ( (lv_insideBoundaryElement_5_0= ruleObjectHandle ) )* otherlv_6= '}'
                     {
-                    otherlv_3=(Token)match(input,139,FOLLOW_139_in_ruleToReplacement17761); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,140,FOLLOW_140_in_ruleToReplacement17761); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_3, grammarAccess.getToReplacementAccess().getInsideBoundaryElementKeyword_3_0());
@@ -22763,14 +22764,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt218=2;
             int LA218_0 = input.LA(1);
 
-            if ( (LA218_0==132) ) {
+            if ( (LA218_0==133) ) {
                 alt218=1;
             }
             switch (alt218) {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8217:5: otherlv_7= 'toPlacement' ( (lv_toPlacement_8_0= ruleToPlacement ) )
                     {
-                    otherlv_7=(Token)match(input,132,FOLLOW_132_in_ruleToReplacement17822); if (state.failed) return current;
+                    otherlv_7=(Token)match(input,133,FOLLOW_133_in_ruleToReplacement17822); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_7, grammarAccess.getToReplacementAccess().getToPlacementKeyword_4_0());
@@ -23157,7 +23158,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_0, grammarAccess.getCompleteObjectHandleAccess().getLeftParenthesisKeyword_0());
                   
             }
-            otherlv_1=(Token)match(input,142,FOLLOW_142_in_ruleCompleteObjectHandle18162); if (state.failed) return current;
+            otherlv_1=(Token)match(input,143,FOLLOW_143_in_ruleCompleteObjectHandle18162); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getCompleteObjectHandleAccess().getMofRefKeyword_1());
@@ -23205,7 +23206,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_4, grammarAccess.getCompleteObjectHandleAccess().getCommaKeyword_4());
                   
             }
-            otherlv_5=(Token)match(input,143,FOLLOW_143_in_ruleCompleteObjectHandle18220); if (state.failed) return current;
+            otherlv_5=(Token)match(input,144,FOLLOW_144_in_ruleCompleteObjectHandle18220); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getCompleteObjectHandleAccess().getReferenceKeyword_5());
@@ -23247,7 +23248,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_8=(Token)match(input,144,FOLLOW_144_in_ruleCompleteObjectHandle18266); if (state.failed) return current;
+            otherlv_8=(Token)match(input,145,FOLLOW_145_in_ruleCompleteObjectHandle18266); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_8, grammarAccess.getCompleteObjectHandleAccess().getRightParenthesisKeyword_8());
@@ -23353,7 +23354,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,145,FOLLOW_145_in_ruleFromPlacement18358); if (state.failed) return current;
+            otherlv_1=(Token)match(input,146,FOLLOW_146_in_ruleFromPlacement18358); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getFromPlacementAccess().getFromPlacementKeyword_1());
@@ -23369,14 +23370,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt220=2;
             int LA220_0 = input.LA(1);
 
-            if ( (LA220_0==136) ) {
+            if ( (LA220_0==137) ) {
                 alt220=1;
             }
             switch (alt220) {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8442:3: otherlv_3= 'fromReplacement' ( (otherlv_4= RULE_ID ) )
                     {
-                    otherlv_3=(Token)match(input,136,FOLLOW_136_in_ruleFromPlacement18383); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,137,FOLLOW_137_in_ruleFromPlacement18383); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_3, grammarAccess.getFromPlacementAccess().getFromReplacementKeyword_3_0());
@@ -23417,14 +23418,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt222=2;
             int LA222_0 = input.LA(1);
 
-            if ( (LA222_0==140) ) {
+            if ( (LA222_0==141) ) {
                 alt222=1;
             }
             switch (alt222) {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8459:6: otherlv_5= 'outsideBoundaryElement' otherlv_6= '{' ( (lv_outsideBoundaryElement_7_0= ruleObjectHandle ) )* otherlv_8= '}'
                     {
-                    otherlv_5=(Token)match(input,140,FOLLOW_140_in_ruleFromPlacement18418); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,141,FOLLOW_141_in_ruleFromPlacement18418); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_5, grammarAccess.getFromPlacementAccess().getOutsideBoundaryElementKeyword_4_0());
@@ -23599,7 +23600,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8514:1: (otherlv_0= 'FromReplacement' otherlv_1= '{' otherlv_2= 'propertyName' ( (lv_propertyName_3_0= RULE_STRING ) ) (otherlv_4= 'fromPlacement' ( (otherlv_5= RULE_ID ) ) )? (otherlv_6= 'insideBoundaryElement' ( (lv_insideBoundaryElement_7_0= ruleObjectHandle ) ) )? (otherlv_8= 'outsideBoundaryElement' otherlv_9= '{' ( (lv_outsideBoundaryElement_10_0= ruleObjectHandle ) )* otherlv_11= '}' )? otherlv_12= '}' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8514:3: otherlv_0= 'FromReplacement' otherlv_1= '{' otherlv_2= 'propertyName' ( (lv_propertyName_3_0= RULE_STRING ) ) (otherlv_4= 'fromPlacement' ( (otherlv_5= RULE_ID ) ) )? (otherlv_6= 'insideBoundaryElement' ( (lv_insideBoundaryElement_7_0= ruleObjectHandle ) ) )? (otherlv_8= 'outsideBoundaryElement' otherlv_9= '{' ( (lv_outsideBoundaryElement_10_0= ruleObjectHandle ) )* otherlv_11= '}' )? otherlv_12= '}'
             {
-            otherlv_0=(Token)match(input,146,FOLLOW_146_in_ruleFromReplacement18561); if (state.failed) return current;
+            otherlv_0=(Token)match(input,147,FOLLOW_147_in_ruleFromReplacement18561); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getFromReplacementAccess().getFromReplacementKeyword_0());
@@ -23611,7 +23612,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_1, grammarAccess.getFromReplacementAccess().getLeftCurlyBracketKeyword_1());
                   
             }
-            otherlv_2=(Token)match(input,138,FOLLOW_138_in_ruleFromReplacement18585); if (state.failed) return current;
+            otherlv_2=(Token)match(input,139,FOLLOW_139_in_ruleFromReplacement18585); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getFromReplacementAccess().getPropertyNameKeyword_2());
@@ -23651,14 +23652,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt223=2;
             int LA223_0 = input.LA(1);
 
-            if ( (LA223_0==135) ) {
+            if ( (LA223_0==136) ) {
                 alt223=1;
             }
             switch (alt223) {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8544:4: otherlv_4= 'fromPlacement' ( (otherlv_5= RULE_ID ) )
                     {
-                    otherlv_4=(Token)match(input,135,FOLLOW_135_in_ruleFromReplacement18620); if (state.failed) return current;
+                    otherlv_4=(Token)match(input,136,FOLLOW_136_in_ruleFromReplacement18620); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_4, grammarAccess.getFromReplacementAccess().getFromPlacementKeyword_4_0());
@@ -23699,14 +23700,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt224=2;
             int LA224_0 = input.LA(1);
 
-            if ( (LA224_0==139) ) {
+            if ( (LA224_0==140) ) {
                 alt224=1;
             }
             switch (alt224) {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8561:6: otherlv_6= 'insideBoundaryElement' ( (lv_insideBoundaryElement_7_0= ruleObjectHandle ) )
                     {
-                    otherlv_6=(Token)match(input,139,FOLLOW_139_in_ruleFromReplacement18655); if (state.failed) return current;
+                    otherlv_6=(Token)match(input,140,FOLLOW_140_in_ruleFromReplacement18655); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_6, grammarAccess.getFromReplacementAccess().getInsideBoundaryElementKeyword_5_0());
@@ -23757,14 +23758,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt226=2;
             int LA226_0 = input.LA(1);
 
-            if ( (LA226_0==140) ) {
+            if ( (LA226_0==141) ) {
                 alt226=1;
             }
             switch (alt226) {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8583:6: otherlv_8= 'outsideBoundaryElement' otherlv_9= '{' ( (lv_outsideBoundaryElement_10_0= ruleObjectHandle ) )* otherlv_11= '}'
                     {
-                    otherlv_8=(Token)match(input,140,FOLLOW_140_in_ruleFromReplacement18691); if (state.failed) return current;
+                    otherlv_8=(Token)match(input,141,FOLLOW_141_in_ruleFromReplacement18691); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_8, grammarAccess.getFromReplacementAccess().getOutsideBoundaryElementKeyword_6_0());
@@ -23931,7 +23932,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8638:1: (otherlv_0= 'ObjectSpecification' otherlv_1= '{' otherlv_2= 'type' ( (otherlv_3= RULE_ID ) ) otherlv_4= 'object' ( (otherlv_5= RULE_ID ) ) otherlv_6= '}' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8638:3: otherlv_0= 'ObjectSpecification' otherlv_1= '{' otherlv_2= 'type' ( (otherlv_3= RULE_ID ) ) otherlv_4= 'object' ( (otherlv_5= RULE_ID ) ) otherlv_6= '}'
             {
-            otherlv_0=(Token)match(input,147,FOLLOW_147_in_ruleObjectSpecification18834); if (state.failed) return current;
+            otherlv_0=(Token)match(input,148,FOLLOW_148_in_ruleObjectSpecification18834); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getObjectSpecificationAccess().getObjectSpecificationKeyword_0());
@@ -23974,7 +23975,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,148,FOLLOW_148_in_ruleObjectSpecification18890); if (state.failed) return current;
+            otherlv_4=(Token)match(input,149,FOLLOW_149_in_ruleObjectSpecification18890); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getObjectSpecificationAccess().getObjectKeyword_4());
@@ -24093,7 +24094,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8705:1: (otherlv_0= 'ReplacementFragmentSpecification' otherlv_1= '{' otherlv_2= 'type' ( (otherlv_3= RULE_ID ) ) otherlv_4= '}' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8705:3: otherlv_0= 'ReplacementFragmentSpecification' otherlv_1= '{' otherlv_2= 'type' ( (otherlv_3= RULE_ID ) ) otherlv_4= '}'
             {
-            otherlv_0=(Token)match(input,149,FOLLOW_149_in_ruleReplacementFragmentSpecification19005); if (state.failed) return current;
+            otherlv_0=(Token)match(input,150,FOLLOW_150_in_ruleReplacementFragmentSpecification19005); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getReplacementFragmentSpecificationAccess().getReplacementFragmentSpecificationKeyword_0());
@@ -24227,7 +24228,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             if ( (LA227_0==RULE_STRING) ) {
                 alt227=1;
             }
-            else if ( (LA227_0==150) ) {
+            else if ( (LA227_0==151) ) {
                 alt227=2;
             }
             else {
@@ -24471,7 +24472,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8834:1: (otherlv_0= 'PrimitiveValueSpecification' otherlv_1= '{' (otherlv_2= 'value' ( (lv_value_3_0= RULE_STRING ) ) )? otherlv_4= 'type' ( (otherlv_5= RULE_ID ) ) otherlv_6= 'expression' ( (lv_expression_7_0= ruleOCLExpression ) ) otherlv_8= '}' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:8834:3: otherlv_0= 'PrimitiveValueSpecification' otherlv_1= '{' (otherlv_2= 'value' ( (lv_value_3_0= RULE_STRING ) ) )? otherlv_4= 'type' ( (otherlv_5= RULE_ID ) ) otherlv_6= 'expression' ( (lv_expression_7_0= ruleOCLExpression ) ) otherlv_8= '}'
             {
-            otherlv_0=(Token)match(input,150,FOLLOW_150_in_ruleComplexPrimitiveValueSpecification19354); if (state.failed) return current;
+            otherlv_0=(Token)match(input,151,FOLLOW_151_in_ruleComplexPrimitiveValueSpecification19354); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getComplexPrimitiveValueSpecificationAccess().getPrimitiveValueSpecificationKeyword_0());
@@ -24705,7 +24706,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,151,FOLLOW_151_in_ruleOCLExpression_Impl19572); if (state.failed) return current;
+            otherlv_1=(Token)match(input,152,FOLLOW_152_in_ruleOCLExpression_Impl19572); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getOCLExpression_ImplAccess().getOCLExpressionKeyword_1());
@@ -24939,7 +24940,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt230=2;
             int LA230_0 = input.LA(1);
 
-            if ( (LA230_0==RULE_ID||(LA230_0>=151 && LA230_0<=152)||LA230_0==154||(LA230_0>=156 && LA230_0<=157)||LA230_0==159||LA230_0==161||(LA230_0>=217 && LA230_0<=235)) ) {
+            if ( (LA230_0==RULE_ID||(LA230_0>=152 && LA230_0<=153)||LA230_0==155||(LA230_0>=157 && LA230_0<=158)||LA230_0==160||LA230_0==162||(LA230_0>=218 && LA230_0<=236)) ) {
                 alt230=1;
             }
             switch (alt230) {
@@ -25052,7 +25053,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,144,FOLLOW_144_in_ruleOperationCallExp19837); if (state.failed) return current;
+            otherlv_5=(Token)match(input,145,FOLLOW_145_in_ruleOperationCallExp19837); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getOperationCallExpAccess().getRightParenthesisKeyword_3());
@@ -25143,7 +25144,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9081:1: (lv_bool_0_0= 'bool' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9082:3: lv_bool_0_0= 'bool'
             {
-            lv_bool_0_0=(Token)match(input,152,FOLLOW_152_in_ruleBooleanLiteralExp19926); if (state.failed) return current;
+            lv_bool_0_0=(Token)match(input,153,FOLLOW_153_in_ruleBooleanLiteralExp19926); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       newLeafNode(lv_bool_0_0, grammarAccess.getBooleanLiteralExpAccess().getBoolBoolKeyword_0_0());
@@ -25163,7 +25164,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,153,FOLLOW_153_in_ruleBooleanLiteralExp19951); if (state.failed) return current;
+            otherlv_1=(Token)match(input,154,FOLLOW_154_in_ruleBooleanLiteralExp19951); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getBooleanLiteralExpAccess().getBooleanLiteralExpKeyword_1());
@@ -25251,7 +25252,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9120:1: (otherlv_0= 'StringLiteralExp' otherlv_1= '{' otherlv_2= 'string' ( (lv_string_3_0= RULE_STRING ) ) otherlv_4= '}' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9120:3: otherlv_0= 'StringLiteralExp' otherlv_1= '{' otherlv_2= 'string' ( (lv_string_3_0= RULE_STRING ) ) otherlv_4= '}'
             {
-            otherlv_0=(Token)match(input,154,FOLLOW_154_in_ruleStringLiteralExp20034); if (state.failed) return current;
+            otherlv_0=(Token)match(input,155,FOLLOW_155_in_ruleStringLiteralExp20034); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getStringLiteralExpAccess().getStringLiteralExpKeyword_0());
@@ -25263,7 +25264,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_1, grammarAccess.getStringLiteralExpAccess().getLeftCurlyBracketKeyword_1());
                   
             }
-            otherlv_2=(Token)match(input,155,FOLLOW_155_in_ruleStringLiteralExp20058); if (state.failed) return current;
+            otherlv_2=(Token)match(input,156,FOLLOW_156_in_ruleStringLiteralExp20058); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getStringLiteralExpAccess().getStringKeyword_2());
@@ -25396,7 +25397,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,156,FOLLOW_156_in_ruleNumericLiteralExp_Impl20184); if (state.failed) return current;
+            otherlv_1=(Token)match(input,157,FOLLOW_157_in_ruleNumericLiteralExp_Impl20184); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getNumericLiteralExp_ImplAccess().getNumericLiteralExpKeyword_1());
@@ -25484,7 +25485,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9206:1: (otherlv_0= 'IntegerLiteralExp' otherlv_1= '{' otherlv_2= 'integer' ( (lv_integer_3_0= RULE_INT ) ) otherlv_4= '}' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9206:3: otherlv_0= 'IntegerLiteralExp' otherlv_1= '{' otherlv_2= 'integer' ( (lv_integer_3_0= RULE_INT ) ) otherlv_4= '}'
             {
-            otherlv_0=(Token)match(input,157,FOLLOW_157_in_ruleIntegerLiteralExp20267); if (state.failed) return current;
+            otherlv_0=(Token)match(input,158,FOLLOW_158_in_ruleIntegerLiteralExp20267); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getIntegerLiteralExpAccess().getIntegerLiteralExpKeyword_0());
@@ -25496,7 +25497,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_1, grammarAccess.getIntegerLiteralExpAccess().getLeftCurlyBracketKeyword_1());
                   
             }
-            otherlv_2=(Token)match(input,158,FOLLOW_158_in_ruleIntegerLiteralExp20291); if (state.failed) return current;
+            otherlv_2=(Token)match(input,159,FOLLOW_159_in_ruleIntegerLiteralExp20291); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getIntegerLiteralExpAccess().getIntegerKeyword_2());
@@ -25620,7 +25621,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9261:1: (otherlv_0= 'UnlimitedLiteralExp' otherlv_1= '{' otherlv_2= 'unlimited' ( (lv_unlimited_3_0= RULE_INT ) ) otherlv_4= '}' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9261:3: otherlv_0= 'UnlimitedLiteralExp' otherlv_1= '{' otherlv_2= 'unlimited' ( (lv_unlimited_3_0= RULE_INT ) ) otherlv_4= '}'
             {
-            otherlv_0=(Token)match(input,159,FOLLOW_159_in_ruleUnlimitedLiteralExp20408); if (state.failed) return current;
+            otherlv_0=(Token)match(input,160,FOLLOW_160_in_ruleUnlimitedLiteralExp20408); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getUnlimitedLiteralExpAccess().getUnlimitedLiteralExpKeyword_0());
@@ -25632,7 +25633,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_1, grammarAccess.getUnlimitedLiteralExpAccess().getLeftCurlyBracketKeyword_1());
                   
             }
-            otherlv_2=(Token)match(input,160,FOLLOW_160_in_ruleUnlimitedLiteralExp20432); if (state.failed) return current;
+            otherlv_2=(Token)match(input,161,FOLLOW_161_in_ruleUnlimitedLiteralExp20432); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getUnlimitedLiteralExpAccess().getUnlimitedKeyword_2());
@@ -25757,7 +25758,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9316:1: (otherlv_0= 'RealLiteralExp' otherlv_1= '{' otherlv_2= 'real' ( (lv_real_3_0= ruleEDouble ) ) otherlv_4= '}' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9316:3: otherlv_0= 'RealLiteralExp' otherlv_1= '{' otherlv_2= 'real' ( (lv_real_3_0= ruleEDouble ) ) otherlv_4= '}'
             {
-            otherlv_0=(Token)match(input,161,FOLLOW_161_in_ruleRealLiteralExp20549); if (state.failed) return current;
+            otherlv_0=(Token)match(input,162,FOLLOW_162_in_ruleRealLiteralExp20549); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getRealLiteralExpAccess().getRealLiteralExpKeyword_0());
@@ -25769,7 +25770,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_1, grammarAccess.getRealLiteralExpAccess().getLeftCurlyBracketKeyword_1());
                   
             }
-            otherlv_2=(Token)match(input,162,FOLLOW_162_in_ruleRealLiteralExp20573); if (state.failed) return current;
+            otherlv_2=(Token)match(input,163,FOLLOW_163_in_ruleRealLiteralExp20573); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getRealLiteralExpAccess().getRealKeyword_2());
@@ -25901,14 +25902,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt231=2;
             int LA231_0 = input.LA(1);
 
-            if ( (LA231_0==163) ) {
+            if ( (LA231_0==164) ) {
                 alt231=1;
             }
             switch (alt231) {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9372:2: kw= '-'
                     {
-                    kw=(Token)match(input,163,FOLLOW_163_in_ruleEDouble20693); if (state.failed) return current;
+                    kw=(Token)match(input,164,FOLLOW_164_in_ruleEDouble20693); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -25949,7 +25950,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            kw=(Token)match(input,164,FOLLOW_164_in_ruleEDouble20731); if (state.failed) return current;
+            kw=(Token)match(input,165,FOLLOW_165_in_ruleEDouble20731); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       current.merge(kw);
@@ -25971,7 +25972,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt235=2;
             int LA235_0 = input.LA(1);
 
-            if ( ((LA235_0>=165 && LA235_0<=166)) ) {
+            if ( ((LA235_0>=166 && LA235_0<=167)) ) {
                 alt235=1;
             }
             switch (alt235) {
@@ -25982,10 +25983,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     int alt233=2;
                     int LA233_0 = input.LA(1);
 
-                    if ( (LA233_0==165) ) {
+                    if ( (LA233_0==166) ) {
                         alt233=1;
                     }
-                    else if ( (LA233_0==166) ) {
+                    else if ( (LA233_0==167) ) {
                         alt233=2;
                     }
                     else {
@@ -25999,7 +26000,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                         case 1 :
                             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9398:2: kw= 'E'
                             {
-                            kw=(Token)match(input,165,FOLLOW_165_in_ruleEDouble20766); if (state.failed) return current;
+                            kw=(Token)match(input,166,FOLLOW_166_in_ruleEDouble20766); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       current.merge(kw);
@@ -26012,7 +26013,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                         case 2 :
                             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9405:2: kw= 'e'
                             {
-                            kw=(Token)match(input,166,FOLLOW_166_in_ruleEDouble20785); if (state.failed) return current;
+                            kw=(Token)match(input,167,FOLLOW_167_in_ruleEDouble20785); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       current.merge(kw);
@@ -26029,14 +26030,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     int alt234=2;
                     int LA234_0 = input.LA(1);
 
-                    if ( (LA234_0==163) ) {
+                    if ( (LA234_0==164) ) {
                         alt234=1;
                     }
                     switch (alt234) {
                         case 1 :
                             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9411:2: kw= '-'
                             {
-                            kw=(Token)match(input,163,FOLLOW_163_in_ruleEDouble20800); if (state.failed) return current;
+                            kw=(Token)match(input,164,FOLLOW_164_in_ruleEDouble20800); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       current.merge(kw);
@@ -26400,7 +26401,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_0, grammarAccess.getCompleteLinkHandleAccess().getLeftParenthesisKeyword_0());
                   
             }
-            otherlv_1=(Token)match(input,167,FOLLOW_167_in_ruleCompleteLinkHandle21133); if (state.failed) return current;
+            otherlv_1=(Token)match(input,168,FOLLOW_168_in_ruleCompleteLinkHandle21133); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getCompleteLinkHandleAccess().getLinkMofRefKeyword_1());
@@ -26448,7 +26449,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_4, grammarAccess.getCompleteLinkHandleAccess().getCommaKeyword_4());
                   
             }
-            otherlv_5=(Token)match(input,143,FOLLOW_143_in_ruleCompleteLinkHandle21191); if (state.failed) return current;
+            otherlv_5=(Token)match(input,144,FOLLOW_144_in_ruleCompleteLinkHandle21191); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getCompleteLinkHandleAccess().getReferenceKeyword_5());
@@ -26490,7 +26491,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_8=(Token)match(input,144,FOLLOW_144_in_ruleCompleteLinkHandle21237); if (state.failed) return current;
+            otherlv_8=(Token)match(input,145,FOLLOW_145_in_ruleCompleteLinkHandle21237); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_8, grammarAccess.getCompleteLinkHandleAccess().getRightParenthesisKeyword_8());
@@ -26580,7 +26581,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9610:1: (otherlv_0= 'OVPSemanticSpec' otherlv_1= '{' otherlv_2= 'modelTransformation' ( (lv_modelTransformation_3_0= RULE_STRING ) ) otherlv_4= 'transfromationLanguage' ( (lv_transfromationLanguage_5_0= RULE_STRING ) ) otherlv_6= '}' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9610:3: otherlv_0= 'OVPSemanticSpec' otherlv_1= '{' otherlv_2= 'modelTransformation' ( (lv_modelTransformation_3_0= RULE_STRING ) ) otherlv_4= 'transfromationLanguage' ( (lv_transfromationLanguage_5_0= RULE_STRING ) ) otherlv_6= '}'
             {
-            otherlv_0=(Token)match(input,168,FOLLOW_168_in_ruleOVPSemanticSpec21322); if (state.failed) return current;
+            otherlv_0=(Token)match(input,169,FOLLOW_169_in_ruleOVPSemanticSpec21322); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getOVPSemanticSpecAccess().getOVPSemanticSpecKeyword_0());
@@ -26592,7 +26593,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_1, grammarAccess.getOVPSemanticSpecAccess().getLeftCurlyBracketKeyword_1());
                   
             }
-            otherlv_2=(Token)match(input,169,FOLLOW_169_in_ruleOVPSemanticSpec21346); if (state.failed) return current;
+            otherlv_2=(Token)match(input,170,FOLLOW_170_in_ruleOVPSemanticSpec21346); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getOVPSemanticSpecAccess().getModelTransformationKeyword_2());
@@ -26628,7 +26629,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,170,FOLLOW_170_in_ruleOVPSemanticSpec21380); if (state.failed) return current;
+            otherlv_4=(Token)match(input,171,FOLLOW_171_in_ruleOVPSemanticSpec21380); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getOVPSemanticSpecAccess().getTransfromationLanguageKeyword_4());
@@ -26849,7 +26850,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 if ( (LA238_1==26) ) {
                     alt238=1;
                 }
-                else if ( (LA238_1==EOF||(LA238_1>=RULE_ID && LA238_1<=RULE_DECIMAL)||(LA238_1>=14 && LA238_1<=15)||LA238_1==17||LA238_1==22||LA238_1==36||LA238_1==45||LA238_1==55||LA238_1==93||(LA238_1>=126 && LA238_1<=130)||LA238_1==144||(LA238_1>=163 && LA238_1<=164)||(LA238_1>=171 && LA238_1<=194)||(LA238_1>=196 && LA238_1<=213)) ) {
+                else if ( (LA238_1==EOF||(LA238_1>=RULE_ID && LA238_1<=RULE_DECIMAL)||(LA238_1>=14 && LA238_1<=15)||LA238_1==17||LA238_1==22||LA238_1==36||LA238_1==45||LA238_1==55||LA238_1==93||(LA238_1>=127 && LA238_1<=131)||LA238_1==145||(LA238_1>=164 && LA238_1<=165)||(LA238_1>=172 && LA238_1<=195)||(LA238_1>=197 && LA238_1<=214)) ) {
                     alt238=2;
                 }
                 else {
@@ -26860,7 +26861,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     throw nvae;
                 }
             }
-            else if ( ((LA238_0>=RULE_STRING && LA238_0<=RULE_DECIMAL)||LA238_0==14||LA238_0==22||LA238_0==45||LA238_0==93||LA238_0==126||(LA238_0>=129 && LA238_0<=130)||LA238_0==163||LA238_0==180||LA238_0==186||LA238_0==191||LA238_0==197||LA238_0==199||(LA238_0>=201 && LA238_0<=202)||(LA238_0>=206 && LA238_0<=211)) ) {
+            else if ( ((LA238_0>=RULE_STRING && LA238_0<=RULE_DECIMAL)||LA238_0==14||LA238_0==22||LA238_0==45||LA238_0==93||LA238_0==127||(LA238_0>=130 && LA238_0<=131)||LA238_0==164||LA238_0==181||LA238_0==187||LA238_0==192||LA238_0==198||LA238_0==200||(LA238_0>=202 && LA238_0<=203)||(LA238_0>=207 && LA238_0<=212)) ) {
                 alt238=2;
             }
             else {
@@ -27006,7 +27007,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     int alt237=2;
                     int LA237_0 = input.LA(1);
 
-                    if ( (LA237_0==171) ) {
+                    if ( (LA237_0==172) ) {
                         int LA237_1 = input.LA(2);
 
                         if ( (synpred1_InternalKCVL()) ) {
@@ -27277,7 +27278,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9865:28: (kw= '+=' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9867:2: kw= '+='
             {
-            kw=(Token)match(input,171,FOLLOW_171_in_ruleOpMultiAssign21926); if (state.failed) return current;
+            kw=(Token)match(input,172,FOLLOW_172_in_ruleOpMultiAssign21926); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       current.merge(kw);
@@ -27384,7 +27385,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 int alt239=2;
                 int LA239_0 = input.LA(1);
 
-                if ( (LA239_0==172) ) {
+                if ( (LA239_0==173) ) {
                     int LA239_2 = input.LA(2);
 
                     if ( (synpred2_InternalKCVL()) ) {
@@ -27577,7 +27578,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9966:28: (kw= '||' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:9968:2: kw= '||'
             {
-            kw=(Token)match(input,172,FOLLOW_172_in_ruleOpOr22185); if (state.failed) return current;
+            kw=(Token)match(input,173,FOLLOW_173_in_ruleOpOr22185); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       current.merge(kw);
@@ -27684,7 +27685,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 int alt240=2;
                 int LA240_0 = input.LA(1);
 
-                if ( (LA240_0==173) ) {
+                if ( (LA240_0==174) ) {
                     int LA240_2 = input.LA(2);
 
                     if ( (synpred3_InternalKCVL()) ) {
@@ -27877,7 +27878,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10067:28: (kw= '&&' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10069:2: kw= '&&'
             {
-            kw=(Token)match(input,173,FOLLOW_173_in_ruleOpAnd22444); if (state.failed) return current;
+            kw=(Token)match(input,174,FOLLOW_174_in_ruleOpAnd22444); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       current.merge(kw);
@@ -27984,7 +27985,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 int alt241=2;
                 int LA241_0 = input.LA(1);
 
-                if ( (LA241_0==174) ) {
+                if ( (LA241_0==175) ) {
                     int LA241_2 = input.LA(2);
 
                     if ( (synpred4_InternalKCVL()) ) {
@@ -27993,7 +27994,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
 
                 }
-                else if ( (LA241_0==175) ) {
+                else if ( (LA241_0==176) ) {
                     int LA241_3 = input.LA(2);
 
                     if ( (synpred4_InternalKCVL()) ) {
@@ -28190,10 +28191,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt242=2;
             int LA242_0 = input.LA(1);
 
-            if ( (LA242_0==174) ) {
+            if ( (LA242_0==175) ) {
                 alt242=1;
             }
-            else if ( (LA242_0==175) ) {
+            else if ( (LA242_0==176) ) {
                 alt242=2;
             }
             else {
@@ -28207,7 +28208,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10170:2: kw= '=='
                     {
-                    kw=(Token)match(input,174,FOLLOW_174_in_ruleOpEquality22704); if (state.failed) return current;
+                    kw=(Token)match(input,175,FOLLOW_175_in_ruleOpEquality22704); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -28220,7 +28221,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10177:2: kw= '!='
                     {
-                    kw=(Token)match(input,175,FOLLOW_175_in_ruleOpEquality22723); if (state.failed) return current;
+                    kw=(Token)match(input,176,FOLLOW_176_in_ruleOpEquality22723); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -28335,7 +28336,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             do {
                 int alt243=3;
                 switch ( input.LA(1) ) {
-                case 179:
+                case 180:
                     {
                     int LA243_2 = input.LA(2);
 
@@ -28346,7 +28347,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 180:
+                case 181:
                     {
                     int LA243_3 = input.LA(2);
 
@@ -28357,7 +28358,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 176:
+                case 177:
                     {
                     int LA243_4 = input.LA(2);
 
@@ -28368,7 +28369,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 177:
+                case 178:
                     {
                     int LA243_5 = input.LA(2);
 
@@ -28379,7 +28380,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 178:
+                case 179:
                     {
                     int LA243_6 = input.LA(2);
 
@@ -28419,7 +28420,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_2=(Token)match(input,176,FOLLOW_176_in_ruleXRelationalExpression22856); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,177,FOLLOW_177_in_ruleXRelationalExpression22856); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_2, grammarAccess.getXRelationalExpressionAccess().getInstanceofKeyword_1_0_0_0_1());
@@ -28662,22 +28663,22 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10308:1: (kw= '>=' | kw= '<=' | kw= '>' | kw= '<' )
             int alt244=4;
             switch ( input.LA(1) ) {
-            case 177:
+            case 178:
                 {
                 alt244=1;
                 }
                 break;
-            case 178:
+            case 179:
                 {
                 alt244=2;
                 }
                 break;
-            case 179:
+            case 180:
                 {
                 alt244=3;
                 }
                 break;
-            case 180:
+            case 181:
                 {
                 alt244=4;
                 }
@@ -28694,7 +28695,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10309:2: kw= '>='
                     {
-                    kw=(Token)match(input,177,FOLLOW_177_in_ruleOpCompare23052); if (state.failed) return current;
+                    kw=(Token)match(input,178,FOLLOW_178_in_ruleOpCompare23052); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -28707,7 +28708,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10316:2: kw= '<='
                     {
-                    kw=(Token)match(input,178,FOLLOW_178_in_ruleOpCompare23071); if (state.failed) return current;
+                    kw=(Token)match(input,179,FOLLOW_179_in_ruleOpCompare23071); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -28720,7 +28721,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10323:2: kw= '>'
                     {
-                    kw=(Token)match(input,179,FOLLOW_179_in_ruleOpCompare23090); if (state.failed) return current;
+                    kw=(Token)match(input,180,FOLLOW_180_in_ruleOpCompare23090); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -28733,7 +28734,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10330:2: kw= '<'
                     {
-                    kw=(Token)match(input,180,FOLLOW_180_in_ruleOpCompare23109); if (state.failed) return current;
+                    kw=(Token)match(input,181,FOLLOW_181_in_ruleOpCompare23109); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -29030,42 +29031,42 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10430:1: (kw= '->' | kw= '..' | kw= '=>' | (kw= '>' ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' ) ) | (kw= '<' ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' ) ) | kw= '<>' | kw= '?:' | kw= '<=>' )
             int alt248=8;
             switch ( input.LA(1) ) {
-            case 181:
+            case 182:
                 {
                 alt248=1;
                 }
                 break;
-            case 127:
+            case 128:
                 {
                 alt248=2;
                 }
                 break;
-            case 182:
+            case 183:
                 {
                 alt248=3;
                 }
                 break;
-            case 179:
+            case 180:
                 {
                 alt248=4;
                 }
                 break;
-            case 180:
+            case 181:
                 {
                 alt248=5;
                 }
                 break;
-            case 183:
+            case 184:
                 {
                 alt248=6;
                 }
                 break;
-            case 184:
+            case 185:
                 {
                 alt248=7;
                 }
                 break;
-            case 185:
+            case 186:
                 {
                 alt248=8;
                 }
@@ -29082,7 +29083,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10431:2: kw= '->'
                     {
-                    kw=(Token)match(input,181,FOLLOW_181_in_ruleOpOther23370); if (state.failed) return current;
+                    kw=(Token)match(input,182,FOLLOW_182_in_ruleOpOther23370); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -29095,7 +29096,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10438:2: kw= '..'
                     {
-                    kw=(Token)match(input,127,FOLLOW_127_in_ruleOpOther23389); if (state.failed) return current;
+                    kw=(Token)match(input,128,FOLLOW_128_in_ruleOpOther23389); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -29108,7 +29109,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10445:2: kw= '=>'
                     {
-                    kw=(Token)match(input,182,FOLLOW_182_in_ruleOpOther23408); if (state.failed) return current;
+                    kw=(Token)match(input,183,FOLLOW_183_in_ruleOpOther23408); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -29124,7 +29125,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10451:6: (kw= '>' ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' ) )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10452:2: kw= '>' ( ( ( ( '>' '>' ) )=> (kw= '>' kw= '>' ) ) | kw= '>' )
                     {
-                    kw=(Token)match(input,179,FOLLOW_179_in_ruleOpOther23428); if (state.failed) return current;
+                    kw=(Token)match(input,180,FOLLOW_180_in_ruleOpOther23428); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -29135,13 +29136,13 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     int alt246=2;
                     int LA246_0 = input.LA(1);
 
-                    if ( (LA246_0==179) ) {
+                    if ( (LA246_0==180) ) {
                         int LA246_1 = input.LA(2);
 
-                        if ( (LA246_1==EOF||(LA246_1>=RULE_ID && LA246_1<=RULE_DECIMAL)||LA246_1==14||LA246_1==22||LA246_1==45||LA246_1==93||LA246_1==126||(LA246_1>=129 && LA246_1<=130)||LA246_1==163||LA246_1==180||LA246_1==186||LA246_1==191||LA246_1==197||LA246_1==199||(LA246_1>=201 && LA246_1<=202)||(LA246_1>=206 && LA246_1<=211)) ) {
+                        if ( (LA246_1==EOF||(LA246_1>=RULE_ID && LA246_1<=RULE_DECIMAL)||LA246_1==14||LA246_1==22||LA246_1==45||LA246_1==93||LA246_1==127||(LA246_1>=130 && LA246_1<=131)||LA246_1==164||LA246_1==181||LA246_1==187||LA246_1==192||LA246_1==198||LA246_1==200||(LA246_1>=202 && LA246_1<=203)||(LA246_1>=207 && LA246_1<=212)) ) {
                             alt246=2;
                         }
-                        else if ( (LA246_1==179) && (synpred8_InternalKCVL())) {
+                        else if ( (LA246_1==180) && (synpred8_InternalKCVL())) {
                             alt246=1;
                         }
                         else {
@@ -29169,14 +29170,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10461:5: (kw= '>' kw= '>' )
                             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10462:2: kw= '>' kw= '>'
                             {
-                            kw=(Token)match(input,179,FOLLOW_179_in_ruleOpOther23459); if (state.failed) return current;
+                            kw=(Token)match(input,180,FOLLOW_180_in_ruleOpOther23459); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       current.merge(kw);
                                       newLeafNode(kw, grammarAccess.getOpOtherAccess().getGreaterThanSignKeyword_3_1_0_0_0()); 
                                   
                             }
-                            kw=(Token)match(input,179,FOLLOW_179_in_ruleOpOther23472); if (state.failed) return current;
+                            kw=(Token)match(input,180,FOLLOW_180_in_ruleOpOther23472); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       current.merge(kw);
@@ -29195,7 +29196,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                         case 2 :
                             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10475:2: kw= '>'
                             {
-                            kw=(Token)match(input,179,FOLLOW_179_in_ruleOpOther23493); if (state.failed) return current;
+                            kw=(Token)match(input,180,FOLLOW_180_in_ruleOpOther23493); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       current.merge(kw);
@@ -29220,7 +29221,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10481:6: (kw= '<' ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' ) )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10482:2: kw= '<' ( ( ( ( '<' '<' ) )=> (kw= '<' kw= '<' ) ) | kw= '<' )
                     {
-                    kw=(Token)match(input,180,FOLLOW_180_in_ruleOpOther23515); if (state.failed) return current;
+                    kw=(Token)match(input,181,FOLLOW_181_in_ruleOpOther23515); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -29231,7 +29232,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     int alt247=2;
                     int LA247_0 = input.LA(1);
 
-                    if ( (LA247_0==180) ) {
+                    if ( (LA247_0==181) ) {
                         int LA247_1 = input.LA(2);
 
                         if ( (synpred9_InternalKCVL()) ) {
@@ -29265,14 +29266,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10491:5: (kw= '<' kw= '<' )
                             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10492:2: kw= '<' kw= '<'
                             {
-                            kw=(Token)match(input,180,FOLLOW_180_in_ruleOpOther23546); if (state.failed) return current;
+                            kw=(Token)match(input,181,FOLLOW_181_in_ruleOpOther23546); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       current.merge(kw);
                                       newLeafNode(kw, grammarAccess.getOpOtherAccess().getLessThanSignKeyword_4_1_0_0_0()); 
                                   
                             }
-                            kw=(Token)match(input,180,FOLLOW_180_in_ruleOpOther23559); if (state.failed) return current;
+                            kw=(Token)match(input,181,FOLLOW_181_in_ruleOpOther23559); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       current.merge(kw);
@@ -29291,7 +29292,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                         case 2 :
                             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10505:2: kw= '<'
                             {
-                            kw=(Token)match(input,180,FOLLOW_180_in_ruleOpOther23580); if (state.failed) return current;
+                            kw=(Token)match(input,181,FOLLOW_181_in_ruleOpOther23580); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       current.merge(kw);
@@ -29313,7 +29314,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 6 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10512:2: kw= '<>'
                     {
-                    kw=(Token)match(input,183,FOLLOW_183_in_ruleOpOther23601); if (state.failed) return current;
+                    kw=(Token)match(input,184,FOLLOW_184_in_ruleOpOther23601); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -29326,7 +29327,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 7 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10519:2: kw= '?:'
                     {
-                    kw=(Token)match(input,184,FOLLOW_184_in_ruleOpOther23620); if (state.failed) return current;
+                    kw=(Token)match(input,185,FOLLOW_185_in_ruleOpOther23620); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -29339,7 +29340,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 8 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10526:2: kw= '<=>'
                     {
-                    kw=(Token)match(input,185,FOLLOW_185_in_ruleOpOther23639); if (state.failed) return current;
+                    kw=(Token)match(input,186,FOLLOW_186_in_ruleOpOther23639); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -29452,7 +29453,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 int alt249=2;
                 int LA249_0 = input.LA(1);
 
-                if ( (LA249_0==186) ) {
+                if ( (LA249_0==187) ) {
                     int LA249_2 = input.LA(2);
 
                     if ( (synpred10_InternalKCVL()) ) {
@@ -29461,7 +29462,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
 
                 }
-                else if ( (LA249_0==163) ) {
+                else if ( (LA249_0==164) ) {
                     int LA249_3 = input.LA(2);
 
                     if ( (synpred10_InternalKCVL()) ) {
@@ -29658,10 +29659,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt250=2;
             int LA250_0 = input.LA(1);
 
-            if ( (LA250_0==186) ) {
+            if ( (LA250_0==187) ) {
                 alt250=1;
             }
-            else if ( (LA250_0==163) ) {
+            else if ( (LA250_0==164) ) {
                 alt250=2;
             }
             else {
@@ -29675,7 +29676,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10627:2: kw= '+'
                     {
-                    kw=(Token)match(input,186,FOLLOW_186_in_ruleOpAdd23900); if (state.failed) return current;
+                    kw=(Token)match(input,187,FOLLOW_187_in_ruleOpAdd23900); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -29688,7 +29689,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10634:2: kw= '-'
                     {
-                    kw=(Token)match(input,163,FOLLOW_163_in_ruleOpAdd23919); if (state.failed) return current;
+                    kw=(Token)match(input,164,FOLLOW_164_in_ruleOpAdd23919); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -29800,7 +29801,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             do {
                 int alt251=2;
                 switch ( input.LA(1) ) {
-                case 187:
+                case 188:
                     {
                     int LA251_2 = input.LA(2);
 
@@ -29811,7 +29812,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 188:
+                case 189:
                     {
                     int LA251_3 = input.LA(2);
 
@@ -29822,7 +29823,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 189:
+                case 190:
                     {
                     int LA251_4 = input.LA(2);
 
@@ -29833,7 +29834,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 190:
+                case 191:
                     {
                     int LA251_5 = input.LA(2);
 
@@ -30032,22 +30033,22 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10734:1: (kw= '*' | kw= '**' | kw= '/' | kw= '%' )
             int alt252=4;
             switch ( input.LA(1) ) {
-            case 187:
+            case 188:
                 {
                 alt252=1;
                 }
                 break;
-            case 188:
+            case 189:
                 {
                 alt252=2;
                 }
                 break;
-            case 189:
+            case 190:
                 {
                 alt252=3;
                 }
                 break;
-            case 190:
+            case 191:
                 {
                 alt252=4;
                 }
@@ -30064,7 +30065,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10735:2: kw= '*'
                     {
-                    kw=(Token)match(input,187,FOLLOW_187_in_ruleOpMulti24180); if (state.failed) return current;
+                    kw=(Token)match(input,188,FOLLOW_188_in_ruleOpMulti24180); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -30077,7 +30078,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10742:2: kw= '**'
                     {
-                    kw=(Token)match(input,188,FOLLOW_188_in_ruleOpMulti24199); if (state.failed) return current;
+                    kw=(Token)match(input,189,FOLLOW_189_in_ruleOpMulti24199); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -30090,7 +30091,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10749:2: kw= '/'
                     {
-                    kw=(Token)match(input,189,FOLLOW_189_in_ruleOpMulti24218); if (state.failed) return current;
+                    kw=(Token)match(input,190,FOLLOW_190_in_ruleOpMulti24218); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -30103,7 +30104,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10756:2: kw= '%'
                     {
-                    kw=(Token)match(input,190,FOLLOW_190_in_ruleOpMulti24237); if (state.failed) return current;
+                    kw=(Token)match(input,191,FOLLOW_191_in_ruleOpMulti24237); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -30195,10 +30196,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt253=2;
             int LA253_0 = input.LA(1);
 
-            if ( (LA253_0==163||LA253_0==186||LA253_0==191) ) {
+            if ( (LA253_0==164||LA253_0==187||LA253_0==192) ) {
                 alt253=1;
             }
-            else if ( ((LA253_0>=RULE_ID && LA253_0<=RULE_DECIMAL)||LA253_0==14||LA253_0==22||LA253_0==45||LA253_0==93||LA253_0==126||(LA253_0>=129 && LA253_0<=130)||LA253_0==180||LA253_0==197||LA253_0==199||(LA253_0>=201 && LA253_0<=202)||(LA253_0>=206 && LA253_0<=211)) ) {
+            else if ( ((LA253_0>=RULE_ID && LA253_0<=RULE_DECIMAL)||LA253_0==14||LA253_0==22||LA253_0==45||LA253_0==93||LA253_0==127||(LA253_0>=130 && LA253_0<=131)||LA253_0==181||LA253_0==198||LA253_0==200||(LA253_0>=202 && LA253_0<=203)||(LA253_0>=207 && LA253_0<=212)) ) {
                 alt253=2;
             }
             else {
@@ -30403,17 +30404,17 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10852:1: (kw= '!' | kw= '-' | kw= '+' )
             int alt254=3;
             switch ( input.LA(1) ) {
-            case 191:
+            case 192:
                 {
                 alt254=1;
                 }
                 break;
-            case 163:
+            case 164:
                 {
                 alt254=2;
                 }
                 break;
-            case 186:
+            case 187:
                 {
                 alt254=3;
                 }
@@ -30430,7 +30431,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10853:2: kw= '!'
                     {
-                    kw=(Token)match(input,191,FOLLOW_191_in_ruleOpUnary24480); if (state.failed) return current;
+                    kw=(Token)match(input,192,FOLLOW_192_in_ruleOpUnary24480); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -30443,7 +30444,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10860:2: kw= '-'
                     {
-                    kw=(Token)match(input,163,FOLLOW_163_in_ruleOpUnary24499); if (state.failed) return current;
+                    kw=(Token)match(input,164,FOLLOW_164_in_ruleOpUnary24499); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -30456,7 +30457,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10867:2: kw= '+'
                     {
-                    kw=(Token)match(input,186,FOLLOW_186_in_ruleOpUnary24518); if (state.failed) return current;
+                    kw=(Token)match(input,187,FOLLOW_187_in_ruleOpUnary24518); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -30570,7 +30571,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 int alt255=2;
                 int LA255_0 = input.LA(1);
 
-                if ( (LA255_0==192) ) {
+                if ( (LA255_0==193) ) {
                     int LA255_2 = input.LA(2);
 
                     if ( (synpred12_InternalKCVL()) ) {
@@ -30604,7 +30605,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_2=(Token)match(input,192,FOLLOW_192_in_ruleXCastedExpression24650); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,193,FOLLOW_193_in_ruleXCastedExpression24650); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_2, grammarAccess.getXCastedExpressionAccess().getAsKeyword_1_0_0_1());
@@ -30784,7 +30785,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             do {
                 int alt263=3;
                 switch ( input.LA(1) ) {
-                case 164:
+                case 165:
                     {
                     int LA263_2 = input.LA(2);
 
@@ -30798,7 +30799,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 193:
+                case 194:
                     {
                     int LA263_3 = input.LA(2);
 
@@ -30809,7 +30810,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 194:
+                case 195:
                     {
                     int LA263_4 = input.LA(2);
 
@@ -30849,7 +30850,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_2=(Token)match(input,164,FOLLOW_164_in_ruleXMemberFeatureCall24817); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,165,FOLLOW_165_in_ruleXMemberFeatureCall24817); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_2, grammarAccess.getXMemberFeatureCallAccess().getFullStopKeyword_1_0_0_0_1());
@@ -30979,17 +30980,17 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11042:2: (otherlv_7= '.' | ( (lv_nullSafe_8_0= '?.' ) ) | ( (lv_spreading_9_0= '*.' ) ) )
             	    int alt256=3;
             	    switch ( input.LA(1) ) {
-            	    case 164:
+            	    case 165:
             	        {
             	        alt256=1;
             	        }
             	        break;
-            	    case 193:
+            	    case 194:
             	        {
             	        alt256=2;
             	        }
             	        break;
-            	    case 194:
+            	    case 195:
             	        {
             	        alt256=3;
             	        }
@@ -31006,7 +31007,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             	        case 1 :
             	            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11042:4: otherlv_7= '.'
             	            {
-            	            otherlv_7=(Token)match(input,164,FOLLOW_164_in_ruleXMemberFeatureCall24964); if (state.failed) return current;
+            	            otherlv_7=(Token)match(input,165,FOLLOW_165_in_ruleXMemberFeatureCall24964); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_7, grammarAccess.getXMemberFeatureCallAccess().getFullStopKeyword_1_1_0_0_1_0());
@@ -31024,7 +31025,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             	            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11048:1: (lv_nullSafe_8_0= '?.' )
             	            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11049:3: lv_nullSafe_8_0= '?.'
             	            {
-            	            lv_nullSafe_8_0=(Token)match(input,193,FOLLOW_193_in_ruleXMemberFeatureCall24988); if (state.failed) return current;
+            	            lv_nullSafe_8_0=(Token)match(input,194,FOLLOW_194_in_ruleXMemberFeatureCall24988); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                      newLeafNode(lv_nullSafe_8_0, grammarAccess.getXMemberFeatureCallAccess().getNullSafeQuestionMarkFullStopKeyword_1_1_0_0_1_1_0());
@@ -31056,7 +31057,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             	            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11064:1: (lv_spreading_9_0= '*.' )
             	            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11065:3: lv_spreading_9_0= '*.'
             	            {
-            	            lv_spreading_9_0=(Token)match(input,194,FOLLOW_194_in_ruleXMemberFeatureCall25025); if (state.failed) return current;
+            	            lv_spreading_9_0=(Token)match(input,195,FOLLOW_195_in_ruleXMemberFeatureCall25025); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                      newLeafNode(lv_spreading_9_0, grammarAccess.getXMemberFeatureCallAccess().getSpreadingAsteriskFullStopKeyword_1_1_0_0_1_2_0());
@@ -31092,14 +31093,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             	    int alt258=2;
             	    int LA258_0 = input.LA(1);
 
-            	    if ( (LA258_0==180) ) {
+            	    if ( (LA258_0==181) ) {
             	        alt258=1;
             	    }
             	    switch (alt258) {
             	        case 1 :
             	            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11078:7: otherlv_10= '<' ( (lv_typeArguments_11_0= ruleJvmArgumentTypeReference ) ) (otherlv_12= ',' ( (lv_typeArguments_13_0= ruleJvmArgumentTypeReference ) ) )* otherlv_14= '>'
             	            {
-            	            otherlv_10=(Token)match(input,180,FOLLOW_180_in_ruleXMemberFeatureCall25054); if (state.failed) return current;
+            	            otherlv_10=(Token)match(input,181,FOLLOW_181_in_ruleXMemberFeatureCall25054); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_10, grammarAccess.getXMemberFeatureCallAccess().getLessThanSignKeyword_1_1_1_0());
@@ -31205,7 +31206,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             	                }
             	            } while (true);
 
-            	            otherlv_14=(Token)match(input,179,FOLLOW_179_in_ruleXMemberFeatureCall25123); if (state.failed) return current;
+            	            otherlv_14=(Token)match(input,180,FOLLOW_180_in_ruleXMemberFeatureCall25123); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_14, grammarAccess.getXMemberFeatureCallAccess().getGreaterThanSignKeyword_1_1_1_3());
@@ -31444,7 +31445,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             	            }
 
-            	            otherlv_21=(Token)match(input,144,FOLLOW_144_in_ruleXMemberFeatureCall25346); if (state.failed) return current;
+            	            otherlv_21=(Token)match(input,145,FOLLOW_145_in_ruleXMemberFeatureCall25346); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_21, grammarAccess.getXMemberFeatureCallAccess().getRightParenthesisKeyword_1_1_3_2());
@@ -31990,22 +31991,22 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt265=6;
             int LA265_0 = input.LA(1);
 
-            if ( (LA265_0==126) && (synpred18_InternalKCVL())) {
+            if ( (LA265_0==127) && (synpred18_InternalKCVL())) {
                 alt265=1;
             }
-            else if ( ((LA265_0>=129 && LA265_0<=130)) ) {
+            else if ( ((LA265_0>=130 && LA265_0<=131)) ) {
                 alt265=2;
             }
             else if ( ((LA265_0>=RULE_INT && LA265_0<=RULE_DECIMAL)) ) {
                 alt265=3;
             }
-            else if ( (LA265_0==207) ) {
+            else if ( (LA265_0==208) ) {
                 alt265=4;
             }
             else if ( (LA265_0==RULE_STRING) ) {
                 alt265=5;
             }
-            else if ( (LA265_0==208) ) {
+            else if ( (LA265_0==209) ) {
                 alt265=6;
             }
             else {
@@ -32260,7 +32261,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,126,FOLLOW_126_in_ruleXClosure26148); if (state.failed) return current;
+            otherlv_1=(Token)match(input,127,FOLLOW_127_in_ruleXClosure26148); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXClosureAccess().getLeftSquareBracketKeyword_0_0_1());
@@ -32286,7 +32287,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     int alt267=2;
                     int LA267_0 = input.LA(1);
 
-                    if ( (LA267_0==RULE_ID||LA267_0==45||LA267_0==182) ) {
+                    if ( (LA267_0==RULE_ID||LA267_0==45||LA267_0==183) ) {
                         alt267=1;
                     }
                     switch (alt267) {
@@ -32405,7 +32406,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11582:1: (lv_explicitSyntax_5_0= '|' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11583:3: lv_explicitSyntax_5_0= '|'
                     {
-                    lv_explicitSyntax_5_0=(Token)match(input,195,FOLLOW_195_in_ruleXClosure26277); if (state.failed) return current;
+                    lv_explicitSyntax_5_0=(Token)match(input,196,FOLLOW_196_in_ruleXClosure26277); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_explicitSyntax_5_0, grammarAccess.getXClosureAccess().getExplicitSyntaxVerticalLineKeyword_1_0_1_0());
@@ -32469,7 +32470,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,128,FOLLOW_128_in_ruleXClosure26326); if (state.failed) return current;
+            otherlv_7=(Token)match(input,129,FOLLOW_129_in_ruleXClosure26326); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_7, grammarAccess.getXClosureAccess().getRightSquareBracketKeyword_3());
@@ -32574,7 +32575,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 int alt270=2;
                 int LA270_0 = input.LA(1);
 
-                if ( ((LA270_0>=RULE_ID && LA270_0<=RULE_DECIMAL)||LA270_0==14||LA270_0==22||LA270_0==45||LA270_0==93||LA270_0==126||(LA270_0>=129 && LA270_0<=130)||LA270_0==163||LA270_0==180||LA270_0==186||LA270_0==191||LA270_0==197||LA270_0==199||(LA270_0>=201 && LA270_0<=204)||(LA270_0>=206 && LA270_0<=211)) ) {
+                if ( ((LA270_0>=RULE_ID && LA270_0<=RULE_DECIMAL)||LA270_0==14||LA270_0==22||LA270_0==45||LA270_0==93||LA270_0==127||(LA270_0>=130 && LA270_0<=131)||LA270_0==164||LA270_0==181||LA270_0==187||LA270_0==192||LA270_0==198||LA270_0==200||(LA270_0>=202 && LA270_0<=205)||(LA270_0>=207 && LA270_0<=212)) ) {
                     alt270=1;
                 }
 
@@ -32622,14 +32623,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             	    int alt269=2;
             	    int LA269_0 = input.LA(1);
 
-            	    if ( (LA269_0==196) ) {
+            	    if ( (LA269_0==197) ) {
             	        alt269=1;
             	    }
             	    switch (alt269) {
             	        case 1 :
             	            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11663:4: otherlv_2= ';'
             	            {
-            	            otherlv_2=(Token)match(input,196,FOLLOW_196_in_ruleXExpressionInClosure26441); if (state.failed) return current;
+            	            otherlv_2=(Token)match(input,197,FOLLOW_197_in_ruleXExpressionInClosure26441); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_2, grammarAccess.getXExpressionInClosureAccess().getSemicolonKeyword_1_1());
@@ -32758,7 +32759,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt272=2;
             int LA272_0 = input.LA(1);
 
-            if ( (LA272_0==RULE_ID||LA272_0==45||LA272_0==182) ) {
+            if ( (LA272_0==RULE_ID||LA272_0==45||LA272_0==183) ) {
                 alt272=1;
             }
             switch (alt272) {
@@ -32877,7 +32878,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11751:1: (lv_explicitSyntax_4_0= '|' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11752:3: lv_explicitSyntax_4_0= '|'
             {
-            lv_explicitSyntax_4_0=(Token)match(input,195,FOLLOW_195_in_ruleXShortClosure26655); if (state.failed) return current;
+            lv_explicitSyntax_4_0=(Token)match(input,196,FOLLOW_196_in_ruleXShortClosure26655); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       newLeafNode(lv_explicitSyntax_4_0, grammarAccess.getXShortClosureAccess().getExplicitSyntaxVerticalLineKeyword_0_0_2_0());
@@ -33041,7 +33042,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            otherlv_2=(Token)match(input,144,FOLLOW_144_in_ruleXParenthesizedExpression26807); if (state.failed) return current;
+            otherlv_2=(Token)match(input,145,FOLLOW_145_in_ruleXParenthesizedExpression26807); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getXParenthesizedExpressionAccess().getRightParenthesisKeyword_2());
@@ -33147,7 +33148,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,197,FOLLOW_197_in_ruleXIfExpression26899); if (state.failed) return current;
+            otherlv_1=(Token)match(input,198,FOLLOW_198_in_ruleXIfExpression26899); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXIfExpressionAccess().getIfKeyword_1());
@@ -33194,7 +33195,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,144,FOLLOW_144_in_ruleXIfExpression26944); if (state.failed) return current;
+            otherlv_4=(Token)match(input,145,FOLLOW_145_in_ruleXIfExpression26944); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getXIfExpressionAccess().getRightParenthesisKeyword_4());
@@ -33239,7 +33240,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt273=2;
             int LA273_0 = input.LA(1);
 
-            if ( (LA273_0==198) ) {
+            if ( (LA273_0==199) ) {
                 int LA273_1 = input.LA(2);
 
                 if ( (synpred22_InternalKCVL()) ) {
@@ -33253,7 +33254,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11896:3: ( ( 'else' )=>otherlv_6= 'else' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11896:4: ( 'else' )=>otherlv_6= 'else'
                     {
-                    otherlv_6=(Token)match(input,198,FOLLOW_198_in_ruleXIfExpression26986); if (state.failed) return current;
+                    otherlv_6=(Token)match(input,199,FOLLOW_199_in_ruleXIfExpression26986); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_6, grammarAccess.getXIfExpressionAccess().getElseKeyword_6_0());
@@ -33414,7 +33415,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,199,FOLLOW_199_in_ruleXSwitchExpression27102); if (state.failed) return current;
+            otherlv_1=(Token)match(input,200,FOLLOW_200_in_ruleXSwitchExpression27102); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXSwitchExpressionAccess().getSwitchKeyword_1());
@@ -33424,7 +33425,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt275=2;
             int LA275_0 = input.LA(1);
 
-            if ( ((LA275_0>=RULE_ID && LA275_0<=RULE_DECIMAL)||LA275_0==14||LA275_0==22||LA275_0==93||LA275_0==126||(LA275_0>=129 && LA275_0<=130)||LA275_0==163||LA275_0==180||LA275_0==186||LA275_0==191||LA275_0==197||LA275_0==199||(LA275_0>=201 && LA275_0<=202)||(LA275_0>=206 && LA275_0<=211)) ) {
+            if ( ((LA275_0>=RULE_ID && LA275_0<=RULE_DECIMAL)||LA275_0==14||LA275_0==22||LA275_0==93||LA275_0==127||(LA275_0>=130 && LA275_0<=131)||LA275_0==164||LA275_0==181||LA275_0==187||LA275_0==192||LA275_0==198||LA275_0==200||(LA275_0>=202 && LA275_0<=203)||(LA275_0>=207 && LA275_0<=212)) ) {
                 alt275=1;
             }
             else if ( (LA275_0==45) ) {
@@ -33436,7 +33437,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     if ( (LA275_3==55) && (synpred24_InternalKCVL())) {
                         alt275=2;
                     }
-                    else if ( (LA275_3==26||LA275_3==45||(LA275_3>=126 && LA275_3<=127)||LA275_3==144||(LA275_3>=163 && LA275_3<=164)||(LA275_3>=171 && LA275_3<=190)||(LA275_3>=192 && LA275_3<=194)||LA275_3==205) ) {
+                    else if ( (LA275_3==26||LA275_3==45||(LA275_3>=127 && LA275_3<=128)||LA275_3==145||(LA275_3>=164 && LA275_3<=165)||(LA275_3>=172 && LA275_3<=191)||(LA275_3>=193 && LA275_3<=195)||LA275_3==206) ) {
                         alt275=1;
                     }
                     else {
@@ -33447,7 +33448,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                         throw nvae;
                     }
                 }
-                else if ( ((LA275_2>=RULE_STRING && LA275_2<=RULE_DECIMAL)||LA275_2==14||LA275_2==22||LA275_2==45||LA275_2==93||LA275_2==126||(LA275_2>=129 && LA275_2<=130)||LA275_2==163||LA275_2==180||LA275_2==186||LA275_2==191||LA275_2==197||LA275_2==199||(LA275_2>=201 && LA275_2<=202)||(LA275_2>=206 && LA275_2<=211)) ) {
+                else if ( ((LA275_2>=RULE_STRING && LA275_2<=RULE_DECIMAL)||LA275_2==14||LA275_2==22||LA275_2==45||LA275_2==93||LA275_2==127||(LA275_2>=130 && LA275_2<=131)||LA275_2==164||LA275_2==181||LA275_2==187||LA275_2==192||LA275_2==198||LA275_2==200||(LA275_2>=202 && LA275_2<=203)||(LA275_2>=207 && LA275_2<=212)) ) {
                     alt275=1;
                 }
                 else {
@@ -33681,7 +33682,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_9=(Token)match(input,144,FOLLOW_144_in_ruleXSwitchExpression27293); if (state.failed) return current;
+                    otherlv_9=(Token)match(input,145,FOLLOW_145_in_ruleXSwitchExpression27293); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_9, grammarAccess.getXSwitchExpressionAccess().getRightParenthesisKeyword_2_1_2());
@@ -33709,7 +33710,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 int alt276=2;
                 int LA276_0 = input.LA(1);
 
-                if ( (LA276_0==RULE_ID||LA276_0==45||LA276_0==55||LA276_0==182||LA276_0==200) ) {
+                if ( (LA276_0==RULE_ID||LA276_0==45||LA276_0==55||LA276_0==183||LA276_0==201) ) {
                     alt276=1;
                 }
 
@@ -33920,7 +33921,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt278=2;
             int LA278_0 = input.LA(1);
 
-            if ( (LA278_0==RULE_ID||LA278_0==45||LA278_0==182) ) {
+            if ( (LA278_0==RULE_ID||LA278_0==45||LA278_0==183) ) {
                 alt278=1;
             }
             switch (alt278) {
@@ -33966,14 +33967,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt279=2;
             int LA279_0 = input.LA(1);
 
-            if ( (LA279_0==200) ) {
+            if ( (LA279_0==201) ) {
                 alt279=1;
             }
             switch (alt279) {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:12141:5: otherlv_1= 'case' ( (lv_case_2_0= ruleXExpression ) )
                     {
-                    otherlv_1=(Token)match(input,200,FOLLOW_200_in_ruleXCasePart27495); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,201,FOLLOW_201_in_ruleXCasePart27495); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getXCasePartAccess().getCaseKeyword_1_0());
@@ -34249,7 +34250,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,144,FOLLOW_144_in_ruleXForLoopExpression27721); if (state.failed) return current;
+            otherlv_6=(Token)match(input,145,FOLLOW_145_in_ruleXForLoopExpression27721); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_6, grammarAccess.getXForLoopExpressionAccess().getRightParenthesisKeyword_6());
@@ -34387,7 +34388,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,201,FOLLOW_201_in_ruleXWhileExpression27834); if (state.failed) return current;
+            otherlv_1=(Token)match(input,202,FOLLOW_202_in_ruleXWhileExpression27834); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXWhileExpressionAccess().getWhileKeyword_1());
@@ -34434,7 +34435,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,144,FOLLOW_144_in_ruleXWhileExpression27879); if (state.failed) return current;
+            otherlv_4=(Token)match(input,145,FOLLOW_145_in_ruleXWhileExpression27879); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getXWhileExpressionAccess().getRightParenthesisKeyword_4());
@@ -34573,7 +34574,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,202,FOLLOW_202_in_ruleXDoWhileExpression27992); if (state.failed) return current;
+            otherlv_1=(Token)match(input,203,FOLLOW_203_in_ruleXDoWhileExpression27992); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXDoWhileExpressionAccess().getDoKeyword_1());
@@ -34614,7 +34615,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,201,FOLLOW_201_in_ruleXDoWhileExpression28025); if (state.failed) return current;
+            otherlv_3=(Token)match(input,202,FOLLOW_202_in_ruleXDoWhileExpression28025); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getXDoWhileExpressionAccess().getWhileKeyword_3());
@@ -34661,7 +34662,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,144,FOLLOW_144_in_ruleXDoWhileExpression28070); if (state.failed) return current;
+            otherlv_6=(Token)match(input,145,FOLLOW_145_in_ruleXDoWhileExpression28070); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_6, grammarAccess.getXDoWhileExpressionAccess().getRightParenthesisKeyword_6());
@@ -34774,7 +34775,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 int alt281=2;
                 int LA281_0 = input.LA(1);
 
-                if ( ((LA281_0>=RULE_ID && LA281_0<=RULE_DECIMAL)||LA281_0==14||LA281_0==22||LA281_0==45||LA281_0==93||LA281_0==126||(LA281_0>=129 && LA281_0<=130)||LA281_0==163||LA281_0==180||LA281_0==186||LA281_0==191||LA281_0==197||LA281_0==199||(LA281_0>=201 && LA281_0<=204)||(LA281_0>=206 && LA281_0<=211)) ) {
+                if ( ((LA281_0>=RULE_ID && LA281_0<=RULE_DECIMAL)||LA281_0==14||LA281_0==22||LA281_0==45||LA281_0==93||LA281_0==127||(LA281_0>=130 && LA281_0<=131)||LA281_0==164||LA281_0==181||LA281_0==187||LA281_0==192||LA281_0==198||LA281_0==200||(LA281_0>=202 && LA281_0<=205)||(LA281_0>=207 && LA281_0<=212)) ) {
                     alt281=1;
                 }
 
@@ -34822,14 +34823,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             	    int alt280=2;
             	    int LA280_0 = input.LA(1);
 
-            	    if ( (LA280_0==196) ) {
+            	    if ( (LA280_0==197) ) {
             	        alt280=1;
             	    }
             	    switch (alt280) {
             	        case 1 :
             	            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:12485:4: otherlv_3= ';'
             	            {
-            	            otherlv_3=(Token)match(input,196,FOLLOW_196_in_ruleXBlockExpression28197); if (state.failed) return current;
+            	            otherlv_3=(Token)match(input,197,FOLLOW_197_in_ruleXBlockExpression28197); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_3, grammarAccess.getXBlockExpressionAccess().getSemicolonKeyword_2_1());
@@ -34938,10 +34939,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt282=2;
             int LA282_0 = input.LA(1);
 
-            if ( ((LA282_0>=203 && LA282_0<=204)) ) {
+            if ( ((LA282_0>=204 && LA282_0<=205)) ) {
                 alt282=1;
             }
-            else if ( ((LA282_0>=RULE_ID && LA282_0<=RULE_DECIMAL)||LA282_0==14||LA282_0==22||LA282_0==45||LA282_0==93||LA282_0==126||(LA282_0>=129 && LA282_0<=130)||LA282_0==163||LA282_0==180||LA282_0==186||LA282_0==191||LA282_0==197||LA282_0==199||(LA282_0>=201 && LA282_0<=202)||(LA282_0>=206 && LA282_0<=211)) ) {
+            else if ( ((LA282_0>=RULE_ID && LA282_0<=RULE_DECIMAL)||LA282_0==14||LA282_0==22||LA282_0==45||LA282_0==93||LA282_0==127||(LA282_0>=130 && LA282_0<=131)||LA282_0==164||LA282_0==181||LA282_0==187||LA282_0==192||LA282_0==198||LA282_0==200||(LA282_0>=202 && LA282_0<=203)||(LA282_0>=207 && LA282_0<=212)) ) {
                 alt282=2;
             }
             else {
@@ -35101,10 +35102,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt283=2;
             int LA283_0 = input.LA(1);
 
-            if ( (LA283_0==203) ) {
+            if ( (LA283_0==204) ) {
                 alt283=1;
             }
-            else if ( (LA283_0==204) ) {
+            else if ( (LA283_0==205) ) {
                 alt283=2;
             }
             else {
@@ -35124,7 +35125,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:12561:1: (lv_writeable_1_0= 'var' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:12562:3: lv_writeable_1_0= 'var'
                     {
-                    lv_writeable_1_0=(Token)match(input,203,FOLLOW_203_in_ruleXVariableDeclaration28431); if (state.failed) return current;
+                    lv_writeable_1_0=(Token)match(input,204,FOLLOW_204_in_ruleXVariableDeclaration28431); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_writeable_1_0, grammarAccess.getXVariableDeclarationAccess().getWriteableVarKeyword_1_0_0());
@@ -35150,7 +35151,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:12576:7: otherlv_2= 'val'
                     {
-                    otherlv_2=(Token)match(input,204,FOLLOW_204_in_ruleXVariableDeclaration28462); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,205,FOLLOW_205_in_ruleXVariableDeclaration28462); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getXVariableDeclarationAccess().getValKeyword_1_1());
@@ -35186,7 +35187,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             else if ( (LA284_0==45) && (synpred25_InternalKCVL())) {
                 alt284=1;
             }
-            else if ( (LA284_0==182) && (synpred25_InternalKCVL())) {
+            else if ( (LA284_0==183) && (synpred25_InternalKCVL())) {
                 alt284=1;
             }
             else {
@@ -35475,11 +35476,11 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             if ( (LA286_0==RULE_ID) ) {
                 int LA286_1 = input.LA(2);
 
-                if ( (LA286_1==RULE_ID||LA286_1==126||LA286_1==164||LA286_1==180) ) {
+                if ( (LA286_1==RULE_ID||LA286_1==127||LA286_1==165||LA286_1==181) ) {
                     alt286=1;
                 }
             }
-            else if ( (LA286_0==45||LA286_0==182) ) {
+            else if ( (LA286_0==45||LA286_0==183) ) {
                 alt286=1;
             }
             switch (alt286) {
@@ -35822,7 +35823,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             if ( (LA287_0==RULE_ID) ) {
                 int LA287_1 = input.LA(2);
 
-                if ( (LA287_1==205) ) {
+                if ( (LA287_1==206) ) {
                     alt287=1;
                 }
             }
@@ -35868,14 +35869,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt289=2;
             int LA289_0 = input.LA(1);
 
-            if ( (LA289_0==180) ) {
+            if ( (LA289_0==181) ) {
                 alt289=1;
             }
             switch (alt289) {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:12821:5: otherlv_2= '<' ( (lv_typeArguments_3_0= ruleJvmArgumentTypeReference ) ) (otherlv_4= ',' ( (lv_typeArguments_5_0= ruleJvmArgumentTypeReference ) ) )* otherlv_6= '>'
                     {
-                    otherlv_2=(Token)match(input,180,FOLLOW_180_in_ruleXFeatureCall28941); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,181,FOLLOW_181_in_ruleXFeatureCall28941); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getXFeatureCallAccess().getLessThanSignKeyword_2_0());
@@ -35981,7 +35982,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_6=(Token)match(input,179,FOLLOW_179_in_ruleXFeatureCall29010); if (state.failed) return current;
+                    otherlv_6=(Token)match(input,180,FOLLOW_180_in_ruleXFeatureCall29010); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_6, grammarAccess.getXFeatureCallAccess().getGreaterThanSignKeyword_2_3());
@@ -36220,7 +36221,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_13=(Token)match(input,144,FOLLOW_144_in_ruleXFeatureCall29233); if (state.failed) return current;
+                    otherlv_13=(Token)match(input,145,FOLLOW_145_in_ruleXFeatureCall29233); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_13, grammarAccess.getXFeatureCallAccess().getRightParenthesisKeyword_4_2());
@@ -36495,7 +36496,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 if ( (LA295_0==RULE_ID) ) {
                     int LA295_2 = input.LA(2);
 
-                    if ( (LA295_2==205) ) {
+                    if ( (LA295_2==206) ) {
                         alt295=1;
                     }
 
@@ -36527,7 +36528,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             	              afterParserOrEnumRuleCall();
             	          
             	    }
-            	    kw=(Token)match(input,205,FOLLOW_205_in_ruleStaticQualifier29505); if (state.failed) return current;
+            	    kw=(Token)match(input,206,FOLLOW_206_in_ruleStaticQualifier29505); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -36654,7 +36655,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,206,FOLLOW_206_in_ruleXConstructorCall29602); if (state.failed) return current;
+            otherlv_1=(Token)match(input,207,FOLLOW_207_in_ruleXConstructorCall29602); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXConstructorCallAccess().getNewKeyword_1());
@@ -36704,7 +36705,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13127:3: ( ( '<' )=>otherlv_3= '<' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13127:4: ( '<' )=>otherlv_3= '<'
                     {
-                    otherlv_3=(Token)match(input,180,FOLLOW_180_in_ruleXConstructorCall29646); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,181,FOLLOW_181_in_ruleXConstructorCall29646); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_3, grammarAccess.getXConstructorCallAccess().getLessThanSignKeyword_3_0());
@@ -36813,7 +36814,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_7=(Token)match(input,179,FOLLOW_179_in_ruleXConstructorCall29716); if (state.failed) return current;
+                    otherlv_7=(Token)match(input,180,FOLLOW_180_in_ruleXConstructorCall29716); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_7, grammarAccess.getXConstructorCallAccess().getGreaterThanSignKeyword_3_3());
@@ -37004,7 +37005,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_13=(Token)match(input,144,FOLLOW_144_in_ruleXConstructorCall29891); if (state.failed) return current;
+                    otherlv_13=(Token)match(input,145,FOLLOW_145_in_ruleXConstructorCall29891); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_13, grammarAccess.getXConstructorCallAccess().getRightParenthesisKeyword_4_2());
@@ -37154,10 +37155,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt302=2;
             int LA302_0 = input.LA(1);
 
-            if ( (LA302_0==130) ) {
+            if ( (LA302_0==131) ) {
                 alt302=1;
             }
-            else if ( (LA302_0==129) ) {
+            else if ( (LA302_0==130) ) {
                 alt302=2;
             }
             else {
@@ -37171,7 +37172,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13307:4: otherlv_1= 'false'
                     {
-                    otherlv_1=(Token)match(input,130,FOLLOW_130_in_ruleXBooleanLiteral30020); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,131,FOLLOW_131_in_ruleXBooleanLiteral30020); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getXBooleanLiteralAccess().getFalseKeyword_1_0());
@@ -37189,7 +37190,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13313:1: (lv_isTrue_2_0= 'true' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13314:3: lv_isTrue_2_0= 'true'
                     {
-                    lv_isTrue_2_0=(Token)match(input,129,FOLLOW_129_in_ruleXBooleanLiteral30044); if (state.failed) return current;
+                    lv_isTrue_2_0=(Token)match(input,130,FOLLOW_130_in_ruleXBooleanLiteral30044); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_isTrue_2_0, grammarAccess.getXBooleanLiteralAccess().getIsTrueTrueKeyword_1_1_0());
@@ -37306,7 +37307,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,207,FOLLOW_207_in_ruleXNullLiteral30150); if (state.failed) return current;
+            otherlv_1=(Token)match(input,208,FOLLOW_208_in_ruleXNullLiteral30150); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXNullLiteralAccess().getNullKeyword_1());
@@ -37653,7 +37654,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,208,FOLLOW_208_in_ruleXTypeLiteral30445); if (state.failed) return current;
+            otherlv_1=(Token)match(input,209,FOLLOW_209_in_ruleXTypeLiteral30445); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXTypeLiteralAccess().getTypeofKeyword_1());
@@ -37699,7 +37700,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,144,FOLLOW_144_in_ruleXTypeLiteral30492); if (state.failed) return current;
+            otherlv_4=(Token)match(input,145,FOLLOW_145_in_ruleXTypeLiteral30492); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getXTypeLiteralAccess().getRightParenthesisKeyword_4());
@@ -37798,7 +37799,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,209,FOLLOW_209_in_ruleXThrowExpression30584); if (state.failed) return current;
+            otherlv_1=(Token)match(input,210,FOLLOW_210_in_ruleXThrowExpression30584); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXThrowExpressionAccess().getThrowKeyword_1());
@@ -37932,7 +37933,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,210,FOLLOW_210_in_ruleXReturnExpression30697); if (state.failed) return current;
+            otherlv_1=(Token)match(input,211,FOLLOW_211_in_ruleXReturnExpression30697); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXReturnExpressionAccess().getReturnKeyword_1());
@@ -38081,7 +38082,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,211,FOLLOW_211_in_ruleXTryCatchFinallyExpression30821); if (state.failed) return current;
+            otherlv_1=(Token)match(input,212,FOLLOW_212_in_ruleXTryCatchFinallyExpression30821); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getXTryCatchFinallyExpressionAccess().getTryKeyword_1());
@@ -38126,10 +38127,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt306=2;
             int LA306_0 = input.LA(1);
 
-            if ( (LA306_0==213) ) {
+            if ( (LA306_0==214) ) {
                 alt306=1;
             }
-            else if ( (LA306_0==212) ) {
+            else if ( (LA306_0==213) ) {
                 alt306=2;
             }
             else {
@@ -38153,7 +38154,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                         int alt304=2;
                         int LA304_0 = input.LA(1);
 
-                        if ( (LA304_0==213) ) {
+                        if ( (LA304_0==214) ) {
                             int LA304_2 = input.LA(2);
 
                             if ( (synpred34_InternalKCVL()) ) {
@@ -38215,7 +38216,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     int alt305=2;
                     int LA305_0 = input.LA(1);
 
-                    if ( (LA305_0==212) ) {
+                    if ( (LA305_0==213) ) {
                         int LA305_1 = input.LA(2);
 
                         if ( (synpred35_InternalKCVL()) ) {
@@ -38229,7 +38230,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13672:4: ( ( 'finally' )=>otherlv_4= 'finally' )
                             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13672:5: ( 'finally' )=>otherlv_4= 'finally'
                             {
-                            otherlv_4=(Token)match(input,212,FOLLOW_212_in_ruleXTryCatchFinallyExpression30894); if (state.failed) return current;
+                            otherlv_4=(Token)match(input,213,FOLLOW_213_in_ruleXTryCatchFinallyExpression30894); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                   	newLeafNode(otherlv_4, grammarAccess.getXTryCatchFinallyExpressionAccess().getFinallyKeyword_3_0_1_0());
@@ -38291,7 +38292,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13696:6: (otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) ) )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13696:8: otherlv_6= 'finally' ( (lv_finallyExpression_7_0= ruleXExpression ) )
                     {
-                    otherlv_6=(Token)match(input,212,FOLLOW_212_in_ruleXTryCatchFinallyExpression30938); if (state.failed) return current;
+                    otherlv_6=(Token)match(input,213,FOLLOW_213_in_ruleXTryCatchFinallyExpression30938); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_6, grammarAccess.getXTryCatchFinallyExpressionAccess().getFinallyKeyword_3_1_0());
@@ -38428,7 +38429,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13739:2: ( ( 'catch' )=>otherlv_0= 'catch' )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13739:3: ( 'catch' )=>otherlv_0= 'catch'
             {
-            otherlv_0=(Token)match(input,213,FOLLOW_213_in_ruleXCatchClause31052); if (state.failed) return current;
+            otherlv_0=(Token)match(input,214,FOLLOW_214_in_ruleXCatchClause31052); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getXCatchClauseAccess().getCatchKeyword_0());
@@ -38478,7 +38479,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,144,FOLLOW_144_in_ruleXCatchClause31098); if (state.failed) return current;
+            otherlv_3=(Token)match(input,145,FOLLOW_145_in_ruleXCatchClause31098); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getXCatchClauseAccess().getRightParenthesisKeyword_3());
@@ -38627,7 +38628,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 int alt307=2;
                 int LA307_0 = input.LA(1);
 
-                if ( (LA307_0==164) ) {
+                if ( (LA307_0==165) ) {
                     int LA307_2 = input.LA(2);
 
                     if ( (LA307_2==RULE_ID) ) {
@@ -38651,7 +38652,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13820:2: ( ( '.' )=>kw= '.' )
             	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13820:3: ( '.' )=>kw= '.'
             	    {
-            	    kw=(Token)match(input,164,FOLLOW_164_in_ruleQualifiedName31242); if (state.failed) return current;
+            	    kw=(Token)match(input,165,FOLLOW_165_in_ruleQualifiedName31242); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -38877,7 +38878,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     int alt310=2;
                     int LA310_0 = input.LA(1);
 
-                    if ( (LA310_0==164) ) {
+                    if ( (LA310_0==165) ) {
                         int LA310_1 = input.LA(2);
 
                         if ( (LA310_1==RULE_INT||LA310_1==RULE_DECIMAL) ) {
@@ -38888,7 +38889,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                         case 1 :
                             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13891:2: kw= '.' (this_INT_4= RULE_INT | this_DECIMAL_5= RULE_DECIMAL )
                             {
-                            kw=(Token)match(input,164,FOLLOW_164_in_ruleNumber31448); if (state.failed) return current;
+                            kw=(Token)match(input,165,FOLLOW_165_in_ruleNumber31448); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       current.merge(kw);
@@ -39052,7 +39053,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             if ( (LA313_0==RULE_ID) ) {
                 alt313=1;
             }
-            else if ( (LA313_0==45||LA313_0==182) ) {
+            else if ( (LA313_0==45||LA313_0==183) ) {
                 alt313=2;
             }
             else {
@@ -39091,10 +39092,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                         int alt312=2;
                         int LA312_0 = input.LA(1);
 
-                        if ( (LA312_0==126) ) {
+                        if ( (LA312_0==127) ) {
                             int LA312_2 = input.LA(2);
 
-                            if ( (LA312_2==128) ) {
+                            if ( (LA312_2==129) ) {
                                 int LA312_3 = input.LA(3);
 
                                 if ( (synpred38_InternalKCVL()) ) {
@@ -39128,13 +39129,13 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                     	    }
 
-                    	    otherlv_2=(Token)match(input,126,FOLLOW_126_in_ruleJvmTypeReference31639); if (state.failed) return current;
+                    	    otherlv_2=(Token)match(input,127,FOLLOW_127_in_ruleJvmTypeReference31639); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	          	newLeafNode(otherlv_2, grammarAccess.getJvmTypeReferenceAccess().getLeftSquareBracketKeyword_0_1_0_1());
                     	          
                     	    }
-                    	    otherlv_3=(Token)match(input,128,FOLLOW_128_in_ruleJvmTypeReference31651); if (state.failed) return current;
+                    	    otherlv_3=(Token)match(input,129,FOLLOW_129_in_ruleJvmTypeReference31651); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	          	newLeafNode(otherlv_3, grammarAccess.getJvmTypeReferenceAccess().getRightSquareBracketKeyword_0_1_0_2());
@@ -39288,7 +39289,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     int alt315=2;
                     int LA315_0 = input.LA(1);
 
-                    if ( (LA315_0==RULE_ID||LA315_0==45||LA315_0==182) ) {
+                    if ( (LA315_0==RULE_ID||LA315_0==45||LA315_0==183) ) {
                         alt315=1;
                     }
                     switch (alt315) {
@@ -39401,7 +39402,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_4=(Token)match(input,144,FOLLOW_144_in_ruleXFunctionTypeRef31838); if (state.failed) return current;
+                    otherlv_4=(Token)match(input,145,FOLLOW_145_in_ruleXFunctionTypeRef31838); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_4, grammarAccess.getXFunctionTypeRefAccess().getRightParenthesisKeyword_0_2());
@@ -39413,7 +39414,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,182,FOLLOW_182_in_ruleXFunctionTypeRef31852); if (state.failed) return current;
+            otherlv_5=(Token)match(input,183,FOLLOW_183_in_ruleXFunctionTypeRef31852); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getXFunctionTypeRefAccess().getEqualsSignGreaterThanSignKeyword_1());
@@ -39582,7 +39583,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14098:3: ( ( '<' )=>otherlv_1= '<' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14098:4: ( '<' )=>otherlv_1= '<'
                     {
-                    otherlv_1=(Token)match(input,180,FOLLOW_180_in_ruleJvmParameterizedTypeReference31988); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,181,FOLLOW_181_in_ruleJvmParameterizedTypeReference31988); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getJvmParameterizedTypeReferenceAccess().getLessThanSignKeyword_1_0());
@@ -39691,7 +39692,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_5=(Token)match(input,179,FOLLOW_179_in_ruleJvmParameterizedTypeReference32058); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,180,FOLLOW_180_in_ruleJvmParameterizedTypeReference32058); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_5, grammarAccess.getJvmParameterizedTypeReferenceAccess().getGreaterThanSignKeyword_1_3());
@@ -39785,10 +39786,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt319=2;
             int LA319_0 = input.LA(1);
 
-            if ( (LA319_0==RULE_ID||LA319_0==45||LA319_0==182) ) {
+            if ( (LA319_0==RULE_ID||LA319_0==45||LA319_0==183) ) {
                 alt319=1;
             }
-            else if ( (LA319_0==214) ) {
+            else if ( (LA319_0==215) ) {
                 alt319=2;
             }
             else {
@@ -39938,7 +39939,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,214,FOLLOW_214_in_ruleJvmWildcardTypeReference32271); if (state.failed) return current;
+            otherlv_1=(Token)match(input,215,FOLLOW_215_in_ruleJvmWildcardTypeReference32271); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getJvmWildcardTypeReferenceAccess().getQuestionMarkKeyword_1());
@@ -39948,7 +39949,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             int alt320=3;
             int LA320_0 = input.LA(1);
 
-            if ( (LA320_0==215) ) {
+            if ( (LA320_0==216) ) {
                 alt320=1;
             }
             else if ( (LA320_0==93) ) {
@@ -40120,7 +40121,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14276:1: (otherlv_0= 'extends' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14276:3: otherlv_0= 'extends' ( (lv_typeReference_1_0= ruleJvmTypeReference ) )
             {
-            otherlv_0=(Token)match(input,215,FOLLOW_215_in_ruleJvmUpperBound32405); if (state.failed) return current;
+            otherlv_0=(Token)match(input,216,FOLLOW_216_in_ruleJvmUpperBound32405); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getJvmUpperBoundAccess().getExtendsKeyword_0());
@@ -40241,7 +40242,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14319:1: (otherlv_0= '&' ( (lv_typeReference_1_0= ruleJvmTypeReference ) ) )
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14319:3: otherlv_0= '&' ( (lv_typeReference_1_0= ruleJvmTypeReference ) )
             {
-            otherlv_0=(Token)match(input,216,FOLLOW_216_in_ruleJvmUpperBoundAnded32509); if (state.failed) return current;
+            otherlv_0=(Token)match(input,217,FOLLOW_217_in_ruleJvmUpperBoundAnded32509); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getJvmUpperBoundAndedAccess().getAmpersandKeyword_0());
@@ -40541,97 +40542,97 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14425:1: ( (enumLiteral_0= 'not' ) | (enumLiteral_1= 'and' ) | (enumLiteral_2= 'or' ) | (enumLiteral_3= 'implies' ) | (enumLiteral_4= 'xor' ) | (enumLiteral_5= 'iff' ) | (enumLiteral_6= 'plus' ) | (enumLiteral_7= 'minus' ) | (enumLiteral_8= 'neg' ) | (enumLiteral_9= 'mult' ) | (enumLiteral_10= 'dev' ) | (enumLiteral_11= 'strConc' ) | (enumLiteral_12= 'eq' ) | (enumLiteral_13= 'lte' ) | (enumLiteral_14= 'gte' ) | (enumLiteral_15= 'lt' ) | (enumLiteral_16= 'gt' ) | (enumLiteral_17= 'isDefined' ) | (enumLiteral_18= 'isUndefined' ) )
             int alt321=19;
             switch ( input.LA(1) ) {
-            case 217:
+            case 218:
                 {
                 alt321=1;
                 }
                 break;
-            case 218:
+            case 219:
                 {
                 alt321=2;
                 }
                 break;
-            case 219:
+            case 220:
                 {
                 alt321=3;
                 }
                 break;
-            case 220:
+            case 221:
                 {
                 alt321=4;
                 }
                 break;
-            case 221:
+            case 222:
                 {
                 alt321=5;
                 }
                 break;
-            case 222:
+            case 223:
                 {
                 alt321=6;
                 }
                 break;
-            case 223:
+            case 224:
                 {
                 alt321=7;
                 }
                 break;
-            case 224:
+            case 225:
                 {
                 alt321=8;
                 }
                 break;
-            case 225:
+            case 226:
                 {
                 alt321=9;
                 }
                 break;
-            case 226:
+            case 227:
                 {
                 alt321=10;
                 }
                 break;
-            case 227:
+            case 228:
                 {
                 alt321=11;
                 }
                 break;
-            case 228:
+            case 229:
                 {
                 alt321=12;
                 }
                 break;
-            case 229:
+            case 230:
                 {
                 alt321=13;
                 }
                 break;
-            case 230:
+            case 231:
                 {
                 alt321=14;
                 }
                 break;
-            case 231:
+            case 232:
                 {
                 alt321=15;
                 }
                 break;
-            case 232:
+            case 233:
                 {
                 alt321=16;
                 }
                 break;
-            case 233:
+            case 234:
                 {
                 alt321=17;
                 }
                 break;
-            case 234:
+            case 235:
                 {
                 alt321=18;
                 }
                 break;
-            case 235:
+            case 236:
                 {
                 alt321=19;
                 }
@@ -40651,7 +40652,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14425:2: (enumLiteral_0= 'not' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14425:4: enumLiteral_0= 'not'
                     {
-                    enumLiteral_0=(Token)match(input,217,FOLLOW_217_in_ruleOperation32781); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,218,FOLLOW_218_in_ruleOperation32781); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getLogNotEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -40670,7 +40671,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14431:6: (enumLiteral_1= 'and' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14431:8: enumLiteral_1= 'and'
                     {
-                    enumLiteral_1=(Token)match(input,218,FOLLOW_218_in_ruleOperation32798); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,219,FOLLOW_219_in_ruleOperation32798); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getLogAndEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -40689,7 +40690,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14437:6: (enumLiteral_2= 'or' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14437:8: enumLiteral_2= 'or'
                     {
-                    enumLiteral_2=(Token)match(input,219,FOLLOW_219_in_ruleOperation32815); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,220,FOLLOW_220_in_ruleOperation32815); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getLogOrEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -40708,7 +40709,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14443:6: (enumLiteral_3= 'implies' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14443:8: enumLiteral_3= 'implies'
                     {
-                    enumLiteral_3=(Token)match(input,220,FOLLOW_220_in_ruleOperation32832); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,221,FOLLOW_221_in_ruleOperation32832); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getLogImpliesEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -40727,7 +40728,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14449:6: (enumLiteral_4= 'xor' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14449:8: enumLiteral_4= 'xor'
                     {
-                    enumLiteral_4=(Token)match(input,221,FOLLOW_221_in_ruleOperation32849); if (state.failed) return current;
+                    enumLiteral_4=(Token)match(input,222,FOLLOW_222_in_ruleOperation32849); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getLogXorEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
@@ -40746,7 +40747,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14455:6: (enumLiteral_5= 'iff' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14455:8: enumLiteral_5= 'iff'
                     {
-                    enumLiteral_5=(Token)match(input,222,FOLLOW_222_in_ruleOperation32866); if (state.failed) return current;
+                    enumLiteral_5=(Token)match(input,223,FOLLOW_223_in_ruleOperation32866); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getLogIffEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
@@ -40765,7 +40766,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14461:6: (enumLiteral_6= 'plus' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14461:8: enumLiteral_6= 'plus'
                     {
-                    enumLiteral_6=(Token)match(input,223,FOLLOW_223_in_ruleOperation32883); if (state.failed) return current;
+                    enumLiteral_6=(Token)match(input,224,FOLLOW_224_in_ruleOperation32883); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getArithPlusEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
@@ -40784,7 +40785,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14467:6: (enumLiteral_7= 'minus' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14467:8: enumLiteral_7= 'minus'
                     {
-                    enumLiteral_7=(Token)match(input,224,FOLLOW_224_in_ruleOperation32900); if (state.failed) return current;
+                    enumLiteral_7=(Token)match(input,225,FOLLOW_225_in_ruleOperation32900); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getArithMinusEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
@@ -40803,7 +40804,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14473:6: (enumLiteral_8= 'neg' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14473:8: enumLiteral_8= 'neg'
                     {
-                    enumLiteral_8=(Token)match(input,225,FOLLOW_225_in_ruleOperation32917); if (state.failed) return current;
+                    enumLiteral_8=(Token)match(input,226,FOLLOW_226_in_ruleOperation32917); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getArithNegEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
@@ -40822,7 +40823,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14479:6: (enumLiteral_9= 'mult' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14479:8: enumLiteral_9= 'mult'
                     {
-                    enumLiteral_9=(Token)match(input,226,FOLLOW_226_in_ruleOperation32934); if (state.failed) return current;
+                    enumLiteral_9=(Token)match(input,227,FOLLOW_227_in_ruleOperation32934); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getArithMultEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
@@ -40841,7 +40842,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14485:6: (enumLiteral_10= 'dev' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14485:8: enumLiteral_10= 'dev'
                     {
-                    enumLiteral_10=(Token)match(input,227,FOLLOW_227_in_ruleOperation32951); if (state.failed) return current;
+                    enumLiteral_10=(Token)match(input,228,FOLLOW_228_in_ruleOperation32951); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getArithDevEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
@@ -40860,7 +40861,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14491:6: (enumLiteral_11= 'strConc' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14491:8: enumLiteral_11= 'strConc'
                     {
-                    enumLiteral_11=(Token)match(input,228,FOLLOW_228_in_ruleOperation32968); if (state.failed) return current;
+                    enumLiteral_11=(Token)match(input,229,FOLLOW_229_in_ruleOperation32968); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getStrConcEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
@@ -40879,7 +40880,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14497:6: (enumLiteral_12= 'eq' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14497:8: enumLiteral_12= 'eq'
                     {
-                    enumLiteral_12=(Token)match(input,229,FOLLOW_229_in_ruleOperation32985); if (state.failed) return current;
+                    enumLiteral_12=(Token)match(input,230,FOLLOW_230_in_ruleOperation32985); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getEqEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
@@ -40898,7 +40899,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14503:6: (enumLiteral_13= 'lte' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14503:8: enumLiteral_13= 'lte'
                     {
-                    enumLiteral_13=(Token)match(input,230,FOLLOW_230_in_ruleOperation33002); if (state.failed) return current;
+                    enumLiteral_13=(Token)match(input,231,FOLLOW_231_in_ruleOperation33002); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getLteEnumLiteralDeclaration_13().getEnumLiteral().getInstance();
@@ -40917,7 +40918,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14509:6: (enumLiteral_14= 'gte' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14509:8: enumLiteral_14= 'gte'
                     {
-                    enumLiteral_14=(Token)match(input,231,FOLLOW_231_in_ruleOperation33019); if (state.failed) return current;
+                    enumLiteral_14=(Token)match(input,232,FOLLOW_232_in_ruleOperation33019); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getGteEnumLiteralDeclaration_14().getEnumLiteral().getInstance();
@@ -40936,7 +40937,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14515:6: (enumLiteral_15= 'lt' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14515:8: enumLiteral_15= 'lt'
                     {
-                    enumLiteral_15=(Token)match(input,232,FOLLOW_232_in_ruleOperation33036); if (state.failed) return current;
+                    enumLiteral_15=(Token)match(input,233,FOLLOW_233_in_ruleOperation33036); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getLtEnumLiteralDeclaration_15().getEnumLiteral().getInstance();
@@ -40955,7 +40956,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14521:6: (enumLiteral_16= 'gt' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14521:8: enumLiteral_16= 'gt'
                     {
-                    enumLiteral_16=(Token)match(input,233,FOLLOW_233_in_ruleOperation33053); if (state.failed) return current;
+                    enumLiteral_16=(Token)match(input,234,FOLLOW_234_in_ruleOperation33053); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getGtEnumLiteralDeclaration_16().getEnumLiteral().getInstance();
@@ -40974,7 +40975,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14527:6: (enumLiteral_17= 'isDefined' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14527:8: enumLiteral_17= 'isDefined'
                     {
-                    enumLiteral_17=(Token)match(input,234,FOLLOW_234_in_ruleOperation33070); if (state.failed) return current;
+                    enumLiteral_17=(Token)match(input,235,FOLLOW_235_in_ruleOperation33070); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getIsDefinedEnumLiteralDeclaration_17().getEnumLiteral().getInstance();
@@ -40993,7 +40994,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14533:6: (enumLiteral_18= 'isUndefined' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14533:8: enumLiteral_18= 'isUndefined'
                     {
-                    enumLiteral_18=(Token)match(input,235,FOLLOW_235_in_ruleOperation33087); if (state.failed) return current;
+                    enumLiteral_18=(Token)match(input,236,FOLLOW_236_in_ruleOperation33087); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getOperationAccess().getIsUndefinedEnumLiteralDeclaration_18().getEnumLiteral().getInstance();
@@ -41047,27 +41048,27 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14546:1: ( (enumLiteral_0= 'String' ) | (enumLiteral_1= 'Boolean' ) | (enumLiteral_2= 'Integer' ) | (enumLiteral_3= 'Real' ) | (enumLiteral_4= 'UnlimitedNatural' ) )
             int alt322=5;
             switch ( input.LA(1) ) {
-            case 236:
+            case 237:
                 {
                 alt322=1;
                 }
                 break;
-            case 237:
+            case 238:
                 {
                 alt322=2;
                 }
                 break;
-            case 238:
+            case 239:
                 {
                 alt322=3;
                 }
                 break;
-            case 239:
+            case 240:
                 {
                 alt322=4;
                 }
                 break;
-            case 240:
+            case 241:
                 {
                 alt322=5;
                 }
@@ -41087,7 +41088,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14546:2: (enumLiteral_0= 'String' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14546:4: enumLiteral_0= 'String'
                     {
-                    enumLiteral_0=(Token)match(input,236,FOLLOW_236_in_rulePrimitiveTypeEnum33132); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,237,FOLLOW_237_in_rulePrimitiveTypeEnum33132); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getPrimitiveTypeEnumAccess().getStringEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -41106,7 +41107,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14552:6: (enumLiteral_1= 'Boolean' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14552:8: enumLiteral_1= 'Boolean'
                     {
-                    enumLiteral_1=(Token)match(input,237,FOLLOW_237_in_rulePrimitiveTypeEnum33149); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,238,FOLLOW_238_in_rulePrimitiveTypeEnum33149); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getPrimitiveTypeEnumAccess().getBooleanEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -41125,7 +41126,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14558:6: (enumLiteral_2= 'Integer' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14558:8: enumLiteral_2= 'Integer'
                     {
-                    enumLiteral_2=(Token)match(input,238,FOLLOW_238_in_rulePrimitiveTypeEnum33166); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,239,FOLLOW_239_in_rulePrimitiveTypeEnum33166); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getPrimitiveTypeEnumAccess().getIntegerEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -41144,7 +41145,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14564:6: (enumLiteral_3= 'Real' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14564:8: enumLiteral_3= 'Real'
                     {
-                    enumLiteral_3=(Token)match(input,239,FOLLOW_239_in_rulePrimitiveTypeEnum33183); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,240,FOLLOW_240_in_rulePrimitiveTypeEnum33183); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getPrimitiveTypeEnumAccess().getRealEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -41163,7 +41164,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14570:6: (enumLiteral_4= 'UnlimitedNatural' )
                     // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14570:8: enumLiteral_4= 'UnlimitedNatural'
                     {
-                    enumLiteral_4=(Token)match(input,240,FOLLOW_240_in_rulePrimitiveTypeEnum33200); if (state.failed) return current;
+                    enumLiteral_4=(Token)match(input,241,FOLLOW_241_in_rulePrimitiveTypeEnum33200); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getPrimitiveTypeEnumAccess().getUnlimitedNaturalEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
@@ -41362,7 +41363,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         {
         }
 
-        match(input,176,FOLLOW_176_in_synpred5_InternalKCVL22837); if (state.failed) return ;
+        match(input,177,FOLLOW_177_in_synpred5_InternalKCVL22837); if (state.failed) return ;
 
         }
 
@@ -41455,8 +41456,8 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10457:4: ( '>' '>' )
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10458:2: '>' '>'
         {
-        match(input,179,FOLLOW_179_in_synpred8_InternalKCVL23443); if (state.failed) return ;
-        match(input,179,FOLLOW_179_in_synpred8_InternalKCVL23448); if (state.failed) return ;
+        match(input,180,FOLLOW_180_in_synpred8_InternalKCVL23443); if (state.failed) return ;
+        match(input,180,FOLLOW_180_in_synpred8_InternalKCVL23448); if (state.failed) return ;
 
         }
 
@@ -41473,8 +41474,8 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10487:4: ( '<' '<' )
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10488:2: '<' '<'
         {
-        match(input,180,FOLLOW_180_in_synpred9_InternalKCVL23530); if (state.failed) return ;
-        match(input,180,FOLLOW_180_in_synpred9_InternalKCVL23535); if (state.failed) return ;
+        match(input,181,FOLLOW_181_in_synpred9_InternalKCVL23530); if (state.failed) return ;
+        match(input,181,FOLLOW_181_in_synpred9_InternalKCVL23535); if (state.failed) return ;
 
         }
 
@@ -41572,7 +41573,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         {
         }
 
-        match(input,192,FOLLOW_192_in_synpred12_InternalKCVL24631); if (state.failed) return ;
+        match(input,193,FOLLOW_193_in_synpred12_InternalKCVL24631); if (state.failed) return ;
 
         }
 
@@ -41594,7 +41595,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         {
         }
 
-        match(input,164,FOLLOW_164_in_synpred13_InternalKCVL24785); if (state.failed) return ;
+        match(input,165,FOLLOW_165_in_synpred13_InternalKCVL24785); if (state.failed) return ;
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10964:1: ( ( ruleValidID ) )
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:10965:1: ( ruleValidID )
         {
@@ -41641,17 +41642,17 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11021:2: ( '.' | ( ( '?.' ) ) | ( ( '*.' ) ) )
         int alt323=3;
         switch ( input.LA(1) ) {
-        case 164:
+        case 165:
             {
             alt323=1;
             }
             break;
-        case 193:
+        case 194:
             {
             alt323=2;
             }
             break;
-        case 194:
+        case 195:
             {
             alt323=3;
             }
@@ -41668,7 +41669,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             case 1 :
                 // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11021:4: '.'
                 {
-                match(input,164,FOLLOW_164_in_synpred14_InternalKCVL24903); if (state.failed) return ;
+                match(input,165,FOLLOW_165_in_synpred14_InternalKCVL24903); if (state.failed) return ;
 
                 }
                 break;
@@ -41681,7 +41682,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11024:1: ( '?.' )
                 // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11025:2: '?.'
                 {
-                match(input,193,FOLLOW_193_in_synpred14_InternalKCVL24917); if (state.failed) return ;
+                match(input,194,FOLLOW_194_in_synpred14_InternalKCVL24917); if (state.failed) return ;
 
                 }
 
@@ -41700,7 +41701,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                 // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11031:1: ( '*.' )
                 // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11032:2: '*.'
                 {
-                match(input,194,FOLLOW_194_in_synpred14_InternalKCVL24937); if (state.failed) return ;
+                match(input,195,FOLLOW_195_in_synpred14_InternalKCVL24937); if (state.failed) return ;
 
                 }
 
@@ -41755,7 +41756,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         int alt325=2;
         int LA325_0 = input.LA(1);
 
-        if ( (LA325_0==RULE_ID||LA325_0==45||LA325_0==182) ) {
+        if ( (LA325_0==RULE_ID||LA325_0==45||LA325_0==183) ) {
             alt325=1;
         }
         switch (alt325) {
@@ -41833,7 +41834,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11173:1: ( '|' )
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11174:2: '|'
         {
-        match(input,195,FOLLOW_195_in_synpred16_InternalKCVL25244); if (state.failed) return ;
+        match(input,196,FOLLOW_196_in_synpred16_InternalKCVL25244); if (state.failed) return ;
 
         }
 
@@ -41861,7 +41862,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         {
         }
 
-        match(input,126,FOLLOW_126_in_synpred17_InternalKCVL25364); if (state.failed) return ;
+        match(input,127,FOLLOW_127_in_synpred17_InternalKCVL25364); if (state.failed) return ;
 
         }
 
@@ -41883,7 +41884,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         {
         }
 
-        match(input,126,FOLLOW_126_in_synpred18_InternalKCVL25888); if (state.failed) return ;
+        match(input,127,FOLLOW_127_in_synpred18_InternalKCVL25888); if (state.failed) return ;
 
         }
 
@@ -41904,7 +41905,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         int alt327=2;
         int LA327_0 = input.LA(1);
 
-        if ( (LA327_0==RULE_ID||LA327_0==45||LA327_0==182) ) {
+        if ( (LA327_0==RULE_ID||LA327_0==45||LA327_0==183) ) {
             alt327=1;
         }
         switch (alt327) {
@@ -41982,7 +41983,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11536:1: ( '|' )
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11537:2: '|'
         {
-        match(input,195,FOLLOW_195_in_synpred20_InternalKCVL26195); if (state.failed) return ;
+        match(input,196,FOLLOW_196_in_synpred20_InternalKCVL26195); if (state.failed) return ;
 
         }
 
@@ -42002,7 +42003,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11896:4: ( 'else' )
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:11896:6: 'else'
         {
-        match(input,198,FOLLOW_198_in_synpred22_InternalKCVL26978); if (state.failed) return ;
+        match(input,199,FOLLOW_199_in_synpred22_InternalKCVL26978); if (state.failed) return ;
 
         }
     }
@@ -42161,7 +42162,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         int alt331=2;
         int LA331_0 = input.LA(1);
 
-        if ( (LA331_0==RULE_ID||LA331_0==45||LA331_0==182) ) {
+        if ( (LA331_0==RULE_ID||LA331_0==45||LA331_0==183) ) {
             alt331=1;
         }
         switch (alt331) {
@@ -42239,7 +42240,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:12916:1: ( '|' )
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:12917:2: '|'
         {
-        match(input,195,FOLLOW_195_in_synpred27_InternalKCVL29131); if (state.failed) return ;
+        match(input,196,FOLLOW_196_in_synpred27_InternalKCVL29131); if (state.failed) return ;
 
         }
 
@@ -42267,7 +42268,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         {
         }
 
-        match(input,126,FOLLOW_126_in_synpred28_InternalKCVL29251); if (state.failed) return ;
+        match(input,127,FOLLOW_127_in_synpred28_InternalKCVL29251); if (state.failed) return ;
 
         }
 
@@ -42281,7 +42282,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13127:4: ( '<' )
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13127:6: '<'
         {
-        match(input,180,FOLLOW_180_in_synpred29_InternalKCVL29638); if (state.failed) return ;
+        match(input,181,FOLLOW_181_in_synpred29_InternalKCVL29638); if (state.failed) return ;
 
         }
     }
@@ -42315,7 +42316,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         int alt333=2;
         int LA333_0 = input.LA(1);
 
-        if ( (LA333_0==RULE_ID||LA333_0==45||LA333_0==182) ) {
+        if ( (LA333_0==RULE_ID||LA333_0==45||LA333_0==183) ) {
             alt333=1;
         }
         switch (alt333) {
@@ -42393,7 +42394,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13192:1: ( '|' )
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13193:2: '|'
         {
-        match(input,195,FOLLOW_195_in_synpred31_InternalKCVL29789); if (state.failed) return ;
+        match(input,196,FOLLOW_196_in_synpred31_InternalKCVL29789); if (state.failed) return ;
 
         }
 
@@ -42421,7 +42422,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         {
         }
 
-        match(input,126,FOLLOW_126_in_synpred32_InternalKCVL29909); if (state.failed) return ;
+        match(input,127,FOLLOW_127_in_synpred32_InternalKCVL29909); if (state.failed) return ;
 
         }
 
@@ -42456,7 +42457,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13653:5: ( 'catch' )
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13653:7: 'catch'
         {
-        match(input,213,FOLLOW_213_in_synpred34_InternalKCVL30856); if (state.failed) return ;
+        match(input,214,FOLLOW_214_in_synpred34_InternalKCVL30856); if (state.failed) return ;
 
         }
     }
@@ -42467,7 +42468,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13672:5: ( 'finally' )
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13672:7: 'finally'
         {
-        match(input,212,FOLLOW_212_in_synpred35_InternalKCVL30886); if (state.failed) return ;
+        match(input,213,FOLLOW_213_in_synpred35_InternalKCVL30886); if (state.failed) return ;
 
         }
     }
@@ -42478,7 +42479,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13820:3: ( '.' )
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:13821:2: '.'
         {
-        match(input,164,FOLLOW_164_in_synpred37_InternalKCVL31233); if (state.failed) return ;
+        match(input,165,FOLLOW_165_in_synpred37_InternalKCVL31233); if (state.failed) return ;
 
         }
     }
@@ -42497,8 +42498,8 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         {
         }
 
-        match(input,126,FOLLOW_126_in_synpred38_InternalKCVL31616); if (state.failed) return ;
-        match(input,128,FOLLOW_128_in_synpred38_InternalKCVL31620); if (state.failed) return ;
+        match(input,127,FOLLOW_127_in_synpred38_InternalKCVL31616); if (state.failed) return ;
+        match(input,129,FOLLOW_129_in_synpred38_InternalKCVL31620); if (state.failed) return ;
 
         }
 
@@ -42512,7 +42513,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14098:4: ( '<' )
         // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:14098:6: '<'
         {
-        match(input,180,FOLLOW_180_in_synpred39_InternalKCVL31980); if (state.failed) return ;
+        match(input,181,FOLLOW_181_in_synpred39_InternalKCVL31980); if (state.failed) return ;
 
         }
     }
@@ -43048,14 +43049,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     static final String DFA245_minS =
         "\1\4\1\uffff\10\0\1\uffff";
     static final String DFA245_maxS =
-        "\1\u00d5\1\uffff\10\0\1\uffff";
+        "\1\u00d6\1\uffff\10\0\1\uffff";
     static final String DFA245_acceptS =
         "\1\uffff\1\2\10\uffff\1\1";
     static final String DFA245_specialS =
         "\2\uffff\1\7\1\1\1\2\1\3\1\0\1\4\1\5\1\6\1\uffff}>";
     static final String[] DFA245_transitionS = {
             "\5\1\5\uffff\2\1\1\uffff\1\1\4\uffff\1\1\15\uffff\1\1\10\uffff"+
-            "\1\1\11\uffff\1\1\45\uffff\1\1\40\uffff\1\1\1\5\3\1\15\uffff"+
+            "\1\1\11\uffff\1\1\45\uffff\1\1\41\uffff\1\1\1\5\3\1\15\uffff"+
             "\1\1\22\uffff\2\1\6\uffff\10\1\1\2\1\3\1\4\1\6\1\7\1\10\1\11"+
             "\11\1\1\uffff\11\1\1\uffff\10\1",
             "",
@@ -43241,14 +43242,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     static final String DFA261_minS =
         "\1\4\1\0\77\uffff";
     static final String DFA261_maxS =
-        "\1\u00d5\1\0\77\uffff";
+        "\1\u00d6\1\0\77\uffff";
     static final String DFA261_acceptS =
         "\2\uffff\1\2\75\uffff\1\1";
     static final String DFA261_specialS =
         "\1\uffff\1\0\77\uffff}>";
     static final String[] DFA261_transitionS = {
             "\5\2\5\uffff\2\2\1\uffff\1\2\4\uffff\1\2\15\uffff\1\2\10\uffff"+
-            "\1\1\11\uffff\1\2\45\uffff\1\2\40\uffff\5\2\15\uffff\1\2\22"+
+            "\1\1\11\uffff\1\2\45\uffff\1\2\41\uffff\5\2\15\uffff\1\2\22"+
             "\uffff\2\2\6\uffff\30\2\1\uffff\11\2\1\uffff\10\2",
             "\1\uffff",
             "",
@@ -43382,13 +43383,13 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     static final String DFA260_minS =
         "\1\4\2\0\33\uffff";
     static final String DFA260_maxS =
-        "\1\u00d3\2\0\33\uffff";
+        "\1\u00d4\2\0\33\uffff";
     static final String DFA260_acceptS =
         "\3\uffff\2\1\1\2\27\uffff\1\3";
     static final String DFA260_specialS =
         "\1\0\1\1\1\2\33\uffff}>";
     static final String[] DFA260_transitionS = {
-            "\1\1\4\5\5\uffff\1\5\7\uffff\1\5\26\uffff\1\2\57\uffff\1\5\40"+
+            "\1\1\4\5\5\uffff\1\5\7\uffff\1\5\26\uffff\1\2\57\uffff\1\5\41"+
             "\uffff\1\5\2\uffff\2\5\15\uffff\1\35\22\uffff\1\5\20\uffff\1"+
             "\5\1\uffff\1\3\3\uffff\1\5\4\uffff\1\5\3\uffff\1\4\1\uffff\1"+
             "\5\1\uffff\1\5\1\uffff\2\5\3\uffff\6\5",
@@ -43470,13 +43471,13 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                         else if ( (LA260_0==45) ) {s = 2;}
 
-                        else if ( (LA260_0==182) && (synpred16_InternalKCVL())) {s = 3;}
+                        else if ( (LA260_0==183) && (synpred16_InternalKCVL())) {s = 3;}
 
-                        else if ( (LA260_0==195) && (synpred16_InternalKCVL())) {s = 4;}
+                        else if ( (LA260_0==196) && (synpred16_InternalKCVL())) {s = 4;}
 
-                        else if ( ((LA260_0>=RULE_STRING && LA260_0<=RULE_DECIMAL)||LA260_0==14||LA260_0==22||LA260_0==93||LA260_0==126||(LA260_0>=129 && LA260_0<=130)||LA260_0==163||LA260_0==180||LA260_0==186||LA260_0==191||LA260_0==197||LA260_0==199||(LA260_0>=201 && LA260_0<=202)||(LA260_0>=206 && LA260_0<=211)) ) {s = 5;}
+                        else if ( ((LA260_0>=RULE_STRING && LA260_0<=RULE_DECIMAL)||LA260_0==14||LA260_0==22||LA260_0==93||LA260_0==127||(LA260_0>=130 && LA260_0<=131)||LA260_0==164||LA260_0==181||LA260_0==187||LA260_0==192||LA260_0==198||LA260_0==200||(LA260_0>=202 && LA260_0<=203)||(LA260_0>=207 && LA260_0<=212)) ) {s = 5;}
 
-                        else if ( (LA260_0==144) ) {s = 29;}
+                        else if ( (LA260_0==145) ) {s = 29;}
 
                          
                         input.seek(index260_0);
@@ -43527,14 +43528,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     static final String DFA262_minS =
         "\1\4\1\0\77\uffff";
     static final String DFA262_maxS =
-        "\1\u00d5\1\0\77\uffff";
+        "\1\u00d6\1\0\77\uffff";
     static final String DFA262_acceptS =
         "\2\uffff\1\2\75\uffff\1\1";
     static final String DFA262_specialS =
         "\1\uffff\1\0\77\uffff}>";
     static final String[] DFA262_transitionS = {
             "\5\2\5\uffff\2\2\1\uffff\1\2\4\uffff\1\2\15\uffff\1\2\10\uffff"+
-            "\1\2\11\uffff\1\2\45\uffff\1\2\40\uffff\1\1\4\2\15\uffff\1\2"+
+            "\1\2\11\uffff\1\2\45\uffff\1\2\41\uffff\1\1\4\2\15\uffff\1\2"+
             "\22\uffff\2\2\6\uffff\30\2\1\uffff\11\2\1\uffff\10\2",
             "\1\uffff",
             "",
@@ -43668,7 +43669,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     static final String DFA264_minS =
         "\1\4\15\uffff";
     static final String DFA264_maxS =
-        "\1\u00d3\15\uffff";
+        "\1\u00d4\15\uffff";
     static final String DFA264_acceptS =
         "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1"+
         "\15";
@@ -43676,7 +43677,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         "\16\uffff}>";
     static final String[] DFA264_transitionS = {
             "\1\4\4\5\5\uffff\1\2\7\uffff\1\7\26\uffff\1\15\57\uffff\1\4"+
-            "\40\uffff\1\5\2\uffff\2\5\61\uffff\1\4\20\uffff\1\6\1\uffff"+
+            "\41\uffff\1\5\2\uffff\2\5\61\uffff\1\4\20\uffff\1\6\1\uffff"+
             "\1\3\1\uffff\1\10\1\11\3\uffff\1\1\2\5\1\12\1\13\1\14",
             "",
             "",
@@ -43733,13 +43734,13 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     static final String DFA268_minS =
         "\1\4\2\0\35\uffff";
     static final String DFA268_maxS =
-        "\1\u00d3\2\0\35\uffff";
+        "\1\u00d4\2\0\35\uffff";
     static final String DFA268_acceptS =
         "\3\uffff\2\1\1\2\32\uffff";
     static final String DFA268_specialS =
         "\1\0\1\1\1\2\35\uffff}>";
     static final String[] DFA268_transitionS = {
-            "\1\1\4\5\5\uffff\1\5\7\uffff\1\5\26\uffff\1\2\57\uffff\1\5\40"+
+            "\1\1\4\5\5\uffff\1\5\7\uffff\1\5\26\uffff\1\2\57\uffff\1\5\41"+
             "\uffff\1\5\1\uffff\3\5\40\uffff\1\5\20\uffff\1\5\1\uffff\1\3"+
             "\3\uffff\1\5\4\uffff\1\5\3\uffff\1\4\1\uffff\1\5\1\uffff\1\5"+
             "\1\uffff\4\5\1\uffff\6\5",
@@ -43823,11 +43824,11 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                         else if ( (LA268_0==45) ) {s = 2;}
 
-                        else if ( (LA268_0==182) && (synpred20_InternalKCVL())) {s = 3;}
+                        else if ( (LA268_0==183) && (synpred20_InternalKCVL())) {s = 3;}
 
-                        else if ( (LA268_0==195) && (synpred20_InternalKCVL())) {s = 4;}
+                        else if ( (LA268_0==196) && (synpred20_InternalKCVL())) {s = 4;}
 
-                        else if ( ((LA268_0>=RULE_STRING && LA268_0<=RULE_DECIMAL)||LA268_0==14||LA268_0==22||LA268_0==93||LA268_0==126||(LA268_0>=128 && LA268_0<=130)||LA268_0==163||LA268_0==180||LA268_0==186||LA268_0==191||LA268_0==197||LA268_0==199||(LA268_0>=201 && LA268_0<=204)||(LA268_0>=206 && LA268_0<=211)) ) {s = 5;}
+                        else if ( ((LA268_0>=RULE_STRING && LA268_0<=RULE_DECIMAL)||LA268_0==14||LA268_0==22||LA268_0==93||LA268_0==127||(LA268_0>=129 && LA268_0<=131)||LA268_0==164||LA268_0==181||LA268_0==187||LA268_0==192||LA268_0==198||LA268_0==200||(LA268_0>=202 && LA268_0<=205)||(LA268_0>=207 && LA268_0<=212)) ) {s = 5;}
 
                          
                         input.seek(index268_0);
@@ -43878,14 +43879,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     static final String DFA292_minS =
         "\1\4\1\0\77\uffff";
     static final String DFA292_maxS =
-        "\1\u00d5\1\0\77\uffff";
+        "\1\u00d6\1\0\77\uffff";
     static final String DFA292_acceptS =
         "\2\uffff\1\2\75\uffff\1\1";
     static final String DFA292_specialS =
         "\1\uffff\1\0\77\uffff}>";
     static final String[] DFA292_transitionS = {
             "\5\2\5\uffff\2\2\1\uffff\1\2\4\uffff\1\2\15\uffff\1\2\10\uffff"+
-            "\1\1\11\uffff\1\2\45\uffff\1\2\40\uffff\5\2\15\uffff\1\2\22"+
+            "\1\1\11\uffff\1\2\45\uffff\1\2\41\uffff\5\2\15\uffff\1\2\22"+
             "\uffff\2\2\6\uffff\30\2\1\uffff\11\2\1\uffff\10\2",
             "\1\uffff",
             "",
@@ -44019,13 +44020,13 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     static final String DFA291_minS =
         "\1\4\2\0\33\uffff";
     static final String DFA291_maxS =
-        "\1\u00d3\2\0\33\uffff";
+        "\1\u00d4\2\0\33\uffff";
     static final String DFA291_acceptS =
         "\3\uffff\2\1\1\2\27\uffff\1\3";
     static final String DFA291_specialS =
         "\1\0\1\1\1\2\33\uffff}>";
     static final String[] DFA291_transitionS = {
-            "\1\1\4\5\5\uffff\1\5\7\uffff\1\5\26\uffff\1\2\57\uffff\1\5\40"+
+            "\1\1\4\5\5\uffff\1\5\7\uffff\1\5\26\uffff\1\2\57\uffff\1\5\41"+
             "\uffff\1\5\2\uffff\2\5\15\uffff\1\35\22\uffff\1\5\20\uffff\1"+
             "\5\1\uffff\1\3\3\uffff\1\5\4\uffff\1\5\3\uffff\1\4\1\uffff\1"+
             "\5\1\uffff\1\5\1\uffff\2\5\3\uffff\6\5",
@@ -44107,13 +44108,13 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                         else if ( (LA291_0==45) ) {s = 2;}
 
-                        else if ( (LA291_0==182) && (synpred27_InternalKCVL())) {s = 3;}
+                        else if ( (LA291_0==183) && (synpred27_InternalKCVL())) {s = 3;}
 
-                        else if ( (LA291_0==195) && (synpred27_InternalKCVL())) {s = 4;}
+                        else if ( (LA291_0==196) && (synpred27_InternalKCVL())) {s = 4;}
 
-                        else if ( ((LA291_0>=RULE_STRING && LA291_0<=RULE_DECIMAL)||LA291_0==14||LA291_0==22||LA291_0==93||LA291_0==126||(LA291_0>=129 && LA291_0<=130)||LA291_0==163||LA291_0==180||LA291_0==186||LA291_0==191||LA291_0==197||LA291_0==199||(LA291_0>=201 && LA291_0<=202)||(LA291_0>=206 && LA291_0<=211)) ) {s = 5;}
+                        else if ( ((LA291_0>=RULE_STRING && LA291_0<=RULE_DECIMAL)||LA291_0==14||LA291_0==22||LA291_0==93||LA291_0==127||(LA291_0>=130 && LA291_0<=131)||LA291_0==164||LA291_0==181||LA291_0==187||LA291_0==192||LA291_0==198||LA291_0==200||(LA291_0>=202 && LA291_0<=203)||(LA291_0>=207 && LA291_0<=212)) ) {s = 5;}
 
-                        else if ( (LA291_0==144) ) {s = 29;}
+                        else if ( (LA291_0==145) ) {s = 29;}
 
                          
                         input.seek(index291_0);
@@ -44164,14 +44165,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     static final String DFA293_minS =
         "\1\4\1\0\77\uffff";
     static final String DFA293_maxS =
-        "\1\u00d5\1\0\77\uffff";
+        "\1\u00d6\1\0\77\uffff";
     static final String DFA293_acceptS =
         "\2\uffff\1\2\75\uffff\1\1";
     static final String DFA293_specialS =
         "\1\uffff\1\0\77\uffff}>";
     static final String[] DFA293_transitionS = {
             "\5\2\5\uffff\2\2\1\uffff\1\2\4\uffff\1\2\15\uffff\1\2\10\uffff"+
-            "\1\2\11\uffff\1\2\45\uffff\1\2\40\uffff\1\1\4\2\15\uffff\1\2"+
+            "\1\2\11\uffff\1\2\45\uffff\1\2\41\uffff\1\1\4\2\15\uffff\1\2"+
             "\22\uffff\2\2\6\uffff\30\2\1\uffff\11\2\1\uffff\10\2",
             "\1\uffff",
             "",
@@ -44305,14 +44306,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     static final String DFA297_minS =
         "\1\4\1\0\77\uffff";
     static final String DFA297_maxS =
-        "\1\u00d5\1\0\77\uffff";
+        "\1\u00d6\1\0\77\uffff";
     static final String DFA297_acceptS =
         "\2\uffff\1\2\75\uffff\1\1";
     static final String DFA297_specialS =
         "\1\uffff\1\0\77\uffff}>";
     static final String[] DFA297_transitionS = {
             "\5\2\5\uffff\2\2\1\uffff\1\2\4\uffff\1\2\15\uffff\1\2\10\uffff"+
-            "\1\2\11\uffff\1\2\45\uffff\1\2\40\uffff\5\2\15\uffff\1\2\22"+
+            "\1\2\11\uffff\1\2\45\uffff\1\2\41\uffff\5\2\15\uffff\1\2\22"+
             "\uffff\2\2\6\uffff\11\2\1\1\16\2\1\uffff\11\2\1\uffff\10\2",
             "\1\uffff",
             "",
@@ -44446,14 +44447,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     static final String DFA300_minS =
         "\1\4\1\0\77\uffff";
     static final String DFA300_maxS =
-        "\1\u00d5\1\0\77\uffff";
+        "\1\u00d6\1\0\77\uffff";
     static final String DFA300_acceptS =
         "\2\uffff\1\2\75\uffff\1\1";
     static final String DFA300_specialS =
         "\1\uffff\1\0\77\uffff}>";
     static final String[] DFA300_transitionS = {
             "\5\2\5\uffff\2\2\1\uffff\1\2\4\uffff\1\2\15\uffff\1\2\10\uffff"+
-            "\1\1\11\uffff\1\2\45\uffff\1\2\40\uffff\5\2\15\uffff\1\2\22"+
+            "\1\1\11\uffff\1\2\45\uffff\1\2\41\uffff\5\2\15\uffff\1\2\22"+
             "\uffff\2\2\6\uffff\30\2\1\uffff\11\2\1\uffff\10\2",
             "\1\uffff",
             "",
@@ -44587,13 +44588,13 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     static final String DFA299_minS =
         "\1\4\2\0\33\uffff";
     static final String DFA299_maxS =
-        "\1\u00d3\2\0\33\uffff";
+        "\1\u00d4\2\0\33\uffff";
     static final String DFA299_acceptS =
         "\3\uffff\2\1\1\2\27\uffff\1\3";
     static final String DFA299_specialS =
         "\1\0\1\1\1\2\33\uffff}>";
     static final String[] DFA299_transitionS = {
-            "\1\1\4\5\5\uffff\1\5\7\uffff\1\5\26\uffff\1\2\57\uffff\1\5\40"+
+            "\1\1\4\5\5\uffff\1\5\7\uffff\1\5\26\uffff\1\2\57\uffff\1\5\41"+
             "\uffff\1\5\2\uffff\2\5\15\uffff\1\35\22\uffff\1\5\20\uffff\1"+
             "\5\1\uffff\1\3\3\uffff\1\5\4\uffff\1\5\3\uffff\1\4\1\uffff\1"+
             "\5\1\uffff\1\5\1\uffff\2\5\3\uffff\6\5",
@@ -44675,13 +44676,13 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                         else if ( (LA299_0==45) ) {s = 2;}
 
-                        else if ( (LA299_0==182) && (synpred31_InternalKCVL())) {s = 3;}
+                        else if ( (LA299_0==183) && (synpred31_InternalKCVL())) {s = 3;}
 
-                        else if ( (LA299_0==195) && (synpred31_InternalKCVL())) {s = 4;}
+                        else if ( (LA299_0==196) && (synpred31_InternalKCVL())) {s = 4;}
 
-                        else if ( ((LA299_0>=RULE_STRING && LA299_0<=RULE_DECIMAL)||LA299_0==14||LA299_0==22||LA299_0==93||LA299_0==126||(LA299_0>=129 && LA299_0<=130)||LA299_0==163||LA299_0==180||LA299_0==186||LA299_0==191||LA299_0==197||LA299_0==199||(LA299_0>=201 && LA299_0<=202)||(LA299_0>=206 && LA299_0<=211)) ) {s = 5;}
+                        else if ( ((LA299_0>=RULE_STRING && LA299_0<=RULE_DECIMAL)||LA299_0==14||LA299_0==22||LA299_0==93||LA299_0==127||(LA299_0>=130 && LA299_0<=131)||LA299_0==164||LA299_0==181||LA299_0==187||LA299_0==192||LA299_0==198||LA299_0==200||(LA299_0>=202 && LA299_0<=203)||(LA299_0>=207 && LA299_0<=212)) ) {s = 5;}
 
-                        else if ( (LA299_0==144) ) {s = 29;}
+                        else if ( (LA299_0==145) ) {s = 29;}
 
                          
                         input.seek(index299_0);
@@ -44732,14 +44733,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     static final String DFA301_minS =
         "\1\4\1\0\77\uffff";
     static final String DFA301_maxS =
-        "\1\u00d5\1\0\77\uffff";
+        "\1\u00d6\1\0\77\uffff";
     static final String DFA301_acceptS =
         "\2\uffff\1\2\75\uffff\1\1";
     static final String DFA301_specialS =
         "\1\uffff\1\0\77\uffff}>";
     static final String[] DFA301_transitionS = {
             "\5\2\5\uffff\2\2\1\uffff\1\2\4\uffff\1\2\15\uffff\1\2\10\uffff"+
-            "\1\2\11\uffff\1\2\45\uffff\1\2\40\uffff\1\1\4\2\15\uffff\1\2"+
+            "\1\2\11\uffff\1\2\45\uffff\1\2\41\uffff\1\1\4\2\15\uffff\1\2"+
             "\22\uffff\2\2\6\uffff\30\2\1\uffff\11\2\1\uffff\10\2",
             "\1\uffff",
             "",
@@ -44873,7 +44874,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     static final String DFA303_minS =
         "\1\4\32\0\46\uffff";
     static final String DFA303_maxS =
-        "\1\u00d5\32\0\46\uffff";
+        "\1\u00d6\32\0\46\uffff";
     static final String DFA303_acceptS =
         "\33\uffff\1\2\44\uffff\1\1";
     static final String DFA303_specialS =
@@ -44883,7 +44884,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     static final String[] DFA303_transitionS = {
             "\1\1\1\21\1\16\1\15\1\17\5\uffff\1\6\1\33\1\uffff\1\33\4\uffff"+
             "\1\24\15\uffff\1\33\10\uffff\1\32\11\uffff\1\33\45\uffff\1\11"+
-            "\40\uffff\1\12\2\33\1\14\1\13\15\uffff\1\33\22\uffff\1\3\1\33"+
+            "\41\uffff\1\12\2\33\1\14\1\13\15\uffff\1\33\22\uffff\1\3\1\33"+
             "\6\uffff\11\33\1\10\5\33\1\4\4\33\1\2\3\33\1\uffff\1\33\1\23"+
             "\1\33\1\7\1\33\1\25\1\26\2\33\1\uffff\1\5\1\20\1\22\1\27\1\30"+
             "\1\31\2\33",
@@ -45394,14 +45395,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     static final String DFA318_minS =
         "\1\4\1\0\77\uffff";
     static final String DFA318_maxS =
-        "\1\u00d5\1\0\77\uffff";
+        "\1\u00d6\1\0\77\uffff";
     static final String DFA318_acceptS =
         "\2\uffff\1\2\75\uffff\1\1";
     static final String DFA318_specialS =
         "\1\uffff\1\0\77\uffff}>";
     static final String[] DFA318_transitionS = {
             "\5\2\5\uffff\2\2\1\uffff\1\2\4\uffff\1\2\15\uffff\1\2\10\uffff"+
-            "\1\2\11\uffff\1\2\45\uffff\1\2\40\uffff\5\2\15\uffff\1\2\22"+
+            "\1\2\11\uffff\1\2\45\uffff\1\2\41\uffff\5\2\15\uffff\1\2\22"+
             "\uffff\2\2\6\uffff\11\2\1\1\16\2\1\uffff\11\2\1\uffff\10\2",
             "\1\uffff",
             "",
@@ -45534,8 +45535,8 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRuleVPackage85 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_13_in_ruleVPackage122 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleVPackage139 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleVPackage156 = new BitSet(new long[]{0x904C88009A81A000L,0x33202A9909804495L});
-    public static final BitSet FOLLOW_ruleVPackageable_in_ruleVPackage177 = new BitSet(new long[]{0x904C88009A81A000L,0x33202A9909804495L});
+    public static final BitSet FOLLOW_14_in_ruleVPackage156 = new BitSet(new long[]{0x904C88009A81A000L,0x53202A9909804495L});
+    public static final BitSet FOLLOW_ruleVPackageable_in_ruleVPackage177 = new BitSet(new long[]{0x904C88009A81A000L,0x53202A9909804495L});
     public static final BitSet FOLLOW_15_in_ruleVPackage190 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleVPackageable_in_entryRuleVPackageable226 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleVPackageable236 = new BitSet(new long[]{0x0000000000000002L});
@@ -45628,7 +45629,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleChoice_in_entryRuleChoice2745 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleChoice2755 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_16_in_ruleChoice2792 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleChoice2809 = new BitSet(new long[]{0x0000000000004002L,0x4000000000000000L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleChoice2809 = new BitSet(new long[]{0x0000000000004002L,0x8000000000000000L});
     public static final BitSet FOLLOW_ruleMultiplicityInterval_in_ruleChoice2835 = new BitSet(new long[]{0x0000000000004002L});
     public static final BitSet FOLLOW_14_in_ruleChoice2849 = new BitSet(new long[]{0x00400000009F8000L,0x0000000001000000L});
     public static final BitSet FOLLOW_17_in_ruleChoice2867 = new BitSet(new long[]{0x00400000009D8000L,0x0000000001000000L});
@@ -45649,14 +45650,14 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleVClassifier_in_entryRuleVClassifier3219 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleVClassifier3229 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_23_in_ruleVClassifier3266 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleVClassifier3283 = new BitSet(new long[]{0x0000000000004000L,0x4000000000000000L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleVClassifier3283 = new BitSet(new long[]{0x0000000000004000L,0x8000000000000000L});
     public static final BitSet FOLLOW_ruleMultiplicityInterval_in_ruleVClassifier3309 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_14_in_ruleVClassifier3322 = new BitSet(new long[]{0x0000000001180000L});
     public static final BitSet FOLLOW_19_in_ruleVClassifier3335 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_STRING_in_ruleVClassifier3352 = new BitSet(new long[]{0x0000000001100000L});
     public static final BitSet FOLLOW_20_in_ruleVClassifier3372 = new BitSet(new long[]{0x0000000000200000L,0x000A400000000000L});
     public static final BitSet FOLLOW_ruleVSpecDerivation_in_ruleVClassifier3393 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleVClassifier3407 = new BitSet(new long[]{0x0000000000000000L,0x4000000000000000L});
+    public static final BitSet FOLLOW_24_in_ruleVClassifier3407 = new BitSet(new long[]{0x0000000000000000L,0x8000000000000000L});
     public static final BitSet FOLLOW_ruleMultiplicityInterval_in_ruleVClassifier3428 = new BitSet(new long[]{0x0040000000818000L,0x0000000001000000L});
     public static final BitSet FOLLOW_ruleVSpec_in_ruleVClassifier3450 = new BitSet(new long[]{0x0040000000818000L,0x0000000001000000L});
     public static final BitSet FOLLOW_ruleVSpec_in_ruleVClassifier3471 = new BitSet(new long[]{0x0040000000818000L,0x0000000001000000L});
@@ -45669,7 +45670,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRuleComplexChoiceResolution3651 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_25_in_ruleComplexChoiceResolution3688 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleComplexChoiceResolution3705 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_ruleComplexChoiceResolution3722 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000006L});
+    public static final BitSet FOLLOW_26_in_ruleComplexChoiceResolution3722 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x000000000000000CL});
     public static final BitSet FOLLOW_ruleBOOLEAN_in_ruleComplexChoiceResolution3743 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_22_in_ruleComplexChoiceResolution3755 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleComplexChoiceResolution3775 = new BitSet(new long[]{0x0000000000004002L});
@@ -45682,7 +45683,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_27_in_ruleSimpleChoiceResolution3928 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_22_in_ruleSimpleChoiceResolution3940 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleSimpleChoiceResolution3960 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_ruleSimpleChoiceResolution3972 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000006L});
+    public static final BitSet FOLLOW_26_in_ruleSimpleChoiceResolution3972 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x000000000000000CL});
     public static final BitSet FOLLOW_ruleBOOLEAN_in_ruleSimpleChoiceResolution3993 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleVInstance_in_entryRuleVInstance4029 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleVInstance4039 = new BitSet(new long[]{0x0000000000000002L});
@@ -45724,8 +45725,8 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_41_in_ruleFragmentSubstitution4727 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleFragmentSubstitution4747 = new BitSet(new long[]{0x0000040000008000L});
     public static final BitSet FOLLOW_42_in_ruleFragmentSubstitution4762 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleFragmentSubstitution4774 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000000048L});
-    public static final BitSet FOLLOW_ruleBoundaryElementBinding_in_ruleFragmentSubstitution4795 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000000048L});
+    public static final BitSet FOLLOW_14_in_ruleFragmentSubstitution4774 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000000090L});
+    public static final BitSet FOLLOW_ruleBoundaryElementBinding_in_ruleFragmentSubstitution4795 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000000090L});
     public static final BitSet FOLLOW_15_in_ruleFragmentSubstitution4808 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleFragmentSubstitution4822 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePlacementFragment_in_entryRulePlacementFragment4858 = new BitSet(new long[]{0x0000000000000000L});
@@ -45743,8 +45744,8 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_36_in_rulePlacementFragment5067 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_rulePlacementFragment5087 = new BitSet(new long[]{0x0000401000008000L});
     public static final BitSet FOLLOW_46_in_rulePlacementFragment5104 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_rulePlacementFragment5116 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000020200L});
-    public static final BitSet FOLLOW_rulePlacementBoundaryElement_in_rulePlacementFragment5137 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000020200L});
+    public static final BitSet FOLLOW_14_in_rulePlacementFragment5116 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000040400L});
+    public static final BitSet FOLLOW_rulePlacementBoundaryElement_in_rulePlacementFragment5137 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000040400L});
     public static final BitSet FOLLOW_15_in_rulePlacementFragment5150 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_rulePlacementFragment5164 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleReplacementFragmentType_in_entryRuleReplacementFragmentType5200 = new BitSet(new long[]{0x0000000000000000L});
@@ -45753,8 +45754,8 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleReplacementFragmentType5264 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_14_in_ruleReplacementFragmentType5281 = new BitSet(new long[]{0x0003000000008000L});
     public static final BitSet FOLLOW_48_in_ruleReplacementFragmentType5294 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleReplacementFragmentType5306 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000042000L});
-    public static final BitSet FOLLOW_ruleReplacementBoundaryElement_in_ruleReplacementFragmentType5327 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000042000L});
+    public static final BitSet FOLLOW_14_in_ruleReplacementFragmentType5306 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000084000L});
+    public static final BitSet FOLLOW_ruleReplacementBoundaryElement_in_ruleReplacementFragmentType5327 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000084000L});
     public static final BitSet FOLLOW_15_in_ruleReplacementFragmentType5340 = new BitSet(new long[]{0x0002000000008000L});
     public static final BitSet FOLLOW_49_in_ruleReplacementFragmentType5355 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_14_in_ruleReplacementFragmentType5367 = new BitSet(new long[]{0x0000080000008000L});
@@ -45822,11 +45823,11 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleComplexVariable6651 = new BitSet(new long[]{0x0000000040000000L});
     public static final BitSet FOLLOW_30_in_ruleComplexVariable6665 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleComplexVariable6685 = new BitSet(new long[]{0x0E40000000818000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_57_in_ruleComplexVariable6698 = new BitSet(new long[]{0x0000000000000000L,0x4000000000000000L});
+    public static final BitSet FOLLOW_57_in_ruleComplexVariable6698 = new BitSet(new long[]{0x0000000000000000L,0x8000000000000000L});
     public static final BitSet FOLLOW_ruleMultiplicityInterval_in_ruleComplexVariable6719 = new BitSet(new long[]{0x0C40000000818000L,0x0000000001000000L});
     public static final BitSet FOLLOW_58_in_ruleComplexVariable6734 = new BitSet(new long[]{0x0000000000200000L,0x000A400000000000L});
     public static final BitSet FOLLOW_ruleVSpecDerivation_in_ruleComplexVariable6755 = new BitSet(new long[]{0x0840000000818000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_59_in_ruleComplexVariable6770 = new BitSet(new long[]{0x0000000000000020L,0x0000000000000000L,0x0000000000680000L});
+    public static final BitSet FOLLOW_59_in_ruleComplexVariable6770 = new BitSet(new long[]{0x0000000000000020L,0x0000000000000000L,0x0000000000D00000L});
     public static final BitSet FOLLOW_ruleValueSpecification_in_ruleComplexVariable6791 = new BitSet(new long[]{0x0040000000818000L,0x0000000001000000L});
     public static final BitSet FOLLOW_ruleVSpec_in_ruleComplexVariable6815 = new BitSet(new long[]{0x0040000000818000L,0x0000000001000000L});
     public static final BitSet FOLLOW_ruleVSpec_in_ruleComplexVariable6836 = new BitSet(new long[]{0x0040000000818000L,0x0000000001000000L});
@@ -45839,7 +45840,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRuleSimpleVariableValueAssignment7016 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_60_in_ruleSimpleVariableValueAssignment7053 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleSimpleVariableValueAssignment7073 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_ruleSimpleVariableValueAssignment7085 = new BitSet(new long[]{0x0000000000000020L,0x0000000000000000L,0x0000000000680000L});
+    public static final BitSet FOLLOW_26_in_ruleSimpleVariableValueAssignment7085 = new BitSet(new long[]{0x0000000000000020L,0x0000000000000000L,0x0000000000D00000L});
     public static final BitSet FOLLOW_ruleValueSpecification_in_ruleSimpleVariableValueAssignment7106 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleComplexVariableValueAssignment_in_entryRuleComplexVariableValueAssignment7142 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleComplexVariableValueAssignment7152 = new BitSet(new long[]{0x0000000000000002L});
@@ -45850,7 +45851,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleComplexVariableValueAssignment7255 = new BitSet(new long[]{0x2000000000000000L});
     public static final BitSet FOLLOW_61_in_ruleComplexVariableValueAssignment7267 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleComplexVariableValueAssignment7287 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_62_in_ruleComplexVariableValueAssignment7299 = new BitSet(new long[]{0x0000000000000020L,0x0000000000000000L,0x0000000000680000L});
+    public static final BitSet FOLLOW_62_in_ruleComplexVariableValueAssignment7299 = new BitSet(new long[]{0x0000000000000020L,0x0000000000000000L,0x0000000000D00000L});
     public static final BitSet FOLLOW_ruleValueSpecification_in_ruleComplexVariableValueAssignment7320 = new BitSet(new long[]{0x100000001A008000L,0x0000000008000000L});
     public static final BitSet FOLLOW_ruleVSpecResolution_in_ruleComplexVariableValueAssignment7342 = new BitSet(new long[]{0x100000001A008000L,0x0000000008000000L});
     public static final BitSet FOLLOW_ruleVSpecResolution_in_ruleComplexVariableValueAssignment7363 = new BitSet(new long[]{0x100000001A008000L,0x0000000008000000L});
@@ -45859,7 +45860,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRulePrimitveType7424 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_63_in_rulePrimitveType7461 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_rulePrimitveType7478 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_55_in_rulePrimitveType7495 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0001F00000000000L});
+    public static final BitSet FOLLOW_55_in_rulePrimitveType7495 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0003E00000000000L});
     public static final BitSet FOLLOW_rulePrimitiveTypeEnum_in_rulePrimitveType7516 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleObjectType_in_entryRuleObjectType7552 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleObjectType7562 = new BitSet(new long[]{0x0000000000000002L});
@@ -45900,7 +45901,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleSlotAssignment8243 = new BitSet(new long[]{0x4000001000000000L,0x0000000000000040L});
     public static final BitSet FOLLOW_36_in_ruleSlotAssignment8256 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleSlotAssignment8276 = new BitSet(new long[]{0x4000001000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_62_in_ruleSlotAssignment8293 = new BitSet(new long[]{0x0000000000000020L,0x0000000000000000L,0x0000000000680000L});
+    public static final BitSet FOLLOW_62_in_ruleSlotAssignment8293 = new BitSet(new long[]{0x0000000000000020L,0x0000000000000000L,0x0000000000D00000L});
     public static final BitSet FOLLOW_ruleValueSpecification_in_ruleSlotAssignment8314 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
     public static final BitSet FOLLOW_70_in_ruleSlotAssignment8328 = new BitSet(new long[]{0x0000200000000020L});
     public static final BitSet FOLLOW_ruleObjectHandle_in_ruleSlotAssignment8349 = new BitSet(new long[]{0x0000000000008000L});
@@ -45979,20 +45980,20 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_80_in_ruleConfigurableUnit9694 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleConfigurableUnit9714 = new BitSet(new long[]{0x0000000000000000L,0x00000000007E0000L});
     public static final BitSet FOLLOW_81_in_ruleConfigurableUnit9727 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleConfigurableUnit9739 = new BitSet(new long[]{0x000C080080008000L,0x32202A9800804490L});
-    public static final BitSet FOLLOW_ruleVariationPoint_in_ruleConfigurableUnit9760 = new BitSet(new long[]{0x000C080080008000L,0x32202A9800804490L});
+    public static final BitSet FOLLOW_14_in_ruleConfigurableUnit9739 = new BitSet(new long[]{0x000C080080008000L,0x52202A9800804490L});
+    public static final BitSet FOLLOW_ruleVariationPoint_in_ruleConfigurableUnit9760 = new BitSet(new long[]{0x000C080080008000L,0x52202A9800804490L});
     public static final BitSet FOLLOW_15_in_ruleConfigurableUnit9773 = new BitSet(new long[]{0x0000000000000000L,0x00000000007C0000L});
     public static final BitSet FOLLOW_82_in_ruleConfigurableUnit9788 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_14_in_ruleConfigurableUnit9800 = new BitSet(new long[]{0x0040000000818000L,0x0000000001000000L});
     public static final BitSet FOLLOW_ruleVSpec_in_ruleConfigurableUnit9821 = new BitSet(new long[]{0x0040000000818000L,0x0000000001000000L});
     public static final BitSet FOLLOW_15_in_ruleConfigurableUnit9834 = new BitSet(new long[]{0x0000000000000000L,0x0000000000780000L});
     public static final BitSet FOLLOW_83_in_ruleConfigurableUnit9849 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleConfigurableUnit9861 = new BitSet(new long[]{0x000C080080008000L,0x32202A9800804490L});
-    public static final BitSet FOLLOW_ruleVariationPoint_in_ruleConfigurableUnit9882 = new BitSet(new long[]{0x000C080080008000L,0x32202A9800804490L});
+    public static final BitSet FOLLOW_14_in_ruleConfigurableUnit9861 = new BitSet(new long[]{0x000C080080008000L,0x52202A9800804490L});
+    public static final BitSet FOLLOW_ruleVariationPoint_in_ruleConfigurableUnit9882 = new BitSet(new long[]{0x000C080080008000L,0x52202A9800804490L});
     public static final BitSet FOLLOW_15_in_ruleConfigurableUnit9895 = new BitSet(new long[]{0x0000000000000000L,0x0000000000700000L});
     public static final BitSet FOLLOW_84_in_ruleConfigurableUnit9910 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleConfigurableUnit9922 = new BitSet(new long[]{0x904C88009A81A000L,0x33202A9909804495L});
-    public static final BitSet FOLLOW_ruleConstraint_in_ruleConfigurableUnit9943 = new BitSet(new long[]{0x904C88009A81A000L,0x33202A9909804495L});
+    public static final BitSet FOLLOW_14_in_ruleConfigurableUnit9922 = new BitSet(new long[]{0x904C88009A81A000L,0x53202A9909804495L});
+    public static final BitSet FOLLOW_ruleConstraint_in_ruleConfigurableUnit9943 = new BitSet(new long[]{0x904C88009A81A000L,0x53202A9909804495L});
     public static final BitSet FOLLOW_15_in_ruleConfigurableUnit9956 = new BitSet(new long[]{0x0000000000000000L,0x0000000000600000L});
     public static final BitSet FOLLOW_85_in_ruleConfigurableUnit9971 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_14_in_ruleConfigurableUnit9983 = new BitSet(new long[]{0x100000001A008000L,0x0000000008000000L});
@@ -46017,8 +46018,8 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_79_in_ruleCompositeVariationPoint_Impl10333 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleCompositeVariationPoint_Impl10353 = new BitSet(new long[]{0x0000000000008000L,0x0000000000020000L});
     public static final BitSet FOLLOW_81_in_ruleCompositeVariationPoint_Impl10366 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleCompositeVariationPoint_Impl10378 = new BitSet(new long[]{0x000C080080008000L,0x32202A9800804490L});
-    public static final BitSet FOLLOW_ruleVariationPoint_in_ruleCompositeVariationPoint_Impl10399 = new BitSet(new long[]{0x000C080080008000L,0x32202A9800804490L});
+    public static final BitSet FOLLOW_14_in_ruleCompositeVariationPoint_Impl10378 = new BitSet(new long[]{0x000C080080008000L,0x52202A9800804490L});
+    public static final BitSet FOLLOW_ruleVariationPoint_in_ruleCompositeVariationPoint_Impl10399 = new BitSet(new long[]{0x000C080080008000L,0x52202A9800804490L});
     public static final BitSet FOLLOW_15_in_ruleCompositeVariationPoint_Impl10412 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleCompositeVariationPoint_Impl10426 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCVSpec_in_entryRuleCVSpec10462 = new BitSet(new long[]{0x0000000000000000L});
@@ -46030,7 +46031,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_STRING_in_ruleCVSpec10572 = new BitSet(new long[]{0x0000000000000000L,0x0000000002000000L});
     public static final BitSet FOLLOW_89_in_ruleCVSpec10589 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleCVSpec10609 = new BitSet(new long[]{0x0600000000008000L,0x0000000004000000L});
-    public static final BitSet FOLLOW_57_in_ruleCVSpec10622 = new BitSet(new long[]{0x0000000000000000L,0x4000000000000000L});
+    public static final BitSet FOLLOW_57_in_ruleCVSpec10622 = new BitSet(new long[]{0x0000000000000000L,0x8000000000000000L});
     public static final BitSet FOLLOW_ruleMultiplicityInterval_in_ruleCVSpec10643 = new BitSet(new long[]{0x0400000000008000L,0x0000000004000000L});
     public static final BitSet FOLLOW_58_in_ruleCVSpec10658 = new BitSet(new long[]{0x0000000000200000L,0x000A400000000000L});
     public static final BitSet FOLLOW_ruleVSpecDerivation_in_ruleCVSpec10679 = new BitSet(new long[]{0x0000000000008000L,0x0000000004000000L});
@@ -46215,7 +46216,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_14_in_ruleChoiceDerivation13995 = new BitSet(new long[]{0x0000000000000000L,0x0000800000000000L});
     public static final BitSet FOLLOW_111_in_ruleChoiceDerivation14007 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleChoiceDerivation14027 = new BitSet(new long[]{0x0000000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_112_in_ruleChoiceDerivation14039 = new BitSet(new long[]{0x904C88009A812000L,0x33202A9909804495L});
+    public static final BitSet FOLLOW_112_in_ruleChoiceDerivation14039 = new BitSet(new long[]{0x904C88009A812000L,0x53202A9909804495L});
     public static final BitSet FOLLOW_ruleConstraint_in_ruleChoiceDerivation14060 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleChoiceDerivation14072 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleVariableDerivation_in_entryRuleVariableDerivation14108 = new BitSet(new long[]{0x0000000000000000L});
@@ -46225,7 +46226,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_14_in_ruleVariableDerivation14189 = new BitSet(new long[]{0x0000000000000000L,0x0000800000000000L});
     public static final BitSet FOLLOW_111_in_ruleVariableDerivation14201 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleVariableDerivation14221 = new BitSet(new long[]{0x0000000000000000L,0x0004000000000000L});
-    public static final BitSet FOLLOW_114_in_ruleVariableDerivation14233 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x00000002B5800000L,0x00000FFFFE000000L});
+    public static final BitSet FOLLOW_114_in_ruleVariableDerivation14233 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x000000056B000000L,0x00001FFFFC000000L});
     public static final BitSet FOLLOW_ruleOCLExpression_in_ruleVariableDerivation14254 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleVariableDerivation14266 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCVSpecDerivation_in_entryRuleCVSpecDerivation14302 = new BitSet(new long[]{0x0000000000000000L});
@@ -46263,8 +46264,8 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_119_in_ruleConfigurableUnitUsage14867 = new BitSet(new long[]{0x0000200000000020L});
     public static final BitSet FOLLOW_ruleLinkHandle_in_ruleConfigurableUnitUsage14888 = new BitSet(new long[]{0x0000000000000000L,0x0000000000020000L});
     public static final BitSet FOLLOW_81_in_ruleConfigurableUnitUsage14901 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleConfigurableUnitUsage14913 = new BitSet(new long[]{0x000C080080008000L,0x32202A9800804490L});
-    public static final BitSet FOLLOW_ruleVariationPoint_in_ruleConfigurableUnitUsage14934 = new BitSet(new long[]{0x000C080080008000L,0x32202A9800804490L});
+    public static final BitSet FOLLOW_14_in_ruleConfigurableUnitUsage14913 = new BitSet(new long[]{0x000C080080008000L,0x52202A9800804490L});
+    public static final BitSet FOLLOW_ruleVariationPoint_in_ruleConfigurableUnitUsage14934 = new BitSet(new long[]{0x000C080080008000L,0x52202A9800804490L});
     public static final BitSet FOLLOW_15_in_ruleConfigurableUnitUsage14947 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleConfigurableUnitUsage14960 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOCLConstraint_in_entryRuleOCLConstraint14996 = new BitSet(new long[]{0x0000000000000000L});
@@ -46274,7 +46275,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_14_in_ruleOCLConstraint15077 = new BitSet(new long[]{0x0000000400008000L,0x0000000000000008L});
     public static final BitSet FOLLOW_67_in_ruleOCLConstraint15090 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleOCLConstraint15110 = new BitSet(new long[]{0x0000000400008000L});
-    public static final BitSet FOLLOW_34_in_ruleOCLConstraint15125 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x00000002B5800000L,0x00000FFFFE000000L});
+    public static final BitSet FOLLOW_34_in_ruleOCLConstraint15125 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x000000056B000000L,0x00001FFFFC000000L});
     public static final BitSet FOLLOW_ruleOCLExpression_in_ruleOCLConstraint15146 = new BitSet(new long[]{0x0000000400008000L});
     public static final BitSet FOLLOW_15_in_ruleOCLConstraint15160 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePatternIntegration_in_entryRulePatternIntegration15196 = new BitSet(new long[]{0x0000000000000000L});
@@ -46311,33 +46312,33 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_124_in_rulePatternFusion15790 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_rulePatternFusion15807 = new BitSet(new long[]{0x0000000100004000L});
     public static final BitSet FOLLOW_32_in_rulePatternFusion15830 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_rulePatternFusion15856 = new BitSet(new long[]{0x0000002E00008000L,0x0C00000000000200L});
+    public static final BitSet FOLLOW_14_in_rulePatternFusion15856 = new BitSet(new long[]{0x0000002E00008000L,0x2400000000000200L});
     public static final BitSet FOLLOW_33_in_rulePatternFusion15869 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rulePatternFusion15886 = new BitSet(new long[]{0x0000002C00008000L,0x0C00000000000200L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rulePatternFusion15886 = new BitSet(new long[]{0x0000002C00008000L,0x2400000000000200L});
     public static final BitSet FOLLOW_34_in_rulePatternFusion15906 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rulePatternFusion15923 = new BitSet(new long[]{0x0000002800008000L,0x0C00000000000200L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rulePatternFusion15923 = new BitSet(new long[]{0x0000002800008000L,0x2400000000000200L});
     public static final BitSet FOLLOW_35_in_rulePatternFusion15943 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_rulePatternFusion15963 = new BitSet(new long[]{0x0000003000008000L,0x0C00000000000200L});
+    public static final BitSet FOLLOW_RULE_ID_in_rulePatternFusion15963 = new BitSet(new long[]{0x0000003000008000L,0x2400000000000200L});
     public static final BitSet FOLLOW_36_in_rulePatternFusion15976 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_rulePatternFusion15996 = new BitSet(new long[]{0x0000003000008000L,0x0C00000000000200L});
+    public static final BitSet FOLLOW_RULE_ID_in_rulePatternFusion15996 = new BitSet(new long[]{0x0000003000008000L,0x2400000000000200L});
     public static final BitSet FOLLOW_37_in_rulePatternFusion16013 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_rulePatternFusion16033 = new BitSet(new long[]{0x0000001000008000L,0x0C00000000000200L});
+    public static final BitSet FOLLOW_RULE_ID_in_rulePatternFusion16033 = new BitSet(new long[]{0x0000001000008000L,0x2400000000000200L});
     public static final BitSet FOLLOW_36_in_rulePatternFusion16046 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_rulePatternFusion16066 = new BitSet(new long[]{0x0000001000008000L,0x0C00000000000200L});
+    public static final BitSet FOLLOW_RULE_ID_in_rulePatternFusion16066 = new BitSet(new long[]{0x0000001000008000L,0x2400000000000200L});
     public static final BitSet FOLLOW_73_in_rulePatternFusion16083 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_rulePatternFusion16103 = new BitSet(new long[]{0x0000001000008000L,0x0C00000000000000L});
+    public static final BitSet FOLLOW_RULE_ID_in_rulePatternFusion16103 = new BitSet(new long[]{0x0000001000008000L,0x2400000000000000L});
     public static final BitSet FOLLOW_36_in_rulePatternFusion16116 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_rulePatternFusion16136 = new BitSet(new long[]{0x0000001000008000L,0x0C00000000000000L});
+    public static final BitSet FOLLOW_RULE_ID_in_rulePatternFusion16136 = new BitSet(new long[]{0x0000001000008000L,0x2400000000000000L});
     public static final BitSet FOLLOW_122_in_rulePatternFusion16153 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_rulePatternFusion16173 = new BitSet(new long[]{0x0000000000008000L,0x0800000000000000L});
-    public static final BitSet FOLLOW_123_in_rulePatternFusion16188 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_rulePatternFusion16173 = new BitSet(new long[]{0x0000000000008000L,0x2000000000000000L});
+    public static final BitSet FOLLOW_125_in_rulePatternFusion16188 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_rulePatternFusion16208 = new BitSet(new long[]{0x0000001000008000L});
     public static final BitSet FOLLOW_36_in_rulePatternFusion16221 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_rulePatternFusion16241 = new BitSet(new long[]{0x0000001000008000L});
     public static final BitSet FOLLOW_15_in_rulePatternFusion16257 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleStructuralOrganisationalPattern_in_entryRuleStructuralOrganisationalPattern16293 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleStructuralOrganisationalPattern16303 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_125_in_ruleStructuralOrganisationalPattern16340 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_126_in_ruleStructuralOrganisationalPattern16340 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleStructuralOrganisationalPattern16357 = new BitSet(new long[]{0x0000000100004000L});
     public static final BitSet FOLLOW_32_in_ruleStructuralOrganisationalPattern16380 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_14_in_ruleStructuralOrganisationalPattern16406 = new BitSet(new long[]{0x000000AE00000000L,0x0000000000000200L});
@@ -46366,55 +46367,55 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_15_in_ruleStructuralOrganisationalPattern16804 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMultiplicityInterval_in_entryRuleMultiplicityInterval16840 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleMultiplicityInterval16850 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_126_in_ruleMultiplicityInterval16887 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleMultiplicityInterval16904 = new BitSet(new long[]{0x0000000000000000L,0x8000000000000000L});
-    public static final BitSet FOLLOW_127_in_ruleMultiplicityInterval16921 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleMultiplicityInterval16938 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_128_in_ruleMultiplicityInterval16955 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_127_in_ruleMultiplicityInterval16887 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleMultiplicityInterval16904 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_128_in_ruleMultiplicityInterval16921 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleMultiplicityInterval16938 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_129_in_ruleMultiplicityInterval16955 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBOOLEAN_in_entryRuleBOOLEAN16992 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleBOOLEAN17003 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_129_in_ruleBOOLEAN17041 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_130_in_ruleBOOLEAN17060 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_130_in_ruleBOOLEAN17041 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_131_in_ruleBOOLEAN17060 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleToBinding_in_entryRuleToBinding17100 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleToBinding17110 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_131_in_ruleToBinding17147 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleToBinding17159 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_132_in_ruleToBinding17171 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleToBinding17191 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_133_in_ruleToBinding17203 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_132_in_ruleToBinding17147 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleToBinding17159 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_133_in_ruleToBinding17171 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleToBinding17191 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_134_in_ruleToBinding17203 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleToBinding17223 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleToBinding17235 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFromBinding_in_entryRuleFromBinding17271 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleFromBinding17281 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_134_in_ruleFromBinding17318 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleFromBinding17330 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_135_in_ruleFromBinding17342 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleFromBinding17362 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_136_in_ruleFromBinding17374 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_135_in_ruleFromBinding17318 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleFromBinding17330 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_136_in_ruleFromBinding17342 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleFromBinding17362 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_137_in_ruleFromBinding17374 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleFromBinding17394 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleFromBinding17406 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleToPlacement_in_entryRuleToPlacement17442 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleToPlacement17452 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_137_in_ruleToPlacement17489 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleToPlacement17501 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
-    public static final BitSet FOLLOW_138_in_ruleToPlacement17513 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleToPlacement17530 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000001800L});
-    public static final BitSet FOLLOW_139_in_ruleToPlacement17548 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_138_in_ruleToPlacement17489 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleToPlacement17501 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_139_in_ruleToPlacement17513 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleToPlacement17530 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000003000L});
+    public static final BitSet FOLLOW_140_in_ruleToPlacement17548 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_14_in_ruleToPlacement17560 = new BitSet(new long[]{0x0000200000008020L});
     public static final BitSet FOLLOW_ruleObjectHandle_in_ruleToPlacement17581 = new BitSet(new long[]{0x0000200000008020L});
-    public static final BitSet FOLLOW_15_in_ruleToPlacement17594 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_140_in_ruleToPlacement17609 = new BitSet(new long[]{0x0000200000000020L});
+    public static final BitSet FOLLOW_15_in_ruleToPlacement17594 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_141_in_ruleToPlacement17609 = new BitSet(new long[]{0x0000200000000020L});
     public static final BitSet FOLLOW_ruleObjectHandle_in_ruleToPlacement17630 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleToPlacement17644 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleToReplacement_in_entryRuleToReplacement17680 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleToReplacement17690 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_141_in_ruleToReplacement17736 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleToReplacement17748 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000000810L});
-    public static final BitSet FOLLOW_139_in_ruleToReplacement17761 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_142_in_ruleToReplacement17736 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleToReplacement17748 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000001020L});
+    public static final BitSet FOLLOW_140_in_ruleToReplacement17761 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_14_in_ruleToReplacement17773 = new BitSet(new long[]{0x0000200000008020L});
     public static final BitSet FOLLOW_ruleObjectHandle_in_ruleToReplacement17794 = new BitSet(new long[]{0x0000200000008020L});
-    public static final BitSet FOLLOW_15_in_ruleToReplacement17807 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_132_in_ruleToReplacement17822 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_15_in_ruleToReplacement17807 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_133_in_ruleToReplacement17822 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
     public static final BitSet FOLLOW_ruleToPlacement_in_ruleToReplacement17843 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleToReplacement17857 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleObjectHandle_in_entryRuleObjectHandle17893 = new BitSet(new long[]{0x0000000000000000L});
@@ -46426,53 +46427,53 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_STRING_in_ruleSimpleObjectHandle18063 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCompleteObjectHandle_in_entryRuleCompleteObjectHandle18103 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleCompleteObjectHandle18113 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleCompleteObjectHandle18150 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000004000L});
-    public static final BitSet FOLLOW_142_in_ruleCompleteObjectHandle18162 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_45_in_ruleCompleteObjectHandle18150 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000008000L});
+    public static final BitSet FOLLOW_143_in_ruleCompleteObjectHandle18162 = new BitSet(new long[]{0x0080000000000000L});
     public static final BitSet FOLLOW_55_in_ruleCompleteObjectHandle18174 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_STRING_in_ruleCompleteObjectHandle18191 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_36_in_ruleCompleteObjectHandle18208 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000008000L});
-    public static final BitSet FOLLOW_143_in_ruleCompleteObjectHandle18220 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_36_in_ruleCompleteObjectHandle18208 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
+    public static final BitSet FOLLOW_144_in_ruleCompleteObjectHandle18220 = new BitSet(new long[]{0x0080000000000000L});
     public static final BitSet FOLLOW_55_in_ruleCompleteObjectHandle18232 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleCompleteObjectHandle18249 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_144_in_ruleCompleteObjectHandle18266 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleCompleteObjectHandle18249 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_145_in_ruleCompleteObjectHandle18266 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFromPlacement_in_entryRuleFromPlacement18302 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleFromPlacement18312 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_145_in_ruleFromPlacement18358 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleFromPlacement18370 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000001100L});
-    public static final BitSet FOLLOW_136_in_ruleFromPlacement18383 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleFromPlacement18403 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_140_in_ruleFromPlacement18418 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_146_in_ruleFromPlacement18358 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleFromPlacement18370 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000002200L});
+    public static final BitSet FOLLOW_137_in_ruleFromPlacement18383 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleFromPlacement18403 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_141_in_ruleFromPlacement18418 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_14_in_ruleFromPlacement18430 = new BitSet(new long[]{0x0000200000008020L});
     public static final BitSet FOLLOW_ruleObjectHandle_in_ruleFromPlacement18451 = new BitSet(new long[]{0x0000200000008020L});
     public static final BitSet FOLLOW_15_in_ruleFromPlacement18464 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleFromPlacement18478 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFromReplacement_in_entryRuleFromReplacement18514 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleFromReplacement18524 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_146_in_ruleFromReplacement18561 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleFromReplacement18573 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
-    public static final BitSet FOLLOW_138_in_ruleFromReplacement18585 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleFromReplacement18602 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000001880L});
-    public static final BitSet FOLLOW_135_in_ruleFromReplacement18620 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleFromReplacement18640 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000001800L});
-    public static final BitSet FOLLOW_139_in_ruleFromReplacement18655 = new BitSet(new long[]{0x0000200000000020L});
-    public static final BitSet FOLLOW_ruleObjectHandle_in_ruleFromReplacement18676 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_140_in_ruleFromReplacement18691 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_147_in_ruleFromReplacement18561 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleFromReplacement18573 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_139_in_ruleFromReplacement18585 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleFromReplacement18602 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000003100L});
+    public static final BitSet FOLLOW_136_in_ruleFromReplacement18620 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleFromReplacement18640 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000003000L});
+    public static final BitSet FOLLOW_140_in_ruleFromReplacement18655 = new BitSet(new long[]{0x0000200000000020L});
+    public static final BitSet FOLLOW_ruleObjectHandle_in_ruleFromReplacement18676 = new BitSet(new long[]{0x0000000000008000L,0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_141_in_ruleFromReplacement18691 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_14_in_ruleFromReplacement18703 = new BitSet(new long[]{0x0000200000008020L});
     public static final BitSet FOLLOW_ruleObjectHandle_in_ruleFromReplacement18724 = new BitSet(new long[]{0x0000200000008020L});
     public static final BitSet FOLLOW_15_in_ruleFromReplacement18737 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleFromReplacement18751 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleObjectSpecification_in_entryRuleObjectSpecification18787 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleObjectSpecification18797 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_147_in_ruleObjectSpecification18834 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_148_in_ruleObjectSpecification18834 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_14_in_ruleObjectSpecification18846 = new BitSet(new long[]{0x0000000040000000L});
     public static final BitSet FOLLOW_30_in_ruleObjectSpecification18858 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleObjectSpecification18878 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000100000L});
-    public static final BitSet FOLLOW_148_in_ruleObjectSpecification18890 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleObjectSpecification18878 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000200000L});
+    public static final BitSet FOLLOW_149_in_ruleObjectSpecification18890 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleObjectSpecification18910 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleObjectSpecification18922 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleReplacementFragmentSpecification_in_entryRuleReplacementFragmentSpecification18958 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleReplacementFragmentSpecification18968 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_149_in_ruleReplacementFragmentSpecification19005 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_150_in_ruleReplacementFragmentSpecification19005 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_14_in_ruleReplacementFragmentSpecification19017 = new BitSet(new long[]{0x0000000040000000L});
     public static final BitSet FOLLOW_30_in_ruleReplacementFragmentSpecification19029 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleReplacementFragmentSpecification19049 = new BitSet(new long[]{0x0000000000008000L});
@@ -46486,73 +46487,73 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_STRING_in_ruleSimplePrimitiveValueSpecification19267 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleComplexPrimitiveValueSpecification_in_entryRuleComplexPrimitiveValueSpecification19307 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleComplexPrimitiveValueSpecification19317 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_150_in_ruleComplexPrimitiveValueSpecification19354 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_151_in_ruleComplexPrimitiveValueSpecification19354 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_14_in_ruleComplexPrimitiveValueSpecification19366 = new BitSet(new long[]{0x4000000040000000L});
     public static final BitSet FOLLOW_62_in_ruleComplexPrimitiveValueSpecification19379 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_STRING_in_ruleComplexPrimitiveValueSpecification19396 = new BitSet(new long[]{0x0000000040000000L});
     public static final BitSet FOLLOW_30_in_ruleComplexPrimitiveValueSpecification19415 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleComplexPrimitiveValueSpecification19435 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_34_in_ruleComplexPrimitiveValueSpecification19447 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x00000002B5800000L,0x00000FFFFE000000L});
+    public static final BitSet FOLLOW_34_in_ruleComplexPrimitiveValueSpecification19447 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x000000056B000000L,0x00001FFFFC000000L});
     public static final BitSet FOLLOW_ruleOCLExpression_in_ruleComplexPrimitiveValueSpecification19468 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleComplexPrimitiveValueSpecification19480 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOCLExpression_Impl_in_entryRuleOCLExpression_Impl19516 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleOCLExpression_Impl19526 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_151_in_ruleOCLExpression_Impl19572 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_152_in_ruleOCLExpression_Impl19572 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleVSpecRef_in_entryRuleVSpecRef19608 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleVSpecRef19618 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleVSpecRef19662 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOperationCallExp_in_entryRuleOperationCallExp19697 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleOperationCallExp19707 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOperation_in_ruleOperationCallExp19753 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_45_in_ruleOperationCallExp19765 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x00000002B5810000L,0x00000FFFFE000000L});
-    public static final BitSet FOLLOW_ruleOCLExpression_in_ruleOperationCallExp19787 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_36_in_ruleOperationCallExp19800 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x00000002B5800000L,0x00000FFFFE000000L});
-    public static final BitSet FOLLOW_ruleOCLExpression_in_ruleOperationCallExp19821 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_144_in_ruleOperationCallExp19837 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleOperationCallExp19765 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x000000056B020000L,0x00001FFFFC000000L});
+    public static final BitSet FOLLOW_ruleOCLExpression_in_ruleOperationCallExp19787 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_36_in_ruleOperationCallExp19800 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x000000056B000000L,0x00001FFFFC000000L});
+    public static final BitSet FOLLOW_ruleOCLExpression_in_ruleOperationCallExp19821 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_145_in_ruleOperationCallExp19837 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBooleanLiteralExp_in_entryRuleBooleanLiteralExp19873 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleBooleanLiteralExp19883 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_152_in_ruleBooleanLiteralExp19926 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000002000000L});
-    public static final BitSet FOLLOW_153_in_ruleBooleanLiteralExp19951 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_153_in_ruleBooleanLiteralExp19926 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000004000000L});
+    public static final BitSet FOLLOW_154_in_ruleBooleanLiteralExp19951 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleStringLiteralExp_in_entryRuleStringLiteralExp19987 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleStringLiteralExp19997 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_154_in_ruleStringLiteralExp20034 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleStringLiteralExp20046 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000008000000L});
-    public static final BitSet FOLLOW_155_in_ruleStringLiteralExp20058 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_155_in_ruleStringLiteralExp20034 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleStringLiteralExp20046 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_156_in_ruleStringLiteralExp20058 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_STRING_in_ruleStringLiteralExp20075 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleStringLiteralExp20092 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleNumericLiteralExp_Impl_in_entryRuleNumericLiteralExp_Impl20128 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleNumericLiteralExp_Impl20138 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_156_in_ruleNumericLiteralExp_Impl20184 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_157_in_ruleNumericLiteralExp_Impl20184 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleIntegerLiteralExp_in_entryRuleIntegerLiteralExp20220 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleIntegerLiteralExp20230 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_157_in_ruleIntegerLiteralExp20267 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleIntegerLiteralExp20279 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000040000000L});
-    public static final BitSet FOLLOW_158_in_ruleIntegerLiteralExp20291 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_158_in_ruleIntegerLiteralExp20267 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleIntegerLiteralExp20279 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000080000000L});
+    public static final BitSet FOLLOW_159_in_ruleIntegerLiteralExp20291 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_RULE_INT_in_ruleIntegerLiteralExp20308 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleIntegerLiteralExp20325 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnlimitedLiteralExp_in_entryRuleUnlimitedLiteralExp20361 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleUnlimitedLiteralExp20371 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_159_in_ruleUnlimitedLiteralExp20408 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleUnlimitedLiteralExp20420 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000100000000L});
-    public static final BitSet FOLLOW_160_in_ruleUnlimitedLiteralExp20432 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_160_in_ruleUnlimitedLiteralExp20408 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleUnlimitedLiteralExp20420 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_161_in_ruleUnlimitedLiteralExp20432 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_RULE_INT_in_ruleUnlimitedLiteralExp20449 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleUnlimitedLiteralExp20466 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleRealLiteralExp_in_entryRuleRealLiteralExp20502 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleRealLiteralExp20512 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_161_in_ruleRealLiteralExp20549 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleRealLiteralExp20561 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
-    public static final BitSet FOLLOW_162_in_ruleRealLiteralExp20573 = new BitSet(new long[]{0x0000000000000040L,0x0000000000000000L,0x0000001800000000L});
+    public static final BitSet FOLLOW_162_in_ruleRealLiteralExp20549 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleRealLiteralExp20561 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000800000000L});
+    public static final BitSet FOLLOW_163_in_ruleRealLiteralExp20573 = new BitSet(new long[]{0x0000000000000040L,0x0000000000000000L,0x0000003000000000L});
     public static final BitSet FOLLOW_ruleEDouble_in_ruleRealLiteralExp20594 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleRealLiteralExp20606 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleEDouble_in_entryRuleEDouble20643 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleEDouble20654 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_163_in_ruleEDouble20693 = new BitSet(new long[]{0x0000000000000040L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleEDouble20711 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_164_in_ruleEDouble20731 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleEDouble20746 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000006000000000L});
-    public static final BitSet FOLLOW_165_in_ruleEDouble20766 = new BitSet(new long[]{0x0000000000000040L,0x0000000000000000L,0x0000000800000000L});
-    public static final BitSet FOLLOW_166_in_ruleEDouble20785 = new BitSet(new long[]{0x0000000000000040L,0x0000000000000000L,0x0000000800000000L});
-    public static final BitSet FOLLOW_163_in_ruleEDouble20800 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_164_in_ruleEDouble20693 = new BitSet(new long[]{0x0000000000000040L,0x0000000000000000L,0x0000002000000000L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleEDouble20711 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000002000000000L});
+    public static final BitSet FOLLOW_165_in_ruleEDouble20731 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleEDouble20746 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x000000C000000000L});
+    public static final BitSet FOLLOW_166_in_ruleEDouble20766 = new BitSet(new long[]{0x0000000000000040L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_167_in_ruleEDouble20785 = new BitSet(new long[]{0x0000000000000040L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_164_in_ruleEDouble20800 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_RULE_INT_in_ruleEDouble20817 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLinkHandle_in_entryRuleLinkHandle20864 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleLinkHandle20874 = new BitSet(new long[]{0x0000000000000002L});
@@ -46563,22 +46564,22 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_STRING_in_ruleSimpleLinkHandle21034 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCompleteLinkHandle_in_entryRuleCompleteLinkHandle21074 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleCompleteLinkHandle21084 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleCompleteLinkHandle21121 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000008000000000L});
-    public static final BitSet FOLLOW_167_in_ruleCompleteLinkHandle21133 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_45_in_ruleCompleteLinkHandle21121 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000010000000000L});
+    public static final BitSet FOLLOW_168_in_ruleCompleteLinkHandle21133 = new BitSet(new long[]{0x0080000000000000L});
     public static final BitSet FOLLOW_55_in_ruleCompleteLinkHandle21145 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_STRING_in_ruleCompleteLinkHandle21162 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_36_in_ruleCompleteLinkHandle21179 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000008000L});
-    public static final BitSet FOLLOW_143_in_ruleCompleteLinkHandle21191 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_36_in_ruleCompleteLinkHandle21179 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
+    public static final BitSet FOLLOW_144_in_ruleCompleteLinkHandle21191 = new BitSet(new long[]{0x0080000000000000L});
     public static final BitSet FOLLOW_55_in_ruleCompleteLinkHandle21203 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleCompleteLinkHandle21220 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_144_in_ruleCompleteLinkHandle21237 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleCompleteLinkHandle21220 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_145_in_ruleCompleteLinkHandle21237 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOVPSemanticSpec_in_entryRuleOVPSemanticSpec21275 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleOVPSemanticSpec21285 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_168_in_ruleOVPSemanticSpec21322 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleOVPSemanticSpec21334 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000020000000000L});
-    public static final BitSet FOLLOW_169_in_ruleOVPSemanticSpec21346 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleOVPSemanticSpec21363 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000040000000000L});
-    public static final BitSet FOLLOW_170_in_ruleOVPSemanticSpec21380 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_169_in_ruleOVPSemanticSpec21322 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleOVPSemanticSpec21334 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000040000000000L});
+    public static final BitSet FOLLOW_170_in_ruleOVPSemanticSpec21346 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleOVPSemanticSpec21363 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000080000000000L});
+    public static final BitSet FOLLOW_171_in_ruleOVPSemanticSpec21380 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_STRING_in_ruleOVPSemanticSpec21397 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleOVPSemanticSpec21414 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXExpression_in_entryRuleXExpression21450 = new BitSet(new long[]{0x0000000000000000L});
@@ -46587,134 +46588,134 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleXAssignment_in_entryRuleXAssignment21540 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXAssignment21550 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleValidID_in_ruleXAssignment21608 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_ruleOpSingleAssign_in_ruleXAssignment21624 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
+    public static final BitSet FOLLOW_ruleOpSingleAssign_in_ruleXAssignment21624 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
     public static final BitSet FOLLOW_ruleXAssignment_in_ruleXAssignment21644 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXOrExpression_in_ruleXAssignment21674 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000080000000000L});
-    public static final BitSet FOLLOW_ruleOpMultiAssign_in_ruleXAssignment21727 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
+    public static final BitSet FOLLOW_ruleXOrExpression_in_ruleXAssignment21674 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000100000000000L});
+    public static final BitSet FOLLOW_ruleOpMultiAssign_in_ruleXAssignment21727 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
     public static final BitSet FOLLOW_ruleXAssignment_in_ruleXAssignment21750 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOpSingleAssign_in_entryRuleOpSingleAssign21790 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleOpSingleAssign21801 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_26_in_ruleOpSingleAssign21838 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOpMultiAssign_in_entryRuleOpMultiAssign21878 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleOpMultiAssign21889 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_171_in_ruleOpMultiAssign21926 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_172_in_ruleOpMultiAssign21926 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXOrExpression_in_entryRuleXOrExpression21965 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXOrExpression21975 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXAndExpression_in_ruleXOrExpression22022 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000100000000000L});
-    public static final BitSet FOLLOW_ruleOpOr_in_ruleXOrExpression22075 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXAndExpression_in_ruleXOrExpression22098 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000100000000000L});
+    public static final BitSet FOLLOW_ruleXAndExpression_in_ruleXOrExpression22022 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000200000000000L});
+    public static final BitSet FOLLOW_ruleOpOr_in_ruleXOrExpression22075 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXAndExpression_in_ruleXOrExpression22098 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000200000000000L});
     public static final BitSet FOLLOW_ruleOpOr_in_entryRuleOpOr22137 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleOpOr22148 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_172_in_ruleOpOr22185 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_173_in_ruleOpOr22185 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXAndExpression_in_entryRuleXAndExpression22224 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXAndExpression22234 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXEqualityExpression_in_ruleXAndExpression22281 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000200000000000L});
-    public static final BitSet FOLLOW_ruleOpAnd_in_ruleXAndExpression22334 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXEqualityExpression_in_ruleXAndExpression22357 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000200000000000L});
+    public static final BitSet FOLLOW_ruleXEqualityExpression_in_ruleXAndExpression22281 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000400000000000L});
+    public static final BitSet FOLLOW_ruleOpAnd_in_ruleXAndExpression22334 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXEqualityExpression_in_ruleXAndExpression22357 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000400000000000L});
     public static final BitSet FOLLOW_ruleOpAnd_in_entryRuleOpAnd22396 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleOpAnd22407 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_173_in_ruleOpAnd22444 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_174_in_ruleOpAnd22444 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXEqualityExpression_in_entryRuleXEqualityExpression22483 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXEqualityExpression22493 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXRelationalExpression_in_ruleXEqualityExpression22540 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000C00000000000L});
-    public static final BitSet FOLLOW_ruleOpEquality_in_ruleXEqualityExpression22593 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXRelationalExpression_in_ruleXEqualityExpression22616 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000C00000000000L});
+    public static final BitSet FOLLOW_ruleXRelationalExpression_in_ruleXEqualityExpression22540 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0001800000000000L});
+    public static final BitSet FOLLOW_ruleOpEquality_in_ruleXEqualityExpression22593 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXRelationalExpression_in_ruleXEqualityExpression22616 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0001800000000000L});
     public static final BitSet FOLLOW_ruleOpEquality_in_entryRuleOpEquality22655 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleOpEquality22666 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_174_in_ruleOpEquality22704 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_175_in_ruleOpEquality22723 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_175_in_ruleOpEquality22704 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_176_in_ruleOpEquality22723 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXRelationalExpression_in_entryRuleXRelationalExpression22763 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXRelationalExpression22773 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXOtherOperatorExpression_in_ruleXRelationalExpression22820 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x001F000000000000L});
-    public static final BitSet FOLLOW_176_in_ruleXRelationalExpression22856 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXRelationalExpression22879 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x001F000000000000L});
-    public static final BitSet FOLLOW_ruleOpCompare_in_ruleXRelationalExpression22940 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXOtherOperatorExpression_in_ruleXRelationalExpression22963 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x001F000000000000L});
+    public static final BitSet FOLLOW_ruleXOtherOperatorExpression_in_ruleXRelationalExpression22820 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x003E000000000000L});
+    public static final BitSet FOLLOW_177_in_ruleXRelationalExpression22856 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXRelationalExpression22879 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x003E000000000000L});
+    public static final BitSet FOLLOW_ruleOpCompare_in_ruleXRelationalExpression22940 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXOtherOperatorExpression_in_ruleXRelationalExpression22963 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x003E000000000000L});
     public static final BitSet FOLLOW_ruleOpCompare_in_entryRuleOpCompare23003 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleOpCompare23014 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_177_in_ruleOpCompare23052 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_178_in_ruleOpCompare23071 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_179_in_ruleOpCompare23090 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_180_in_ruleOpCompare23109 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_178_in_ruleOpCompare23052 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_179_in_ruleOpCompare23071 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_180_in_ruleOpCompare23090 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_181_in_ruleOpCompare23109 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXOtherOperatorExpression_in_entryRuleXOtherOperatorExpression23149 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXOtherOperatorExpression23159 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXAdditiveExpression_in_ruleXOtherOperatorExpression23206 = new BitSet(new long[]{0x0000000000000002L,0x8000000000000000L,0x03F8000000000000L});
-    public static final BitSet FOLLOW_ruleOpOther_in_ruleXOtherOperatorExpression23259 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXAdditiveExpression_in_ruleXOtherOperatorExpression23282 = new BitSet(new long[]{0x0000000000000002L,0x8000000000000000L,0x03F8000000000000L});
+    public static final BitSet FOLLOW_ruleXAdditiveExpression_in_ruleXOtherOperatorExpression23206 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x07F0000000000001L});
+    public static final BitSet FOLLOW_ruleOpOther_in_ruleXOtherOperatorExpression23259 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXAdditiveExpression_in_ruleXOtherOperatorExpression23282 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x07F0000000000001L});
     public static final BitSet FOLLOW_ruleOpOther_in_entryRuleOpOther23321 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleOpOther23332 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_181_in_ruleOpOther23370 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_127_in_ruleOpOther23389 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_182_in_ruleOpOther23408 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_179_in_ruleOpOther23428 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0008000000000000L});
-    public static final BitSet FOLLOW_179_in_ruleOpOther23459 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0008000000000000L});
-    public static final BitSet FOLLOW_179_in_ruleOpOther23472 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_179_in_ruleOpOther23493 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_180_in_ruleOpOther23515 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0010000000000000L});
-    public static final BitSet FOLLOW_180_in_ruleOpOther23546 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0010000000000000L});
-    public static final BitSet FOLLOW_180_in_ruleOpOther23559 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_180_in_ruleOpOther23580 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_183_in_ruleOpOther23601 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_184_in_ruleOpOther23620 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_185_in_ruleOpOther23639 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_182_in_ruleOpOther23370 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_128_in_ruleOpOther23389 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_183_in_ruleOpOther23408 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_180_in_ruleOpOther23428 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0010000000000000L});
+    public static final BitSet FOLLOW_180_in_ruleOpOther23459 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0010000000000000L});
+    public static final BitSet FOLLOW_180_in_ruleOpOther23472 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_180_in_ruleOpOther23493 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_181_in_ruleOpOther23515 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_181_in_ruleOpOther23546 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_181_in_ruleOpOther23559 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_181_in_ruleOpOther23580 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_184_in_ruleOpOther23601 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_185_in_ruleOpOther23620 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_186_in_ruleOpOther23639 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXAdditiveExpression_in_entryRuleXAdditiveExpression23679 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXAdditiveExpression23689 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXMultiplicativeExpression_in_ruleXAdditiveExpression23736 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0400000800000000L});
-    public static final BitSet FOLLOW_ruleOpAdd_in_ruleXAdditiveExpression23789 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXMultiplicativeExpression_in_ruleXAdditiveExpression23812 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0400000800000000L});
+    public static final BitSet FOLLOW_ruleXMultiplicativeExpression_in_ruleXAdditiveExpression23736 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0800001000000000L});
+    public static final BitSet FOLLOW_ruleOpAdd_in_ruleXAdditiveExpression23789 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXMultiplicativeExpression_in_ruleXAdditiveExpression23812 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0800001000000000L});
     public static final BitSet FOLLOW_ruleOpAdd_in_entryRuleOpAdd23851 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleOpAdd23862 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_186_in_ruleOpAdd23900 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_163_in_ruleOpAdd23919 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_187_in_ruleOpAdd23900 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_164_in_ruleOpAdd23919 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXMultiplicativeExpression_in_entryRuleXMultiplicativeExpression23959 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXMultiplicativeExpression23969 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXUnaryOperation_in_ruleXMultiplicativeExpression24016 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x7800000000000000L});
-    public static final BitSet FOLLOW_ruleOpMulti_in_ruleXMultiplicativeExpression24069 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXUnaryOperation_in_ruleXMultiplicativeExpression24092 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x7800000000000000L});
+    public static final BitSet FOLLOW_ruleXUnaryOperation_in_ruleXMultiplicativeExpression24016 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0xF000000000000000L});
+    public static final BitSet FOLLOW_ruleOpMulti_in_ruleXMultiplicativeExpression24069 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXUnaryOperation_in_ruleXMultiplicativeExpression24092 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0xF000000000000000L});
     public static final BitSet FOLLOW_ruleOpMulti_in_entryRuleOpMulti24131 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleOpMulti24142 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_187_in_ruleOpMulti24180 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_188_in_ruleOpMulti24199 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_189_in_ruleOpMulti24218 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_190_in_ruleOpMulti24237 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_188_in_ruleOpMulti24180 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_189_in_ruleOpMulti24199 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_190_in_ruleOpMulti24218 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_191_in_ruleOpMulti24237 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXUnaryOperation_in_entryRuleXUnaryOperation24277 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXUnaryOperation24287 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpUnary_in_ruleXUnaryOperation24345 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
+    public static final BitSet FOLLOW_ruleOpUnary_in_ruleXUnaryOperation24345 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
     public static final BitSet FOLLOW_ruleXCastedExpression_in_ruleXUnaryOperation24366 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXCastedExpression_in_ruleXUnaryOperation24395 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOpUnary_in_entryRuleOpUnary24431 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleOpUnary24442 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_191_in_ruleOpUnary24480 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_163_in_ruleOpUnary24499 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_186_in_ruleOpUnary24518 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_192_in_ruleOpUnary24480 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_164_in_ruleOpUnary24499 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_187_in_ruleOpUnary24518 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXCastedExpression_in_entryRuleXCastedExpression24558 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXCastedExpression24568 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXMemberFeatureCall_in_ruleXCastedExpression24615 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_192_in_ruleXCastedExpression24650 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXCastedExpression24673 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_ruleXMemberFeatureCall_in_ruleXCastedExpression24615 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_193_in_ruleXCastedExpression24650 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXCastedExpression24673 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXMemberFeatureCall_in_entryRuleXMemberFeatureCall24711 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXMemberFeatureCall24721 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXPrimaryExpression_in_ruleXMemberFeatureCall24768 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000001000000000L,0x0000000000000006L});
-    public static final BitSet FOLLOW_164_in_ruleXMemberFeatureCall24817 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleXPrimaryExpression_in_ruleXMemberFeatureCall24768 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000002000000000L,0x000000000000000CL});
+    public static final BitSet FOLLOW_165_in_ruleXMemberFeatureCall24817 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_ruleValidID_in_ruleXMemberFeatureCall24840 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_ruleOpSingleAssign_in_ruleXMemberFeatureCall24856 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXAssignment_in_ruleXMemberFeatureCall24878 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000001000000000L,0x0000000000000006L});
-    public static final BitSet FOLLOW_164_in_ruleXMemberFeatureCall24964 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x0010000000000000L});
-    public static final BitSet FOLLOW_193_in_ruleXMemberFeatureCall24988 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x0010000000000000L});
-    public static final BitSet FOLLOW_194_in_ruleXMemberFeatureCall25025 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x0010000000000000L});
-    public static final BitSet FOLLOW_180_in_ruleXMemberFeatureCall25054 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXMemberFeatureCall25075 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0008000000000000L});
-    public static final BitSet FOLLOW_36_in_ruleXMemberFeatureCall25088 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXMemberFeatureCall25109 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0008000000000000L});
-    public static final BitSet FOLLOW_179_in_ruleXMemberFeatureCall25123 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleValidID_in_ruleXMemberFeatureCall25148 = new BitSet(new long[]{0x0000200000000002L,0x4000000000000000L,0x0000001000000000L,0x0000000000000006L});
-    public static final BitSet FOLLOW_45_in_ruleXMemberFeatureCall25182 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8450000800010006L,0x00000000000FC6A8L});
-    public static final BitSet FOLLOW_ruleXShortClosure_in_ruleXMemberFeatureCall25267 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleXMemberFeatureCall25295 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_36_in_ruleXMemberFeatureCall25308 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleXMemberFeatureCall25329 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_144_in_ruleXMemberFeatureCall25346 = new BitSet(new long[]{0x0000000000000002L,0x4000000000000000L,0x0000001000000000L,0x0000000000000006L});
-    public static final BitSet FOLLOW_ruleXClosure_in_ruleXMemberFeatureCall25381 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000001000000000L,0x0000000000000006L});
+    public static final BitSet FOLLOW_ruleOpSingleAssign_in_ruleXMemberFeatureCall24856 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXAssignment_in_ruleXMemberFeatureCall24878 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000002000000000L,0x000000000000000CL});
+    public static final BitSet FOLLOW_165_in_ruleXMemberFeatureCall24964 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_194_in_ruleXMemberFeatureCall24988 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_195_in_ruleXMemberFeatureCall25025 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_181_in_ruleXMemberFeatureCall25054 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXMemberFeatureCall25075 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0010000000000000L});
+    public static final BitSet FOLLOW_36_in_ruleXMemberFeatureCall25088 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXMemberFeatureCall25109 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0010000000000000L});
+    public static final BitSet FOLLOW_180_in_ruleXMemberFeatureCall25123 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleValidID_in_ruleXMemberFeatureCall25148 = new BitSet(new long[]{0x0000200000000002L,0x8000000000000000L,0x0000002000000000L,0x000000000000000CL});
+    public static final BitSet FOLLOW_45_in_ruleXMemberFeatureCall25182 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x08A000100002000CL,0x00000000001F8D51L});
+    public static final BitSet FOLLOW_ruleXShortClosure_in_ruleXMemberFeatureCall25267 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_ruleXExpression_in_ruleXMemberFeatureCall25295 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_36_in_ruleXMemberFeatureCall25308 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXExpression_in_ruleXMemberFeatureCall25329 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_145_in_ruleXMemberFeatureCall25346 = new BitSet(new long[]{0x0000000000000002L,0x8000000000000000L,0x0000002000000000L,0x000000000000000CL});
+    public static final BitSet FOLLOW_ruleXClosure_in_ruleXMemberFeatureCall25381 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000002000000000L,0x000000000000000CL});
     public static final BitSet FOLLOW_ruleXPrimaryExpression_in_entryRuleXPrimaryExpression25421 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXPrimaryExpression25431 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXConstructorCall_in_ruleXPrimaryExpression25478 = new BitSet(new long[]{0x0000000000000002L});
@@ -46740,91 +46741,91 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleXTypeLiteral_in_ruleXLiteral26043 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXClosure_in_entryRuleXClosure26078 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXClosure26088 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_126_in_ruleXClosure26148 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8450000800000007L,0x00000000000FDEA8L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_ruleXClosure26221 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_36_in_ruleXClosure26234 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_ruleXClosure26255 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_195_in_ruleXClosure26277 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000007L,0x00000000000FDEA0L});
-    public static final BitSet FOLLOW_ruleXExpressionInClosure_in_ruleXClosure26314 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_128_in_ruleXClosure26326 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_127_in_ruleXClosure26148 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x08A000100000000EL,0x00000000001FBD51L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_ruleXClosure26221 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_36_in_ruleXClosure26234 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_ruleXClosure26255 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_196_in_ruleXClosure26277 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000EL,0x00000000001FBD41L});
+    public static final BitSet FOLLOW_ruleXExpressionInClosure_in_ruleXClosure26314 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_129_in_ruleXClosure26326 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXExpressionInClosure_in_entryRuleXExpressionInClosure26362 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXExpressionInClosure26372 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpressionInsideBlock_in_ruleXExpressionInClosure26428 = new BitSet(new long[]{0x00002000004041F2L,0x4000000020000000L,0x8410000800000006L,0x00000000000FDEB0L});
-    public static final BitSet FOLLOW_196_in_ruleXExpressionInClosure26441 = new BitSet(new long[]{0x00002000004041F2L,0x4000000020000000L,0x8410000800000006L,0x00000000000FDEA0L});
+    public static final BitSet FOLLOW_ruleXExpressionInsideBlock_in_ruleXExpressionInClosure26428 = new BitSet(new long[]{0x00002000004041F2L,0x8000000020000000L,0x082000100000000CL,0x00000000001FBD61L});
+    public static final BitSet FOLLOW_197_in_ruleXExpressionInClosure26441 = new BitSet(new long[]{0x00002000004041F2L,0x8000000020000000L,0x082000100000000CL,0x00000000001FBD41L});
     public static final BitSet FOLLOW_ruleXShortClosure_in_entryRuleXShortClosure26481 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXShortClosure26491 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_ruleXShortClosure26599 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_36_in_ruleXShortClosure26612 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_ruleXShortClosure26633 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_195_in_ruleXShortClosure26655 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_ruleXShortClosure26599 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_36_in_ruleXShortClosure26612 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_ruleXShortClosure26633 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_196_in_ruleXShortClosure26655 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
     public static final BitSet FOLLOW_ruleXExpression_in_ruleXShortClosure26691 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXParenthesizedExpression_in_entryRuleXParenthesizedExpression26727 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXParenthesizedExpression26737 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleXParenthesizedExpression26774 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleXParenthesizedExpression26796 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_144_in_ruleXParenthesizedExpression26807 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleXParenthesizedExpression26774 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXExpression_in_ruleXParenthesizedExpression26796 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_145_in_ruleXParenthesizedExpression26807 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXIfExpression_in_entryRuleXIfExpression26843 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXIfExpression26853 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_197_in_ruleXIfExpression26899 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_45_in_ruleXIfExpression26911 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleXIfExpression26932 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_144_in_ruleXIfExpression26944 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleXIfExpression26965 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_198_in_ruleXIfExpression26986 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
+    public static final BitSet FOLLOW_198_in_ruleXIfExpression26899 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_45_in_ruleXIfExpression26911 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXExpression_in_ruleXIfExpression26932 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_145_in_ruleXIfExpression26944 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXExpression_in_ruleXIfExpression26965 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_199_in_ruleXIfExpression26986 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
     public static final BitSet FOLLOW_ruleXExpression_in_ruleXIfExpression27008 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXSwitchExpression_in_entryRuleXSwitchExpression27046 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXSwitchExpression27056 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_199_in_ruleXSwitchExpression27102 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
+    public static final BitSet FOLLOW_200_in_ruleXSwitchExpression27102 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
     public static final BitSet FOLLOW_ruleValidID_in_ruleXSwitchExpression27145 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_55_in_ruleXSwitchExpression27157 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
+    public static final BitSet FOLLOW_55_in_ruleXSwitchExpression27157 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
     public static final BitSet FOLLOW_ruleXExpression_in_ruleXSwitchExpression27181 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_45_in_ruleXSwitchExpression27225 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_ruleValidID_in_ruleXSwitchExpression27246 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_55_in_ruleXSwitchExpression27258 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleXSwitchExpression27281 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_144_in_ruleXSwitchExpression27293 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleXSwitchExpression27307 = new BitSet(new long[]{0x0080200000000010L,0x0000000000000000L,0x0040000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_ruleXCasePart_in_ruleXSwitchExpression27328 = new BitSet(new long[]{0x0080200000028010L,0x0000000000000000L,0x0040000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_55_in_ruleXSwitchExpression27258 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXExpression_in_ruleXSwitchExpression27281 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_145_in_ruleXSwitchExpression27293 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleXSwitchExpression27307 = new BitSet(new long[]{0x0080200000000010L,0x0000000000000000L,0x0080000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_ruleXCasePart_in_ruleXSwitchExpression27328 = new BitSet(new long[]{0x0080200000028010L,0x0000000000000000L,0x0080000000000000L,0x0000000000000200L});
     public static final BitSet FOLLOW_17_in_ruleXSwitchExpression27342 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_55_in_ruleXSwitchExpression27354 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
+    public static final BitSet FOLLOW_55_in_ruleXSwitchExpression27354 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
     public static final BitSet FOLLOW_ruleXExpression_in_ruleXSwitchExpression27375 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleXSwitchExpression27389 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXCasePart_in_entryRuleXCasePart27425 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXCasePart27435 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXCasePart27481 = new BitSet(new long[]{0x0080000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_200_in_ruleXCasePart27495 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXCasePart27481 = new BitSet(new long[]{0x0080000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_201_in_ruleXCasePart27495 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
     public static final BitSet FOLLOW_ruleXExpression_in_ruleXCasePart27516 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_55_in_ruleXCasePart27530 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
+    public static final BitSet FOLLOW_55_in_ruleXCasePart27530 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
     public static final BitSet FOLLOW_ruleXExpression_in_ruleXCasePart27551 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXForLoopExpression_in_entryRuleXForLoopExpression27587 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXForLoopExpression27597 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_22_in_ruleXForLoopExpression27643 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_45_in_ruleXForLoopExpression27655 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L});
+    public static final BitSet FOLLOW_45_in_ruleXForLoopExpression27655 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L});
     public static final BitSet FOLLOW_ruleJvmFormalParameter_in_ruleXForLoopExpression27676 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_55_in_ruleXForLoopExpression27688 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleXForLoopExpression27709 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_144_in_ruleXForLoopExpression27721 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
+    public static final BitSet FOLLOW_55_in_ruleXForLoopExpression27688 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXExpression_in_ruleXForLoopExpression27709 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_145_in_ruleXForLoopExpression27721 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
     public static final BitSet FOLLOW_ruleXExpression_in_ruleXForLoopExpression27742 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXWhileExpression_in_entryRuleXWhileExpression27778 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXWhileExpression27788 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_201_in_ruleXWhileExpression27834 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_45_in_ruleXWhileExpression27846 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleXWhileExpression27867 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_144_in_ruleXWhileExpression27879 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
+    public static final BitSet FOLLOW_202_in_ruleXWhileExpression27834 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_45_in_ruleXWhileExpression27846 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXExpression_in_ruleXWhileExpression27867 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_145_in_ruleXWhileExpression27879 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
     public static final BitSet FOLLOW_ruleXExpression_in_ruleXWhileExpression27900 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXDoWhileExpression_in_entryRuleXDoWhileExpression27936 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXDoWhileExpression27946 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_202_in_ruleXDoWhileExpression27992 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleXDoWhileExpression28013 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_201_in_ruleXDoWhileExpression28025 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_45_in_ruleXDoWhileExpression28037 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleXDoWhileExpression28058 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_144_in_ruleXDoWhileExpression28070 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_203_in_ruleXDoWhileExpression27992 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXExpression_in_ruleXDoWhileExpression28013 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
+    public static final BitSet FOLLOW_202_in_ruleXDoWhileExpression28025 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_45_in_ruleXDoWhileExpression28037 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXExpression_in_ruleXDoWhileExpression28058 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_145_in_ruleXDoWhileExpression28070 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXBlockExpression_in_entryRuleXBlockExpression28106 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXBlockExpression28116 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_ruleXBlockExpression28162 = new BitSet(new long[]{0x000020000040C1F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FDEA0L});
-    public static final BitSet FOLLOW_ruleXExpressionInsideBlock_in_ruleXBlockExpression28184 = new BitSet(new long[]{0x000020000040C1F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FDEB0L});
-    public static final BitSet FOLLOW_196_in_ruleXBlockExpression28197 = new BitSet(new long[]{0x000020000040C1F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FDEA0L});
+    public static final BitSet FOLLOW_14_in_ruleXBlockExpression28162 = new BitSet(new long[]{0x000020000040C1F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001FBD41L});
+    public static final BitSet FOLLOW_ruleXExpressionInsideBlock_in_ruleXBlockExpression28184 = new BitSet(new long[]{0x000020000040C1F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001FBD61L});
+    public static final BitSet FOLLOW_197_in_ruleXBlockExpression28197 = new BitSet(new long[]{0x000020000040C1F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001FBD41L});
     public static final BitSet FOLLOW_15_in_ruleXBlockExpression28213 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXExpressionInsideBlock_in_entryRuleXExpressionInsideBlock28249 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXExpressionInsideBlock28259 = new BitSet(new long[]{0x0000000000000002L});
@@ -46832,12 +46833,12 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleXExpression_in_ruleXExpressionInsideBlock28333 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXVariableDeclaration_in_entryRuleXVariableDeclaration28368 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXVariableDeclaration28378 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_203_in_ruleXVariableDeclaration28431 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L});
-    public static final BitSet FOLLOW_204_in_ruleXVariableDeclaration28462 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L});
+    public static final BitSet FOLLOW_204_in_ruleXVariableDeclaration28431 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L});
+    public static final BitSet FOLLOW_205_in_ruleXVariableDeclaration28462 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L});
     public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXVariableDeclaration28510 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_ruleValidID_in_ruleXVariableDeclaration28531 = new BitSet(new long[]{0x0000000004000002L});
     public static final BitSet FOLLOW_ruleValidID_in_ruleXVariableDeclaration28560 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_26_in_ruleXVariableDeclaration28574 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
+    public static final BitSet FOLLOW_26_in_ruleXVariableDeclaration28574 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
     public static final BitSet FOLLOW_ruleXExpression_in_ruleXVariableDeclaration28595 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleJvmFormalParameter_in_entryRuleJvmFormalParameter28633 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleJvmFormalParameter28643 = new BitSet(new long[]{0x0000000000000002L});
@@ -46849,19 +46850,19 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleValidID_in_ruleFullJvmFormalParameter28824 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXFeatureCall_in_entryRuleXFeatureCall28860 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXFeatureCall28870 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStaticQualifier_in_ruleXFeatureCall28927 = new BitSet(new long[]{0x0000000000000010L,0x0000000020000000L,0x0010000000000000L});
-    public static final BitSet FOLLOW_180_in_ruleXFeatureCall28941 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXFeatureCall28962 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0008000000000000L});
-    public static final BitSet FOLLOW_36_in_ruleXFeatureCall28975 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXFeatureCall28996 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0008000000000000L});
-    public static final BitSet FOLLOW_179_in_ruleXFeatureCall29010 = new BitSet(new long[]{0x0000000000000010L,0x0000000020000000L,0x0010000000000000L});
-    public static final BitSet FOLLOW_ruleIdOrSuper_in_ruleXFeatureCall29035 = new BitSet(new long[]{0x0000200000000002L,0x4000000000000000L});
-    public static final BitSet FOLLOW_45_in_ruleXFeatureCall29069 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8450000800010006L,0x00000000000FC6A8L});
-    public static final BitSet FOLLOW_ruleXShortClosure_in_ruleXFeatureCall29154 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleXFeatureCall29182 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_36_in_ruleXFeatureCall29195 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleXFeatureCall29216 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_144_in_ruleXFeatureCall29233 = new BitSet(new long[]{0x0000000000000002L,0x4000000000000000L});
+    public static final BitSet FOLLOW_ruleStaticQualifier_in_ruleXFeatureCall28927 = new BitSet(new long[]{0x0000000000000010L,0x0000000020000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_181_in_ruleXFeatureCall28941 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXFeatureCall28962 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0010000000000000L});
+    public static final BitSet FOLLOW_36_in_ruleXFeatureCall28975 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXFeatureCall28996 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0010000000000000L});
+    public static final BitSet FOLLOW_180_in_ruleXFeatureCall29010 = new BitSet(new long[]{0x0000000000000010L,0x0000000020000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_ruleIdOrSuper_in_ruleXFeatureCall29035 = new BitSet(new long[]{0x0000200000000002L,0x8000000000000000L});
+    public static final BitSet FOLLOW_45_in_ruleXFeatureCall29069 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x08A000100002000CL,0x00000000001F8D51L});
+    public static final BitSet FOLLOW_ruleXShortClosure_in_ruleXFeatureCall29154 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_ruleXExpression_in_ruleXFeatureCall29182 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_36_in_ruleXFeatureCall29195 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXExpression_in_ruleXFeatureCall29216 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_145_in_ruleXFeatureCall29233 = new BitSet(new long[]{0x0000000000000002L,0x8000000000000000L});
     public static final BitSet FOLLOW_ruleXClosure_in_ruleXFeatureCall29268 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleIdOrSuper_in_entryRuleIdOrSuper29306 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleIdOrSuper29317 = new BitSet(new long[]{0x0000000000000002L});
@@ -46869,31 +46870,31 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_93_in_ruleIdOrSuper29388 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleStaticQualifier_in_entryRuleStaticQualifier29429 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleStaticQualifier29440 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_ruleStaticQualifier29487 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
-    public static final BitSet FOLLOW_205_in_ruleStaticQualifier29505 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_ruleValidID_in_ruleStaticQualifier29487 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000004000L});
+    public static final BitSet FOLLOW_206_in_ruleStaticQualifier29505 = new BitSet(new long[]{0x0000000000000012L});
     public static final BitSet FOLLOW_ruleXConstructorCall_in_entryRuleXConstructorCall29546 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXConstructorCall29556 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_206_in_ruleXConstructorCall29602 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleXConstructorCall29625 = new BitSet(new long[]{0x0000200000000002L,0x4000000000000000L,0x0010000000000000L});
-    public static final BitSet FOLLOW_180_in_ruleXConstructorCall29646 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXConstructorCall29668 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0008000000000000L});
-    public static final BitSet FOLLOW_36_in_ruleXConstructorCall29681 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXConstructorCall29702 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0008000000000000L});
-    public static final BitSet FOLLOW_179_in_ruleXConstructorCall29716 = new BitSet(new long[]{0x0000200000000002L,0x4000000000000000L});
-    public static final BitSet FOLLOW_45_in_ruleXConstructorCall29739 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8450000800010006L,0x00000000000FC6A8L});
-    public static final BitSet FOLLOW_ruleXShortClosure_in_ruleXConstructorCall29812 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleXConstructorCall29840 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_36_in_ruleXConstructorCall29853 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleXConstructorCall29874 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_144_in_ruleXConstructorCall29891 = new BitSet(new long[]{0x0000000000000002L,0x4000000000000000L});
+    public static final BitSet FOLLOW_207_in_ruleXConstructorCall29602 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleXConstructorCall29625 = new BitSet(new long[]{0x0000200000000002L,0x8000000000000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_181_in_ruleXConstructorCall29646 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXConstructorCall29668 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0010000000000000L});
+    public static final BitSet FOLLOW_36_in_ruleXConstructorCall29681 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleXConstructorCall29702 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0010000000000000L});
+    public static final BitSet FOLLOW_180_in_ruleXConstructorCall29716 = new BitSet(new long[]{0x0000200000000002L,0x8000000000000000L});
+    public static final BitSet FOLLOW_45_in_ruleXConstructorCall29739 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x08A000100002000CL,0x00000000001F8D51L});
+    public static final BitSet FOLLOW_ruleXShortClosure_in_ruleXConstructorCall29812 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_ruleXExpression_in_ruleXConstructorCall29840 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_36_in_ruleXConstructorCall29853 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXExpression_in_ruleXConstructorCall29874 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_145_in_ruleXConstructorCall29891 = new BitSet(new long[]{0x0000000000000002L,0x8000000000000000L});
     public static final BitSet FOLLOW_ruleXClosure_in_ruleXConstructorCall29926 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXBooleanLiteral_in_entryRuleXBooleanLiteral29963 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXBooleanLiteral29973 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_130_in_ruleXBooleanLiteral30020 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_129_in_ruleXBooleanLiteral30044 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_131_in_ruleXBooleanLiteral30020 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_130_in_ruleXBooleanLiteral30044 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXNullLiteral_in_entryRuleXNullLiteral30094 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXNullLiteral30104 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_207_in_ruleXNullLiteral30150 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_208_in_ruleXNullLiteral30150 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXNumberLiteral_in_entryRuleXNumberLiteral30186 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXNumberLiteral30196 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleNumber_in_ruleXNumberLiteral30251 = new BitSet(new long[]{0x0000000000000002L});
@@ -46902,150 +46903,150 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_STRING_in_ruleXStringLiteral30348 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXTypeLiteral_in_entryRuleXTypeLiteral30389 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXTypeLiteral30399 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_208_in_ruleXTypeLiteral30445 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_209_in_ruleXTypeLiteral30445 = new BitSet(new long[]{0x0000200000000000L});
     public static final BitSet FOLLOW_45_in_ruleXTypeLiteral30457 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleXTypeLiteral30480 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_144_in_ruleXTypeLiteral30492 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleXTypeLiteral30480 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_145_in_ruleXTypeLiteral30492 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXThrowExpression_in_entryRuleXThrowExpression30528 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXThrowExpression30538 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_209_in_ruleXThrowExpression30584 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
+    public static final BitSet FOLLOW_210_in_ruleXThrowExpression30584 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
     public static final BitSet FOLLOW_ruleXExpression_in_ruleXThrowExpression30605 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXReturnExpression_in_entryRuleXReturnExpression30641 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXReturnExpression30651 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_210_in_ruleXReturnExpression30697 = new BitSet(new long[]{0x00002000004041F2L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
+    public static final BitSet FOLLOW_211_in_ruleXReturnExpression30697 = new BitSet(new long[]{0x00002000004041F2L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
     public static final BitSet FOLLOW_ruleXExpression_in_ruleXReturnExpression30728 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXTryCatchFinallyExpression_in_entryRuleXTryCatchFinallyExpression30765 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXTryCatchFinallyExpression30775 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_211_in_ruleXTryCatchFinallyExpression30821 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleXTryCatchFinallyExpression30842 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000300000L});
-    public static final BitSet FOLLOW_ruleXCatchClause_in_ruleXTryCatchFinallyExpression30872 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000300000L});
-    public static final BitSet FOLLOW_212_in_ruleXTryCatchFinallyExpression30894 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
+    public static final BitSet FOLLOW_212_in_ruleXTryCatchFinallyExpression30821 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
+    public static final BitSet FOLLOW_ruleXExpression_in_ruleXTryCatchFinallyExpression30842 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000600000L});
+    public static final BitSet FOLLOW_ruleXCatchClause_in_ruleXTryCatchFinallyExpression30872 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000600000L});
+    public static final BitSet FOLLOW_213_in_ruleXTryCatchFinallyExpression30894 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
     public static final BitSet FOLLOW_ruleXExpression_in_ruleXTryCatchFinallyExpression30916 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_212_in_ruleXTryCatchFinallyExpression30938 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
+    public static final BitSet FOLLOW_213_in_ruleXTryCatchFinallyExpression30938 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
     public static final BitSet FOLLOW_ruleXExpression_in_ruleXTryCatchFinallyExpression30959 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXCatchClause_in_entryRuleXCatchClause30997 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXCatchClause31007 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_213_in_ruleXCatchClause31052 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_45_in_ruleXCatchClause31065 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L});
-    public static final BitSet FOLLOW_ruleFullJvmFormalParameter_in_ruleXCatchClause31086 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_144_in_ruleXCatchClause31098 = new BitSet(new long[]{0x00002000004041F0L,0x4000000020000000L,0x8410000800000006L,0x00000000000FC6A0L});
+    public static final BitSet FOLLOW_214_in_ruleXCatchClause31052 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_45_in_ruleXCatchClause31065 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L});
+    public static final BitSet FOLLOW_ruleFullJvmFormalParameter_in_ruleXCatchClause31086 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_145_in_ruleXCatchClause31098 = new BitSet(new long[]{0x00002000004041F0L,0x8000000020000000L,0x082000100000000CL,0x00000000001F8D41L});
     public static final BitSet FOLLOW_ruleXExpression_in_ruleXCatchClause31119 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName31156 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName31167 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_ruleQualifiedName31214 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_164_in_ruleQualifiedName31242 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleValidID_in_ruleQualifiedName31265 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_ruleValidID_in_ruleQualifiedName31214 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000002000000000L});
+    public static final BitSet FOLLOW_165_in_ruleQualifiedName31242 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleValidID_in_ruleQualifiedName31265 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000002000000000L});
     public static final BitSet FOLLOW_ruleNumber_in_entryRuleNumber31319 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleNumber31330 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_HEX_in_ruleNumber31374 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleNumber31402 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_RULE_DECIMAL_in_ruleNumber31428 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_164_in_ruleNumber31448 = new BitSet(new long[]{0x0000000000000140L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleNumber31402 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000002000000000L});
+    public static final BitSet FOLLOW_RULE_DECIMAL_in_ruleNumber31428 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000002000000000L});
+    public static final BitSet FOLLOW_165_in_ruleNumber31448 = new BitSet(new long[]{0x0000000000000140L});
     public static final BitSet FOLLOW_RULE_INT_in_ruleNumber31464 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_DECIMAL_in_ruleNumber31490 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleJvmTypeReference_in_entryRuleJvmTypeReference31543 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleJvmTypeReference31553 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmParameterizedTypeReference_in_ruleJvmTypeReference31601 = new BitSet(new long[]{0x0000000000000002L,0x4000000000000000L});
-    public static final BitSet FOLLOW_126_in_ruleJvmTypeReference31639 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_128_in_ruleJvmTypeReference31651 = new BitSet(new long[]{0x0000000000000002L,0x4000000000000000L});
+    public static final BitSet FOLLOW_ruleJvmParameterizedTypeReference_in_ruleJvmTypeReference31601 = new BitSet(new long[]{0x0000000000000002L,0x8000000000000000L});
+    public static final BitSet FOLLOW_127_in_ruleJvmTypeReference31639 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_129_in_ruleJvmTypeReference31651 = new BitSet(new long[]{0x0000000000000002L,0x8000000000000000L});
     public static final BitSet FOLLOW_ruleXFunctionTypeRef_in_ruleJvmTypeReference31683 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXFunctionTypeRef_in_entryRuleXFunctionTypeRef31718 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXFunctionTypeRef31728 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleXFunctionTypeRef31766 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000010000L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXFunctionTypeRef31788 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_36_in_ruleXFunctionTypeRef31801 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXFunctionTypeRef31822 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_144_in_ruleXFunctionTypeRef31838 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0040000000000000L});
-    public static final BitSet FOLLOW_182_in_ruleXFunctionTypeRef31852 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L});
+    public static final BitSet FOLLOW_45_in_ruleXFunctionTypeRef31766 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000020000L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXFunctionTypeRef31788 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_36_in_ruleXFunctionTypeRef31801 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXFunctionTypeRef31822 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_145_in_ruleXFunctionTypeRef31838 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0080000000000000L});
+    public static final BitSet FOLLOW_183_in_ruleXFunctionTypeRef31852 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L});
     public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleXFunctionTypeRef31873 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleJvmParameterizedTypeReference_in_entryRuleJvmParameterizedTypeReference31909 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleJvmParameterizedTypeReference31919 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleJvmParameterizedTypeReference31967 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0010000000000000L});
-    public static final BitSet FOLLOW_180_in_ruleJvmParameterizedTypeReference31988 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleJvmParameterizedTypeReference32010 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0008000000000000L});
-    public static final BitSet FOLLOW_36_in_ruleJvmParameterizedTypeReference32023 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleJvmParameterizedTypeReference32044 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0008000000000000L});
-    public static final BitSet FOLLOW_179_in_ruleJvmParameterizedTypeReference32058 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleJvmParameterizedTypeReference31967 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_181_in_ruleJvmParameterizedTypeReference31988 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleJvmParameterizedTypeReference32010 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0010000000000000L});
+    public static final BitSet FOLLOW_36_in_ruleJvmParameterizedTypeReference32023 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_ruleJvmParameterizedTypeReference32044 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0010000000000000L});
+    public static final BitSet FOLLOW_180_in_ruleJvmParameterizedTypeReference32058 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_entryRuleJvmArgumentTypeReference32096 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleJvmArgumentTypeReference32106 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleJvmArgumentTypeReference32153 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleJvmWildcardTypeReference_in_ruleJvmArgumentTypeReference32180 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleJvmWildcardTypeReference_in_entryRuleJvmWildcardTypeReference32215 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleJvmWildcardTypeReference32225 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_214_in_ruleJvmWildcardTypeReference32271 = new BitSet(new long[]{0x0000000000000002L,0x0000000020000000L,0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_215_in_ruleJvmWildcardTypeReference32271 = new BitSet(new long[]{0x0000000000000002L,0x0000000020000000L,0x0000000000000000L,0x0000000001000000L});
     public static final BitSet FOLLOW_ruleJvmUpperBound_in_ruleJvmWildcardTypeReference32293 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleJvmLowerBound_in_ruleJvmWildcardTypeReference32320 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleJvmUpperBound_in_entryRuleJvmUpperBound32358 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleJvmUpperBound32368 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_215_in_ruleJvmUpperBound32405 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L});
+    public static final BitSet FOLLOW_216_in_ruleJvmUpperBound32405 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L});
     public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleJvmUpperBound32426 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleJvmUpperBoundAnded_in_entryRuleJvmUpperBoundAnded32462 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleJvmUpperBoundAnded32472 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_216_in_ruleJvmUpperBoundAnded32509 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L});
+    public static final BitSet FOLLOW_217_in_ruleJvmUpperBoundAnded32509 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L});
     public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleJvmUpperBoundAnded32530 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleJvmLowerBound_in_entryRuleJvmLowerBound32566 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleJvmLowerBound32576 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_93_in_ruleJvmLowerBound32613 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L});
+    public static final BitSet FOLLOW_93_in_ruleJvmLowerBound32613 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L});
     public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleJvmLowerBound32634 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleValidID_in_entryRuleValidID32673 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleValidID32684 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleValidID32723 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_217_in_ruleOperation32781 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_218_in_ruleOperation32798 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_219_in_ruleOperation32815 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_220_in_ruleOperation32832 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_221_in_ruleOperation32849 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_222_in_ruleOperation32866 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_223_in_ruleOperation32883 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_224_in_ruleOperation32900 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_225_in_ruleOperation32917 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_226_in_ruleOperation32934 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_227_in_ruleOperation32951 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_228_in_ruleOperation32968 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_229_in_ruleOperation32985 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_230_in_ruleOperation33002 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_231_in_ruleOperation33019 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_232_in_ruleOperation33036 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_233_in_ruleOperation33053 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_234_in_ruleOperation33070 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_235_in_ruleOperation33087 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_236_in_rulePrimitiveTypeEnum33132 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_237_in_rulePrimitiveTypeEnum33149 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_238_in_rulePrimitiveTypeEnum33166 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_239_in_rulePrimitiveTypeEnum33183 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_240_in_rulePrimitiveTypeEnum33200 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_218_in_ruleOperation32781 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_219_in_ruleOperation32798 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_220_in_ruleOperation32815 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_221_in_ruleOperation32832 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_222_in_ruleOperation32849 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_223_in_ruleOperation32866 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_224_in_ruleOperation32883 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_225_in_ruleOperation32900 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_226_in_ruleOperation32917 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_227_in_ruleOperation32934 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_228_in_ruleOperation32951 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_229_in_ruleOperation32968 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_230_in_ruleOperation32985 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_231_in_ruleOperation33002 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_232_in_ruleOperation33019 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_233_in_ruleOperation33036 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_234_in_ruleOperation33053 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_235_in_ruleOperation33070 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_236_in_ruleOperation33087 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_237_in_rulePrimitiveTypeEnum33132 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_238_in_rulePrimitiveTypeEnum33149 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_239_in_rulePrimitiveTypeEnum33166 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_240_in_rulePrimitiveTypeEnum33183 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_241_in_rulePrimitiveTypeEnum33200 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOpMultiAssign_in_synpred1_InternalKCVL21695 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOpOr_in_synpred2_InternalKCVL22043 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOpAnd_in_synpred3_InternalKCVL22302 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOpEquality_in_synpred4_InternalKCVL22561 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_176_in_synpred5_InternalKCVL22837 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_177_in_synpred5_InternalKCVL22837 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOpCompare_in_synpred6_InternalKCVL22908 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOpOther_in_synpred7_InternalKCVL23227 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_179_in_synpred8_InternalKCVL23443 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0008000000000000L});
-    public static final BitSet FOLLOW_179_in_synpred8_InternalKCVL23448 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_180_in_synpred9_InternalKCVL23530 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0010000000000000L});
-    public static final BitSet FOLLOW_180_in_synpred9_InternalKCVL23535 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_180_in_synpred8_InternalKCVL23443 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0010000000000000L});
+    public static final BitSet FOLLOW_180_in_synpred8_InternalKCVL23448 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_181_in_synpred9_InternalKCVL23530 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0020000000000000L});
+    public static final BitSet FOLLOW_181_in_synpred9_InternalKCVL23535 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOpAdd_in_synpred10_InternalKCVL23757 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOpMulti_in_synpred11_InternalKCVL24037 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_192_in_synpred12_InternalKCVL24631 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_164_in_synpred13_InternalKCVL24785 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_193_in_synpred12_InternalKCVL24631 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_165_in_synpred13_InternalKCVL24785 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_ruleValidID_in_synpred13_InternalKCVL24794 = new BitSet(new long[]{0x0000000004000000L});
     public static final BitSet FOLLOW_ruleOpSingleAssign_in_synpred13_InternalKCVL24800 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_164_in_synpred14_InternalKCVL24903 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_193_in_synpred14_InternalKCVL24917 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_194_in_synpred14_InternalKCVL24937 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_165_in_synpred14_InternalKCVL24903 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_194_in_synpred14_InternalKCVL24917 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_195_in_synpred14_InternalKCVL24937 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_45_in_synpred15_InternalKCVL25164 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred16_InternalKCVL25216 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_36_in_synpred16_InternalKCVL25223 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred16_InternalKCVL25230 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_195_in_synpred16_InternalKCVL25244 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_126_in_synpred17_InternalKCVL25364 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_126_in_synpred18_InternalKCVL25888 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred20_InternalKCVL26167 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_36_in_synpred20_InternalKCVL26174 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred20_InternalKCVL26181 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_195_in_synpred20_InternalKCVL26195 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_198_in_synpred22_InternalKCVL26978 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred16_InternalKCVL25216 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_36_in_synpred16_InternalKCVL25223 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred16_InternalKCVL25230 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_196_in_synpred16_InternalKCVL25244 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_127_in_synpred17_InternalKCVL25364 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_127_in_synpred18_InternalKCVL25888 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred20_InternalKCVL26167 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_36_in_synpred20_InternalKCVL26174 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred20_InternalKCVL26181 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_196_in_synpred20_InternalKCVL26195 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_199_in_synpred22_InternalKCVL26978 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleValidID_in_synpred23_InternalKCVL27120 = new BitSet(new long[]{0x0080000000000000L});
     public static final BitSet FOLLOW_55_in_synpred23_InternalKCVL27126 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_45_in_synpred24_InternalKCVL27202 = new BitSet(new long[]{0x0000000000000010L});
@@ -47054,24 +47055,24 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleJvmTypeReference_in_synpred25_InternalKCVL28480 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_ruleValidID_in_synpred25_InternalKCVL28489 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_45_in_synpred26_InternalKCVL29051 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred27_InternalKCVL29103 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_36_in_synpred27_InternalKCVL29110 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred27_InternalKCVL29117 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_195_in_synpred27_InternalKCVL29131 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_126_in_synpred28_InternalKCVL29251 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_180_in_synpred29_InternalKCVL29638 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred27_InternalKCVL29103 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_36_in_synpred27_InternalKCVL29110 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred27_InternalKCVL29117 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_196_in_synpred27_InternalKCVL29131 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_127_in_synpred28_InternalKCVL29251 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_181_in_synpred29_InternalKCVL29638 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_45_in_synpred30_InternalKCVL29731 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred31_InternalKCVL29761 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_36_in_synpred31_InternalKCVL29768 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0040000000000000L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred31_InternalKCVL29775 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_195_in_synpred31_InternalKCVL29789 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_126_in_synpred32_InternalKCVL29909 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred31_InternalKCVL29761 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_36_in_synpred31_InternalKCVL29768 = new BitSet(new long[]{0x0000200000000010L,0x0000000000000000L,0x0080000000000000L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_synpred31_InternalKCVL29775 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_196_in_synpred31_InternalKCVL29789 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_127_in_synpred32_InternalKCVL29909 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXExpression_in_synpred33_InternalKCVL30711 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_213_in_synpred34_InternalKCVL30856 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_212_in_synpred35_InternalKCVL30886 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_164_in_synpred37_InternalKCVL31233 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_126_in_synpred38_InternalKCVL31616 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_128_in_synpred38_InternalKCVL31620 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_180_in_synpred39_InternalKCVL31980 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_214_in_synpred34_InternalKCVL30856 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_213_in_synpred35_InternalKCVL30886 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_165_in_synpred37_InternalKCVL31233 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_127_in_synpred38_InternalKCVL31616 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_129_in_synpred38_InternalKCVL31620 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_181_in_synpred39_InternalKCVL31980 = new BitSet(new long[]{0x0000000000000002L});
 
 }

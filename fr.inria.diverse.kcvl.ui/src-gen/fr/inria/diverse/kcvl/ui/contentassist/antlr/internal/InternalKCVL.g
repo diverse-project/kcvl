@@ -30611,11 +30611,11 @@ rule__PatternFusion__Group_10__0__Impl
     }
 :
 (
-{ before(grammarAccess.getPatternFusionAccess().getSubstitutesKeyword_10_0()); }
+{ before(grammarAccess.getPatternFusionAccess().getBindingsKeyword_10_0()); }
 
-	'substitutes' 
+	'bindings' 
 
-{ after(grammarAccess.getPatternFusionAccess().getSubstitutesKeyword_10_0()); }
+{ after(grammarAccess.getPatternFusionAccess().getBindingsKeyword_10_0()); }
 )
 
 ;

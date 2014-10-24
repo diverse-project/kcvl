@@ -7504,9 +7504,9 @@ rulePatternFusion returns [EObject current=null]
 	}
 
 )
-))?(	otherlv_22='substitutes' 
+))?(	otherlv_22='bindings' 
     {
-    	newLeafNode(otherlv_22, grammarAccess.getPatternFusionAccess().getSubstitutesKeyword_10_0());
+    	newLeafNode(otherlv_22, grammarAccess.getPatternFusionAccess().getBindingsKeyword_10_0());
     }
 (
 (
