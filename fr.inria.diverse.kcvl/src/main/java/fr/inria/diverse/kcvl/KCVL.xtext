@@ -249,12 +249,12 @@ SlotAssignment returns SlotAssignment:
 	'SlotAssignment' name = ID '{'
 		('mapping' mappingExpression = STRING)?
 		('expression' expression = STRING)?
-		'slotIdentifier' slotIdentifier = STRING
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec+=[VSpec])*)?
 		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
-		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
+		'slotOwner' SlotOwner = ObjectHandle
+		'slotIdentifier' slotIdentifier = STRING
 		('value' value = ValueSpecification)?
-		'SlotOwner' SlotOwner = ObjectHandle
+		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 	'}'
 ;
 

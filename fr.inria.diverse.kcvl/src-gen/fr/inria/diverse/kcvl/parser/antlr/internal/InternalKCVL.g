@@ -1937,9 +1937,9 @@ ruleFragmentSubstitution returns [EObject current=null]
 	}
 
 )
-)*)?(	otherlv_15='bindingChoice' 
+)*)?(	otherlv_15='choice' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getFragmentSubstitutionAccess().getBindingChoiceKeyword_8_0());
+    	newLeafNode(otherlv_15, grammarAccess.getFragmentSubstitutionAccess().getChoiceKeyword_8_0());
     }
 (
 (
@@ -3547,31 +3547,26 @@ ruleSlotAssignment returns [EObject current=null]
 	    }
 
 )
-))?	otherlv_7='slotIdentifier' 
+))?(	otherlv_7='bindingVspec' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getSlotAssignmentAccess().getSlotIdentifierKeyword_5());
+    	newLeafNode(otherlv_7, grammarAccess.getSlotAssignmentAccess().getBindingVspecKeyword_5_0());
     }
 (
 (
-		lv_slotIdentifier_8_0=RULE_STRING
 		{
-			newLeafNode(lv_slotIdentifier_8_0, grammarAccess.getSlotAssignmentAccess().getSlotIdentifierSTRINGTerminalRuleCall_6_0()); 
-		}
-		{
-	        if ($current==null) {
+			if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSlotAssignmentRule());
 	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"slotIdentifier",
-        		lv_slotIdentifier_8_0, 
-        		"STRING");
-	    }
+        }
+	otherlv_8=RULE_ID
+	{
+		newLeafNode(otherlv_8, grammarAccess.getSlotAssignmentAccess().getBindingVspecVSpecCrossReference_5_1_0()); 
+	}
 
 )
-)(	otherlv_9='bindingVspec' 
+)(	otherlv_9=',' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getSlotAssignmentAccess().getBindingVspecKeyword_7_0());
+    	newLeafNode(otherlv_9, grammarAccess.getSlotAssignmentAccess().getCommaKeyword_5_2_0());
     }
 (
 (
@@ -3582,13 +3577,13 @@ ruleSlotAssignment returns [EObject current=null]
         }
 	otherlv_10=RULE_ID
 	{
-		newLeafNode(otherlv_10, grammarAccess.getSlotAssignmentAccess().getBindingVspecVSpecCrossReference_7_1_0()); 
+		newLeafNode(otherlv_10, grammarAccess.getSlotAssignmentAccess().getBindingVspecVSpecCrossReference_5_2_1_0()); 
 	}
 
 )
-)(	otherlv_11=',' 
+))*)?(	otherlv_11='precedence' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getSlotAssignmentAccess().getCommaKeyword_7_2_0());
+    	newLeafNode(otherlv_11, grammarAccess.getSlotAssignmentAccess().getPrecedenceKeyword_6_0());
     }
 (
 (
@@ -3599,13 +3594,13 @@ ruleSlotAssignment returns [EObject current=null]
         }
 	otherlv_12=RULE_ID
 	{
-		newLeafNode(otherlv_12, grammarAccess.getSlotAssignmentAccess().getBindingVspecVSpecCrossReference_7_2_1_0()); 
+		newLeafNode(otherlv_12, grammarAccess.getSlotAssignmentAccess().getPrecedenceConstraintVariationPointCrossReference_6_1_0()); 
 	}
 
 )
-))*)?(	otherlv_13='precedence' 
+)(	otherlv_13=',' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getSlotAssignmentAccess().getPrecedenceKeyword_8_0());
+    	newLeafNode(otherlv_13, grammarAccess.getSlotAssignmentAccess().getCommaKeyword_6_2_0());
     }
 (
 (
@@ -3616,106 +3611,111 @@ ruleSlotAssignment returns [EObject current=null]
         }
 	otherlv_14=RULE_ID
 	{
-		newLeafNode(otherlv_14, grammarAccess.getSlotAssignmentAccess().getPrecedenceConstraintVariationPointCrossReference_8_1_0()); 
+		newLeafNode(otherlv_14, grammarAccess.getSlotAssignmentAccess().getPrecedenceConstraintVariationPointCrossReference_6_2_1_0()); 
 	}
 
 )
-)(	otherlv_15=',' 
+))*)?	otherlv_15='slotOwner' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getSlotAssignmentAccess().getCommaKeyword_8_2_0());
-    }
-(
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSlotAssignmentRule());
-	        }
-        }
-	otherlv_16=RULE_ID
-	{
-		newLeafNode(otherlv_16, grammarAccess.getSlotAssignmentAccess().getPrecedenceConstraintVariationPointCrossReference_8_2_1_0()); 
-	}
-
-)
-))*)?(	otherlv_17='bindingChoice' 
-    {
-    	newLeafNode(otherlv_17, grammarAccess.getSlotAssignmentAccess().getBindingChoiceKeyword_9_0());
-    }
-(
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSlotAssignmentRule());
-	        }
-        }
-	otherlv_18=RULE_ID
-	{
-		newLeafNode(otherlv_18, grammarAccess.getSlotAssignmentAccess().getBindingChoiceChoiceCrossReference_9_1_0()); 
-	}
-
-)
-)(	otherlv_19=',' 
-    {
-    	newLeafNode(otherlv_19, grammarAccess.getSlotAssignmentAccess().getCommaKeyword_9_2_0());
-    }
-(
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSlotAssignmentRule());
-	        }
-        }
-	otherlv_20=RULE_ID
-	{
-		newLeafNode(otherlv_20, grammarAccess.getSlotAssignmentAccess().getBindingChoiceChoiceCrossReference_9_2_1_0()); 
-	}
-
-)
-))*)?(	otherlv_21='value' 
-    {
-    	newLeafNode(otherlv_21, grammarAccess.getSlotAssignmentAccess().getValueKeyword_10_0());
+    	newLeafNode(otherlv_15, grammarAccess.getSlotAssignmentAccess().getSlotOwnerKeyword_7());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSlotAssignmentAccess().getValueValueSpecificationParserRuleCall_10_1_0()); 
+	        newCompositeNode(grammarAccess.getSlotAssignmentAccess().getSlotOwnerObjectHandleParserRuleCall_8_0()); 
 	    }
-		lv_value_22_0=ruleValueSpecification		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getSlotAssignmentRule());
-	        }
-       		set(
-       			$current, 
-       			"value",
-        		lv_value_22_0, 
-        		"ValueSpecification");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))?	otherlv_23='SlotOwner' 
-    {
-    	newLeafNode(otherlv_23, grammarAccess.getSlotAssignmentAccess().getSlotOwnerKeyword_11());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getSlotAssignmentAccess().getSlotOwnerObjectHandleParserRuleCall_12_0()); 
-	    }
-		lv_SlotOwner_24_0=ruleObjectHandle		{
+		lv_SlotOwner_16_0=ruleObjectHandle		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSlotAssignmentRule());
 	        }
        		set(
        			$current, 
        			"SlotOwner",
-        		lv_SlotOwner_24_0, 
+        		lv_SlotOwner_16_0, 
         		"ObjectHandle");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_25='}' 
+)	otherlv_17='slotIdentifier' 
+    {
+    	newLeafNode(otherlv_17, grammarAccess.getSlotAssignmentAccess().getSlotIdentifierKeyword_9());
+    }
+(
+(
+		lv_slotIdentifier_18_0=RULE_STRING
+		{
+			newLeafNode(lv_slotIdentifier_18_0, grammarAccess.getSlotAssignmentAccess().getSlotIdentifierSTRINGTerminalRuleCall_10_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSlotAssignmentRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"slotIdentifier",
+        		lv_slotIdentifier_18_0, 
+        		"STRING");
+	    }
+
+)
+)(	otherlv_19='value' 
+    {
+    	newLeafNode(otherlv_19, grammarAccess.getSlotAssignmentAccess().getValueKeyword_11_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSlotAssignmentAccess().getValueValueSpecificationParserRuleCall_11_1_0()); 
+	    }
+		lv_value_20_0=ruleValueSpecification		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSlotAssignmentRule());
+	        }
+       		set(
+       			$current, 
+       			"value",
+        		lv_value_20_0, 
+        		"ValueSpecification");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?(	otherlv_21='choice' 
+    {
+    	newLeafNode(otherlv_21, grammarAccess.getSlotAssignmentAccess().getChoiceKeyword_12_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSlotAssignmentRule());
+	        }
+        }
+	otherlv_22=RULE_ID
+	{
+		newLeafNode(otherlv_22, grammarAccess.getSlotAssignmentAccess().getBindingChoiceChoiceCrossReference_12_1_0()); 
+	}
+
+)
+)(	otherlv_23=',' 
+    {
+    	newLeafNode(otherlv_23, grammarAccess.getSlotAssignmentAccess().getCommaKeyword_12_2_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSlotAssignmentRule());
+	        }
+        }
+	otherlv_24=RULE_ID
+	{
+		newLeafNode(otherlv_24, grammarAccess.getSlotAssignmentAccess().getBindingChoiceChoiceCrossReference_12_2_1_0()); 
+	}
+
+)
+))*)?	otherlv_25='}' 
     {
     	newLeafNode(otherlv_25, grammarAccess.getSlotAssignmentAccess().getRightCurlyBracketKeyword_13());
     }
@@ -3878,9 +3878,9 @@ ruleObjectExistence returns [EObject current=null]
 	}
 
 )
-))*)?(	otherlv_15='bindingChoice' 
+))*)?(	otherlv_15='choice' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getObjectExistenceAccess().getBindingChoiceKeyword_7_0());
+    	newLeafNode(otherlv_15, grammarAccess.getObjectExistenceAccess().getChoiceKeyword_7_0());
     }
 (
 (
@@ -5557,9 +5557,9 @@ ruleOpaqueVariationPoint returns [EObject current=null]
 	}
 
 )
-))*)?(	otherlv_15='bindingChoice' 
+))*)?(	otherlv_15='choice' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getOpaqueVariationPointAccess().getBindingChoiceKeyword_7_0());
+    	newLeafNode(otherlv_15, grammarAccess.getOpaqueVariationPointAccess().getChoiceKeyword_7_0());
     }
 (
 (
@@ -5839,9 +5839,9 @@ ruleSlotValueExistence returns [EObject current=null]
 	}
 
 )
-))*)?(	otherlv_17='bindingChoice' 
+))*)?(	otherlv_17='choice' 
     {
-    	newLeafNode(otherlv_17, grammarAccess.getSlotValueExistenceAccess().getBindingChoiceKeyword_9_0());
+    	newLeafNode(otherlv_17, grammarAccess.getSlotValueExistenceAccess().getChoiceKeyword_9_0());
     }
 (
 (

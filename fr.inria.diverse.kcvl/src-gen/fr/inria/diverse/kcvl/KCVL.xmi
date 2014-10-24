@@ -450,7 +450,7 @@
           </elements>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
-          <elements xsi:type="xtext:Keyword" value="bindingChoice"/>
+          <elements xsi:type="xtext:Keyword" value="choice"/>
           <elements xsi:type="xtext:Assignment" feature="bindingChoice" operator="+=">
             <terminal xsi:type="xtext:CrossReference">
               <type metamodel="/0/@metamodelDeclarations.0">
@@ -1019,10 +1019,6 @@
             <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.12"/>
           </elements>
         </elements>
-        <elements xsi:type="xtext:Keyword" value="slotIdentifier"/>
-        <elements xsi:type="xtext:Assignment" feature="slotIdentifier" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.12"/>
-        </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="bindingVspec"/>
           <elements xsi:type="xtext:Assignment" feature="bindingVspec" operator="+=">
@@ -1067,8 +1063,22 @@
             </elements>
           </elements>
         </elements>
+        <elements xsi:type="xtext:Keyword" value="slotOwner"/>
+        <elements xsi:type="xtext:Assignment" feature="SlotOwner" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="slotIdentifier"/>
+        <elements xsi:type="xtext:Assignment" feature="slotIdentifier" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.12"/>
+        </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
-          <elements xsi:type="xtext:Keyword" value="bindingChoice"/>
+          <elements xsi:type="xtext:Keyword" value="value"/>
+          <elements xsi:type="xtext:Assignment" feature="value" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="choice"/>
           <elements xsi:type="xtext:Assignment" feature="bindingChoice" operator="+=">
             <terminal xsi:type="xtext:CrossReference">
               <type metamodel="/0/@metamodelDeclarations.0">
@@ -1088,16 +1098,6 @@
               </terminal>
             </elements>
           </elements>
-        </elements>
-        <elements xsi:type="xtext:Group" cardinality="?">
-          <elements xsi:type="xtext:Keyword" value="value"/>
-          <elements xsi:type="xtext:Assignment" feature="value" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
-          </elements>
-        </elements>
-        <elements xsi:type="xtext:Keyword" value="SlotOwner"/>
-        <elements xsi:type="xtext:Assignment" feature="SlotOwner" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -1169,7 +1169,7 @@
           </elements>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
-          <elements xsi:type="xtext:Keyword" value="bindingChoice"/>
+          <elements xsi:type="xtext:Keyword" value="choice"/>
           <elements xsi:type="xtext:Assignment" feature="bindingChoice" operator="+=">
             <terminal xsi:type="xtext:CrossReference">
               <type metamodel="/0/@metamodelDeclarations.0">
@@ -1818,7 +1818,7 @@
           </elements>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
-          <elements xsi:type="xtext:Keyword" value="bindingChoice"/>
+          <elements xsi:type="xtext:Keyword" value="choice"/>
           <elements xsi:type="xtext:Assignment" feature="bindingChoice" operator="+=">
             <terminal xsi:type="xtext:CrossReference">
               <type metamodel="/0/@metamodelDeclarations.0">
@@ -1949,7 +1949,7 @@
           </elements>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
-          <elements xsi:type="xtext:Keyword" value="bindingChoice"/>
+          <elements xsi:type="xtext:Keyword" value="choice"/>
           <elements xsi:type="xtext:Assignment" feature="bindingChoice" operator="+=">
             <terminal xsi:type="xtext:CrossReference">
               <type metamodel="/0/@metamodelDeclarations.0">
