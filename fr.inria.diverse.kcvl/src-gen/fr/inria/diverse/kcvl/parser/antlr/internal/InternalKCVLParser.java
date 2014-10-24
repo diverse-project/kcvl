@@ -16023,7 +16023,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSlotValueExistence"
-    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5678:1: ruleSlotValueExistence returns [EObject current=null] : (otherlv_0= 'SlotValueExistence' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'mapping' ( (lv_mappingExpression_4_0= RULE_STRING ) ) )? (otherlv_5= 'expression' ( (lv_expression_6_0= RULE_STRING ) ) )? otherlv_7= 'slotIdentifier' ( (lv_slotIdentifier_8_0= RULE_STRING ) ) (otherlv_9= 'bindingVspec' ( (otherlv_10= RULE_ID ) ) (otherlv_11= ',' ( (otherlv_12= RULE_ID ) ) )* )? (otherlv_13= 'precedence' ( (otherlv_14= RULE_ID ) ) (otherlv_15= ',' ( (otherlv_16= RULE_ID ) ) )* )? (otherlv_17= 'choice' ( (otherlv_18= RULE_ID ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )* )? otherlv_21= 'slotOwner' ( (lv_slotOwner_22_0= ruleObjectHandle ) ) otherlv_23= '}' ) ;
+    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5678:1: ruleSlotValueExistence returns [EObject current=null] : (otherlv_0= 'SlotValueExistence' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'mapping' ( (lv_mappingExpression_4_0= RULE_STRING ) ) )? (otherlv_5= 'expression' ( (lv_expression_6_0= RULE_STRING ) ) )? (otherlv_7= 'bindingVspec' ( (otherlv_8= RULE_ID ) ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* )? (otherlv_11= 'precedence' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )* )? otherlv_15= 'slotOwner' ( (lv_slotOwner_16_0= ruleObjectHandle ) ) otherlv_17= 'slotIdentifier' ( (lv_slotIdentifier_18_0= RULE_STRING ) ) (otherlv_19= 'choice' ( (otherlv_20= RULE_ID ) ) (otherlv_21= ',' ( (otherlv_22= RULE_ID ) ) )* )? otherlv_23= '}' ) ;
     public final EObject ruleSlotValueExistence() throws RecognitionException {
         EObject current = null;
 
@@ -16035,7 +16035,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         Token otherlv_5=null;
         Token lv_expression_6_0=null;
         Token otherlv_7=null;
-        Token lv_slotIdentifier_8_0=null;
+        Token otherlv_8=null;
         Token otherlv_9=null;
         Token otherlv_10=null;
         Token otherlv_11=null;
@@ -16043,24 +16043,24 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
         Token otherlv_13=null;
         Token otherlv_14=null;
         Token otherlv_15=null;
-        Token otherlv_16=null;
         Token otherlv_17=null;
-        Token otherlv_18=null;
+        Token lv_slotIdentifier_18_0=null;
         Token otherlv_19=null;
         Token otherlv_20=null;
         Token otherlv_21=null;
+        Token otherlv_22=null;
         Token otherlv_23=null;
-        EObject lv_slotOwner_22_0 = null;
+        EObject lv_slotOwner_16_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5681:28: ( (otherlv_0= 'SlotValueExistence' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'mapping' ( (lv_mappingExpression_4_0= RULE_STRING ) ) )? (otherlv_5= 'expression' ( (lv_expression_6_0= RULE_STRING ) ) )? otherlv_7= 'slotIdentifier' ( (lv_slotIdentifier_8_0= RULE_STRING ) ) (otherlv_9= 'bindingVspec' ( (otherlv_10= RULE_ID ) ) (otherlv_11= ',' ( (otherlv_12= RULE_ID ) ) )* )? (otherlv_13= 'precedence' ( (otherlv_14= RULE_ID ) ) (otherlv_15= ',' ( (otherlv_16= RULE_ID ) ) )* )? (otherlv_17= 'choice' ( (otherlv_18= RULE_ID ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )* )? otherlv_21= 'slotOwner' ( (lv_slotOwner_22_0= ruleObjectHandle ) ) otherlv_23= '}' ) )
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5682:1: (otherlv_0= 'SlotValueExistence' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'mapping' ( (lv_mappingExpression_4_0= RULE_STRING ) ) )? (otherlv_5= 'expression' ( (lv_expression_6_0= RULE_STRING ) ) )? otherlv_7= 'slotIdentifier' ( (lv_slotIdentifier_8_0= RULE_STRING ) ) (otherlv_9= 'bindingVspec' ( (otherlv_10= RULE_ID ) ) (otherlv_11= ',' ( (otherlv_12= RULE_ID ) ) )* )? (otherlv_13= 'precedence' ( (otherlv_14= RULE_ID ) ) (otherlv_15= ',' ( (otherlv_16= RULE_ID ) ) )* )? (otherlv_17= 'choice' ( (otherlv_18= RULE_ID ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )* )? otherlv_21= 'slotOwner' ( (lv_slotOwner_22_0= ruleObjectHandle ) ) otherlv_23= '}' )
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5681:28: ( (otherlv_0= 'SlotValueExistence' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'mapping' ( (lv_mappingExpression_4_0= RULE_STRING ) ) )? (otherlv_5= 'expression' ( (lv_expression_6_0= RULE_STRING ) ) )? (otherlv_7= 'bindingVspec' ( (otherlv_8= RULE_ID ) ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* )? (otherlv_11= 'precedence' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )* )? otherlv_15= 'slotOwner' ( (lv_slotOwner_16_0= ruleObjectHandle ) ) otherlv_17= 'slotIdentifier' ( (lv_slotIdentifier_18_0= RULE_STRING ) ) (otherlv_19= 'choice' ( (otherlv_20= RULE_ID ) ) (otherlv_21= ',' ( (otherlv_22= RULE_ID ) ) )* )? otherlv_23= '}' ) )
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5682:1: (otherlv_0= 'SlotValueExistence' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'mapping' ( (lv_mappingExpression_4_0= RULE_STRING ) ) )? (otherlv_5= 'expression' ( (lv_expression_6_0= RULE_STRING ) ) )? (otherlv_7= 'bindingVspec' ( (otherlv_8= RULE_ID ) ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* )? (otherlv_11= 'precedence' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )* )? otherlv_15= 'slotOwner' ( (lv_slotOwner_16_0= ruleObjectHandle ) ) otherlv_17= 'slotIdentifier' ( (lv_slotIdentifier_18_0= RULE_STRING ) ) (otherlv_19= 'choice' ( (otherlv_20= RULE_ID ) ) (otherlv_21= ',' ( (otherlv_22= RULE_ID ) ) )* )? otherlv_23= '}' )
             {
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5682:1: (otherlv_0= 'SlotValueExistence' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'mapping' ( (lv_mappingExpression_4_0= RULE_STRING ) ) )? (otherlv_5= 'expression' ( (lv_expression_6_0= RULE_STRING ) ) )? otherlv_7= 'slotIdentifier' ( (lv_slotIdentifier_8_0= RULE_STRING ) ) (otherlv_9= 'bindingVspec' ( (otherlv_10= RULE_ID ) ) (otherlv_11= ',' ( (otherlv_12= RULE_ID ) ) )* )? (otherlv_13= 'precedence' ( (otherlv_14= RULE_ID ) ) (otherlv_15= ',' ( (otherlv_16= RULE_ID ) ) )* )? (otherlv_17= 'choice' ( (otherlv_18= RULE_ID ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )* )? otherlv_21= 'slotOwner' ( (lv_slotOwner_22_0= ruleObjectHandle ) ) otherlv_23= '}' )
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5682:3: otherlv_0= 'SlotValueExistence' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'mapping' ( (lv_mappingExpression_4_0= RULE_STRING ) ) )? (otherlv_5= 'expression' ( (lv_expression_6_0= RULE_STRING ) ) )? otherlv_7= 'slotIdentifier' ( (lv_slotIdentifier_8_0= RULE_STRING ) ) (otherlv_9= 'bindingVspec' ( (otherlv_10= RULE_ID ) ) (otherlv_11= ',' ( (otherlv_12= RULE_ID ) ) )* )? (otherlv_13= 'precedence' ( (otherlv_14= RULE_ID ) ) (otherlv_15= ',' ( (otherlv_16= RULE_ID ) ) )* )? (otherlv_17= 'choice' ( (otherlv_18= RULE_ID ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )* )? otherlv_21= 'slotOwner' ( (lv_slotOwner_22_0= ruleObjectHandle ) ) otherlv_23= '}'
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5682:1: (otherlv_0= 'SlotValueExistence' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'mapping' ( (lv_mappingExpression_4_0= RULE_STRING ) ) )? (otherlv_5= 'expression' ( (lv_expression_6_0= RULE_STRING ) ) )? (otherlv_7= 'bindingVspec' ( (otherlv_8= RULE_ID ) ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* )? (otherlv_11= 'precedence' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )* )? otherlv_15= 'slotOwner' ( (lv_slotOwner_16_0= ruleObjectHandle ) ) otherlv_17= 'slotIdentifier' ( (lv_slotIdentifier_18_0= RULE_STRING ) ) (otherlv_19= 'choice' ( (otherlv_20= RULE_ID ) ) (otherlv_21= ',' ( (otherlv_22= RULE_ID ) ) )* )? otherlv_23= '}' )
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5682:3: otherlv_0= 'SlotValueExistence' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'mapping' ( (lv_mappingExpression_4_0= RULE_STRING ) ) )? (otherlv_5= 'expression' ( (lv_expression_6_0= RULE_STRING ) ) )? (otherlv_7= 'bindingVspec' ( (otherlv_8= RULE_ID ) ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* )? (otherlv_11= 'precedence' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )* )? otherlv_15= 'slotOwner' ( (lv_slotOwner_16_0= ruleObjectHandle ) ) otherlv_17= 'slotIdentifier' ( (lv_slotIdentifier_18_0= RULE_STRING ) ) (otherlv_19= 'choice' ( (otherlv_20= RULE_ID ) ) (otherlv_21= ',' ( (otherlv_22= RULE_ID ) ) )* )? otherlv_23= '}'
             {
             otherlv_0=(Token)match(input,102,FOLLOW_102_in_ruleSlotValueExistence12411); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -16210,43 +16210,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,70,FOLLOW_70_in_ruleSlotValueExistence12531); if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-                  	newLeafNode(otherlv_7, grammarAccess.getSlotValueExistenceAccess().getSlotIdentifierKeyword_5());
-                  
-            }
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5756:1: ( (lv_slotIdentifier_8_0= RULE_STRING ) )
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5757:1: (lv_slotIdentifier_8_0= RULE_STRING )
-            {
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5757:1: (lv_slotIdentifier_8_0= RULE_STRING )
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5758:3: lv_slotIdentifier_8_0= RULE_STRING
-            {
-            lv_slotIdentifier_8_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleSlotValueExistence12548); if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              			newLeafNode(lv_slotIdentifier_8_0, grammarAccess.getSlotValueExistenceAccess().getSlotIdentifierSTRINGTerminalRuleCall_6_0()); 
-              		
-            }
-            if ( state.backtracking==0 ) {
-
-              	        if (current==null) {
-              	            current = createModelElement(grammarAccess.getSlotValueExistenceRule());
-              	        }
-                     		setWithLastConsumed(
-                     			current, 
-                     			"slotIdentifier",
-                      		lv_slotIdentifier_8_0, 
-                      		"STRING");
-              	    
-            }
-
-            }
-
-
-            }
-
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5774:2: (otherlv_9= 'bindingVspec' ( (otherlv_10= RULE_ID ) ) (otherlv_11= ',' ( (otherlv_12= RULE_ID ) ) )* )?
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5752:4: (otherlv_7= 'bindingVspec' ( (otherlv_8= RULE_ID ) ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* )?
             int alt152=2;
             int LA152_0 = input.LA(1);
 
@@ -16255,19 +16219,19 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             }
             switch (alt152) {
                 case 1 :
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5774:4: otherlv_9= 'bindingVspec' ( (otherlv_10= RULE_ID ) ) (otherlv_11= ',' ( (otherlv_12= RULE_ID ) ) )*
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5752:6: otherlv_7= 'bindingVspec' ( (otherlv_8= RULE_ID ) ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )*
                     {
-                    otherlv_9=(Token)match(input,35,FOLLOW_35_in_ruleSlotValueExistence12566); if (state.failed) return current;
+                    otherlv_7=(Token)match(input,35,FOLLOW_35_in_ruleSlotValueExistence12532); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_9, grammarAccess.getSlotValueExistenceAccess().getBindingVspecKeyword_7_0());
+                          	newLeafNode(otherlv_7, grammarAccess.getSlotValueExistenceAccess().getBindingVspecKeyword_5_0());
                           
                     }
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5778:1: ( (otherlv_10= RULE_ID ) )
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5779:1: (otherlv_10= RULE_ID )
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5756:1: ( (otherlv_8= RULE_ID ) )
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5757:1: (otherlv_8= RULE_ID )
                     {
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5779:1: (otherlv_10= RULE_ID )
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5780:3: otherlv_10= RULE_ID
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5757:1: (otherlv_8= RULE_ID )
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5758:3: otherlv_8= RULE_ID
                     {
                     if ( state.backtracking==0 ) {
 
@@ -16276,10 +16240,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                       	        }
                               
                     }
-                    otherlv_10=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSlotValueExistence12586); if (state.failed) return current;
+                    otherlv_8=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSlotValueExistence12552); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      		newLeafNode(otherlv_10, grammarAccess.getSlotValueExistenceAccess().getBindingVspecVSpecCrossReference_7_1_0()); 
+                      		newLeafNode(otherlv_8, grammarAccess.getSlotValueExistenceAccess().getBindingVspecVSpecCrossReference_5_1_0()); 
                       	
                     }
 
@@ -16288,7 +16252,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5791:2: (otherlv_11= ',' ( (otherlv_12= RULE_ID ) ) )*
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5769:2: (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )*
                     loop151:
                     do {
                         int alt151=2;
@@ -16301,19 +16265,19 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                         switch (alt151) {
                     	case 1 :
-                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5791:4: otherlv_11= ',' ( (otherlv_12= RULE_ID ) )
+                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5769:4: otherlv_9= ',' ( (otherlv_10= RULE_ID ) )
                     	    {
-                    	    otherlv_11=(Token)match(input,36,FOLLOW_36_in_ruleSlotValueExistence12599); if (state.failed) return current;
+                    	    otherlv_9=(Token)match(input,36,FOLLOW_36_in_ruleSlotValueExistence12565); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
-                    	          	newLeafNode(otherlv_11, grammarAccess.getSlotValueExistenceAccess().getCommaKeyword_7_2_0());
+                    	          	newLeafNode(otherlv_9, grammarAccess.getSlotValueExistenceAccess().getCommaKeyword_5_2_0());
                     	          
                     	    }
-                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5795:1: ( (otherlv_12= RULE_ID ) )
-                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5796:1: (otherlv_12= RULE_ID )
+                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5773:1: ( (otherlv_10= RULE_ID ) )
+                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5774:1: (otherlv_10= RULE_ID )
                     	    {
-                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5796:1: (otherlv_12= RULE_ID )
-                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5797:3: otherlv_12= RULE_ID
+                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5774:1: (otherlv_10= RULE_ID )
+                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5775:3: otherlv_10= RULE_ID
                     	    {
                     	    if ( state.backtracking==0 ) {
 
@@ -16322,10 +16286,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     	      	        }
                     	              
                     	    }
-                    	    otherlv_12=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSlotValueExistence12619); if (state.failed) return current;
+                    	    otherlv_10=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSlotValueExistence12585); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
-                    	      		newLeafNode(otherlv_12, grammarAccess.getSlotValueExistenceAccess().getBindingVspecVSpecCrossReference_7_2_1_0()); 
+                    	      		newLeafNode(otherlv_10, grammarAccess.getSlotValueExistenceAccess().getBindingVspecVSpecCrossReference_5_2_1_0()); 
                     	      	
                     	    }
 
@@ -16349,7 +16313,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5808:6: (otherlv_13= 'precedence' ( (otherlv_14= RULE_ID ) ) (otherlv_15= ',' ( (otherlv_16= RULE_ID ) ) )* )?
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5786:6: (otherlv_11= 'precedence' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )* )?
             int alt154=2;
             int LA154_0 = input.LA(1);
 
@@ -16358,19 +16322,19 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             }
             switch (alt154) {
                 case 1 :
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5808:8: otherlv_13= 'precedence' ( (otherlv_14= RULE_ID ) ) (otherlv_15= ',' ( (otherlv_16= RULE_ID ) ) )*
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5786:8: otherlv_11= 'precedence' ( (otherlv_12= RULE_ID ) ) (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )*
                     {
-                    otherlv_13=(Token)match(input,37,FOLLOW_37_in_ruleSlotValueExistence12636); if (state.failed) return current;
+                    otherlv_11=(Token)match(input,37,FOLLOW_37_in_ruleSlotValueExistence12602); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_13, grammarAccess.getSlotValueExistenceAccess().getPrecedenceKeyword_8_0());
+                          	newLeafNode(otherlv_11, grammarAccess.getSlotValueExistenceAccess().getPrecedenceKeyword_6_0());
                           
                     }
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5812:1: ( (otherlv_14= RULE_ID ) )
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5813:1: (otherlv_14= RULE_ID )
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5790:1: ( (otherlv_12= RULE_ID ) )
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5791:1: (otherlv_12= RULE_ID )
                     {
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5813:1: (otherlv_14= RULE_ID )
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5814:3: otherlv_14= RULE_ID
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5791:1: (otherlv_12= RULE_ID )
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5792:3: otherlv_12= RULE_ID
                     {
                     if ( state.backtracking==0 ) {
 
@@ -16379,10 +16343,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                       	        }
                               
                     }
-                    otherlv_14=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSlotValueExistence12656); if (state.failed) return current;
+                    otherlv_12=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSlotValueExistence12622); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      		newLeafNode(otherlv_14, grammarAccess.getSlotValueExistenceAccess().getPrecedenceConstraintVariationPointCrossReference_8_1_0()); 
+                      		newLeafNode(otherlv_12, grammarAccess.getSlotValueExistenceAccess().getPrecedenceConstraintVariationPointCrossReference_6_1_0()); 
                       	
                     }
 
@@ -16391,7 +16355,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5825:2: (otherlv_15= ',' ( (otherlv_16= RULE_ID ) ) )*
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5803:2: (otherlv_13= ',' ( (otherlv_14= RULE_ID ) ) )*
                     loop153:
                     do {
                         int alt153=2;
@@ -16404,19 +16368,19 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                         switch (alt153) {
                     	case 1 :
-                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5825:4: otherlv_15= ',' ( (otherlv_16= RULE_ID ) )
+                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5803:4: otherlv_13= ',' ( (otherlv_14= RULE_ID ) )
                     	    {
-                    	    otherlv_15=(Token)match(input,36,FOLLOW_36_in_ruleSlotValueExistence12669); if (state.failed) return current;
+                    	    otherlv_13=(Token)match(input,36,FOLLOW_36_in_ruleSlotValueExistence12635); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
-                    	          	newLeafNode(otherlv_15, grammarAccess.getSlotValueExistenceAccess().getCommaKeyword_8_2_0());
+                    	          	newLeafNode(otherlv_13, grammarAccess.getSlotValueExistenceAccess().getCommaKeyword_6_2_0());
                     	          
                     	    }
-                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5829:1: ( (otherlv_16= RULE_ID ) )
-                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5830:1: (otherlv_16= RULE_ID )
+                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5807:1: ( (otherlv_14= RULE_ID ) )
+                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5808:1: (otherlv_14= RULE_ID )
                     	    {
-                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5830:1: (otherlv_16= RULE_ID )
-                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5831:3: otherlv_16= RULE_ID
+                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5808:1: (otherlv_14= RULE_ID )
+                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5809:3: otherlv_14= RULE_ID
                     	    {
                     	    if ( state.backtracking==0 ) {
 
@@ -16425,10 +16389,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     	      	        }
                     	              
                     	    }
-                    	    otherlv_16=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSlotValueExistence12689); if (state.failed) return current;
+                    	    otherlv_14=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSlotValueExistence12655); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
-                    	      		newLeafNode(otherlv_16, grammarAccess.getSlotValueExistenceAccess().getPrecedenceConstraintVariationPointCrossReference_8_2_1_0()); 
+                    	      		newLeafNode(otherlv_14, grammarAccess.getSlotValueExistenceAccess().getPrecedenceConstraintVariationPointCrossReference_6_2_1_0()); 
                     	      	
                     	    }
 
@@ -16452,7 +16416,84 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5842:6: (otherlv_17= 'choice' ( (otherlv_18= RULE_ID ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )* )?
+            otherlv_15=(Token)match(input,69,FOLLOW_69_in_ruleSlotValueExistence12671); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+                  	newLeafNode(otherlv_15, grammarAccess.getSlotValueExistenceAccess().getSlotOwnerKeyword_7());
+                  
+            }
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5824:1: ( (lv_slotOwner_16_0= ruleObjectHandle ) )
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5825:1: (lv_slotOwner_16_0= ruleObjectHandle )
+            {
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5825:1: (lv_slotOwner_16_0= ruleObjectHandle )
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5826:3: lv_slotOwner_16_0= ruleObjectHandle
+            {
+            if ( state.backtracking==0 ) {
+               
+              	        newCompositeNode(grammarAccess.getSlotValueExistenceAccess().getSlotOwnerObjectHandleParserRuleCall_8_0()); 
+              	    
+            }
+            pushFollow(FOLLOW_ruleObjectHandle_in_ruleSlotValueExistence12692);
+            lv_slotOwner_16_0=ruleObjectHandle();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              	        if (current==null) {
+              	            current = createModelElementForParent(grammarAccess.getSlotValueExistenceRule());
+              	        }
+                     		set(
+                     			current, 
+                     			"slotOwner",
+                      		lv_slotOwner_16_0, 
+                      		"ObjectHandle");
+              	        afterParserOrEnumRuleCall();
+              	    
+            }
+
+            }
+
+
+            }
+
+            otherlv_17=(Token)match(input,70,FOLLOW_70_in_ruleSlotValueExistence12704); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+                  	newLeafNode(otherlv_17, grammarAccess.getSlotValueExistenceAccess().getSlotIdentifierKeyword_9());
+                  
+            }
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5846:1: ( (lv_slotIdentifier_18_0= RULE_STRING ) )
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5847:1: (lv_slotIdentifier_18_0= RULE_STRING )
+            {
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5847:1: (lv_slotIdentifier_18_0= RULE_STRING )
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5848:3: lv_slotIdentifier_18_0= RULE_STRING
+            {
+            lv_slotIdentifier_18_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleSlotValueExistence12721); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			newLeafNode(lv_slotIdentifier_18_0, grammarAccess.getSlotValueExistenceAccess().getSlotIdentifierSTRINGTerminalRuleCall_10_0()); 
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              	        if (current==null) {
+              	            current = createModelElement(grammarAccess.getSlotValueExistenceRule());
+              	        }
+                     		setWithLastConsumed(
+                     			current, 
+                     			"slotIdentifier",
+                      		lv_slotIdentifier_18_0, 
+                      		"STRING");
+              	    
+            }
+
+            }
+
+
+            }
+
+            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5864:2: (otherlv_19= 'choice' ( (otherlv_20= RULE_ID ) ) (otherlv_21= ',' ( (otherlv_22= RULE_ID ) ) )* )?
             int alt156=2;
             int LA156_0 = input.LA(1);
 
@@ -16461,19 +16502,19 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
             }
             switch (alt156) {
                 case 1 :
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5842:8: otherlv_17= 'choice' ( (otherlv_18= RULE_ID ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )*
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5864:4: otherlv_19= 'choice' ( (otherlv_20= RULE_ID ) ) (otherlv_21= ',' ( (otherlv_22= RULE_ID ) ) )*
                     {
-                    otherlv_17=(Token)match(input,38,FOLLOW_38_in_ruleSlotValueExistence12706); if (state.failed) return current;
+                    otherlv_19=(Token)match(input,38,FOLLOW_38_in_ruleSlotValueExistence12739); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_17, grammarAccess.getSlotValueExistenceAccess().getChoiceKeyword_9_0());
+                          	newLeafNode(otherlv_19, grammarAccess.getSlotValueExistenceAccess().getChoiceKeyword_11_0());
                           
                     }
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5846:1: ( (otherlv_18= RULE_ID ) )
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5847:1: (otherlv_18= RULE_ID )
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5868:1: ( (otherlv_20= RULE_ID ) )
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5869:1: (otherlv_20= RULE_ID )
                     {
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5847:1: (otherlv_18= RULE_ID )
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5848:3: otherlv_18= RULE_ID
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5869:1: (otherlv_20= RULE_ID )
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5870:3: otherlv_20= RULE_ID
                     {
                     if ( state.backtracking==0 ) {
 
@@ -16482,10 +16523,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                       	        }
                               
                     }
-                    otherlv_18=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSlotValueExistence12726); if (state.failed) return current;
+                    otherlv_20=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSlotValueExistence12759); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      		newLeafNode(otherlv_18, grammarAccess.getSlotValueExistenceAccess().getBindingChoiceChoiceCrossReference_9_1_0()); 
+                      		newLeafNode(otherlv_20, grammarAccess.getSlotValueExistenceAccess().getBindingChoiceChoiceCrossReference_11_1_0()); 
                       	
                     }
 
@@ -16494,7 +16535,7 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5859:2: (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )*
+                    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5881:2: (otherlv_21= ',' ( (otherlv_22= RULE_ID ) ) )*
                     loop155:
                     do {
                         int alt155=2;
@@ -16507,19 +16548,19 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                         switch (alt155) {
                     	case 1 :
-                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5859:4: otherlv_19= ',' ( (otherlv_20= RULE_ID ) )
+                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5881:4: otherlv_21= ',' ( (otherlv_22= RULE_ID ) )
                     	    {
-                    	    otherlv_19=(Token)match(input,36,FOLLOW_36_in_ruleSlotValueExistence12739); if (state.failed) return current;
+                    	    otherlv_21=(Token)match(input,36,FOLLOW_36_in_ruleSlotValueExistence12772); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
-                    	          	newLeafNode(otherlv_19, grammarAccess.getSlotValueExistenceAccess().getCommaKeyword_9_2_0());
+                    	          	newLeafNode(otherlv_21, grammarAccess.getSlotValueExistenceAccess().getCommaKeyword_11_2_0());
                     	          
                     	    }
-                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5863:1: ( (otherlv_20= RULE_ID ) )
-                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5864:1: (otherlv_20= RULE_ID )
+                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5885:1: ( (otherlv_22= RULE_ID ) )
+                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5886:1: (otherlv_22= RULE_ID )
                     	    {
-                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5864:1: (otherlv_20= RULE_ID )
-                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5865:3: otherlv_20= RULE_ID
+                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5886:1: (otherlv_22= RULE_ID )
+                    	    // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5887:3: otherlv_22= RULE_ID
                     	    {
                     	    if ( state.backtracking==0 ) {
 
@@ -16528,10 +16569,10 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
                     	      	        }
                     	              
                     	    }
-                    	    otherlv_20=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSlotValueExistence12759); if (state.failed) return current;
+                    	    otherlv_22=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSlotValueExistence12792); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
-                    	      		newLeafNode(otherlv_20, grammarAccess.getSlotValueExistenceAccess().getBindingChoiceChoiceCrossReference_9_2_1_0()); 
+                    	      		newLeafNode(otherlv_22, grammarAccess.getSlotValueExistenceAccess().getBindingChoiceChoiceCrossReference_11_2_1_0()); 
                     	      	
                     	    }
 
@@ -16552,47 +16593,6 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-
-            }
-
-            otherlv_21=(Token)match(input,69,FOLLOW_69_in_ruleSlotValueExistence12775); if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-                  	newLeafNode(otherlv_21, grammarAccess.getSlotValueExistenceAccess().getSlotOwnerKeyword_10());
-                  
-            }
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5880:1: ( (lv_slotOwner_22_0= ruleObjectHandle ) )
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5881:1: (lv_slotOwner_22_0= ruleObjectHandle )
-            {
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5881:1: (lv_slotOwner_22_0= ruleObjectHandle )
-            // ../fr.inria.diverse.kcvl/src-gen/fr/inria/diverse/kcvl/parser/antlr/internal/InternalKCVL.g:5882:3: lv_slotOwner_22_0= ruleObjectHandle
-            {
-            if ( state.backtracking==0 ) {
-               
-              	        newCompositeNode(grammarAccess.getSlotValueExistenceAccess().getSlotOwnerObjectHandleParserRuleCall_11_0()); 
-              	    
-            }
-            pushFollow(FOLLOW_ruleObjectHandle_in_ruleSlotValueExistence12796);
-            lv_slotOwner_22_0=ruleObjectHandle();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              	        if (current==null) {
-              	            current = createModelElementForParent(grammarAccess.getSlotValueExistenceRule());
-              	        }
-                     		set(
-                     			current, 
-                     			"slotOwner",
-                      		lv_slotOwner_22_0, 
-                      		"ObjectHandle");
-              	        afterParserOrEnumRuleCall();
-              	    
-            }
-
-            }
-
 
             }
 
@@ -46449,27 +46449,27 @@ public class InternalKCVLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRuleSlotValueExistence12374 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_102_in_ruleSlotValueExistence12411 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleSlotValueExistence12428 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleSlotValueExistence12445 = new BitSet(new long[]{0x0000000600000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_14_in_ruleSlotValueExistence12445 = new BitSet(new long[]{0x0000002E00000000L,0x0000000000000020L});
     public static final BitSet FOLLOW_33_in_ruleSlotValueExistence12458 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleSlotValueExistence12475 = new BitSet(new long[]{0x0000000400000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleSlotValueExistence12475 = new BitSet(new long[]{0x0000002C00000000L,0x0000000000000020L});
     public static final BitSet FOLLOW_34_in_ruleSlotValueExistence12495 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleSlotValueExistence12512 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_70_in_ruleSlotValueExistence12531 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleSlotValueExistence12548 = new BitSet(new long[]{0x0000006800000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_35_in_ruleSlotValueExistence12566 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSlotValueExistence12586 = new BitSet(new long[]{0x0000007000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_36_in_ruleSlotValueExistence12599 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSlotValueExistence12619 = new BitSet(new long[]{0x0000007000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_37_in_ruleSlotValueExistence12636 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSlotValueExistence12656 = new BitSet(new long[]{0x0000005000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_36_in_ruleSlotValueExistence12669 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSlotValueExistence12689 = new BitSet(new long[]{0x0000005000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_38_in_ruleSlotValueExistence12706 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSlotValueExistence12726 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_36_in_ruleSlotValueExistence12739 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSlotValueExistence12759 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_69_in_ruleSlotValueExistence12775 = new BitSet(new long[]{0x0000200000000020L});
-    public static final BitSet FOLLOW_ruleObjectHandle_in_ruleSlotValueExistence12796 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleSlotValueExistence12512 = new BitSet(new long[]{0x0000002800000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_35_in_ruleSlotValueExistence12532 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSlotValueExistence12552 = new BitSet(new long[]{0x0000003000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_36_in_ruleSlotValueExistence12565 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSlotValueExistence12585 = new BitSet(new long[]{0x0000003000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_37_in_ruleSlotValueExistence12602 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSlotValueExistence12622 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_36_in_ruleSlotValueExistence12635 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSlotValueExistence12655 = new BitSet(new long[]{0x0000001000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_69_in_ruleSlotValueExistence12671 = new BitSet(new long[]{0x0000200000000020L});
+    public static final BitSet FOLLOW_ruleObjectHandle_in_ruleSlotValueExistence12692 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_70_in_ruleSlotValueExistence12704 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleSlotValueExistence12721 = new BitSet(new long[]{0x0000004000008000L});
+    public static final BitSet FOLLOW_38_in_ruleSlotValueExistence12739 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSlotValueExistence12759 = new BitSet(new long[]{0x0000001000008000L});
+    public static final BitSet FOLLOW_36_in_ruleSlotValueExistence12772 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSlotValueExistence12792 = new BitSet(new long[]{0x0000001000008000L});
     public static final BitSet FOLLOW_15_in_ruleSlotValueExistence12808 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleParametricLinkAssignment_in_entryRuleParametricLinkAssignment12844 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleParametricLinkAssignment12854 = new BitSet(new long[]{0x0000000000000002L});

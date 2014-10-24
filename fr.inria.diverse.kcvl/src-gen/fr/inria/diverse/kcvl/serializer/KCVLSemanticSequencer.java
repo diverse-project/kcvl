@@ -2388,11 +2388,11 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	 *         name=ID 
 	 *         mappingExpression=STRING? 
 	 *         expression=STRING? 
-	 *         slotIdentifier=STRING 
 	 *         (bindingVspec+=[VSpec|ID] bindingVspec+=[VSpec|ID]*)? 
 	 *         (precedenceConstraint+=[VariationPoint|ID] precedenceConstraint+=[VariationPoint|ID]*)? 
-	 *         (bindingChoice+=[Choice|ID] bindingChoice+=[Choice|ID]*)? 
-	 *         slotOwner=ObjectHandle
+	 *         slotOwner=ObjectHandle 
+	 *         slotIdentifier=STRING 
+	 *         (bindingChoice+=[Choice|ID] bindingChoice+=[Choice|ID]*)?
 	 *     )
 	 */
 	protected void sequence_SlotValueExistence(EObject context, SlotValueExistence semanticObject) {

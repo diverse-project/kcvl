@@ -61,6 +61,7 @@ import static extension org.eclipse.xtext.xbase.lib.BooleanExtensions.*
 import org.omg.CVLMetamodelMaster.cvl.PatternIntegration
 import org.omg.CVLMetamodelMaster.cvl.PatternIntegration
 import org.omg.CVLMetamodelMaster.cvl.SlotAssignment
+import org.omg.CVLMetamodelMaster.cvl.SlotValueExistence
 
 /**
  * Derive a target product starting from a root VPackage
@@ -355,6 +356,16 @@ class Derivator
 					if (feature != null)
 						obj.eSet(feature, valueToSet)
 				}
+			}
+			SlotValueExistence: {
+				val obj = o.slotOwner.reference
+				val feature = obj.eClass.EAllStructuralFeatures.findFirst[name.toLowerCase == o.slotIdentifier.toLowerCase]
+				
+				if (feature != null)
+					if (feature.unsettable)
+						obj.eUnset(feature)
+					else
+						obj.eSet(feature, null)
 			}
 			ParametricSlotAssignmet: {
 				val obj = o.slotOwner.reference

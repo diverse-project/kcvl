@@ -408,11 +408,11 @@ SlotValueExistence returns SlotValueExistence:
 	'SlotValueExistence' name = ID '{'
 		('mapping' mappingExpression = STRING)?
 		('expression' expression = STRING)?
-		'slotIdentifier' slotIdentifier = STRING
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])*)?
 		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
-		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 		'slotOwner' slotOwner = ObjectHandle
+		'slotIdentifier' slotIdentifier = STRING
+		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 	'}'
 ;
 

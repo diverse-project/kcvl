@@ -5749,31 +5749,26 @@ ruleSlotValueExistence returns [EObject current=null]
 	    }
 
 )
-))?	otherlv_7='slotIdentifier' 
+))?(	otherlv_7='bindingVspec' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getSlotValueExistenceAccess().getSlotIdentifierKeyword_5());
+    	newLeafNode(otherlv_7, grammarAccess.getSlotValueExistenceAccess().getBindingVspecKeyword_5_0());
     }
 (
 (
-		lv_slotIdentifier_8_0=RULE_STRING
 		{
-			newLeafNode(lv_slotIdentifier_8_0, grammarAccess.getSlotValueExistenceAccess().getSlotIdentifierSTRINGTerminalRuleCall_6_0()); 
-		}
-		{
-	        if ($current==null) {
+			if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSlotValueExistenceRule());
 	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"slotIdentifier",
-        		lv_slotIdentifier_8_0, 
-        		"STRING");
-	    }
+        }
+	otherlv_8=RULE_ID
+	{
+		newLeafNode(otherlv_8, grammarAccess.getSlotValueExistenceAccess().getBindingVspecVSpecCrossReference_5_1_0()); 
+	}
 
 )
-)(	otherlv_9='bindingVspec' 
+)(	otherlv_9=',' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getSlotValueExistenceAccess().getBindingVspecKeyword_7_0());
+    	newLeafNode(otherlv_9, grammarAccess.getSlotValueExistenceAccess().getCommaKeyword_5_2_0());
     }
 (
 (
@@ -5784,13 +5779,13 @@ ruleSlotValueExistence returns [EObject current=null]
         }
 	otherlv_10=RULE_ID
 	{
-		newLeafNode(otherlv_10, grammarAccess.getSlotValueExistenceAccess().getBindingVspecVSpecCrossReference_7_1_0()); 
+		newLeafNode(otherlv_10, grammarAccess.getSlotValueExistenceAccess().getBindingVspecVSpecCrossReference_5_2_1_0()); 
 	}
 
 )
-)(	otherlv_11=',' 
+))*)?(	otherlv_11='precedence' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getSlotValueExistenceAccess().getCommaKeyword_7_2_0());
+    	newLeafNode(otherlv_11, grammarAccess.getSlotValueExistenceAccess().getPrecedenceKeyword_6_0());
     }
 (
 (
@@ -5801,13 +5796,13 @@ ruleSlotValueExistence returns [EObject current=null]
         }
 	otherlv_12=RULE_ID
 	{
-		newLeafNode(otherlv_12, grammarAccess.getSlotValueExistenceAccess().getBindingVspecVSpecCrossReference_7_2_1_0()); 
+		newLeafNode(otherlv_12, grammarAccess.getSlotValueExistenceAccess().getPrecedenceConstraintVariationPointCrossReference_6_1_0()); 
 	}
 
 )
-))*)?(	otherlv_13='precedence' 
+)(	otherlv_13=',' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getSlotValueExistenceAccess().getPrecedenceKeyword_8_0());
+    	newLeafNode(otherlv_13, grammarAccess.getSlotValueExistenceAccess().getCommaKeyword_6_2_0());
     }
 (
 (
@@ -5818,47 +5813,57 @@ ruleSlotValueExistence returns [EObject current=null]
         }
 	otherlv_14=RULE_ID
 	{
-		newLeafNode(otherlv_14, grammarAccess.getSlotValueExistenceAccess().getPrecedenceConstraintVariationPointCrossReference_8_1_0()); 
+		newLeafNode(otherlv_14, grammarAccess.getSlotValueExistenceAccess().getPrecedenceConstraintVariationPointCrossReference_6_2_1_0()); 
 	}
 
 )
-)(	otherlv_15=',' 
+))*)?	otherlv_15='slotOwner' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getSlotValueExistenceAccess().getCommaKeyword_8_2_0());
+    	newLeafNode(otherlv_15, grammarAccess.getSlotValueExistenceAccess().getSlotOwnerKeyword_7());
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSlotValueExistenceRule());
+		{ 
+	        newCompositeNode(grammarAccess.getSlotValueExistenceAccess().getSlotOwnerObjectHandleParserRuleCall_8_0()); 
+	    }
+		lv_slotOwner_16_0=ruleObjectHandle		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSlotValueExistenceRule());
 	        }
-        }
-	otherlv_16=RULE_ID
-	{
-		newLeafNode(otherlv_16, grammarAccess.getSlotValueExistenceAccess().getPrecedenceConstraintVariationPointCrossReference_8_2_1_0()); 
-	}
+       		set(
+       			$current, 
+       			"slotOwner",
+        		lv_slotOwner_16_0, 
+        		"ObjectHandle");
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
-))*)?(	otherlv_17='choice' 
+)	otherlv_17='slotIdentifier' 
     {
-    	newLeafNode(otherlv_17, grammarAccess.getSlotValueExistenceAccess().getChoiceKeyword_9_0());
+    	newLeafNode(otherlv_17, grammarAccess.getSlotValueExistenceAccess().getSlotIdentifierKeyword_9());
     }
 (
 (
+		lv_slotIdentifier_18_0=RULE_STRING
 		{
-			if ($current==null) {
+			newLeafNode(lv_slotIdentifier_18_0, grammarAccess.getSlotValueExistenceAccess().getSlotIdentifierSTRINGTerminalRuleCall_10_0()); 
+		}
+		{
+	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSlotValueExistenceRule());
 	        }
-        }
-	otherlv_18=RULE_ID
-	{
-		newLeafNode(otherlv_18, grammarAccess.getSlotValueExistenceAccess().getBindingChoiceChoiceCrossReference_9_1_0()); 
-	}
+       		setWithLastConsumed(
+       			$current, 
+       			"slotIdentifier",
+        		lv_slotIdentifier_18_0, 
+        		"STRING");
+	    }
 
 )
-)(	otherlv_19=',' 
+)(	otherlv_19='choice' 
     {
-    	newLeafNode(otherlv_19, grammarAccess.getSlotValueExistenceAccess().getCommaKeyword_9_2_0());
+    	newLeafNode(otherlv_19, grammarAccess.getSlotValueExistenceAccess().getChoiceKeyword_11_0());
     }
 (
 (
@@ -5869,33 +5874,28 @@ ruleSlotValueExistence returns [EObject current=null]
         }
 	otherlv_20=RULE_ID
 	{
-		newLeafNode(otherlv_20, grammarAccess.getSlotValueExistenceAccess().getBindingChoiceChoiceCrossReference_9_2_1_0()); 
+		newLeafNode(otherlv_20, grammarAccess.getSlotValueExistenceAccess().getBindingChoiceChoiceCrossReference_11_1_0()); 
 	}
 
 )
-))*)?	otherlv_21='slotOwner' 
+)(	otherlv_21=',' 
     {
-    	newLeafNode(otherlv_21, grammarAccess.getSlotValueExistenceAccess().getSlotOwnerKeyword_10());
+    	newLeafNode(otherlv_21, grammarAccess.getSlotValueExistenceAccess().getCommaKeyword_11_2_0());
     }
 (
 (
-		{ 
-	        newCompositeNode(grammarAccess.getSlotValueExistenceAccess().getSlotOwnerObjectHandleParserRuleCall_11_0()); 
-	    }
-		lv_slotOwner_22_0=ruleObjectHandle		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getSlotValueExistenceRule());
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSlotValueExistenceRule());
 	        }
-       		set(
-       			$current, 
-       			"slotOwner",
-        		lv_slotOwner_22_0, 
-        		"ObjectHandle");
-	        afterParserOrEnumRuleCall();
-	    }
+        }
+	otherlv_22=RULE_ID
+	{
+		newLeafNode(otherlv_22, grammarAccess.getSlotValueExistenceAccess().getBindingChoiceChoiceCrossReference_11_2_1_0()); 
+	}
 
 )
-)	otherlv_23='}' 
+))*)?	otherlv_23='}' 
     {
     	newLeafNode(otherlv_23, grammarAccess.getSlotValueExistenceAccess().getRightCurlyBracketKeyword_12());
     }
