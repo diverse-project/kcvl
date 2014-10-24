@@ -105,14 +105,14 @@ class Derivator
 			return
 		}
 
-		println("Number of choices resolved to true: " + ctx.selectedChoices.size)
-		println("Number of choices resolved to false: " + ctx.unselectedChoices.size)
+		println("Number of choices resolved to true: " + ctx.selectedChoices.size.toString)
+		println("Number of choices resolved to false: " + ctx.unselectedChoices.size.toString)
 
 		ctxs.forEach[ctx |
 			findBinding(o)
 
-			println("Number of realizations resolved to true: " + ctx.selectedVPs.size)
-			println("Number of realizations resolved to false: " + ctx.unselectedVPs.size)
+			println("Number of realizations resolved to true: " + ctx.selectedVPs.size.toString)
+			println("Number of realizations resolved to false: " + ctx.unselectedVPs.size.toString)
 
 			ctx.unselectedVPs
 				.filter[it instanceof ObjectExistence || it instanceof LinkExistence]
@@ -557,7 +557,7 @@ class Derivator
 							toBeRemoved.add(v)
 					]
 
-					toBeRemoved.forEach[r |
+					toBeRemoved.forEach[EObject r |
 						values.remove(r)
 						values.add(ctx.objectSubstitutions.get(r))
 					]
@@ -598,7 +598,7 @@ class Derivator
 							toBeRemoved.add(v)
 					]
 
-					toBeRemoved.forEach[r |
+					toBeRemoved.forEach[EObject r |
 						values.remove(r)
 					]
 				} else if (ctx.objectSubstitutions.keySet.exists[it.equals(o)])
