@@ -135,6 +135,9 @@ class Derivator
 			toRemove.forEach[semanticDelete.delete(it)]
 	}
 
+	/* -------------------------------------- */
+	/*    PopulateChoiceResolution visitors   */
+	/* -------------------------------------- */
 	def private dispatch void populateChoiceResolution(VPackage o) {
 		o.packageElement.forEach[it.populateChoiceResolution]
 	}
@@ -171,6 +174,9 @@ class Derivator
 				ctx.choiceParameterC.put(variableContainer, Collections::singletonList(o.resolvedVariable))
 	}
 
+	/* -------------------------------------- */
+	/*            FindBinding visitors        */
+	/* -------------------------------------- */
 	def private dispatch void findBinding(VPackage o) {
 		o.packageElement.forEach[it.findBinding]
 	}
@@ -247,6 +253,9 @@ class Derivator
 			ctx.selectedVPs.add(o)
 	}
 
+	/* -------------------------------------- */
+	/*  EvaluateHasChoiceExpression visitors  */
+	/* -------------------------------------- */
 	def private dispatch boolean evaluateHasChoiceExpression(RestrictionRuleset o, boolean result) {
 		return o.rule.forall[evaluateHasChoiceExpression(it, result)]
 	}
@@ -339,164 +348,175 @@ class Derivator
 		return result
 	}
 
-	def private void executeDerivation(VariationPoint o) {
-		switch o {
-			ObjectExistence: {
-				o.optionalObject.forEach[notSelected.add(reference)]
-			}
-			SlotAssignment: {
-				if (o.value instanceof PrimitiveValueSpecification) {
-					val obj = o.slotOwner.reference
-					val valueSpec = o.value as PrimitiveValueSpecification
-					val feature = obj.eClass.EAllStructuralFeatures.findFirst[name.toLowerCase == o.slotIdentifier.toLowerCase]
-					val valueToSet =
-						switch valueSpec.type.name {
-							case "Integer": Integer::parseInt(valueSpec.value.trim)
-							case "Boolean": Boolean::parseBoolean(valueSpec.value.trim)
-							case "Real": Double::parseDouble(valueSpec.value.trim)
-							case "String": valueSpec.value
-							default: valueSpec.value
-						}
-					
-					if (feature != null)
-						obj.eSet(feature, valueToSet)
-				}
-			}
-			SlotValueExistence: {
-				val obj = o.slotOwner.reference
-				val feature = obj.eClass.EAllStructuralFeatures.findFirst[name.toLowerCase == o.slotIdentifier.toLowerCase]
-				
-				if (feature != null)
-					if (feature.unsettable)
-						obj.eUnset(feature)
-					else
-						obj.eSet(feature, null)
-			}
-			ParametricSlotAssignmet: {
-				val obj = o.slotOwner.reference
+	/* -------------------------------------- */
+	/*        ExecuteDerivation visitors      */
+	/* -------------------------------------- */
+	def private dispatch void executeDerivation(ObjectExistence o) {
+		o.optionalObject.forEach[notSelected.add(reference)]
+	}
 
-				if (
-					   !obj.eClass.EAllStructuralFeatures.empty
-					&& ctx.choiceParameter.get(o.bindingVariable).value instanceof PrimitiveValueSpecification
-				) {
-					val valueSpec = ctx.choiceParameter.get(o.bindingVariable) as PrimitiveValueSpecification
-					val feature = obj.eClass.EAllStructuralFeatures.findFirst[name.toLowerCase == o.slotIdentifier.toLowerCase]
-					val valueToSet =
-						switch valueSpec.type.name {
-							case "Integer": Integer::parseInt(valueSpec.value.trim)
-							case "Boolean": Boolean::parseBoolean(valueSpec.value.trim)
-							case "Real": Double::parseDouble(valueSpec.value.trim)
-							case "String": valueSpec.value
-							default: valueSpec.value
-						}
-					
-					if (feature != null)
-						obj.eSet(feature, valueToSet)
+	def private dispatch void executeDerivation(SlotAssignment o) {
+		if (o.value instanceof PrimitiveValueSpecification) {
+			val obj = o.slotOwner.reference
+			val valueSpec = o.value as PrimitiveValueSpecification
+			val feature = obj.eClass.EAllStructuralFeatures.findFirst[name.toLowerCase == o.slotIdentifier.toLowerCase]
+			val valueToSet =
+				switch valueSpec.type.name {
+					case "Integer": Integer::parseInt(valueSpec.value.trim)
+					case "Boolean": Boolean::parseBoolean(valueSpec.value.trim)
+					case "Real": Double::parseDouble(valueSpec.value.trim)
+					case "String": valueSpec.value
+					default: valueSpec.value
 				}
-			}
-			ObjectSubstitution: {
-				ctx.objectSubstitutions.put(o.placementObject.reference, o.replacementObject.reference)
-			}
-			org.omg.CVLMetamodelMaster.cvl.PatternIntegration: {
-				val map = new ArrayList<Pair<EObject, EObject>>
-				
-				o.substitutes.forEach[
-					map.add(new Pair(placementObject.reference, replacementObject.reference))
-					domainResources.add(replacementObject.reference.findRoot.eResource)
-				]
-				
-				if (patternIntegration != null) {
-					patternIntegration.includePattern(map)
-					map.clear
-				}
-			}
-			PatternFusion: {
-				val map = new ArrayList<Pair<EObject, EObject>>
-				
-				o.substitutes.forEach[
-					map.add(new Pair(placementObject.reference, replacementObject.reference))
-					domainResources.add(replacementObject.reference.findRoot.eResource)
-				]
-				
-				if (patternIntegration != null) {
-					patternIntegration.fusionPattern(map)
-					map.clear
-				}
-			}
-			StructuralOrganisationalPattern: {
-				val map = new ArrayList<Pair<EObject, EObject>>
-				
-				o.substitutes.forEach[
-					map.add(new Pair(placementObject.reference, replacementObject.reference))
-					domainResources.add(replacementObject.reference.findRoot.eResource)
-				]
-				
-				if (patternIntegration != null) {
-					patternIntegration.applyStructuralOrganisationalPattern(map)
-					map.clear
-				}
-			}
-			FragmentSubstitution: {
-				// TODO: FragmentSubstitution
-			}
-			LinkExistence: {
-				notSelected.add(o.optionalLink.reference)
-			}
-			LinkAssignment: {
-				val obj = o.link.reference
-				val name =
-					if (o.link.MOFRef.contains(":")) o.link.MOFRef.split(":").head
-					else o.link.MOFRef
-				
-				val struct = obj.eClass.EAllStructuralFeatures.findFirst[f | f.name == name]
-				
-				if (struct != null)
-					obj.eSet(struct, o.newEnd.reference)
-			}
-			CompositeVariationPoint: {
-				o.children.forEach[it.executeDerivation]
-			}
-			OpaqueVariationPoint: {
-				val binding = new Binding
-				val ctx_ = new ArrayList<EObject>
-				val args = new HashMap<String, Object>
-				
-				o.sourceObject.forEach[ctx_.add(reference)]
-				
-				if (!o.bindingChoice.empty) {
-					val choice = o.bindingChoice.head
-					val vars = ctx.choiceParameterC.get(choice)
-					
-					vars.forEach[v |
-						val varAssignment = if (v != null) ctx.choiceParameter.get(v) else null
-						
-						if (varAssignment != null && varAssignment.value instanceof PrimitiveValueSpecification) {
-							val valueSpec = varAssignment.value as PrimitiveValueSpecification
-							val valueToSet =
-								switch valueSpec.type.name {
-									case "Integer": Integer::parseInt(valueSpec.value.trim)
-									case "Boolean": Boolean::parseBoolean(valueSpec.value.trim)
-									case "Real": Double::parseDouble(valueSpec.value.trim)
-									case "String": valueSpec.value
-									default: valueSpec.value
-								}
-							
-							args.put(v.name, valueToSet)
-						}
-					]
-				}
-				
-				binding.setVariable("ctx", ctx_)
-				binding.setVariable("args", args)
-				binding.setVariable("notSelected", notSelected)
-				
-				val shell = new GroovyShell(binding)
-				shell.evaluate(o.expression)
-				// TODO: We do nothing with the result?!
-			}
+
+			if (feature != null)
+				obj.eSet(feature, valueToSet)
 		}
 	}
-	
+
+	def private dispatch void executeDerivation(SlotValueExistence o) {
+		val obj = o.slotOwner.reference
+		val feature = obj.eClass.EAllStructuralFeatures.findFirst[name.toLowerCase == o.slotIdentifier.toLowerCase]
+
+		if (feature != null)
+			if (feature.unsettable)
+				obj.eUnset(feature)
+			else
+				obj.eSet(feature, null)
+	}
+
+	def private dispatch void executeDerivation(ParametricSlotAssignmet o) {
+		val obj = o.slotOwner.reference
+
+		if (
+			   !obj.eClass.EAllStructuralFeatures.empty
+			&& ctx.choiceParameter.get(o.bindingVariable).value instanceof PrimitiveValueSpecification
+		) {
+			val valueSpec = ctx.choiceParameter.get(o.bindingVariable) as PrimitiveValueSpecification
+			val feature = obj.eClass.EAllStructuralFeatures.findFirst[name.toLowerCase == o.slotIdentifier.toLowerCase]
+			val valueToSet =
+				switch valueSpec.type.name {
+					case "Integer": Integer::parseInt(valueSpec.value.trim)
+					case "Boolean": Boolean::parseBoolean(valueSpec.value.trim)
+					case "Real": Double::parseDouble(valueSpec.value.trim)
+					case "String": valueSpec.value
+					default: valueSpec.value
+				}
+
+			if (feature != null)
+				obj.eSet(feature, valueToSet)
+		}
+	}
+
+	def private dispatch void executeDerivation(ObjectSubstitution o) {
+		ctx.objectSubstitutions.put(o.placementObject.reference, o.replacementObject.reference)
+	}
+
+	def private dispatch void executeDerivation(org.omg.CVLMetamodelMaster.cvl.PatternIntegration o) {
+		val map = new ArrayList<Pair<EObject, EObject>>
+
+		o.substitutes.forEach[
+			map.add(new Pair(placementObject.reference, replacementObject.reference))
+			domainResources.add(replacementObject.reference.findRoot.eResource)
+		]
+
+		if (patternIntegration != null) {
+			patternIntegration.includePattern(map)
+			map.clear
+		}
+	}
+
+	def private dispatch void executeDerivation(PatternFusion o) {
+		val map = new ArrayList<Pair<EObject, EObject>>
+
+		o.substitutes.forEach[
+			map.add(new Pair(placementObject.reference, replacementObject.reference))
+			domainResources.add(replacementObject.reference.findRoot.eResource)
+		]
+
+		if (patternIntegration != null) {
+			patternIntegration.fusionPattern(map)
+			map.clear
+		}
+	}
+
+	def private dispatch void executeDerivation(StructuralOrganisationalPattern o) {
+		val map = new ArrayList<Pair<EObject, EObject>>
+
+		o.substitutes.forEach[
+			map.add(new Pair(placementObject.reference, replacementObject.reference))
+			domainResources.add(replacementObject.reference.findRoot.eResource)
+		]
+
+		if (patternIntegration != null) {
+			patternIntegration.applyStructuralOrganisationalPattern(map)
+			map.clear
+		}
+	}
+
+	def private dispatch void executeDerivation(FragmentSubstitution o) {
+		// TODO
+	}
+
+	def private dispatch void executeDerivation(LinkExistence o) {
+		notSelected.add(o.optionalLink.reference)
+	}
+
+	def private dispatch void executeDerivation(LinkAssignment o) {
+		val obj = o.link.reference
+		val name =
+			if (o.link.MOFRef.contains(":")) o.link.MOFRef.split(":").head
+			else o.link.MOFRef
+
+		val struct = obj.eClass.EAllStructuralFeatures.findFirst[f | f.name == name]
+
+		if (struct != null)
+			obj.eSet(struct, o.newEnd.reference)
+	}
+
+	def private dispatch void executeDerivation(CompositeVariationPoint o) {
+		o.children.forEach[it.executeDerivation]
+	}
+
+	def private dispatch void executeDerivation(OpaqueVariationPoint o) {
+		val binding = new Binding
+		val ctx_ = new ArrayList<EObject>
+		val args = new HashMap<String, Object>
+
+		o.sourceObject.forEach[ctx_.add(reference)]
+
+		if (!o.bindingChoice.empty) {
+			val choice = o.bindingChoice.head
+			val vars = ctx.choiceParameterC.get(choice)
+
+			vars.forEach[v |
+				val varAssignment = if (v != null) ctx.choiceParameter.get(v) else null
+
+				if (varAssignment != null && varAssignment.value instanceof PrimitiveValueSpecification) {
+					val valueSpec = varAssignment.value as PrimitiveValueSpecification
+					val valueToSet =
+						switch valueSpec.type.name {
+							case "Integer": Integer::parseInt(valueSpec.value.trim)
+							case "Boolean": Boolean::parseBoolean(valueSpec.value.trim)
+							case "Real": Double::parseDouble(valueSpec.value.trim)
+							case "String": valueSpec.value
+							default: valueSpec.value
+						}
+
+					args.put(v.name, valueToSet)
+				}
+			]
+		}
+
+		binding.setVariable("ctx", ctx_)
+		binding.setVariable("args", args)
+		binding.setVariable("notSelected", notSelected)
+
+		val shell = new GroovyShell(binding)
+		shell.evaluate(o.expression)
+		// TODO: We do nothing with the result?!
+	}
+
 	// TODO: Implement me?
 	def private Object evalExpression(EObject o, VPackage root, ChoiceResolutuion parent) {
 		return null
