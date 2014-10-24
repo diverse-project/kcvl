@@ -1,6 +1,6 @@
 package fr.inria.diverse.kcvl.interpreter
 
-import com.thales.movida.derivation.service.SemanticDeleteOfObject
+import fr.inria.diverse.kcvl.extensions.SemanticDeleteOfObject
 
 import fr.inria.diverse.kcvl.fd2assets.BinCondition
 import fr.inria.diverse.kcvl.fd2assets.BinExpression
@@ -64,7 +64,9 @@ import org.omg.CVLMetamodelMaster.cvl.VClassifier
 import org.omg.CVLMetamodelMaster.cvl.VConfiguration
 import org.omg.CVLMetamodelMaster.cvl.VInstance
 import org.omg.CVLMetamodelMaster.cvl.VPackage
+import org.omg.CVLMetamodelMaster.cvl.VPackageable
 import org.omg.CVLMetamodelMaster.cvl.VariableValueAssignment
+import org.omg.CVLMetamodelMaster.cvl.VariationPoint
 
 import org.varymde.CvlmappingvaribilitychoiceStandaloneSetup
 
@@ -181,6 +183,10 @@ class Derivator
 				ctx.choiceParameterC.put(variableContainer, Collections::singletonList(o.resolvedVariable))
 	}
 
+	def private dispatch void populateChoiceResolution(VPackageable o) {
+		println("Uncatched populateChoiceResolution(" + o + ")")
+	}
+
 	/* -------------------------------------- */
 	/*            FindBinding visitors        */
 	/* -------------------------------------- */
@@ -258,6 +264,10 @@ class Derivator
 			&& ctx.selectedChoices.contains(o.bindingVariable.eContainer as Choice)
 		)
 			ctx.selectedVPs.add(o)
+	}
+
+	def private dispatch void findBinding(VPackageable o) {
+		println("Uncatched findBinding(" + o + ")")
 	}
 
 	/* -------------------------------------- */
@@ -524,6 +534,13 @@ class Derivator
 		// TODO: We do nothing with the result?!
 	}
 
+	def private dispatch void executeDerivation(VariationPoint o) {
+		println("Uncatched executeDerivation(" + o + ")")
+	}
+
+	/* -------------------------------------- */
+	/*               Utilities                */
+	/* -------------------------------------- */
 	def private void substituteObject(EObject obj) {
 		if (obj == null)
 			return;
