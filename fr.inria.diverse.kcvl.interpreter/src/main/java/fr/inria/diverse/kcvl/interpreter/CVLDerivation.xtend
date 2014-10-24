@@ -599,80 +599,51 @@ class Derivator
 		]
 	}
 
-  def boolean isNotSelected(EObject obj ) {
+	def private boolean isNotSelected(EObject obj) {
+		return notSelected.contains(obj)
+	}
 
-    return notSelected.contains(obj)
+	def private void removeObject(EObject obj) {
+		if (obj.isNotSelected) {
+			if (semanticDelete == null)
+				obj.removeObjectAndAllContaining
+			else
+				toRemove.add(obj)
+		} else {
+			obj.eClass.EAllReferences
+			.filter[containment]
+			.forEach[ref |
+				val o = obj.eGet(ref, true)
 
-  }
+				if (o != null)
+					if (ref.many) {
+						val values = o as List<? extends EObject>
+						values.forEach[removeObject(it)]
+					} else if (o instanceof EObject)
+						removeObject(o as EObject)
+			]
+		}
+	}
 
-  def void removeObject(EObject obj) {
-       // stdio.writeln("removeObject begin : " + obj.toString())
-    if (this.isNotSelected(obj)) {
-      if (this.semanticDelete == null)
-        this.removeObjectandAllContaining(obj as EObject)
-      else{
-      	//println("class to reomve 1  " + obj)
-        toRemove.add(obj)       
-      }
-    } else {
-      var  props = obj.eClass.getEAllReferences().filter[prop | prop.isContainment()]
-      props.forEach[prop | 
-        var Object o = obj.eGet(prop, true)
-        if (prop.isMany) {
-          var col = o as List<EObject>
-          if (col != null) {
-            col.forEach(o1 |{
-              //if (domainResource.getContents.contains(o1)){ 
-              //println("toto " + prop.getName() + " "+   o.toString() + " " +o1.asInstanceOf[EObject].toString())
-              this.removeObject(o1 as EObject)} //}
-              )
-          }
-        } else {
-          //				if (  domainResource.getContents.contains(o)){
-          if (o instanceof EObject)
-            this.removeObject(o as EObject)
-          //else
-          // println("bizarre for "+ prop.getName() + " " + o)
-          //				}
-        }
-      ]
+	def private void removeObjectAndAllContaining(EObject obj) {
+		if (obj == null)
+			return;
 
-    }
+		obj.eClass.EAllReferences
+		.filter[containment]
+		.forEach[ref |
+			val o = obj.eGet(ref, true)
 
-  }
+			if (o != null)
+				if (ref.many) {
+					val values = o as List<? extends EObject>
+					values.forEach[removeObjectAndAllContaining(it)]
+				} else if (o instanceof EObject)
+					removeObjectAndAllContaining(o as EObject)
+		]
 
-  def void removeObjectandAllContaining(EObject obj)  {
-    //println("remove  " + obj )
-    var  Iterable<EReference> props = null
-    if (obj != null) {
-      props = obj.eClass().getEAllReferences().filter[prop |  prop.isContainment() ]
-      props.forEach(prop | {
-        var Object o = obj.eGet(prop, true)
-        if (prop.isMany()) {
-          var col = o as List<EObject>
-          if (col != null) {
-            col.forEach(o1 |
-              this.removeObjectandAllContaining(o1))
-          }
-        } else {
-          this.removeObjectandAllContaining(o as EObject)
-        }
-
-      })
-      if (domainResources.contains(obj.eResource())) {
-        //stdio.writeln("remove from resource" + obj.toString)
-        //println("class to reomve 2  " + obj)
-        
-        toRemove.add(obj)
-      } else {
-        println("removeObjectandAllContaining : Object " + obj.toString() + " not contained")
-      }
-    }
-  }
-
-	def void foo(){
-		var Object v = "p"
-		var l = v as String
+		if (domainResources.contains(obj.eResource))
+			toRemove.add(obj)
 	}
 
 	def private EObject findRoot(EObject e) {
@@ -682,7 +653,7 @@ class Derivator
 			else
 				findRoot(e.eContainer)
 	}
-	
+
 	def private boolean checkChoiceResolution() {
 		return !ctx.selectedChoices.empty || !ctx.unselectedChoices.empty
 	}
