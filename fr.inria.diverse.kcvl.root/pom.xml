@@ -98,17 +98,6 @@
 			</snapshots>
 		</repository>
 		<repository>
-			<id>modeling</id>
-			<layout>p2</layout>
-			<url>${modeling-repo.url}</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
 			<id>sirius</id>
 			<layout>p2</layout>
 			<url>${sirius-repo.url}</url>
