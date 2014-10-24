@@ -101,8 +101,7 @@ class Derivator
 		println("Number of choices resolved to true: " + ctx.selectedChoices.size)
 		println("Number of choices resolved to false: " + ctx.unselectedChoices.size)
 
-		ctxs.forEach[e |
-			ctx = e
+		ctxs.forEach[ctx |
 			findBinding(o)
 
 			println("Number of realizations resolved to true: " + ctx.selectedVPs.size)
