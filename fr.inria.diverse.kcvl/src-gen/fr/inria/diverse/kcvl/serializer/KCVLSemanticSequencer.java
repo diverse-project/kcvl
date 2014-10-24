@@ -352,10 +352,18 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 				}
 				else break;
 			case CvlPackage.OBJECT_SUBSTITUTION:
-				if(context == grammarAccess.getObjectSubstitutionRule() ||
+				if(context == grammarAccess.getCvlObjectSubstitutionRule()) {
+					sequence_CvlObjectSubstitution(context, (ObjectSubstitution) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getObjectSubstitutionRule() ||
 				   context == grammarAccess.getVPackageableRule() ||
 				   context == grammarAccess.getVariationPointRule()) {
-					sequence_ObjectSubstitution(context, (ObjectSubstitution) semanticObject); 
+					sequence_CvlObjectSubstitution_ObjectSubstitution_PatternRoleBinding(context, (ObjectSubstitution) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getPatternRoleBindingRule()) {
+					sequence_PatternRoleBinding(context, (ObjectSubstitution) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1785,6 +1793,45 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=ID 
+	 *         mappingExpression=STRING? 
+	 *         expression=STRING? 
+	 *         (bindingVspec+=[VSpec|ID] bindingVspec+=[VSpec|ID]*)? 
+	 *         (precedenceConstraint+=[VariationPoint|ID] precedenceConstraint+=[VariationPoint|ID]*)? 
+	 *         (bindingChoice+=[Choice|ID] bindingChoice+=[Choice|ID]*)? 
+	 *         placementObject=ObjectHandle 
+	 *         replacementObject=ObjectHandle
+	 *     )
+	 */
+	protected void sequence_CvlObjectSubstitution(EObject context, ObjectSubstitution semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         (
+	 *             name=ID 
+	 *             mappingExpression=STRING? 
+	 *             expression=STRING? 
+	 *             (bindingVspec+=[VSpec|ID] bindingVspec+=[VSpec|ID]*)? 
+	 *             (precedenceConstraint+=[VariationPoint|ID] precedenceConstraint+=[VariationPoint|ID]*)? 
+	 *             (bindingChoice+=[Choice|ID] bindingChoice+=[Choice|ID]*)? 
+	 *             placementObject=ObjectHandle 
+	 *             replacementObject=ObjectHandle
+	 *         ) | 
+	 *         (name=ID placementObject=ObjectHandle replacementObject=ObjectHandle)
+	 *     )
+	 */
+	protected void sequence_CvlObjectSubstitution_ObjectSubstitution_PatternRoleBinding(EObject context, ObjectSubstitution semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         name=ID 
 	 *         multi?='[*]' 
 	 *         mappingExpression=STRING? 
 	 *         expression=STRING? 
@@ -2014,24 +2061,6 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         mappingExpression=STRING? 
-	 *         expression=STRING? 
-	 *         (bindingVspec+=[VSpec|ID] bindingVspec+=[VSpec|ID]*)? 
-	 *         (precedenceConstraint+=[VariationPoint|ID] precedenceConstraint+=[VariationPoint|ID]*)? 
-	 *         (bindingChoice+=[Choice|ID] bindingChoice+=[Choice|ID]*)? 
-	 *         placementObject=ObjectHandle 
-	 *         replacementObject=ObjectHandle
-	 *     )
-	 */
-	protected void sequence_ObjectSubstitution(EObject context, ObjectSubstitution semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (name=ID metaClass=STRING)
 	 */
 	protected void sequence_ObjectType(EObject context, ObjectType semanticObject) {
@@ -2167,6 +2196,15 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	 *     )
 	 */
 	protected void sequence_PatternIntegration(EObject context, PatternIntegration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID placementObject=ObjectHandle replacementObject=ObjectHandle)
+	 */
+	protected void sequence_PatternRoleBinding(EObject context, ObjectSubstitution semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -1471,6 +1471,26 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class ObjectSubstitutionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ObjectSubstitution");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cCvlObjectSubstitutionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cPatternRoleBindingParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//ObjectSubstitution:
+		//	CvlObjectSubstitution | PatternRoleBinding;
+		public ParserRule getRule() { return rule; }
+
+		//CvlObjectSubstitution | PatternRoleBinding
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//CvlObjectSubstitution
+		public RuleCall getCvlObjectSubstitutionParserRuleCall_0() { return cCvlObjectSubstitutionParserRuleCall_0; }
+
+		//PatternRoleBinding
+		public RuleCall getPatternRoleBindingParserRuleCall_1() { return cPatternRoleBindingParserRuleCall_1; }
+	}
+
+	public class CvlObjectSubstitutionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CvlObjectSubstitution");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cObjectSubstitutionKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -1522,7 +1542,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cReplacementObjectObjectHandleParserRuleCall_11_0 = (RuleCall)cReplacementObjectAssignment_11.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
-		//ObjectSubstitution:
+		//CvlObjectSubstitution returns ObjectSubstitution:
 		//	"ObjectSubstitution" name=ID "{" ("mapping" mappingExpression=STRING)? ("expression" expression=STRING)?
 		//	("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
 		//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("bindingChoice"
@@ -1682,6 +1702,62 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
+	}
+
+	public class PatternRoleBindingElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PatternRoleBinding");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRoleBindingKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cRoleKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cPlacementObjectAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cPlacementObjectObjectHandleParserRuleCall_4_0 = (RuleCall)cPlacementObjectAssignment_4.eContents().get(0);
+		private final Keyword cTargetKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cReplacementObjectAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cReplacementObjectObjectHandleParserRuleCall_6_0 = (RuleCall)cReplacementObjectAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		
+		//PatternRoleBinding returns ObjectSubstitution:
+		//	"RoleBinding" name=ID "{" "role" placementObject=ObjectHandle "target" replacementObject=ObjectHandle "}";
+		public ParserRule getRule() { return rule; }
+
+		//"RoleBinding" name=ID "{" "role" placementObject=ObjectHandle "target" replacementObject=ObjectHandle "}"
+		public Group getGroup() { return cGroup; }
+
+		//"RoleBinding"
+		public Keyword getRoleBindingKeyword_0() { return cRoleBindingKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//"role"
+		public Keyword getRoleKeyword_3() { return cRoleKeyword_3; }
+
+		//placementObject=ObjectHandle
+		public Assignment getPlacementObjectAssignment_4() { return cPlacementObjectAssignment_4; }
+
+		//ObjectHandle
+		public RuleCall getPlacementObjectObjectHandleParserRuleCall_4_0() { return cPlacementObjectObjectHandleParserRuleCall_4_0; }
+
+		//"target"
+		public Keyword getTargetKeyword_5() { return cTargetKeyword_5; }
+
+		//replacementObject=ObjectHandle
+		public Assignment getReplacementObjectAssignment_6() { return cReplacementObjectAssignment_6; }
+
+		//ObjectHandle
+		public RuleCall getReplacementObjectObjectHandleParserRuleCall_6_0() { return cReplacementObjectObjectHandleParserRuleCall_6_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 
 	public class VariableElements extends AbstractParserRuleElementFinder {
@@ -7740,6 +7816,8 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	private PlacementFragmentElements pPlacementFragment;
 	private ReplacementFragmentTypeElements pReplacementFragmentType;
 	private ObjectSubstitutionElements pObjectSubstitution;
+	private CvlObjectSubstitutionElements pCvlObjectSubstitution;
+	private PatternRoleBindingElements pPatternRoleBinding;
 	private VariableElements pVariable;
 	private SimpleVariableElements pSimpleVariable;
 	private ComplexVariableElements pComplexVariable;
@@ -8106,17 +8184,37 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ObjectSubstitution:
-	//	"ObjectSubstitution" name=ID "{" ("mapping" mappingExpression=STRING)? ("expression" expression=STRING)?
-	//	("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
-	//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("bindingChoice"
-	//	bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "placement" placementObject=ObjectHandle "replacement"
-	//	replacementObject=ObjectHandle "}";
+	//	CvlObjectSubstitution | PatternRoleBinding;
 	public ObjectSubstitutionElements getObjectSubstitutionAccess() {
 		return (pObjectSubstitution != null) ? pObjectSubstitution : (pObjectSubstitution = new ObjectSubstitutionElements());
 	}
 	
 	public ParserRule getObjectSubstitutionRule() {
 		return getObjectSubstitutionAccess().getRule();
+	}
+
+	//CvlObjectSubstitution returns ObjectSubstitution:
+	//	"ObjectSubstitution" name=ID "{" ("mapping" mappingExpression=STRING)? ("expression" expression=STRING)?
+	//	("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
+	//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("bindingChoice"
+	//	bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "placement" placementObject=ObjectHandle "replacement"
+	//	replacementObject=ObjectHandle "}";
+	public CvlObjectSubstitutionElements getCvlObjectSubstitutionAccess() {
+		return (pCvlObjectSubstitution != null) ? pCvlObjectSubstitution : (pCvlObjectSubstitution = new CvlObjectSubstitutionElements());
+	}
+	
+	public ParserRule getCvlObjectSubstitutionRule() {
+		return getCvlObjectSubstitutionAccess().getRule();
+	}
+
+	//PatternRoleBinding returns ObjectSubstitution:
+	//	"RoleBinding" name=ID "{" "role" placementObject=ObjectHandle "target" replacementObject=ObjectHandle "}";
+	public PatternRoleBindingElements getPatternRoleBindingAccess() {
+		return (pPatternRoleBinding != null) ? pPatternRoleBinding : (pPatternRoleBinding = new PatternRoleBindingElements());
+	}
+	
+	public ParserRule getPatternRoleBindingRule() {
+		return getPatternRoleBindingAccess().getRule();
 	}
 
 	//Variable:
