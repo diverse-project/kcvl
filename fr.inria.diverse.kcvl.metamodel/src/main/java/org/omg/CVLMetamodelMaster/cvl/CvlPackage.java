@@ -3185,13 +3185,22 @@ public interface CvlPackage extends EPackage {
 	int VPACKAGE__PACKAGE_ELEMENT = VPACKAGEABLE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VPACKAGE__IMPORTS = VPACKAGEABLE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>VPackage</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VPACKAGE_FEATURE_COUNT = VPACKAGEABLE_FEATURE_COUNT + 1;
+	int VPACKAGE_FEATURE_COUNT = VPACKAGEABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>VPackage</em>' class.
@@ -4988,6 +4997,43 @@ public interface CvlPackage extends EPackage {
 	int STRUCTURAL_ORGANISATIONAL_PATTERN_OPERATION_COUNT = CHOICE_VARIATION_POINT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.omg.CVLMetamodelMaster.cvl.impl.ImportImpl <em>Import</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.omg.CVLMetamodelMaster.cvl.impl.ImportImpl
+	 * @see org.omg.CVLMetamodelMaster.cvl.impl.CvlPackageImpl#getImport()
+	 * @generated
+	 */
+	int IMPORT = 79;
+
+	/**
+	 * The feature id for the '<em><b>Import URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPORT__IMPORT_URI = 0;
+
+	/**
+	 * The number of structural features of the '<em>Import</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPORT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Import</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPORT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.omg.CVLMetamodelMaster.cvl.PrimitiveTypeEnum <em>Primitive Type Enum</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4995,7 +5041,7 @@ public interface CvlPackage extends EPackage {
 	 * @see org.omg.CVLMetamodelMaster.cvl.impl.CvlPackageImpl#getPrimitiveTypeEnum()
 	 * @generated
 	 */
-	int PRIMITIVE_TYPE_ENUM = 79;
+	int PRIMITIVE_TYPE_ENUM = 80;
 
 	/**
 	 * The meta object id for the '{@link org.omg.CVLMetamodelMaster.cvl.Operation <em>Operation</em>}' enum.
@@ -5005,7 +5051,7 @@ public interface CvlPackage extends EPackage {
 	 * @see org.omg.CVLMetamodelMaster.cvl.impl.CvlPackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 80;
+	int OPERATION = 81;
 
 
 	/**
@@ -6368,6 +6414,17 @@ public interface CvlPackage extends EPackage {
 	EReference getVPackage_PackageElement();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.omg.CVLMetamodelMaster.cvl.VPackage#getImports <em>Imports</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Imports</em>'.
+	 * @see org.omg.CVLMetamodelMaster.cvl.VPackage#getImports()
+	 * @see #getVPackage()
+	 * @generated
+	 */
+	EReference getVPackage_Imports();
+
+	/**
 	 * Returns the meta object for class '{@link org.omg.CVLMetamodelMaster.cvl.ToBinding <em>To Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7205,6 +7262,27 @@ public interface CvlPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getStructuralOrganisationalPattern_Substitutes();
+
+	/**
+	 * Returns the meta object for class '{@link org.omg.CVLMetamodelMaster.cvl.Import <em>Import</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Import</em>'.
+	 * @see org.omg.CVLMetamodelMaster.cvl.Import
+	 * @generated
+	 */
+	EClass getImport();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.omg.CVLMetamodelMaster.cvl.Import#getImportURI <em>Import URI</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Import URI</em>'.
+	 * @see org.omg.CVLMetamodelMaster.cvl.Import#getImportURI()
+	 * @see #getImport()
+	 * @generated
+	 */
+	EAttribute getImport_ImportURI();
 
 	/**
 	 * Returns the meta object for enum '{@link org.omg.CVLMetamodelMaster.cvl.PrimitiveTypeEnum <em>Primitive Type Enum</em>}'.
@@ -8372,6 +8450,14 @@ public interface CvlPackage extends EPackage {
 		EReference VPACKAGE__PACKAGE_ELEMENT = eINSTANCE.getVPackage_PackageElement();
 
 		/**
+		 * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VPACKAGE__IMPORTS = eINSTANCE.getVPackage_Imports();
+
+		/**
 		 * The meta object literal for the '{@link org.omg.CVLMetamodelMaster.cvl.impl.ToBindingImpl <em>To Binding</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -9062,6 +9148,24 @@ public interface CvlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STRUCTURAL_ORGANISATIONAL_PATTERN__SUBSTITUTES = eINSTANCE.getStructuralOrganisationalPattern_Substitutes();
+
+		/**
+		 * The meta object literal for the '{@link org.omg.CVLMetamodelMaster.cvl.impl.ImportImpl <em>Import</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.omg.CVLMetamodelMaster.cvl.impl.ImportImpl
+		 * @see org.omg.CVLMetamodelMaster.cvl.impl.CvlPackageImpl#getImport()
+		 * @generated
+		 */
+		EClass IMPORT = eINSTANCE.getImport();
+
+		/**
+		 * The meta object literal for the '<em><b>Import URI</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMPORT__IMPORT_URI = eINSTANCE.getImport_ImportURI();
 
 		/**
 		 * The meta object literal for the '{@link org.omg.CVLMetamodelMaster.cvl.PrimitiveTypeEnum <em>Primitive Type Enum</em>}' enum.

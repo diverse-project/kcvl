@@ -27,15 +27,17 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cPackageElementAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cPackageElementVPackageableParserRuleCall_3_0 = (RuleCall)cPackageElementAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cImportsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cImportsImportParserRuleCall_3_0 = (RuleCall)cImportsAssignment_3.eContents().get(0);
+		private final Assignment cPackageElementAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cPackageElementVPackageableParserRuleCall_4_0 = (RuleCall)cPackageElementAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//VPackage:
-		//	"VP" name=ID "{" packageElement+=VPackageable* "}";
+		//	"VP" name=ID "{" imports+=Import* packageElement+=VPackageable* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"VP" name=ID "{" packageElement+=VPackageable* "}"
+		//"VP" name=ID "{" imports+=Import* packageElement+=VPackageable* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"VP"
@@ -50,14 +52,44 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
+		//imports+=Import*
+		public Assignment getImportsAssignment_3() { return cImportsAssignment_3; }
+
+		//Import
+		public RuleCall getImportsImportParserRuleCall_3_0() { return cImportsImportParserRuleCall_3_0; }
+
 		//packageElement+=VPackageable*
-		public Assignment getPackageElementAssignment_3() { return cPackageElementAssignment_3; }
+		public Assignment getPackageElementAssignment_4() { return cPackageElementAssignment_4; }
 
 		//VPackageable
-		public RuleCall getPackageElementVPackageableParserRuleCall_3_0() { return cPackageElementVPackageableParserRuleCall_3_0; }
+		public RuleCall getPackageElementVPackageableParserRuleCall_4_0() { return cPackageElementVPackageableParserRuleCall_4_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+
+	public class ImportElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Import");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cImportKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cImportURIAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cImportURISTRINGTerminalRuleCall_1_0 = (RuleCall)cImportURIAssignment_1.eContents().get(0);
+		
+		//Import:
+		//	"import" importURI=STRING;
+		public ParserRule getRule() { return rule; }
+
+		//"import" importURI=STRING
+		public Group getGroup() { return cGroup; }
+
+		//"import"
+		public Keyword getImportKeyword_0() { return cImportKeyword_0; }
+
+		//importURI=STRING
+		public Assignment getImportURIAssignment_1() { return cImportURIAssignment_1; }
+
+		//STRING
+		public RuleCall getImportURISTRINGTerminalRuleCall_1_0() { return cImportURISTRINGTerminalRuleCall_1_0; }
 	}
 
 	public class VPackageableElements extends AbstractParserRuleElementFinder {
@@ -1783,41 +1815,37 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	public class SimpleVariableElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SimpleVariable");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cVariableKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cTypeVariabletypeCrossReference_3_0 = (CrossReference)cTypeAssignment_3.eContents().get(0);
-		private final RuleCall cTypeVariabletypeIDTerminalRuleCall_3_0_1 = (RuleCall)cTypeVariabletypeCrossReference_3_0.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cTypeVariabletypeCrossReference_2_0 = (CrossReference)cTypeAssignment_2.eContents().get(0);
+		private final RuleCall cTypeVariabletypeIDTerminalRuleCall_2_0_1 = (RuleCall)cTypeVariabletypeCrossReference_2_0.eContents().get(1);
 		
 		//SimpleVariable returns Variable:
-		//	"Variable" name=ID ":" type=[Variabletype];
+		//	name=ID ":" type=[Variabletype];
 		public ParserRule getRule() { return rule; }
 
-		//"Variable" name=ID ":" type=[Variabletype]
+		//name=ID ":" type=[Variabletype]
 		public Group getGroup() { return cGroup; }
 
-		//"Variable"
-		public Keyword getVariableKeyword_0() { return cVariableKeyword_0; }
-
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 
 		//":"
-		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
 
 		//type=[Variabletype]
-		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
+		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
 
 		//[Variabletype]
-		public CrossReference getTypeVariabletypeCrossReference_3_0() { return cTypeVariabletypeCrossReference_3_0; }
+		public CrossReference getTypeVariabletypeCrossReference_2_0() { return cTypeVariabletypeCrossReference_2_0; }
 
 		//ID
-		public RuleCall getTypeVariabletypeIDTerminalRuleCall_3_0_1() { return cTypeVariabletypeIDTerminalRuleCall_3_0_1; }
+		public RuleCall getTypeVariabletypeIDTerminalRuleCall_2_0_1() { return cTypeVariabletypeIDTerminalRuleCall_2_0_1; }
 	}
 
 	public class ComplexVariableElements extends AbstractParserRuleElementFinder {
@@ -4861,49 +4889,49 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cSlotIdentifierKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cSlotIdentifierAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cSlotIdentifierSTRINGTerminalRuleCall_4_0 = (RuleCall)cSlotIdentifierAssignment_4.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cBindingVspecKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cBindingVspecAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final CrossReference cBindingVspecVSpecCrossReference_5_1_0 = (CrossReference)cBindingVspecAssignment_5_1.eContents().get(0);
-		private final RuleCall cBindingVspecVSpecIDTerminalRuleCall_5_1_0_1 = (RuleCall)cBindingVspecVSpecCrossReference_5_1_0.eContents().get(1);
-		private final Group cGroup_5_2 = (Group)cGroup_5.eContents().get(2);
-		private final Keyword cCommaKeyword_5_2_0 = (Keyword)cGroup_5_2.eContents().get(0);
-		private final Assignment cBindingVspecAssignment_5_2_1 = (Assignment)cGroup_5_2.eContents().get(1);
-		private final CrossReference cBindingVspecVSpecCrossReference_5_2_1_0 = (CrossReference)cBindingVspecAssignment_5_2_1.eContents().get(0);
-		private final RuleCall cBindingVspecVSpecIDTerminalRuleCall_5_2_1_0_1 = (RuleCall)cBindingVspecVSpecCrossReference_5_2_1_0.eContents().get(1);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cPrecedenceConstraintKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cPrecedenceConstraintAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final CrossReference cPrecedenceConstraintVariationPointCrossReference_6_1_0 = (CrossReference)cPrecedenceConstraintAssignment_6_1.eContents().get(0);
-		private final RuleCall cPrecedenceConstraintVariationPointIDTerminalRuleCall_6_1_0_1 = (RuleCall)cPrecedenceConstraintVariationPointCrossReference_6_1_0.eContents().get(1);
-		private final Group cGroup_6_2 = (Group)cGroup_6.eContents().get(2);
-		private final Keyword cCommaKeyword_6_2_0 = (Keyword)cGroup_6_2.eContents().get(0);
-		private final Assignment cPrecedenceConstraintAssignment_6_2_1 = (Assignment)cGroup_6_2.eContents().get(1);
-		private final CrossReference cPrecedenceConstraintVariationPointCrossReference_6_2_1_0 = (CrossReference)cPrecedenceConstraintAssignment_6_2_1.eContents().get(0);
-		private final RuleCall cPrecedenceConstraintVariationPointIDTerminalRuleCall_6_2_1_0_1 = (RuleCall)cPrecedenceConstraintVariationPointCrossReference_6_2_1_0.eContents().get(1);
-		private final Keyword cBindingVariableKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cBindingVariableAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final CrossReference cBindingVariableVariableCrossReference_8_0 = (CrossReference)cBindingVariableAssignment_8.eContents().get(0);
-		private final RuleCall cBindingVariableVariableIDTerminalRuleCall_8_0_1 = (RuleCall)cBindingVariableVariableCrossReference_8_0.eContents().get(1);
-		private final Keyword cSlotOwnerKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cSlotOwnerAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cSlotOwnerObjectHandleParserRuleCall_10_0 = (RuleCall)cSlotOwnerAssignment_10.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cBindingVspecKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cBindingVspecAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cBindingVspecVSpecCrossReference_3_1_0 = (CrossReference)cBindingVspecAssignment_3_1.eContents().get(0);
+		private final RuleCall cBindingVspecVSpecIDTerminalRuleCall_3_1_0_1 = (RuleCall)cBindingVspecVSpecCrossReference_3_1_0.eContents().get(1);
+		private final Group cGroup_3_2 = (Group)cGroup_3.eContents().get(2);
+		private final Keyword cCommaKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
+		private final Assignment cBindingVspecAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
+		private final CrossReference cBindingVspecVSpecCrossReference_3_2_1_0 = (CrossReference)cBindingVspecAssignment_3_2_1.eContents().get(0);
+		private final RuleCall cBindingVspecVSpecIDTerminalRuleCall_3_2_1_0_1 = (RuleCall)cBindingVspecVSpecCrossReference_3_2_1_0.eContents().get(1);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cPrecedenceConstraintKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cPrecedenceConstraintAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cPrecedenceConstraintVariationPointCrossReference_4_1_0 = (CrossReference)cPrecedenceConstraintAssignment_4_1.eContents().get(0);
+		private final RuleCall cPrecedenceConstraintVariationPointIDTerminalRuleCall_4_1_0_1 = (RuleCall)cPrecedenceConstraintVariationPointCrossReference_4_1_0.eContents().get(1);
+		private final Group cGroup_4_2 = (Group)cGroup_4.eContents().get(2);
+		private final Keyword cCommaKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
+		private final Assignment cPrecedenceConstraintAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
+		private final CrossReference cPrecedenceConstraintVariationPointCrossReference_4_2_1_0 = (CrossReference)cPrecedenceConstraintAssignment_4_2_1.eContents().get(0);
+		private final RuleCall cPrecedenceConstraintVariationPointIDTerminalRuleCall_4_2_1_0_1 = (RuleCall)cPrecedenceConstraintVariationPointCrossReference_4_2_1_0.eContents().get(1);
+		private final Keyword cSlotOwnerKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cSlotOwnerAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cSlotOwnerObjectHandleParserRuleCall_6_0 = (RuleCall)cSlotOwnerAssignment_6.eContents().get(0);
+		private final Keyword cSlotIdentifierKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cSlotIdentifierAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cSlotIdentifierSTRINGTerminalRuleCall_8_0 = (RuleCall)cSlotIdentifierAssignment_8.eContents().get(0);
+		private final Keyword cBindingVariableKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cBindingVariableAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final CrossReference cBindingVariableVariableCrossReference_10_0 = (CrossReference)cBindingVariableAssignment_10.eContents().get(0);
+		private final RuleCall cBindingVariableVariableIDTerminalRuleCall_10_0_1 = (RuleCall)cBindingVariableVariableCrossReference_10_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//ParametricSlotAssignmet:
-		//	"ParametricSlotAssignmet" name=ID "{" "slotIdentifier" slotIdentifier=STRING ("bindingVspec" bindingVspec+=[VSpec]
-		//	("," bindingVspec+=[VSpec])*)? ("precedenceConstraint" precedenceConstraint+=[VariationPoint] (","
-		//	precedenceConstraint+=[VariationPoint])*)? "bindingVariable" bindingVariable=[Variable] "slotOwner"
-		//	slotOwner=ObjectHandle "}";
+		//	"ParametricSlotAssignmet" name=ID "{" ("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)?
+		//	("precedenceConstraint" precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)?
+		//	"slotOwner" slotOwner=ObjectHandle "slotIdentifier" slotIdentifier=STRING "bindingVariable" bindingVariable=[Variable]
+		//	"}";
 		public ParserRule getRule() { return rule; }
 
-		//"ParametricSlotAssignmet" name=ID "{" "slotIdentifier" slotIdentifier=STRING ("bindingVspec" bindingVspec+=[VSpec] (","
-		//bindingVspec+=[VSpec])*)? ("precedenceConstraint" precedenceConstraint+=[VariationPoint] (","
-		//precedenceConstraint+=[VariationPoint])*)? "bindingVariable" bindingVariable=[Variable] "slotOwner"
-		//slotOwner=ObjectHandle "}"
+		//"ParametricSlotAssignmet" name=ID "{" ("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)?
+		//("precedenceConstraint" precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)?
+		//"slotOwner" slotOwner=ObjectHandle "slotIdentifier" slotIdentifier=STRING "bindingVariable" bindingVariable=[Variable]
+		//"}"
 		public Group getGroup() { return cGroup; }
 
 		//"ParametricSlotAssignmet"
@@ -4918,95 +4946,95 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//"slotIdentifier"
-		public Keyword getSlotIdentifierKeyword_3() { return cSlotIdentifierKeyword_3; }
-
-		//slotIdentifier=STRING
-		public Assignment getSlotIdentifierAssignment_4() { return cSlotIdentifierAssignment_4; }
-
-		//STRING
-		public RuleCall getSlotIdentifierSTRINGTerminalRuleCall_4_0() { return cSlotIdentifierSTRINGTerminalRuleCall_4_0; }
-
 		//("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_3() { return cGroup_3; }
 
 		//"bindingVspec"
-		public Keyword getBindingVspecKeyword_5_0() { return cBindingVspecKeyword_5_0; }
+		public Keyword getBindingVspecKeyword_3_0() { return cBindingVspecKeyword_3_0; }
 
 		//bindingVspec+=[VSpec]
-		public Assignment getBindingVspecAssignment_5_1() { return cBindingVspecAssignment_5_1; }
+		public Assignment getBindingVspecAssignment_3_1() { return cBindingVspecAssignment_3_1; }
 
 		//[VSpec]
-		public CrossReference getBindingVspecVSpecCrossReference_5_1_0() { return cBindingVspecVSpecCrossReference_5_1_0; }
+		public CrossReference getBindingVspecVSpecCrossReference_3_1_0() { return cBindingVspecVSpecCrossReference_3_1_0; }
 
 		//ID
-		public RuleCall getBindingVspecVSpecIDTerminalRuleCall_5_1_0_1() { return cBindingVspecVSpecIDTerminalRuleCall_5_1_0_1; }
+		public RuleCall getBindingVspecVSpecIDTerminalRuleCall_3_1_0_1() { return cBindingVspecVSpecIDTerminalRuleCall_3_1_0_1; }
 
 		//("," bindingVspec+=[VSpec])*
-		public Group getGroup_5_2() { return cGroup_5_2; }
+		public Group getGroup_3_2() { return cGroup_3_2; }
 
 		//","
-		public Keyword getCommaKeyword_5_2_0() { return cCommaKeyword_5_2_0; }
+		public Keyword getCommaKeyword_3_2_0() { return cCommaKeyword_3_2_0; }
 
 		//bindingVspec+=[VSpec]
-		public Assignment getBindingVspecAssignment_5_2_1() { return cBindingVspecAssignment_5_2_1; }
+		public Assignment getBindingVspecAssignment_3_2_1() { return cBindingVspecAssignment_3_2_1; }
 
 		//[VSpec]
-		public CrossReference getBindingVspecVSpecCrossReference_5_2_1_0() { return cBindingVspecVSpecCrossReference_5_2_1_0; }
+		public CrossReference getBindingVspecVSpecCrossReference_3_2_1_0() { return cBindingVspecVSpecCrossReference_3_2_1_0; }
 
 		//ID
-		public RuleCall getBindingVspecVSpecIDTerminalRuleCall_5_2_1_0_1() { return cBindingVspecVSpecIDTerminalRuleCall_5_2_1_0_1; }
+		public RuleCall getBindingVspecVSpecIDTerminalRuleCall_3_2_1_0_1() { return cBindingVspecVSpecIDTerminalRuleCall_3_2_1_0_1; }
 
 		//("precedenceConstraint" precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_4() { return cGroup_4; }
 
 		//"precedenceConstraint"
-		public Keyword getPrecedenceConstraintKeyword_6_0() { return cPrecedenceConstraintKeyword_6_0; }
+		public Keyword getPrecedenceConstraintKeyword_4_0() { return cPrecedenceConstraintKeyword_4_0; }
 
 		//precedenceConstraint+=[VariationPoint]
-		public Assignment getPrecedenceConstraintAssignment_6_1() { return cPrecedenceConstraintAssignment_6_1; }
+		public Assignment getPrecedenceConstraintAssignment_4_1() { return cPrecedenceConstraintAssignment_4_1; }
 
 		//[VariationPoint]
-		public CrossReference getPrecedenceConstraintVariationPointCrossReference_6_1_0() { return cPrecedenceConstraintVariationPointCrossReference_6_1_0; }
+		public CrossReference getPrecedenceConstraintVariationPointCrossReference_4_1_0() { return cPrecedenceConstraintVariationPointCrossReference_4_1_0; }
 
 		//ID
-		public RuleCall getPrecedenceConstraintVariationPointIDTerminalRuleCall_6_1_0_1() { return cPrecedenceConstraintVariationPointIDTerminalRuleCall_6_1_0_1; }
+		public RuleCall getPrecedenceConstraintVariationPointIDTerminalRuleCall_4_1_0_1() { return cPrecedenceConstraintVariationPointIDTerminalRuleCall_4_1_0_1; }
 
 		//("," precedenceConstraint+=[VariationPoint])*
-		public Group getGroup_6_2() { return cGroup_6_2; }
+		public Group getGroup_4_2() { return cGroup_4_2; }
 
 		//","
-		public Keyword getCommaKeyword_6_2_0() { return cCommaKeyword_6_2_0; }
+		public Keyword getCommaKeyword_4_2_0() { return cCommaKeyword_4_2_0; }
 
 		//precedenceConstraint+=[VariationPoint]
-		public Assignment getPrecedenceConstraintAssignment_6_2_1() { return cPrecedenceConstraintAssignment_6_2_1; }
+		public Assignment getPrecedenceConstraintAssignment_4_2_1() { return cPrecedenceConstraintAssignment_4_2_1; }
 
 		//[VariationPoint]
-		public CrossReference getPrecedenceConstraintVariationPointCrossReference_6_2_1_0() { return cPrecedenceConstraintVariationPointCrossReference_6_2_1_0; }
+		public CrossReference getPrecedenceConstraintVariationPointCrossReference_4_2_1_0() { return cPrecedenceConstraintVariationPointCrossReference_4_2_1_0; }
 
 		//ID
-		public RuleCall getPrecedenceConstraintVariationPointIDTerminalRuleCall_6_2_1_0_1() { return cPrecedenceConstraintVariationPointIDTerminalRuleCall_6_2_1_0_1; }
-
-		//"bindingVariable"
-		public Keyword getBindingVariableKeyword_7() { return cBindingVariableKeyword_7; }
-
-		//bindingVariable=[Variable]
-		public Assignment getBindingVariableAssignment_8() { return cBindingVariableAssignment_8; }
-
-		//[Variable]
-		public CrossReference getBindingVariableVariableCrossReference_8_0() { return cBindingVariableVariableCrossReference_8_0; }
-
-		//ID
-		public RuleCall getBindingVariableVariableIDTerminalRuleCall_8_0_1() { return cBindingVariableVariableIDTerminalRuleCall_8_0_1; }
+		public RuleCall getPrecedenceConstraintVariationPointIDTerminalRuleCall_4_2_1_0_1() { return cPrecedenceConstraintVariationPointIDTerminalRuleCall_4_2_1_0_1; }
 
 		//"slotOwner"
-		public Keyword getSlotOwnerKeyword_9() { return cSlotOwnerKeyword_9; }
+		public Keyword getSlotOwnerKeyword_5() { return cSlotOwnerKeyword_5; }
 
 		//slotOwner=ObjectHandle
-		public Assignment getSlotOwnerAssignment_10() { return cSlotOwnerAssignment_10; }
+		public Assignment getSlotOwnerAssignment_6() { return cSlotOwnerAssignment_6; }
 
 		//ObjectHandle
-		public RuleCall getSlotOwnerObjectHandleParserRuleCall_10_0() { return cSlotOwnerObjectHandleParserRuleCall_10_0; }
+		public RuleCall getSlotOwnerObjectHandleParserRuleCall_6_0() { return cSlotOwnerObjectHandleParserRuleCall_6_0; }
+
+		//"slotIdentifier"
+		public Keyword getSlotIdentifierKeyword_7() { return cSlotIdentifierKeyword_7; }
+
+		//slotIdentifier=STRING
+		public Assignment getSlotIdentifierAssignment_8() { return cSlotIdentifierAssignment_8; }
+
+		//STRING
+		public RuleCall getSlotIdentifierSTRINGTerminalRuleCall_8_0() { return cSlotIdentifierSTRINGTerminalRuleCall_8_0; }
+
+		//"bindingVariable"
+		public Keyword getBindingVariableKeyword_9() { return cBindingVariableKeyword_9; }
+
+		//bindingVariable=[Variable]
+		public Assignment getBindingVariableAssignment_10() { return cBindingVariableAssignment_10; }
+
+		//[Variable]
+		public CrossReference getBindingVariableVariableCrossReference_10_0() { return cBindingVariableVariableCrossReference_10_0; }
+
+		//ID
+		public RuleCall getBindingVariableVariableIDTerminalRuleCall_10_0_1() { return cBindingVariableVariableIDTerminalRuleCall_10_0_1; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
@@ -6640,12 +6668,13 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cSimpleObjectHandleParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cCompleteObjectHandleParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cEObjectHandleParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//ObjectHandle:
-		//	SimpleObjectHandle | CompleteObjectHandle;
+		//	SimpleObjectHandle | CompleteObjectHandle | EObjectHandle;
 		public ParserRule getRule() { return rule; }
 
-		//SimpleObjectHandle | CompleteObjectHandle
+		//SimpleObjectHandle | CompleteObjectHandle | EObjectHandle
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//SimpleObjectHandle
@@ -6653,6 +6682,9 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 
 		//CompleteObjectHandle
 		public RuleCall getCompleteObjectHandleParserRuleCall_1() { return cCompleteObjectHandleParserRuleCall_1; }
+
+		//EObjectHandle
+		public RuleCall getEObjectHandleParserRuleCall_2() { return cEObjectHandleParserRuleCall_2; }
 	}
 
 	public class SimpleObjectHandleElements extends AbstractParserRuleElementFinder {
@@ -6725,6 +6757,34 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 
 		//")"
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
+	}
+
+	public class EObjectHandleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EObjectHandle");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPlopKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cReferenceAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cReferenceEObjectCrossReference_1_0 = (CrossReference)cReferenceAssignment_1.eContents().get(0);
+		private final RuleCall cReferenceEObjectQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cReferenceEObjectCrossReference_1_0.eContents().get(1);
+		
+		//EObjectHandle returns ObjectHandle:
+		//	"plop" reference=[ecore::EObject|QualifiedName];
+		public ParserRule getRule() { return rule; }
+
+		//"plop" reference=[ecore::EObject|QualifiedName]
+		public Group getGroup() { return cGroup; }
+
+		//"plop"
+		public Keyword getPlopKeyword_0() { return cPlopKeyword_0; }
+
+		//reference=[ecore::EObject|QualifiedName]
+		public Assignment getReferenceAssignment_1() { return cReferenceAssignment_1; }
+
+		//[ecore::EObject|QualifiedName]
+		public CrossReference getReferenceEObjectCrossReference_1_0() { return cReferenceEObjectCrossReference_1_0; }
+
+		//QualifiedName
+		public RuleCall getReferenceEObjectQualifiedNameParserRuleCall_1_0_1() { return cReferenceEObjectQualifiedNameParserRuleCall_1_0_1; }
 	}
 
 	public class FromPlacementElements extends AbstractParserRuleElementFinder {
@@ -7851,6 +7911,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	private VPackageElements pVPackage;
+	private ImportElements pImport;
 	private VPackageableElements pVPackageable;
 	private VSpecDerivationElements pVSpecDerivation;
 	private VSpecElements pVSpec;
@@ -7921,6 +7982,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	private ObjectHandleElements pObjectHandle;
 	private SimpleObjectHandleElements pSimpleObjectHandle;
 	private CompleteObjectHandleElements pCompleteObjectHandle;
+	private EObjectHandleElements pEObjectHandle;
 	private FromPlacementElements pFromPlacement;
 	private FromReplacementElements pFromReplacement;
 	private ObjectSpecificationElements pObjectSpecification;
@@ -7985,13 +8047,23 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//VPackage:
-	//	"VP" name=ID "{" packageElement+=VPackageable* "}";
+	//	"VP" name=ID "{" imports+=Import* packageElement+=VPackageable* "}";
 	public VPackageElements getVPackageAccess() {
 		return (pVPackage != null) ? pVPackage : (pVPackage = new VPackageElements());
 	}
 	
 	public ParserRule getVPackageRule() {
 		return getVPackageAccess().getRule();
+	}
+
+	//Import:
+	//	"import" importURI=STRING;
+	public ImportElements getImportAccess() {
+		return (pImport != null) ? pImport : (pImport = new ImportElements());
+	}
+	
+	public ParserRule getImportRule() {
+		return getImportAccess().getRule();
 	}
 
 	//VPackageable:
@@ -8289,7 +8361,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SimpleVariable returns Variable:
-	//	"Variable" name=ID ":" type=[Variabletype];
+	//	name=ID ":" type=[Variabletype];
 	public SimpleVariableElements getSimpleVariableAccess() {
 		return (pSimpleVariable != null) ? pSimpleVariable : (pSimpleVariable = new SimpleVariableElements());
 	}
@@ -8561,10 +8633,10 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ParametricSlotAssignmet:
-	//	"ParametricSlotAssignmet" name=ID "{" "slotIdentifier" slotIdentifier=STRING ("bindingVspec" bindingVspec+=[VSpec]
-	//	("," bindingVspec+=[VSpec])*)? ("precedenceConstraint" precedenceConstraint+=[VariationPoint] (","
-	//	precedenceConstraint+=[VariationPoint])*)? "bindingVariable" bindingVariable=[Variable] "slotOwner"
-	//	slotOwner=ObjectHandle "}";
+	//	"ParametricSlotAssignmet" name=ID "{" ("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)?
+	//	("precedenceConstraint" precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)?
+	//	"slotOwner" slotOwner=ObjectHandle "slotIdentifier" slotIdentifier=STRING "bindingVariable" bindingVariable=[Variable]
+	//	"}";
 	public ParametricSlotAssignmetElements getParametricSlotAssignmetAccess() {
 		return (pParametricSlotAssignmet != null) ? pParametricSlotAssignmet : (pParametricSlotAssignmet = new ParametricSlotAssignmetElements());
 	}
@@ -8756,7 +8828,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ObjectHandle:
-	//	SimpleObjectHandle | CompleteObjectHandle;
+	//	SimpleObjectHandle | CompleteObjectHandle | EObjectHandle;
 	public ObjectHandleElements getObjectHandleAccess() {
 		return (pObjectHandle != null) ? pObjectHandle : (pObjectHandle = new ObjectHandleElements());
 	}
@@ -8783,6 +8855,16 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getCompleteObjectHandleRule() {
 		return getCompleteObjectHandleAccess().getRule();
+	}
+
+	//EObjectHandle returns ObjectHandle:
+	//	"plop" reference=[ecore::EObject|QualifiedName];
+	public EObjectHandleElements getEObjectHandleAccess() {
+		return (pEObjectHandle != null) ? pEObjectHandle : (pEObjectHandle = new EObjectHandleElements());
+	}
+	
+	public ParserRule getEObjectHandleRule() {
+		return getEObjectHandleAccess().getRule();
 	}
 
 	//FromPlacement:

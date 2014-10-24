@@ -569,6 +569,8 @@
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="packageElement" ordered="false"
           upperBound="-1" eType="#//cvl/VPackageable" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+          eType="#//cvl/Import" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ToBinding" eSuperTypes="#//cvl/BoundaryElementBinding">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -855,6 +857,9 @@
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="substitutes" upperBound="-1"
           eType="#//cvl/ObjectSubstitution"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Import">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

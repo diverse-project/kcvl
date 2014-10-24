@@ -67,6 +67,7 @@ import org.omg.CVLMetamodelMaster.cvl.FragmentSubstitution;
 import org.omg.CVLMetamodelMaster.cvl.FromBinding;
 import org.omg.CVLMetamodelMaster.cvl.FromPlacement;
 import org.omg.CVLMetamodelMaster.cvl.FromReplacement;
+import org.omg.CVLMetamodelMaster.cvl.Import;
 import org.omg.CVLMetamodelMaster.cvl.IntegerLiteralExp;
 import org.omg.CVLMetamodelMaster.cvl.LinkAssignment;
 import org.omg.CVLMetamodelMaster.cvl.LinkExistence;
@@ -243,6 +244,12 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 					return; 
 				}
 				else break;
+			case CvlPackage.IMPORT:
+				if(context == grammarAccess.getImportRule()) {
+					sequence_Import(context, (Import) semanticObject); 
+					return; 
+				}
+				else break;
 			case CvlPackage.INTEGER_LITERAL_EXP:
 				if(context == grammarAccess.getIntegerLiteralExpRule() ||
 				   context == grammarAccess.getOCLExpressionRule()) {
@@ -338,13 +345,17 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 				}
 				else break;
 			case CvlPackage.OBJECT_HANDLE:
-				if(context == grammarAccess.getCompleteObjectHandleRule()) {
+				if(context == grammarAccess.getBaseModelHandleRule() ||
+				   context == grammarAccess.getObjectHandleRule()) {
+					sequence_CompleteObjectHandle_EObjectHandle_ObjectHandle_SimpleObjectHandle(context, (ObjectHandle) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getCompleteObjectHandleRule()) {
 					sequence_CompleteObjectHandle(context, (ObjectHandle) semanticObject); 
 					return; 
 				}
-				else if(context == grammarAccess.getBaseModelHandleRule() ||
-				   context == grammarAccess.getObjectHandleRule()) {
-					sequence_CompleteObjectHandle_ObjectHandle_SimpleObjectHandle(context, (ObjectHandle) semanticObject); 
+				else if(context == grammarAccess.getEObjectHandleRule()) {
+					sequence_EObjectHandle(context, (ObjectHandle) semanticObject); 
 					return; 
 				}
 				else if(context == grammarAccess.getSimpleObjectHandleRule()) {
@@ -1631,18 +1642,18 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (MOFRef=STRING referenceString=STRING)
+	 *     (referenceString=STRING | (MOFRef=STRING referenceString=STRING) | reference=[EObject|QualifiedName])
 	 */
-	protected void sequence_CompleteObjectHandle(EObject context, ObjectHandle semanticObject) {
+	protected void sequence_CompleteObjectHandle_EObjectHandle_ObjectHandle_SimpleObjectHandle(EObject context, ObjectHandle semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (referenceString=STRING | (MOFRef=STRING referenceString=STRING))
+	 *     (MOFRef=STRING referenceString=STRING)
 	 */
-	protected void sequence_CompleteObjectHandle_ObjectHandle_SimpleObjectHandle(EObject context, ObjectHandle semanticObject) {
+	protected void sequence_CompleteObjectHandle(EObject context, ObjectHandle semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1856,6 +1867,15 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     reference=[EObject|QualifiedName]
+	 */
+	protected void sequence_EObjectHandle(EObject context, ObjectHandle semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         name=ID 
 	 *         multi?='[*]' 
@@ -1909,6 +1929,22 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_FromReplacement(EObject context, FromReplacement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     importURI=STRING
+	 */
+	protected void sequence_Import(EObject context, Import semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CvlPackage.Literals.IMPORT__IMPORT_URI) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CvlPackage.Literals.IMPORT__IMPORT_URI));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getImportAccess().getImportURISTRINGTerminalRuleCall_1_0(), semanticObject.getImportURI());
+		feeder.finish();
 	}
 	
 	
@@ -2167,11 +2203,11 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         slotIdentifier=STRING 
 	 *         (bindingVspec+=[VSpec|ID] bindingVspec+=[VSpec|ID]*)? 
 	 *         (precedenceConstraint+=[VariationPoint|ID] precedenceConstraint+=[VariationPoint|ID]*)? 
-	 *         bindingVariable=[Variable|ID] 
-	 *         slotOwner=ObjectHandle
+	 *         slotOwner=ObjectHandle 
+	 *         slotIdentifier=STRING 
+	 *         bindingVariable=[Variable|ID]
 	 *     )
 	 */
 	protected void sequence_ParametricSlotAssignmet(EObject context, ParametricSlotAssignmet semanticObject) {
@@ -2541,7 +2577,7 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID packageElement+=VPackageable*)
+	 *     (name=ID imports+=Import* packageElement+=VPackageable*)
 	 */
 	protected void sequence_VPackage(EObject context, VPackage semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.omg.CVLMetamodelMaster.cvl.CvlPackage;
+import org.omg.CVLMetamodelMaster.cvl.Import;
 import org.omg.CVLMetamodelMaster.cvl.VPackage;
 import org.omg.CVLMetamodelMaster.cvl.VPackageable;
 
@@ -26,6 +27,7 @@ import org.omg.CVLMetamodelMaster.cvl.VPackageable;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.omg.CVLMetamodelMaster.cvl.impl.VPackageImpl#getPackageElement <em>Package Element</em>}</li>
+ *   <li>{@link org.omg.CVLMetamodelMaster.cvl.impl.VPackageImpl#getImports <em>Imports</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,6 +43,16 @@ public class VPackageImpl extends VPackageableImpl implements VPackage {
 	 * @ordered
 	 */
 	protected EList<VPackageable> packageElement;
+
+	/**
+	 * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImports()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Import> imports;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,11 +90,25 @@ public class VPackageImpl extends VPackageableImpl implements VPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Import> getImports() {
+		if (imports == null) {
+			imports = new EObjectContainmentEList<Import>(Import.class, this, CvlPackage.VPACKAGE__IMPORTS);
+		}
+		return imports;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CvlPackage.VPACKAGE__PACKAGE_ELEMENT:
 				return ((InternalEList<?>)getPackageElement()).basicRemove(otherEnd, msgs);
+			case CvlPackage.VPACKAGE__IMPORTS:
+				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,6 +123,8 @@ public class VPackageImpl extends VPackageableImpl implements VPackage {
 		switch (featureID) {
 			case CvlPackage.VPACKAGE__PACKAGE_ELEMENT:
 				return getPackageElement();
+			case CvlPackage.VPACKAGE__IMPORTS:
+				return getImports();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -114,6 +142,10 @@ public class VPackageImpl extends VPackageableImpl implements VPackage {
 				getPackageElement().clear();
 				getPackageElement().addAll((Collection<? extends VPackageable>)newValue);
 				return;
+			case CvlPackage.VPACKAGE__IMPORTS:
+				getImports().clear();
+				getImports().addAll((Collection<? extends Import>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -129,6 +161,9 @@ public class VPackageImpl extends VPackageableImpl implements VPackage {
 			case CvlPackage.VPACKAGE__PACKAGE_ELEMENT:
 				getPackageElement().clear();
 				return;
+			case CvlPackage.VPACKAGE__IMPORTS:
+				getImports().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -143,6 +178,8 @@ public class VPackageImpl extends VPackageableImpl implements VPackage {
 		switch (featureID) {
 			case CvlPackage.VPACKAGE__PACKAGE_ELEMENT:
 				return packageElement != null && !packageElement.isEmpty();
+			case CvlPackage.VPACKAGE__IMPORTS:
+				return imports != null && !imports.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

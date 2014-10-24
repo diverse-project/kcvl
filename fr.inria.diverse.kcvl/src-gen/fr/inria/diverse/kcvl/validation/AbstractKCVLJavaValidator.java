@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.xbase.validation.XbaseJavaValidator;
+import org.eclipse.xtext.validation.ComposedChecks;
 
+@ComposedChecks(validators= {org.eclipse.xtext.validation.ImportUriValidator.class})
 public class AbstractKCVLJavaValidator extends XbaseJavaValidator {
 
 	@Override

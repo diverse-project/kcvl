@@ -230,6 +230,7 @@
       <genClasses ecoreClass="CVLMetamodel.ecore#//cvl/ReplacementFragmentSpecification"/>
       <genClasses ecoreClass="CVLMetamodel.ecore#//cvl/VPackage">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//cvl/VPackage/packageElement"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//cvl/VPackage/imports"/>
       </genClasses>
       <genClasses ecoreClass="CVLMetamodel.ecore#//cvl/ToBinding">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -350,6 +351,9 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//cvl/StructuralOrganisationalPattern/multi"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference CVLMetamodel.ecore#//cvl/StructuralOrganisationalPattern/substitutes"/>
+      </genClasses>
+      <genClasses ecoreClass="CVLMetamodel.ecore#//cvl/Import">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//cvl/Import/importURI"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

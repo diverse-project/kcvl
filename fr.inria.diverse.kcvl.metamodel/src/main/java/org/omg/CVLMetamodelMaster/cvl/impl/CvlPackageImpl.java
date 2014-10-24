@@ -32,6 +32,7 @@ import org.omg.CVLMetamodelMaster.cvl.FragmentSubstitution;
 import org.omg.CVLMetamodelMaster.cvl.FromBinding;
 import org.omg.CVLMetamodelMaster.cvl.FromPlacement;
 import org.omg.CVLMetamodelMaster.cvl.FromReplacement;
+import org.omg.CVLMetamodelMaster.cvl.Import;
 import org.omg.CVLMetamodelMaster.cvl.IntegerLiteralExp;
 import org.omg.CVLMetamodelMaster.cvl.LinkAssignment;
 import org.omg.CVLMetamodelMaster.cvl.LinkExistence;
@@ -653,6 +654,13 @@ public class CvlPackageImpl extends EPackageImpl implements CvlPackage {
 	 * @generated
 	 */
 	private EClass structuralOrganisationalPatternEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass importEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1886,6 +1894,15 @@ public class CvlPackageImpl extends EPackageImpl implements CvlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getVPackage_Imports() {
+		return (EReference)vPackageEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getToBinding() {
 		return toBindingEClass;
 	}
@@ -2597,6 +2614,24 @@ public class CvlPackageImpl extends EPackageImpl implements CvlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getImport() {
+		return importEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getImport_ImportURI() {
+		return (EAttribute)importEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getPrimitiveTypeEnum() {
 		return primitiveTypeEnumEEnum;
 	}
@@ -2814,6 +2849,7 @@ public class CvlPackageImpl extends EPackageImpl implements CvlPackage {
 
 		vPackageEClass = createEClass(VPACKAGE);
 		createEReference(vPackageEClass, VPACKAGE__PACKAGE_ELEMENT);
+		createEReference(vPackageEClass, VPACKAGE__IMPORTS);
 
 		toBindingEClass = createEClass(TO_BINDING);
 		createEReference(toBindingEClass, TO_BINDING__TO_PLACEMENT);
@@ -2923,6 +2959,9 @@ public class CvlPackageImpl extends EPackageImpl implements CvlPackage {
 		structuralOrganisationalPatternEClass = createEClass(STRUCTURAL_ORGANISATIONAL_PATTERN);
 		createEAttribute(structuralOrganisationalPatternEClass, STRUCTURAL_ORGANISATIONAL_PATTERN__MULTI);
 		createEReference(structuralOrganisationalPatternEClass, STRUCTURAL_ORGANISATIONAL_PATTERN__SUBSTITUTES);
+
+		importEClass = createEClass(IMPORT);
+		createEAttribute(importEClass, IMPORT__IMPORT_URI);
 
 		// Create enums
 		primitiveTypeEnumEEnum = createEEnum(PRIMITIVE_TYPE_ENUM);
@@ -3206,6 +3245,7 @@ public class CvlPackageImpl extends EPackageImpl implements CvlPackage {
 
 		initEClass(vPackageEClass, VPackage.class, "VPackage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVPackage_PackageElement(), this.getVPackageable(), null, "packageElement", null, 0, -1, VPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVPackage_Imports(), this.getImport(), null, "imports", null, 0, -1, VPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(toBindingEClass, ToBinding.class, "ToBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getToBinding_ToPlacement(), this.getToPlacement(), null, "toPlacement", null, 1, 1, ToBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -3315,6 +3355,9 @@ public class CvlPackageImpl extends EPackageImpl implements CvlPackage {
 		initEClass(structuralOrganisationalPatternEClass, StructuralOrganisationalPattern.class, "StructuralOrganisationalPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStructuralOrganisationalPattern_Multi(), ecorePackage.getEBoolean(), "multi", null, 1, 1, StructuralOrganisationalPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getStructuralOrganisationalPattern_Substitutes(), this.getObjectSubstitution(), null, "substitutes", null, 0, -1, StructuralOrganisationalPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getImport_ImportURI(), ecorePackage.getEString(), "importURI", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(primitiveTypeEnumEEnum, PrimitiveTypeEnum.class, "PrimitiveTypeEnum");

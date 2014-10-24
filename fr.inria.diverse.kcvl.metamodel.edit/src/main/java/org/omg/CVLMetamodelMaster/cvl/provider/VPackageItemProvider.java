@@ -63,6 +63,7 @@ public class VPackageItemProvider extends VPackageableItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CvlPackage.Literals.VPACKAGE__PACKAGE_ELEMENT);
+			childrenFeatures.add(CvlPackage.Literals.VPACKAGE__IMPORTS);
 		}
 		return childrenFeatures;
 	}
@@ -119,6 +120,7 @@ public class VPackageItemProvider extends VPackageableItemProvider {
 
 		switch (notification.getFeatureID(VPackage.class)) {
 			case CvlPackage.VPACKAGE__PACKAGE_ELEMENT:
+			case CvlPackage.VPACKAGE__IMPORTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -330,6 +332,11 @@ public class VPackageItemProvider extends VPackageableItemProvider {
 			(createChildParameter
 				(CvlPackage.Literals.VPACKAGE__PACKAGE_ELEMENT,
 				 CvlFactory.eINSTANCE.createStructuralOrganisationalPattern()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CvlPackage.Literals.VPACKAGE__IMPORTS,
+				 CvlFactory.eINSTANCE.createImport()));
 	}
 
 }

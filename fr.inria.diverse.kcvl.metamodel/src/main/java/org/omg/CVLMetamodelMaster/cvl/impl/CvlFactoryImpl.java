@@ -123,6 +123,7 @@ public class CvlFactoryImpl extends EFactoryImpl implements CvlFactory {
 			case CvlPackage.PATTERN_INTEGRATION: return createPatternIntegration();
 			case CvlPackage.PATTERN_FUSION: return createPatternFusion();
 			case CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN: return createStructuralOrganisationalPattern();
+			case CvlPackage.IMPORT: return createImport();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -820,6 +821,16 @@ public class CvlFactoryImpl extends EFactoryImpl implements CvlFactory {
 	public StructuralOrganisationalPattern createStructuralOrganisationalPattern() {
 		StructuralOrganisationalPatternImpl structuralOrganisationalPattern = new StructuralOrganisationalPatternImpl();
 		return structuralOrganisationalPattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Import createImport() {
+		ImportImpl import_ = new ImportImpl();
+		return import_;
 	}
 
 	/**

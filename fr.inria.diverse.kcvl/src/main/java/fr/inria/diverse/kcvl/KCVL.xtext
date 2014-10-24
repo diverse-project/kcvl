@@ -5,8 +5,13 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 VPackage returns VPackage:
 	'VP' name = ID '{'
+		(imports += Import)*
 		(packageElement += VPackageable)*
 	'}'
+;
+
+Import returns Import:
+	'import' importURI = STRING
 ;
 
 VPackageable returns VPackageable:
@@ -588,15 +593,19 @@ ToReplacement returns ToReplacement:
 ;
 
 ObjectHandle returns ObjectHandle:
-	SimpleObjectHandle | CompleteObjectHandle
+	SimpleObjectHandle | CompleteObjectHandle | EObjectHandle
 ;
 
 SimpleObjectHandle returns ObjectHandle:
-	referenceString = STRING
+	referenceString = STRING // "X.uml#//umlID"
 ;
 
 CompleteObjectHandle returns ObjectHandle:
 	'(' 'mofRef' ':' MOFRef = STRING ',' 'reference' ':' referenceString = STRING ')'
+;
+
+EObjectHandle returns ObjectHandle:
+	reference = [ecore::EObject | QualifiedName]
 ;
 
 FromPlacement returns FromPlacement:
@@ -722,7 +731,7 @@ enum PrimitiveTypeEnum returns PrimitiveTypeEnum:
 ;
 
 LinkHandle returns LinkHandle:
-	SimpleLinkHandle | CompleteLinkHandle
+	SimpleLinkHandle | CompleteLinkHandle | EObjectLinkHandle
 ;
 
 SimpleLinkHandle returns LinkHandle:
@@ -731,6 +740,10 @@ SimpleLinkHandle returns LinkHandle:
 
 CompleteLinkHandle returns LinkHandle:
 	'(' 'linkMofRef' ':' MOFRef = STRING ',' 'reference' ':' referenceString = STRING ')'
+;
+
+EObjectLinkHandle returns LinkHandle:
+	reference = [ecore::EObject | QualifiedName]
 ;
 
 BaseModelHandle_Impl returns BaseModelHandle:

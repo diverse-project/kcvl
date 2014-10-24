@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.omg.CVLMetamodelMaster.cvl.VPackage#getPackageElement <em>Package Element</em>}</li>
+ *   <li>{@link org.omg.CVLMetamodelMaster.cvl.VPackage#getImports <em>Imports</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,5 +41,21 @@ public interface VPackage extends VPackageable {
 	 * @generated
 	 */
 	EList<VPackageable> getPackageElement();
+
+	/**
+	 * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
+	 * The list contents are of type {@link org.omg.CVLMetamodelMaster.cvl.Import}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Imports</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Imports</em>' containment reference list.
+	 * @see org.omg.CVLMetamodelMaster.cvl.CvlPackage#getVPackage_Imports()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Import> getImports();
 
 } // VPackage
