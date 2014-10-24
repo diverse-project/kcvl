@@ -247,16 +247,16 @@ class Derivator
 			ctx.selectedVPs.add(o)
 	}
 
-	def private boolean evaluateHasChoiceExpression(EObject o, boolean result) {
-		return switch o {
-			RestrictionRuleset: {
-				o.rule.forall[evaluateHasChoiceExpression(it, result)]
-			}
-			RestrictionRule: {
-				evaluateHasChoiceExpression(o.expression, result)
-			}
-			BinExpression: {
-				switch o.op.value {
+	def private dispatch boolean evaluateHasChoiceExpression(RestrictionRuleset o, boolean result) {
+		return o.rule.forall[evaluateHasChoiceExpression(it, result)]
+	}
+
+	def private dispatch boolean evaluateHasChoiceExpression(RestrictionRule o, boolean result) {
+		return evaluateHasChoiceExpression(o.expression, result)
+	}
+
+	def private dispatch boolean evaluateHasChoiceExpression(BinExpression o, boolean result) {
+		return switch o.op.value {
 					case Operator::OR.value:
 						evaluateHasChoiceExpression(o.left, result) || evaluateHasChoiceExpression(o.right, result)
 					case Operator::XOR.value:
@@ -265,19 +265,22 @@ class Derivator
 						evaluateHasChoiceExpression(o.left, result) && evaluateHasChoiceExpression(o.right, result)
 					default: false
 				}
-			}
-			UnaryExpression: {
-				if (o.op.value == UnaryOperator::NOT.value)
+	}
+
+	def private dispatch boolean evaluateHasChoiceExpression(UnaryExpression o, boolean result) {
+		return if (o.op.value == UnaryOperator::NOT.value)
 					!evaluateHasChoiceExpression(o.left, result)
 				else
 					evaluateHasChoiceExpression(o.left, result)
-			}
-			HasChoice: {
-				if (o.condition != null) evaluateHasChoiceExpression(o.condition, true) else true
+	}
+
+	def private dispatch boolean evaluateHasChoiceExpression(HasChoice o, boolean result) {
+		return if (o.condition != null) evaluateHasChoiceExpression(o.condition, true) else true
 				&& ctxs.exists[selectedChoices.exists[name == o.choiceName]]
-			}
-			BinCondition: {
-				switch o.op.value {
+	}
+
+	def private dispatch boolean evaluateHasChoiceExpression(BinCondition o, boolean result) {
+		return switch o.op.value {
 					case Operator::OR.value:
 						evaluateHasChoiceExpression(o.left, result) || evaluateHasChoiceExpression(o.right, result)
 					case Operator::XOR.value:
@@ -286,51 +289,54 @@ class Derivator
 						evaluateHasChoiceExpression(o.left, result) && evaluateHasChoiceExpression(o.right, result)
 					default: false
 				}
-			}
-			ConditionExpression: {
-				var vlist = ctx.choiceParameter.keySet.filter[name == o.featureAttibuteName]
-	
-				if (!vlist.empty) {
-					val valuespec = ctx.choiceParameter.get(vlist.take(0)).value as PrimitiveValueSpecification
-					val typename = valuespec.type.name
+	}
 
-					if ("int".equalsIgnoreCase(typename) || "integer".equalsIgnoreCase(typename)) {
-						val value = Integer::parseInt(valuespec.value)
-						val value1 = Integer::parseInt(o.value)
-						
-						switch o.op.value {
-							case CompareOperator::EQ.value:
-								value == value1
-							case CompareOperator::INF.value:
-								value1 < value
-							case CompareOperator::INFEQ.value:
-								value1 <= value
-							case CompareOperator::SUP.value:
-								value1 > value
-							case CompareOperator::SUPEQ.value:
-								value1 >= value
-						}
-					} else {
-						var value = valuespec.value
-						var value1 = o.value
-						
-						switch o.op.value {
-							case CompareOperator::EQ.value:
-								value1.equals(value)
-							case CompareOperator::INF.value:
-								value1.compareTo(value) < 0
-							case CompareOperator::INFEQ.value:
-								value1.compareTo(value) <= 0
-							case CompareOperator::SUP.value:
-								value1.compareTo(value) > 0
-							case CompareOperator::SUPEQ.value:
-								value1.compareTo(value) >= 0
-						}
+	def private dispatch boolean evaluateHasChoiceExpression(ConditionExpression o, boolean result) {
+		var vlist = ctx.choiceParameter.keySet.filter[name == o.featureAttibuteName]
+
+		return
+			if (!vlist.empty) {
+				val valuespec = ctx.choiceParameter.get(vlist.take(0)).value as PrimitiveValueSpecification
+				val typename = valuespec.type.name
+
+				if ("int".equalsIgnoreCase(typename) || "integer".equalsIgnoreCase(typename)) {
+					val value = Integer::parseInt(valuespec.value)
+					val value1 = Integer::parseInt(o.value)
+
+					switch o.op.value {
+						case CompareOperator::EQ.value:
+							value == value1
+						case CompareOperator::INF.value:
+							value1 < value
+						case CompareOperator::INFEQ.value:
+							value1 <= value
+						case CompareOperator::SUP.value:
+							value1 > value
+						case CompareOperator::SUPEQ.value:
+							value1 >= value
+					}
+				} else {
+					var value = valuespec.value
+					var value1 = o.value
+
+					switch o.op.value {
+						case CompareOperator::EQ.value:
+							value1.equals(value)
+						case CompareOperator::INF.value:
+							value1.compareTo(value) < 0
+						case CompareOperator::INFEQ.value:
+							value1.compareTo(value) <= 0
+						case CompareOperator::SUP.value:
+							value1.compareTo(value) > 0
+						case CompareOperator::SUPEQ.value:
+							value1.compareTo(value) >= 0
 					}
 				}
 			}
-			default: result
-		}
+	}
+
+	def private dispatch boolean evaluateHasChoiceExpression(EObject o, boolean result) {
+		return result
 	}
 
 	def private void executeDerivation(VariationPoint o) {
