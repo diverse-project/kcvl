@@ -19,6 +19,8 @@
 		<module>../fr.inria.diverse.kcvl.p2updatesite</module>
 		<module>../fr.inria.diverse.kcvl.interpreter</module>
 		<module>../fr.inria.diverse.kcvl.derivationengine</module>
+		<module>../fr.inria.diverse.kcvl.uml.xtext</module>
+		<module>../fr.inria.diverse.kcvl.uml.xtext.ui</module>
 		<module>../org.eclipse.emf.diffmerge.patterns</module>
 	</modules>
 
@@ -34,6 +36,8 @@
 		<kepler-repo.url>http://download.eclipse.org/releases/kepler/</kepler-repo.url>
 		<juno-repo.url>http://download.eclipse.org/releases/juno/</juno-repo.url>
 		<sirius-repo.url>http://download.eclipse.org/sirius/updates/releases/1.0.1/luna</sirius-repo.url>
+		<!-- for org.eclipse.uml2.uml >= 5.0 -->
+		<modeling-repo.url>http://www.eclipse.org/modeling/updates/releases/</modeling-repo.url>
 		<groovy-repo.url>http://dist.springsource.org/release/GRECLIPSE/e4.2/</groovy-repo.url>
 	</properties>
 	
@@ -86,6 +90,17 @@
 			<id>groovy</id>
 			<layout>p2</layout>
 			<url>${groovy-repo.url}</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>modeling</id>
+			<layout>p2</layout>
+			<url>${modeling-repo.url}</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
