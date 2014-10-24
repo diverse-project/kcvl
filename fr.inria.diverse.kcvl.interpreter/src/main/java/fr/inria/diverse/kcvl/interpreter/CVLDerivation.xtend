@@ -171,80 +171,80 @@ class Derivator
 				ctx.choiceParameterC.put(variableContainer, Collections::singletonList(o.resolvedVariable))
 	}
 
-	def private void findBinding(EObject o) {
-		switch o {
-			VPackage: {
-				o.packageElement.forEach[it.findBinding]
-			}
-			VClassifier: {
-				o.child.forEach[it.findBinding]
-			}
-			ConfigurableUnit: {
-				o.ownedVariationPoint.forEach[it.findBinding]
-			}
-			ChoiceVariationPoint: {
-				val bind = o.bindingChoice
-				val exp = o.mappingExpression
-				
-				if (
-					   bind != null && !bind.empty && ctx.selectedChoices.containsAll(bind)
-					&& (exp == null || exp == "")
-				)
-					ctx.selectedVPs.add(o)
-				else if (
-					   ctx.unselectedChoices.containsAll(bind)
-					&& (exp == null || exp == "")
-				)
-					ctx.unselectedVPs.add(o)
-				else if (exp != null && exp != "") {
-					val temp = File::createTempFile(o.name, ".cvlmappingvaribilitychoice")
-					val stream = new FileOutputStream(temp)
-					val pr = new PrintWriter(stream)
-					
-					pr.write('''
-						«o.name» {
-							«o.name» : «exp»
-						}
-					''')
-					
-					pr.flush
-					pr.close
-					stream.close
-					
-					if (resourceSet == null) {
-						val injector = new CvlmappingvaribilitychoiceStandaloneSetup().createInjectorAndDoEMFRegistration
-						
-						if (!EPackage$Registry::INSTANCE.containsKey(Fd2assetsPackage::eINSTANCE.nsURI))
-							EPackage$Registry::INSTANCE.put(Fd2assetsPackage::eINSTANCE.nsURI, Fd2assetsPackage::eINSTANCE)
-						
-						val factory = injector.getInstance(typeof(IResourceFactory))
-						val provider = injector.getInstance(typeof(IResourceServiceProvider))
-						
-						Resource$Factory$Registry::INSTANCE.extensionToFactoryMap.put("cvlmappingvaribilitychoice", factory)
-						IResourceServiceProvider$Registry::INSTANCE.extensionToFactoryMap.put("CM", provider)
-						
-						resourceSet = injector.getInstance(typeof(XtextResourceSet))
-					}
-					
-					val uri = URI::createFileURI(temp.absolutePath)
-					val res = resourceSet.getResource(uri, true)
-					
-					EcoreUtil::resolveAll(res)
-					
-					if (evaluateHasChoiceExpression(res.contents.head, true))
-						ctx.selectedVPs.add(o)
-					else
-						ctx.unselectedVPs.add(o)
+	def private dispatch void findBinding(VPackage o) {
+		o.packageElement.forEach[it.findBinding]
+	}
+
+	def private dispatch void findBinding(VClassifier o) {
+		o.child.forEach[it.findBinding]
+	}
+
+	def private dispatch void findBinding(ConfigurableUnit o) {
+		o.ownedVariationPoint.forEach[it.findBinding]
+	}
+
+	def private dispatch void findBinding(ChoiceVariationPoint o) {
+		val bind = o.bindingChoice
+		val exp = o.mappingExpression
+
+		if (
+			   bind != null && !bind.empty && ctx.selectedChoices.containsAll(bind)
+			&& (exp == null || exp == "")
+		)
+			ctx.selectedVPs.add(o)
+		else if (
+			   ctx.unselectedChoices.containsAll(bind)
+			&& (exp == null || exp == "")
+		)
+			ctx.unselectedVPs.add(o)
+		else if (exp != null && exp != "") {
+			val temp = File::createTempFile(o.name, ".cvlmappingvaribilitychoice")
+			val stream = new FileOutputStream(temp)
+			val pr = new PrintWriter(stream)
+
+			pr.write('''
+				«o.name» {
+					«o.name» : «exp»
 				}
+			''')
+
+			pr.flush
+			pr.close
+			stream.close
+
+			if (resourceSet == null) {
+				val injector = new CvlmappingvaribilitychoiceStandaloneSetup().createInjectorAndDoEMFRegistration
+
+				if (!EPackage$Registry::INSTANCE.containsKey(Fd2assetsPackage::eINSTANCE.nsURI))
+					EPackage$Registry::INSTANCE.put(Fd2assetsPackage::eINSTANCE.nsURI, Fd2assetsPackage::eINSTANCE)
+
+				val factory = injector.getInstance(typeof(IResourceFactory))
+				val provider = injector.getInstance(typeof(IResourceServiceProvider))
+
+				Resource$Factory$Registry::INSTANCE.extensionToFactoryMap.put("cvlmappingvaribilitychoice", factory)
+				IResourceServiceProvider$Registry::INSTANCE.extensionToFactoryMap.put("CM", provider)
+
+				resourceSet = injector.getInstance(typeof(XtextResourceSet))
 			}
-			ParametricVariationPoint: {
-				if (
-					   o.bindingVariable.eContainer instanceof Choice
-					&& ctx.selectedChoices.contains(o.bindingVariable.eContainer as Choice)
-				)
-					ctx.selectedVPs.add(o)
-			}
+
+			val uri = URI::createFileURI(temp.absolutePath)
+			val res = resourceSet.getResource(uri, true)
+
+			EcoreUtil::resolveAll(res)
+
+			if (evaluateHasChoiceExpression(res.contents.head, true))
+				ctx.selectedVPs.add(o)
+			else
+				ctx.unselectedVPs.add(o)
 		}
+	}
+
+	def private dispatch void findBinding(ParametricVariationPoint o) {
+		if (
+			   o.bindingVariable.eContainer instanceof Choice
+			&& ctx.selectedChoices.contains(o.bindingVariable.eContainer as Choice)
+		)
+			ctx.selectedVPs.add(o)
 	}
 
 	def private boolean evaluateHasChoiceExpression(EObject o, boolean result) {
