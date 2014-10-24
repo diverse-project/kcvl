@@ -60,6 +60,7 @@ import org.varymde.CvlmappingvaribilitychoiceStandaloneSetup
 import static extension org.eclipse.xtext.xbase.lib.BooleanExtensions.*
 import org.omg.CVLMetamodelMaster.cvl.PatternIntegration
 import org.omg.CVLMetamodelMaster.cvl.PatternIntegration
+import org.omg.CVLMetamodelMaster.cvl.SlotAssignment
 
 /**
  * Derive a target product starting from a root VPackage
@@ -337,15 +338,11 @@ class Derivator
 			ObjectExistence: {
 				o.optionalObject.forEach[notSelected.add(reference)]
 			}
-			ParametricSlotAssignmet: {
-				val obj = o.slotOwner.reference
-
-				if (
-					   !obj.eClass.EAllStructuralFeatures.empty
-					&& ctx.choiceParameter.get(o.bindingVariable).value instanceof PrimitiveValueSpecification
-				) {
-					val valueSpec = ctx.choiceParameter.get(o.bindingVariable) as PrimitiveValueSpecification
-					val struct = obj.eClass.EAllStructuralFeatures.findFirst[name.toLowerCase == o.slotIdentifier.toLowerCase]
+			SlotAssignment: {
+				if (o.value instanceof PrimitiveValueSpecification) {
+					val obj = o.slotOwner.reference
+					val valueSpec = o.value as PrimitiveValueSpecification
+					val feature = obj.eClass.EAllStructuralFeatures.findFirst[name.toLowerCase == o.slotIdentifier.toLowerCase]
 					val valueToSet =
 						switch valueSpec.type.name {
 							case "Integer": Integer::parseInt(valueSpec.value.trim)
@@ -355,7 +352,30 @@ class Derivator
 							default: valueSpec.value
 						}
 					
-					obj.eSet(struct, valueToSet)
+					if (feature != null)
+						obj.eSet(feature, valueToSet)
+				}
+			}
+			ParametricSlotAssignmet: {
+				val obj = o.slotOwner.reference
+
+				if (
+					   !obj.eClass.EAllStructuralFeatures.empty
+					&& ctx.choiceParameter.get(o.bindingVariable).value instanceof PrimitiveValueSpecification
+				) {
+					val valueSpec = ctx.choiceParameter.get(o.bindingVariable) as PrimitiveValueSpecification
+					val feature = obj.eClass.EAllStructuralFeatures.findFirst[name.toLowerCase == o.slotIdentifier.toLowerCase]
+					val valueToSet =
+						switch valueSpec.type.name {
+							case "Integer": Integer::parseInt(valueSpec.value.trim)
+							case "Boolean": Boolean::parseBoolean(valueSpec.value.trim)
+							case "Real": Double::parseDouble(valueSpec.value.trim)
+							case "String": valueSpec.value
+							default: valueSpec.value
+						}
+					
+					if (feature != null)
+						obj.eSet(feature, valueToSet)
 				}
 			}
 			ObjectSubstitution: {
