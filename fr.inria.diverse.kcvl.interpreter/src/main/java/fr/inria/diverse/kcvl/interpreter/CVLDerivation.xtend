@@ -135,40 +135,40 @@ class Derivator
 			toRemove.forEach[semanticDelete.delete(it)]
 	}
 
-	def private void populateChoiceResolution(EObject o) {
-		switch o {
-			VPackage: {
-				o.packageElement.forEach[it.populateChoiceResolution]
-			}
-			VInstance: {
-				val oldCtx = ctx
-				ctx = new Context
-				ctxs.add(ctx)
-				o.child.forEach[it.populateChoiceResolution]
-				ctx = oldCtx
-			}
-			ChoiceResolutuion: {
-				if (o.decision) {
-					ctx.selectedChoices.add(o.resolvedChoice)
-					ctx.currentChoice = o.resolvedChoice
-				} else {
-					ctx.unselectedChoices.add(o.resolvedChoice)
-				}
-			}
-			VConfiguration: {
-				o.member.forEach[it.populateChoiceResolution]
-			}
-			VariableValueAssignment: {
-				val variableContainer = o.resolvedVariable.eContainer as Choice
-				ctx.choiceParameter.put(o.resolvedVariable, o)
-				
-				if (variableContainer != null)
-					if (ctx.choiceParameterC.containsKey(variableContainer))
-						ctx.choiceParameterC.get(variableContainer).add(o.resolvedVariable)
-					else
-						ctx.choiceParameterC.put(variableContainer, Collections::singletonList(o.resolvedVariable))
-			}
+	def private dispatch void populateChoiceResolution(VPackage o) {
+		o.packageElement.forEach[it.populateChoiceResolution]
+	}
+
+	def private dispatch void populateChoiceResolution(VInstance o) {
+		val oldCtx = ctx
+		ctx = new Context
+		ctxs.add(ctx)
+		o.child.forEach[it.populateChoiceResolution]
+		ctx = oldCtx
+	}
+
+	def private dispatch void populateChoiceResolution(ChoiceResolutuion o) {
+		if (o.decision) {
+			ctx.selectedChoices.add(o.resolvedChoice)
+			ctx.currentChoice = o.resolvedChoice
+		} else {
+			ctx.unselectedChoices.add(o.resolvedChoice)
 		}
+	}
+
+	def private dispatch void populateChoiceResolution(VConfiguration o) {
+		o.member.forEach[it.populateChoiceResolution]
+	}
+
+	def private dispatch void populateChoiceResolution(VariableValueAssignment o) {
+		val variableContainer = o.resolvedVariable.eContainer as Choice
+		ctx.choiceParameter.put(o.resolvedVariable, o)
+
+		if (variableContainer != null)
+			if (ctx.choiceParameterC.containsKey(variableContainer))
+				ctx.choiceParameterC.get(variableContainer).add(o.resolvedVariable)
+			else
+				ctx.choiceParameterC.put(variableContainer, Collections::singletonList(o.resolvedVariable))
 	}
 
 	def private void findBinding(EObject o) {
