@@ -14,13 +14,13 @@
 		<module>../fr.inria.diverse.kcvl.ui</module>
 		<module>../fr.inria.diverse.kcvl.fd2assets</module>
 		<module>../fr.inria.diverse.kcvl.cvlmappingvaribilitychoice</module>
-		<module>../fr.inria.diverse.kcvl.movidaderivation</module>
 		<module>../fr.inria.diverse.kcvl.sdk</module>
 		<module>../fr.inria.diverse.kcvl.p2updatesite</module>
 		<module>../fr.inria.diverse.kcvl.interpreter</module>
 		<module>../fr.inria.diverse.kcvl.derivationengine</module>
 		<module>../fr.inria.diverse.kcvl.uml.xtext</module>
 		<module>../fr.inria.diverse.kcvl.uml.xtext.ui</module>
+		<module>../fr.inria.diverse.kcvl.extensions</module>
 		<module>../org.eclipse.emf.diffmerge.patterns</module>
 	</modules>
 
