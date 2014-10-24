@@ -517,65 +517,47 @@ class Derivator
 		// TODO: We do nothing with the result?!
 	}
 
-	def void substituteObject(EObject obj) {
-	    if (obj != null) {
-	      val List<EStructuralFeature> props  = new ArrayList<EStructuralFeature>()
-	     
-	      
-	      
-	      props.addAll(
-	        obj.eClass().getEAllReferences().filter[prop |  prop.isContainment() ])
-	      props.forEach[prop | 
-	        var o = obj.eGet(prop as EStructuralFeature, true)
-	        if ((prop as EStructuralFeature).isMany) {
-	          var List<? extends  EObject> col = o as List<? extends  EObject>
-	          var it1 = 0
-	          while (it1 < col.size())
-	          {
-	            
-	            this.substituteObject(col.get(it1) as EObject)
-	            it1=it1+1
-	          }
-	        } else {
-	        	if (o instanceof EObject)
-		          substituteObject(o as EObject)
-	        }
-	        
-	      ]
-	      
-	      props.clear
-	      
-	      props.addAll(obj.eClass().getEAllStructuralFeatures().filter[prop | !prop.isDerived() && !prop.isTransient()])
-	     props.forEach[prop | 
-	        val o = obj.eGet(prop as EStructuralFeature, true)
-	        if ((prop as EStructuralFeature).isMany) {
-	          val  List<EObject> col =  new ArrayList< EObject>()
-	          col.addAll(o as List<? extends  EObject>)
-	          if (col != null) {
-	            val colleToRemove = new ArrayList< EObject>()
-	            col.forEach[o1 | 
-	              if (ctx.objectSubstitutions.keySet().exists[objtoremove | objtoremove.equals(o1)]) {
-	                colleToRemove.add(o1) 
-	              }
-	            ]
-	            
-	            colleToRemove.forEach[EObject element |  col.remove(element); col.add(ctx.objectSubstitutions.get(element)) ]
-	
-	            //else
-	            //	stdio.writeln("col est nulle " + o.toString)
-	          
-	        } else {
-	          if (ctx.objectSubstitutions.keySet().exists[objtoremove |  objtoremove.equals(o) ]) {
-	            obj.eSet(prop as EStructuralFeature, ctx.objectSubstitutions.get(o))
-	          }
-	        }
-	      
-	      }
-	      ]
-	      
-	      }
-	}       
-  
+	def private void substituteObject(EObject obj) {
+		if (obj == null)
+			return;
+
+		obj.eClass.EAllReferences
+		.filter[containment]
+		.forEach[ref |
+			val o = obj.eGet(ref, true)
+
+			if (o != null)
+				if (ref.many) {
+					val values = o as List<? extends EObject>
+					values.forEach[substituteObject(it)]
+				} else if (o instanceof EObject)
+					substituteObject(o as EObject)
+		]
+
+		obj.eClass.EAllStructuralFeatures
+		.filter[!derived && !transient]
+		.forEach[ref |
+			val o = obj.eGet(ref, true)
+
+			if (o != null)
+				if (ref.many) {
+					val values = o as List<? extends EObject>
+					val toRemove = newArrayList
+
+					values.forEach[v |
+						if (ctx.objectSubstitutions.keySet.exists[it.equals(v)])
+							toRemove += v
+					]
+
+					toRemove.forEach[r |
+						values.remove(r)
+						values += ctx.objectSubstitutions.get(r)
+					]
+				} else if (ctx.objectSubstitutions.keySet.exists[it.equals(o)])
+					obj.eSet(ref, ctx.objectSubstitutions.get(o))
+		]
+	}
+
 
   def void fixReference(EObject obj)  {
     if (obj != null) {
