@@ -5417,8 +5417,28 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class OCLConstraintElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "OCLConstraint");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cSimpleOCLConstraintParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cComplexOCLConstraintParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//OCLConstraint:
+		//	SimpleOCLConstraint | ComplexOCLConstraint;
+		public ParserRule getRule() { return rule; }
+
+		//SimpleOCLConstraint | ComplexOCLConstraint
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//SimpleOCLConstraint
+		public RuleCall getSimpleOCLConstraintParserRuleCall_0() { return cSimpleOCLConstraintParserRuleCall_0; }
+
+		//ComplexOCLConstraint
+		public RuleCall getComplexOCLConstraintParserRuleCall_1() { return cComplexOCLConstraintParserRuleCall_1; }
+	}
+
+	public class ComplexOCLConstraintElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ComplexOCLConstraint");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cOCLConstraintKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cConstraintKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
@@ -5433,15 +5453,15 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpressionOCLExpressionParserRuleCall_4_1_0 = (RuleCall)cExpressionAssignment_4_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//OCLConstraint:
-		//	"OCLConstraint" name=ID "{" ("context" context=[VSpec])? ("expression" expression+=OCLExpression)* "}";
+		//ComplexOCLConstraint returns OCLConstraint:
+		//	"constraint" name=ID "{" ("context" context=[VSpec])? ("expression" expression+=OCLExpression)* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"OCLConstraint" name=ID "{" ("context" context=[VSpec])? ("expression" expression+=OCLExpression)* "}"
+		//"constraint" name=ID "{" ("context" context=[VSpec])? ("expression" expression+=OCLExpression)* "}"
 		public Group getGroup() { return cGroup; }
 
-		//"OCLConstraint"
-		public Keyword getOCLConstraintKeyword_0() { return cOCLConstraintKeyword_0; }
+		//"constraint"
+		public Keyword getConstraintKeyword_0() { return cConstraintKeyword_0; }
 
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -5481,6 +5501,46 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+
+	public class SimpleOCLConstraintElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SimpleOCLConstraint");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cConstraintKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cExpressionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cExpressionOCLExpressionParserRuleCall_1_0 = (RuleCall)cExpressionAssignment_1.eContents().get(0);
+		private final Keyword cOnKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cContextAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cContextVSpecCrossReference_3_0 = (CrossReference)cContextAssignment_3.eContents().get(0);
+		private final RuleCall cContextVSpecIDTerminalRuleCall_3_0_1 = (RuleCall)cContextVSpecCrossReference_3_0.eContents().get(1);
+		
+		//SimpleOCLConstraint returns OCLConstraint:
+		//	"constraint" expression+=OCLExpression "on" context=[VSpec];
+		public ParserRule getRule() { return rule; }
+
+		//"constraint" expression+=OCLExpression "on" context=[VSpec]
+		public Group getGroup() { return cGroup; }
+
+		//"constraint"
+		public Keyword getConstraintKeyword_0() { return cConstraintKeyword_0; }
+
+		//expression+=OCLExpression
+		public Assignment getExpressionAssignment_1() { return cExpressionAssignment_1; }
+
+		//OCLExpression
+		public RuleCall getExpressionOCLExpressionParserRuleCall_1_0() { return cExpressionOCLExpressionParserRuleCall_1_0; }
+
+		//"on"
+		public Keyword getOnKeyword_2() { return cOnKeyword_2; }
+
+		//context=[VSpec]
+		public Assignment getContextAssignment_3() { return cContextAssignment_3; }
+
+		//[VSpec]
+		public CrossReference getContextVSpecCrossReference_3_0() { return cContextVSpecCrossReference_3_0; }
+
+		//ID
+		public RuleCall getContextVSpecIDTerminalRuleCall_3_0_1() { return cContextVSpecIDTerminalRuleCall_3_0_1; }
 	}
 
 	public class PatternIntegrationElements extends AbstractParserRuleElementFinder {
@@ -7848,6 +7908,8 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	private CVSpecDerivationElements pCVSpecDerivation;
 	private ConfigurableUnitUsageElements pConfigurableUnitUsage;
 	private OCLConstraintElements pOCLConstraint;
+	private ComplexOCLConstraintElements pComplexOCLConstraint;
+	private SimpleOCLConstraintElements pSimpleOCLConstraint;
 	private PatternIntegrationElements pPatternIntegration;
 	private PatternFusionElements pPatternFusion;
 	private StructuralOrganisationalPatternElements pStructuralOrganisationalPattern;
@@ -8560,13 +8622,33 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//OCLConstraint:
-	//	"OCLConstraint" name=ID "{" ("context" context=[VSpec])? ("expression" expression+=OCLExpression)* "}";
+	//	SimpleOCLConstraint | ComplexOCLConstraint;
 	public OCLConstraintElements getOCLConstraintAccess() {
 		return (pOCLConstraint != null) ? pOCLConstraint : (pOCLConstraint = new OCLConstraintElements());
 	}
 	
 	public ParserRule getOCLConstraintRule() {
 		return getOCLConstraintAccess().getRule();
+	}
+
+	//ComplexOCLConstraint returns OCLConstraint:
+	//	"constraint" name=ID "{" ("context" context=[VSpec])? ("expression" expression+=OCLExpression)* "}";
+	public ComplexOCLConstraintElements getComplexOCLConstraintAccess() {
+		return (pComplexOCLConstraint != null) ? pComplexOCLConstraint : (pComplexOCLConstraint = new ComplexOCLConstraintElements());
+	}
+	
+	public ParserRule getComplexOCLConstraintRule() {
+		return getComplexOCLConstraintAccess().getRule();
+	}
+
+	//SimpleOCLConstraint returns OCLConstraint:
+	//	"constraint" expression+=OCLExpression "on" context=[VSpec];
+	public SimpleOCLConstraintElements getSimpleOCLConstraintAccess() {
+		return (pSimpleOCLConstraint != null) ? pSimpleOCLConstraint : (pSimpleOCLConstraint = new SimpleOCLConstraintElements());
+	}
+	
+	public ParserRule getSimpleOCLConstraintRule() {
+		return getSimpleOCLConstraintAccess().getRule();
 	}
 
 	//PatternIntegration:

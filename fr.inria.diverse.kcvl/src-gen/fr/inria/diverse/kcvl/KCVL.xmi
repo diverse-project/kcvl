@@ -89,9 +89,9 @@
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.50"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.51"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.55"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.57"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.58"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.59"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.60"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.61"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="BoundaryElementBinding">
@@ -99,8 +99,8 @@
         <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//BoundaryElementBinding"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.62"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.63"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.64"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.65"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="PlacementBoundaryElement">
@@ -108,8 +108,8 @@
         <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//PlacementBoundaryElement"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.64"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.69"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.71"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ReplacementBoundaryElement">
@@ -117,8 +117,8 @@
         <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//ReplacementBoundaryElement"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.65"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.70"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.67"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.72"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ValueSpecification">
@@ -126,9 +126,9 @@
         <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//ValueSpecification"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.71"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.72"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.73"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.74"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.75"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Variabletype">
@@ -156,8 +156,8 @@
         <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//BaseModelHandle"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.88"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.90"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="OCLExpression">
@@ -165,8 +165,6 @@
         <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//OCLExpression"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.76"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.77"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.78"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.79"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.80"/>
@@ -174,6 +172,8 @@
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.82"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.83"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.84"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.85"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.86"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Choice">
@@ -186,7 +186,7 @@
           <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
         </elements>
         <elements xsi:type="xtext:Assignment" cardinality="?" feature="groupMultiplicity" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.60"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.62"/>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="{"/>
@@ -250,7 +250,7 @@
           <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
         </elements>
         <elements xsi:type="xtext:Assignment" cardinality="?" feature="groupMultiplicity" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.60"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.62"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="{"/>
         <elements xsi:type="xtext:Group" cardinality="?">
@@ -267,7 +267,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="instanceMultiplicity"/>
         <elements xsi:type="xtext:Assignment" feature="instanceMultiplicity" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.60"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.62"/>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Assignment" feature="child" operator="+=">
@@ -300,7 +300,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="="/>
         <elements xsi:type="xtext:Assignment" feature="decision" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.61"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.63"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="for"/>
         <elements xsi:type="xtext:Assignment" feature="resolvedChoice" operator="=">
@@ -340,7 +340,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="="/>
         <elements xsi:type="xtext:Assignment" feature="decision" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.61"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.63"/>
         </elements>
       </alternatives>
     </rules>
@@ -705,11 +705,11 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="placement"/>
         <elements xsi:type="xtext:Assignment" feature="placementObject" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="replacement"/>
         <elements xsi:type="xtext:Assignment" feature="replacementObject" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -726,11 +726,11 @@
         <elements xsi:type="xtext:Keyword" value="{"/>
         <elements xsi:type="xtext:Keyword" value="role"/>
         <elements xsi:type="xtext:Assignment" feature="placementObject" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="target"/>
         <elements xsi:type="xtext:Assignment" feature="replacementObject" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -803,7 +803,7 @@
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="groupMultiplicity"/>
           <elements xsi:type="xtext:Assignment" feature="groupMultiplicity" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.60"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.62"/>
           </elements>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
@@ -912,7 +912,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value=":"/>
         <elements xsi:type="xtext:Assignment" feature="type" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.87"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.89"/>
         </elements>
       </alternatives>
     </rules>
@@ -1097,7 +1097,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="SlotOwner"/>
         <elements xsi:type="xtext:Assignment" feature="SlotOwner" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -1193,7 +1193,7 @@
         <elements xsi:type="xtext:Group" cardinality="*">
           <elements xsi:type="xtext:Keyword" value="exist"/>
           <elements xsi:type="xtext:Assignment" feature="optionalObject" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
           </elements>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
@@ -1289,7 +1289,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="link"/>
         <elements xsi:type="xtext:Assignment" feature="link" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.88"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.90"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="linkEndIdentifier"/>
         <elements xsi:type="xtext:Assignment" feature="linkEndIdentifier" operator="=">
@@ -1297,7 +1297,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="newEnd"/>
         <elements xsi:type="xtext:Assignment" feature="newEnd" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="choice"/>
@@ -1438,7 +1438,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="configurableContainerObject"/>
         <elements xsi:type="xtext:Assignment" feature="configurableContainerObject" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -1543,7 +1543,7 @@
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="groupMultiplicity"/>
           <elements xsi:type="xtext:Assignment" feature="groupMultiplicity" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.60"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.62"/>
           </elements>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
@@ -1724,7 +1724,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="link"/>
         <elements xsi:type="xtext:Assignment" feature="optionalLink" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.88"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.90"/>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="choice"/>
@@ -1855,7 +1855,7 @@
         <elements xsi:type="xtext:Group" cardinality="*">
           <elements xsi:type="xtext:Keyword" value="sourceObject"/>
           <elements xsi:type="xtext:Assignment" feature="sourceObject" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
           </elements>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
@@ -1873,7 +1873,7 @@
         <elements xsi:type="xtext:Keyword" value="{"/>
         <elements xsi:type="xtext:Keyword" value="spec"/>
         <elements xsi:type="xtext:Assignment" feature="spec" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.92"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.94"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -1972,7 +1972,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="slotOwner"/>
         <elements xsi:type="xtext:Assignment" feature="slotOwner" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -2046,7 +2046,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="link"/>
         <elements xsi:type="xtext:Assignment" feature="link" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.88"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.90"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -2116,7 +2116,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="placementObject"/>
         <elements xsi:type="xtext:Assignment" feature="placementObject" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -2190,7 +2190,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="slotOwner"/>
         <elements xsi:type="xtext:Assignment" feature="slotOwner" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -2356,7 +2356,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="usageReference"/>
         <elements xsi:type="xtext:Assignment" feature="usageReference" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.88"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.90"/>
         </elements>
         <elements xsi:type="xtext:Group">
           <elements xsi:type="xtext:Keyword" value="children"/>
@@ -2373,8 +2373,17 @@
       <type metamodel="/0/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//OCLConstraint"/>
       </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.58"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.57"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ComplexOCLConstraint">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//OCLConstraint"/>
+      </type>
       <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Keyword" value="OCLConstraint"/>
+        <elements xsi:type="xtext:Keyword" value="constraint"/>
         <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
         </elements>
@@ -2397,6 +2406,26 @@
           </elements>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="SimpleOCLConstraint">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//OCLConstraint"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="constraint"/>
+        <elements xsi:type="xtext:Assignment" feature="expression" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="on"/>
+        <elements xsi:type="xtext:Assignment" feature="context" operator="=">
+          <terminal xsi:type="xtext:CrossReference">
+            <type metamodel="/0/@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//VSpec"/>
+            </type>
+            <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
+          </terminal>
+        </elements>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="PatternIntegration">
@@ -2872,14 +2901,14 @@
           <elements xsi:type="xtext:Keyword" value="insideBoundaryElement"/>
           <elements xsi:type="xtext:Keyword" value="{"/>
           <elements xsi:type="xtext:Assignment" cardinality="*" feature="insideBoundaryElement" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
           </elements>
           <elements xsi:type="xtext:Keyword" value="}"/>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="outsideBoundaryElement"/>
           <elements xsi:type="xtext:Assignment" feature="outsideBoundaryElement" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
           </elements>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
@@ -2901,14 +2930,14 @@
           <elements xsi:type="xtext:Keyword" value="insideBoundaryElement"/>
           <elements xsi:type="xtext:Keyword" value="{"/>
           <elements xsi:type="xtext:Assignment" cardinality="*" feature="insideBoundaryElement" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
           </elements>
           <elements xsi:type="xtext:Keyword" value="}"/>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="toPlacement"/>
           <elements xsi:type="xtext:Assignment" feature="toPlacement" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.64"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
           </elements>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
@@ -2919,8 +2948,8 @@
         <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//ObjectHandle"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.67"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.69"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.70"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="SimpleObjectHandle">
@@ -2978,7 +3007,7 @@
           <elements xsi:type="xtext:Keyword" value="outsideBoundaryElement"/>
           <elements xsi:type="xtext:Keyword" value="{"/>
           <elements xsi:type="xtext:Assignment" cardinality="*" feature="outsideBoundaryElement" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
           </elements>
           <elements xsi:type="xtext:Keyword" value="}"/>
         </elements>
@@ -3010,14 +3039,14 @@
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="insideBoundaryElement"/>
           <elements xsi:type="xtext:Assignment" feature="insideBoundaryElement" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
           </elements>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="outsideBoundaryElement"/>
           <elements xsi:type="xtext:Keyword" value="{"/>
           <elements xsi:type="xtext:Assignment" cardinality="*" feature="outsideBoundaryElement" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.66"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
           </elements>
           <elements xsi:type="xtext:Keyword" value="}"/>
         </elements>
@@ -3076,8 +3105,8 @@
         <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//PrimitiveValueSpecification"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.74"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.75"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.76"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.77"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="SimplePrimitiveValueSpecification">
@@ -3149,7 +3178,7 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" feature="operation" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.85"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.87"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="("/>
         <elements xsi:type="xtext:Group" cardinality="?">
@@ -3241,7 +3270,7 @@
         <elements xsi:type="xtext:Keyword" value="{"/>
         <elements xsi:type="xtext:Keyword" value="real"/>
         <elements xsi:type="xtext:Assignment" feature="real" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.86"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.88"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -3380,8 +3409,8 @@
         <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//LinkHandle"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.89"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.90"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.91"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.92"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="SimpleLinkHandle">

@@ -1589,9 +1589,65 @@ ruleOCLConstraint
     }
 	:
 (
-{ before(grammarAccess.getOCLConstraintAccess().getGroup()); }
-(rule__OCLConstraint__Group__0)
-{ after(grammarAccess.getOCLConstraintAccess().getGroup()); }
+{ before(grammarAccess.getOCLConstraintAccess().getAlternatives()); }
+(rule__OCLConstraint__Alternatives)
+{ after(grammarAccess.getOCLConstraintAccess().getAlternatives()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+// Entry rule entryRuleComplexOCLConstraint
+entryRuleComplexOCLConstraint 
+:
+{ before(grammarAccess.getComplexOCLConstraintRule()); }
+	 ruleComplexOCLConstraint
+{ after(grammarAccess.getComplexOCLConstraintRule()); } 
+	 EOF 
+;
+
+// Rule ComplexOCLConstraint
+ruleComplexOCLConstraint
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getComplexOCLConstraintAccess().getGroup()); }
+(rule__ComplexOCLConstraint__Group__0)
+{ after(grammarAccess.getComplexOCLConstraintAccess().getGroup()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+// Entry rule entryRuleSimpleOCLConstraint
+entryRuleSimpleOCLConstraint 
+:
+{ before(grammarAccess.getSimpleOCLConstraintRule()); }
+	 ruleSimpleOCLConstraint
+{ after(grammarAccess.getSimpleOCLConstraintRule()); } 
+	 EOF 
+;
+
+// Rule SimpleOCLConstraint
+ruleSimpleOCLConstraint
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getSimpleOCLConstraintAccess().getGroup()); }
+(rule__SimpleOCLConstraint__Group__0)
+{ after(grammarAccess.getSimpleOCLConstraintAccess().getGroup()); }
 )
 
 ;
@@ -4938,6 +4994,28 @@ rule__VariableValueAssignment__Alternatives
 { before(grammarAccess.getVariableValueAssignmentAccess().getComplexVariableValueAssignmentParserRuleCall_1()); }
 	ruleComplexVariableValueAssignment
 { after(grammarAccess.getVariableValueAssignmentAccess().getComplexVariableValueAssignmentParserRuleCall_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__OCLConstraint__Alternatives
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getOCLConstraintAccess().getSimpleOCLConstraintParserRuleCall_0()); }
+	ruleSimpleOCLConstraint
+{ after(grammarAccess.getOCLConstraintAccess().getSimpleOCLConstraintParserRuleCall_0()); }
+)
+
+    |(
+{ before(grammarAccess.getOCLConstraintAccess().getComplexOCLConstraintParserRuleCall_1()); }
+	ruleComplexOCLConstraint
+{ after(grammarAccess.getOCLConstraintAccess().getComplexOCLConstraintParserRuleCall_1()); }
 )
 
 ;
@@ -28075,29 +28153,29 @@ finally {
 
 
 
-rule__OCLConstraint__Group__0
+rule__ComplexOCLConstraint__Group__0
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__OCLConstraint__Group__0__Impl
-	rule__OCLConstraint__Group__1
+	rule__ComplexOCLConstraint__Group__0__Impl
+	rule__ComplexOCLConstraint__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__OCLConstraint__Group__0__Impl
+rule__ComplexOCLConstraint__Group__0__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getOCLConstraintAccess().getOCLConstraintKeyword_0()); }
+{ before(grammarAccess.getComplexOCLConstraintAccess().getConstraintKeyword_0()); }
 
-	'OCLConstraint' 
+	'constraint' 
 
-{ after(grammarAccess.getOCLConstraintAccess().getOCLConstraintKeyword_0()); }
+{ after(grammarAccess.getComplexOCLConstraintAccess().getConstraintKeyword_0()); }
 )
 
 ;
@@ -28106,27 +28184,27 @@ finally {
 }
 
 
-rule__OCLConstraint__Group__1
+rule__ComplexOCLConstraint__Group__1
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__OCLConstraint__Group__1__Impl
-	rule__OCLConstraint__Group__2
+	rule__ComplexOCLConstraint__Group__1__Impl
+	rule__ComplexOCLConstraint__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__OCLConstraint__Group__1__Impl
+rule__ComplexOCLConstraint__Group__1__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getOCLConstraintAccess().getNameAssignment_1()); }
-(rule__OCLConstraint__NameAssignment_1)
-{ after(grammarAccess.getOCLConstraintAccess().getNameAssignment_1()); }
+{ before(grammarAccess.getComplexOCLConstraintAccess().getNameAssignment_1()); }
+(rule__ComplexOCLConstraint__NameAssignment_1)
+{ after(grammarAccess.getComplexOCLConstraintAccess().getNameAssignment_1()); }
 )
 
 ;
@@ -28135,29 +28213,29 @@ finally {
 }
 
 
-rule__OCLConstraint__Group__2
+rule__ComplexOCLConstraint__Group__2
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__OCLConstraint__Group__2__Impl
-	rule__OCLConstraint__Group__3
+	rule__ComplexOCLConstraint__Group__2__Impl
+	rule__ComplexOCLConstraint__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__OCLConstraint__Group__2__Impl
+rule__ComplexOCLConstraint__Group__2__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getOCLConstraintAccess().getLeftCurlyBracketKeyword_2()); }
+{ before(grammarAccess.getComplexOCLConstraintAccess().getLeftCurlyBracketKeyword_2()); }
 
 	'{' 
 
-{ after(grammarAccess.getOCLConstraintAccess().getLeftCurlyBracketKeyword_2()); }
+{ after(grammarAccess.getComplexOCLConstraintAccess().getLeftCurlyBracketKeyword_2()); }
 )
 
 ;
@@ -28166,27 +28244,27 @@ finally {
 }
 
 
-rule__OCLConstraint__Group__3
+rule__ComplexOCLConstraint__Group__3
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__OCLConstraint__Group__3__Impl
-	rule__OCLConstraint__Group__4
+	rule__ComplexOCLConstraint__Group__3__Impl
+	rule__ComplexOCLConstraint__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__OCLConstraint__Group__3__Impl
+rule__ComplexOCLConstraint__Group__3__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getOCLConstraintAccess().getGroup_3()); }
-(rule__OCLConstraint__Group_3__0)?
-{ after(grammarAccess.getOCLConstraintAccess().getGroup_3()); }
+{ before(grammarAccess.getComplexOCLConstraintAccess().getGroup_3()); }
+(rule__ComplexOCLConstraint__Group_3__0)?
+{ after(grammarAccess.getComplexOCLConstraintAccess().getGroup_3()); }
 )
 
 ;
@@ -28195,27 +28273,27 @@ finally {
 }
 
 
-rule__OCLConstraint__Group__4
+rule__ComplexOCLConstraint__Group__4
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__OCLConstraint__Group__4__Impl
-	rule__OCLConstraint__Group__5
+	rule__ComplexOCLConstraint__Group__4__Impl
+	rule__ComplexOCLConstraint__Group__5
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__OCLConstraint__Group__4__Impl
+rule__ComplexOCLConstraint__Group__4__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getOCLConstraintAccess().getGroup_4()); }
-(rule__OCLConstraint__Group_4__0)*
-{ after(grammarAccess.getOCLConstraintAccess().getGroup_4()); }
+{ before(grammarAccess.getComplexOCLConstraintAccess().getGroup_4()); }
+(rule__ComplexOCLConstraint__Group_4__0)*
+{ after(grammarAccess.getComplexOCLConstraintAccess().getGroup_4()); }
 )
 
 ;
@@ -28224,28 +28302,28 @@ finally {
 }
 
 
-rule__OCLConstraint__Group__5
+rule__ComplexOCLConstraint__Group__5
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__OCLConstraint__Group__5__Impl
+	rule__ComplexOCLConstraint__Group__5__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__OCLConstraint__Group__5__Impl
+rule__ComplexOCLConstraint__Group__5__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getOCLConstraintAccess().getRightCurlyBracketKeyword_5()); }
+{ before(grammarAccess.getComplexOCLConstraintAccess().getRightCurlyBracketKeyword_5()); }
 
 	'}' 
 
-{ after(grammarAccess.getOCLConstraintAccess().getRightCurlyBracketKeyword_5()); }
+{ after(grammarAccess.getComplexOCLConstraintAccess().getRightCurlyBracketKeyword_5()); }
 )
 
 ;
@@ -28266,29 +28344,29 @@ finally {
 
 
 
-rule__OCLConstraint__Group_3__0
+rule__ComplexOCLConstraint__Group_3__0
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__OCLConstraint__Group_3__0__Impl
-	rule__OCLConstraint__Group_3__1
+	rule__ComplexOCLConstraint__Group_3__0__Impl
+	rule__ComplexOCLConstraint__Group_3__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__OCLConstraint__Group_3__0__Impl
+rule__ComplexOCLConstraint__Group_3__0__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getOCLConstraintAccess().getContextKeyword_3_0()); }
+{ before(grammarAccess.getComplexOCLConstraintAccess().getContextKeyword_3_0()); }
 
 	'context' 
 
-{ after(grammarAccess.getOCLConstraintAccess().getContextKeyword_3_0()); }
+{ after(grammarAccess.getComplexOCLConstraintAccess().getContextKeyword_3_0()); }
 )
 
 ;
@@ -28297,26 +28375,26 @@ finally {
 }
 
 
-rule__OCLConstraint__Group_3__1
+rule__ComplexOCLConstraint__Group_3__1
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__OCLConstraint__Group_3__1__Impl
+	rule__ComplexOCLConstraint__Group_3__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__OCLConstraint__Group_3__1__Impl
+rule__ComplexOCLConstraint__Group_3__1__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getOCLConstraintAccess().getContextAssignment_3_1()); }
-(rule__OCLConstraint__ContextAssignment_3_1)
-{ after(grammarAccess.getOCLConstraintAccess().getContextAssignment_3_1()); }
+{ before(grammarAccess.getComplexOCLConstraintAccess().getContextAssignment_3_1()); }
+(rule__ComplexOCLConstraint__ContextAssignment_3_1)
+{ after(grammarAccess.getComplexOCLConstraintAccess().getContextAssignment_3_1()); }
 )
 
 ;
@@ -28329,29 +28407,29 @@ finally {
 
 
 
-rule__OCLConstraint__Group_4__0
+rule__ComplexOCLConstraint__Group_4__0
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__OCLConstraint__Group_4__0__Impl
-	rule__OCLConstraint__Group_4__1
+	rule__ComplexOCLConstraint__Group_4__0__Impl
+	rule__ComplexOCLConstraint__Group_4__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__OCLConstraint__Group_4__0__Impl
+rule__ComplexOCLConstraint__Group_4__0__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getOCLConstraintAccess().getExpressionKeyword_4_0()); }
+{ before(grammarAccess.getComplexOCLConstraintAccess().getExpressionKeyword_4_0()); }
 
 	'expression' 
 
-{ after(grammarAccess.getOCLConstraintAccess().getExpressionKeyword_4_0()); }
+{ after(grammarAccess.getComplexOCLConstraintAccess().getExpressionKeyword_4_0()); }
 )
 
 ;
@@ -28360,32 +28438,159 @@ finally {
 }
 
 
-rule__OCLConstraint__Group_4__1
+rule__ComplexOCLConstraint__Group_4__1
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__OCLConstraint__Group_4__1__Impl
+	rule__ComplexOCLConstraint__Group_4__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__OCLConstraint__Group_4__1__Impl
+rule__ComplexOCLConstraint__Group_4__1__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getOCLConstraintAccess().getExpressionAssignment_4_1()); }
-(rule__OCLConstraint__ExpressionAssignment_4_1)
-{ after(grammarAccess.getOCLConstraintAccess().getExpressionAssignment_4_1()); }
+{ before(grammarAccess.getComplexOCLConstraintAccess().getExpressionAssignment_4_1()); }
+(rule__ComplexOCLConstraint__ExpressionAssignment_4_1)
+{ after(grammarAccess.getComplexOCLConstraintAccess().getExpressionAssignment_4_1()); }
 )
 
 ;
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+
+
+
+
+rule__SimpleOCLConstraint__Group__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__SimpleOCLConstraint__Group__0__Impl
+	rule__SimpleOCLConstraint__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SimpleOCLConstraint__Group__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSimpleOCLConstraintAccess().getConstraintKeyword_0()); }
+
+	'constraint' 
+
+{ after(grammarAccess.getSimpleOCLConstraintAccess().getConstraintKeyword_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__SimpleOCLConstraint__Group__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__SimpleOCLConstraint__Group__1__Impl
+	rule__SimpleOCLConstraint__Group__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SimpleOCLConstraint__Group__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSimpleOCLConstraintAccess().getExpressionAssignment_1()); }
+(rule__SimpleOCLConstraint__ExpressionAssignment_1)
+{ after(grammarAccess.getSimpleOCLConstraintAccess().getExpressionAssignment_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__SimpleOCLConstraint__Group__2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__SimpleOCLConstraint__Group__2__Impl
+	rule__SimpleOCLConstraint__Group__3
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SimpleOCLConstraint__Group__2__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSimpleOCLConstraintAccess().getOnKeyword_2()); }
+
+	'on' 
+
+{ after(grammarAccess.getSimpleOCLConstraintAccess().getOnKeyword_2()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__SimpleOCLConstraint__Group__3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__SimpleOCLConstraint__Group__3__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SimpleOCLConstraint__Group__3__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSimpleOCLConstraintAccess().getContextAssignment_3()); }
+(rule__SimpleOCLConstraint__ContextAssignment_3)
+{ after(grammarAccess.getSimpleOCLConstraintAccess().getContextAssignment_3()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
 
 
 
@@ -51788,14 +51993,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__OCLConstraint__NameAssignment_1
+rule__ComplexOCLConstraint__NameAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getOCLConstraintAccess().getNameIDTerminalRuleCall_1_0()); }
-	RULE_ID{ after(grammarAccess.getOCLConstraintAccess().getNameIDTerminalRuleCall_1_0()); }
+{ before(grammarAccess.getComplexOCLConstraintAccess().getNameIDTerminalRuleCall_1_0()); }
+	RULE_ID{ after(grammarAccess.getComplexOCLConstraintAccess().getNameIDTerminalRuleCall_1_0()); }
 )
 
 ;
@@ -51803,18 +52008,18 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__OCLConstraint__ContextAssignment_3_1
+rule__ComplexOCLConstraint__ContextAssignment_3_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getOCLConstraintAccess().getContextVSpecCrossReference_3_1_0()); }
+{ before(grammarAccess.getComplexOCLConstraintAccess().getContextVSpecCrossReference_3_1_0()); }
 (
-{ before(grammarAccess.getOCLConstraintAccess().getContextVSpecIDTerminalRuleCall_3_1_0_1()); }
-	RULE_ID{ after(grammarAccess.getOCLConstraintAccess().getContextVSpecIDTerminalRuleCall_3_1_0_1()); }
+{ before(grammarAccess.getComplexOCLConstraintAccess().getContextVSpecIDTerminalRuleCall_3_1_0_1()); }
+	RULE_ID{ after(grammarAccess.getComplexOCLConstraintAccess().getContextVSpecIDTerminalRuleCall_3_1_0_1()); }
 )
-{ after(grammarAccess.getOCLConstraintAccess().getContextVSpecCrossReference_3_1_0()); }
+{ after(grammarAccess.getComplexOCLConstraintAccess().getContextVSpecCrossReference_3_1_0()); }
 )
 
 ;
@@ -51822,14 +52027,48 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__OCLConstraint__ExpressionAssignment_4_1
+rule__ComplexOCLConstraint__ExpressionAssignment_4_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getOCLConstraintAccess().getExpressionOCLExpressionParserRuleCall_4_1_0()); }
-	ruleOCLExpression{ after(grammarAccess.getOCLConstraintAccess().getExpressionOCLExpressionParserRuleCall_4_1_0()); }
+{ before(grammarAccess.getComplexOCLConstraintAccess().getExpressionOCLExpressionParserRuleCall_4_1_0()); }
+	ruleOCLExpression{ after(grammarAccess.getComplexOCLConstraintAccess().getExpressionOCLExpressionParserRuleCall_4_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SimpleOCLConstraint__ExpressionAssignment_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSimpleOCLConstraintAccess().getExpressionOCLExpressionParserRuleCall_1_0()); }
+	ruleOCLExpression{ after(grammarAccess.getSimpleOCLConstraintAccess().getExpressionOCLExpressionParserRuleCall_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SimpleOCLConstraint__ContextAssignment_3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSimpleOCLConstraintAccess().getContextVSpecCrossReference_3_0()); }
+(
+{ before(grammarAccess.getSimpleOCLConstraintAccess().getContextVSpecIDTerminalRuleCall_3_0_1()); }
+	RULE_ID{ after(grammarAccess.getSimpleOCLConstraintAccess().getContextVSpecIDTerminalRuleCall_3_0_1()); }
+)
+{ after(grammarAccess.getSimpleOCLConstraintAccess().getContextVSpecCrossReference_3_0()); }
 )
 
 ;

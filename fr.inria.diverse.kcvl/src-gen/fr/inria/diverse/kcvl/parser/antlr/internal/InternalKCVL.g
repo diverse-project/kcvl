@@ -6947,19 +6947,59 @@ ruleOCLConstraint returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='OCLConstraint' 
+(
+    { 
+        newCompositeNode(grammarAccess.getOCLConstraintAccess().getSimpleOCLConstraintParserRuleCall_0()); 
+    }
+    this_SimpleOCLConstraint_0=ruleSimpleOCLConstraint
+    { 
+        $current = $this_SimpleOCLConstraint_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getOCLConstraintAccess().getComplexOCLConstraintParserRuleCall_1()); 
+    }
+    this_ComplexOCLConstraint_1=ruleComplexOCLConstraint
+    { 
+        $current = $this_ComplexOCLConstraint_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleComplexOCLConstraint
+entryRuleComplexOCLConstraint returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getComplexOCLConstraintRule()); }
+	 iv_ruleComplexOCLConstraint=ruleComplexOCLConstraint 
+	 { $current=$iv_ruleComplexOCLConstraint.current; } 
+	 EOF 
+;
+
+// Rule ComplexOCLConstraint
+ruleComplexOCLConstraint returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='constraint' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getOCLConstraintAccess().getOCLConstraintKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getComplexOCLConstraintAccess().getConstraintKeyword_0());
     }
 (
 (
 		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_name_1_0, grammarAccess.getOCLConstraintAccess().getNameIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getComplexOCLConstraintAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getOCLConstraintRule());
+	            $current = createModelElement(grammarAccess.getComplexOCLConstraintRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -6971,37 +7011,37 @@ ruleOCLConstraint returns [EObject current=null]
 )
 )	otherlv_2='{' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getOCLConstraintAccess().getLeftCurlyBracketKeyword_2());
+    	newLeafNode(otherlv_2, grammarAccess.getComplexOCLConstraintAccess().getLeftCurlyBracketKeyword_2());
     }
 (	otherlv_3='context' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getOCLConstraintAccess().getContextKeyword_3_0());
+    	newLeafNode(otherlv_3, grammarAccess.getComplexOCLConstraintAccess().getContextKeyword_3_0());
     }
 (
 (
 		{
 			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getOCLConstraintRule());
+	            $current = createModelElement(grammarAccess.getComplexOCLConstraintRule());
 	        }
         }
 	otherlv_4=RULE_ID
 	{
-		newLeafNode(otherlv_4, grammarAccess.getOCLConstraintAccess().getContextVSpecCrossReference_3_1_0()); 
+		newLeafNode(otherlv_4, grammarAccess.getComplexOCLConstraintAccess().getContextVSpecCrossReference_3_1_0()); 
 	}
 
 )
 ))?(	otherlv_5='expression' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getOCLConstraintAccess().getExpressionKeyword_4_0());
+    	newLeafNode(otherlv_5, grammarAccess.getComplexOCLConstraintAccess().getExpressionKeyword_4_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getOCLConstraintAccess().getExpressionOCLExpressionParserRuleCall_4_1_0()); 
+	        newCompositeNode(grammarAccess.getComplexOCLConstraintAccess().getExpressionOCLExpressionParserRuleCall_4_1_0()); 
 	    }
 		lv_expression_6_0=ruleOCLExpression		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getOCLConstraintRule());
+	            $current = createModelElementForParent(grammarAccess.getComplexOCLConstraintRule());
 	        }
        		add(
        			$current, 
@@ -7014,9 +7054,69 @@ ruleOCLConstraint returns [EObject current=null]
 )
 ))*	otherlv_7='}' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getOCLConstraintAccess().getRightCurlyBracketKeyword_5());
+    	newLeafNode(otherlv_7, grammarAccess.getComplexOCLConstraintAccess().getRightCurlyBracketKeyword_5());
     }
 )
+;
+
+
+
+
+
+// Entry rule entryRuleSimpleOCLConstraint
+entryRuleSimpleOCLConstraint returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getSimpleOCLConstraintRule()); }
+	 iv_ruleSimpleOCLConstraint=ruleSimpleOCLConstraint 
+	 { $current=$iv_ruleSimpleOCLConstraint.current; } 
+	 EOF 
+;
+
+// Rule SimpleOCLConstraint
+ruleSimpleOCLConstraint returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='constraint' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getSimpleOCLConstraintAccess().getConstraintKeyword_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSimpleOCLConstraintAccess().getExpressionOCLExpressionParserRuleCall_1_0()); 
+	    }
+		lv_expression_1_0=ruleOCLExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSimpleOCLConstraintRule());
+	        }
+       		add(
+       			$current, 
+       			"expression",
+        		lv_expression_1_0, 
+        		"OCLExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_2='on' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getSimpleOCLConstraintAccess().getOnKeyword_2());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSimpleOCLConstraintRule());
+	        }
+        }
+	otherlv_3=RULE_ID
+	{
+		newLeafNode(otherlv_3, grammarAccess.getSimpleOCLConstraintAccess().getContextVSpecCrossReference_3_0()); 
+	}
+
+)
+))
 ;
 
 

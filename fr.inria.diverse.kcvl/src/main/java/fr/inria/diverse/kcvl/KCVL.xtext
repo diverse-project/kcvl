@@ -486,11 +486,19 @@ ConfigurableUnitUsage returns ConfigurableUnitUsage:
 	'}'
 ;
 
-OCLConstraint returns OCLConstraint:
-	'OCLConstraint' name = ID '{'
+OCLConstraint:
+	SimpleOCLConstraint | ComplexOCLConstraint
+;
+
+ComplexOCLConstraint returns OCLConstraint:
+	'constraint' name = ID '{'
 		('context' context = [VSpec])?
 		('expression' expression += OCLExpression)*
 	'}'
+;
+
+SimpleOCLConstraint returns OCLConstraint:
+	'constraint' expression += OCLExpression 'on' context = [VSpec]
 ;
 
 PatternIntegration returns PatternIntegration:

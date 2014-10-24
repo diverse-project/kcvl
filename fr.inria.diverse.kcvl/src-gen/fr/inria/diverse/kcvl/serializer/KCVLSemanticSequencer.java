@@ -295,10 +295,18 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 				}
 				else break;
 			case CvlPackage.OCL_CONSTRAINT:
-				if(context == grammarAccess.getConstraintRule() ||
+				if(context == grammarAccess.getComplexOCLConstraintRule()) {
+					sequence_ComplexOCLConstraint(context, (OCLConstraint) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getConstraintRule() ||
 				   context == grammarAccess.getOCLConstraintRule() ||
 				   context == grammarAccess.getVPackageableRule()) {
-					sequence_OCLConstraint(context, (OCLConstraint) semanticObject); 
+					sequence_ComplexOCLConstraint_OCLConstraint_SimpleOCLConstraint(context, (OCLConstraint) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getSimpleOCLConstraintRule()) {
+					sequence_SimpleOCLConstraint(context, (OCLConstraint) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1650,6 +1658,24 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (name=ID context=[VSpec|ID]? expression+=OCLExpression*)
+	 */
+	protected void sequence_ComplexOCLConstraint(EObject context, OCLConstraint semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((expression+=OCLExpression context=[VSpec|ID]) | (name=ID context=[VSpec|ID]? expression+=OCLExpression*))
+	 */
+	protected void sequence_ComplexOCLConstraint_OCLConstraint_SimpleOCLConstraint(EObject context, OCLConstraint semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (value=STRING? type=[Variabletype|ID] expression=OCLExpression)
 	 */
 	protected void sequence_ComplexPrimitiveValueSpecification(EObject context, PrimitiveValueSpecification semanticObject) {
@@ -1962,15 +1988,6 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	 *     {NumericLiteralExp}
 	 */
 	protected void sequence_NumericLiteralExp_Impl(EObject context, NumericLiteralExp semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID context=[VSpec|ID]? expression+=OCLExpression*)
-	 */
-	protected void sequence_OCLConstraint(EObject context, OCLConstraint semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2297,6 +2314,15 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	 *     referenceString=STRING
 	 */
 	protected void sequence_SimpleLinkHandle(EObject context, LinkHandle semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expression+=OCLExpression context=[VSpec|ID])
+	 */
+	protected void sequence_SimpleOCLConstraint(EObject context, OCLConstraint semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

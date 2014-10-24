@@ -54,6 +54,7 @@ public class KCVLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getObjectSubstitutionAccess().getAlternatives(), "rule__ObjectSubstitution__Alternatives");
 					put(grammarAccess.getVariableAccess().getAlternatives(), "rule__Variable__Alternatives");
 					put(grammarAccess.getVariableValueAssignmentAccess().getAlternatives(), "rule__VariableValueAssignment__Alternatives");
+					put(grammarAccess.getOCLConstraintAccess().getAlternatives(), "rule__OCLConstraint__Alternatives");
 					put(grammarAccess.getBOOLEANAccess().getAlternatives(), "rule__BOOLEAN__Alternatives");
 					put(grammarAccess.getObjectHandleAccess().getAlternatives(), "rule__ObjectHandle__Alternatives");
 					put(grammarAccess.getPrimitiveValueSpecificationAccess().getAlternatives(), "rule__PrimitiveValueSpecification__Alternatives");
@@ -268,9 +269,10 @@ public class KCVLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConfigurableUnitUsageAccess().getGroup_6(), "rule__ConfigurableUnitUsage__Group_6__0");
 					put(grammarAccess.getConfigurableUnitUsageAccess().getGroup_6_3(), "rule__ConfigurableUnitUsage__Group_6_3__0");
 					put(grammarAccess.getConfigurableUnitUsageAccess().getGroup_13(), "rule__ConfigurableUnitUsage__Group_13__0");
-					put(grammarAccess.getOCLConstraintAccess().getGroup(), "rule__OCLConstraint__Group__0");
-					put(grammarAccess.getOCLConstraintAccess().getGroup_3(), "rule__OCLConstraint__Group_3__0");
-					put(grammarAccess.getOCLConstraintAccess().getGroup_4(), "rule__OCLConstraint__Group_4__0");
+					put(grammarAccess.getComplexOCLConstraintAccess().getGroup(), "rule__ComplexOCLConstraint__Group__0");
+					put(grammarAccess.getComplexOCLConstraintAccess().getGroup_3(), "rule__ComplexOCLConstraint__Group_3__0");
+					put(grammarAccess.getComplexOCLConstraintAccess().getGroup_4(), "rule__ComplexOCLConstraint__Group_4__0");
+					put(grammarAccess.getSimpleOCLConstraintAccess().getGroup(), "rule__SimpleOCLConstraint__Group__0");
 					put(grammarAccess.getPatternIntegrationAccess().getGroup(), "rule__PatternIntegration__Group__0");
 					put(grammarAccess.getPatternIntegrationAccess().getGroup_4(), "rule__PatternIntegration__Group_4__0");
 					put(grammarAccess.getPatternIntegrationAccess().getGroup_5(), "rule__PatternIntegration__Group_5__0");
@@ -731,9 +733,11 @@ public class KCVLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConfigurableUnitUsageAccess().getUsedUnitAssignment_10(), "rule__ConfigurableUnitUsage__UsedUnitAssignment_10");
 					put(grammarAccess.getConfigurableUnitUsageAccess().getUsageReferenceAssignment_12(), "rule__ConfigurableUnitUsage__UsageReferenceAssignment_12");
 					put(grammarAccess.getConfigurableUnitUsageAccess().getChildrenAssignment_13_2(), "rule__ConfigurableUnitUsage__ChildrenAssignment_13_2");
-					put(grammarAccess.getOCLConstraintAccess().getNameAssignment_1(), "rule__OCLConstraint__NameAssignment_1");
-					put(grammarAccess.getOCLConstraintAccess().getContextAssignment_3_1(), "rule__OCLConstraint__ContextAssignment_3_1");
-					put(grammarAccess.getOCLConstraintAccess().getExpressionAssignment_4_1(), "rule__OCLConstraint__ExpressionAssignment_4_1");
+					put(grammarAccess.getComplexOCLConstraintAccess().getNameAssignment_1(), "rule__ComplexOCLConstraint__NameAssignment_1");
+					put(grammarAccess.getComplexOCLConstraintAccess().getContextAssignment_3_1(), "rule__ComplexOCLConstraint__ContextAssignment_3_1");
+					put(grammarAccess.getComplexOCLConstraintAccess().getExpressionAssignment_4_1(), "rule__ComplexOCLConstraint__ExpressionAssignment_4_1");
+					put(grammarAccess.getSimpleOCLConstraintAccess().getExpressionAssignment_1(), "rule__SimpleOCLConstraint__ExpressionAssignment_1");
+					put(grammarAccess.getSimpleOCLConstraintAccess().getContextAssignment_3(), "rule__SimpleOCLConstraint__ContextAssignment_3");
 					put(grammarAccess.getPatternIntegrationAccess().getNameAssignment_1(), "rule__PatternIntegration__NameAssignment_1");
 					put(grammarAccess.getPatternIntegrationAccess().getMultiAssignment_2(), "rule__PatternIntegration__MultiAssignment_2");
 					put(grammarAccess.getPatternIntegrationAccess().getMappingExpressionAssignment_4_1(), "rule__PatternIntegration__MappingExpressionAssignment_4_1");

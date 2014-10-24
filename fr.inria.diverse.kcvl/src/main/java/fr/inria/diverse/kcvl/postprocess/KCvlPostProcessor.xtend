@@ -16,6 +16,7 @@ import org.omg.CVLMetamodelMaster.cvl.Variable
 import org.omg.CVLMetamodelMaster.cvl.VariableValueAssignment
 import org.omg.CVLMetamodelMaster.cvl.PrimitiveValueSpecification
 import org.omg.CVLMetamodelMaster.cvl.ChoiceResolutuion
+import org.omg.CVLMetamodelMaster.cvl.OCLConstraint
 
 class KCvlPostProcessor implements IDerivedStateComputer
 {
@@ -79,6 +80,11 @@ class KCvlPostProcessor implements IDerivedStateComputer
 		}
 	}
 	
+	def dispatch void completeAST(OCLConstraint it) {
+		if (name == null) // SimpleOCLConstraint
+			name = "unnamed"
+	}
+	
 	def dispatch void completeAST(EObject o) {
 		// ...
 	}
@@ -107,6 +113,10 @@ class KCvlPostProcessor implements IDerivedStateComputer
 
 	def dispatch void decompleteAST(ChoiceResolutuion it) {
 		resolvedVSpec = null
+	}
+	
+	def dispatch void decompleteAST(OCLConstraint it) {
+		
 	}
 
 	def dispatch void decompleteAST(EObject o) {
