@@ -127,7 +127,7 @@ class Derivator
 		roots.forEach[it.removeObject]
 
 		if (semanticDelete == null) {
-			roots.forEach[it.fixReference]
+			roots.forEach[it.fixReferences]
 			toRemove.forEach[EcoreUtil::delete(it)]
 			ctx.objectSubstitutions.keySet.forEach[EcoreUtil::delete(it)]
 		}
@@ -541,73 +541,63 @@ class Derivator
 
 			if (o != null)
 				if (ref.many) {
-					val values = o as List<? extends EObject>
-					val toRemove = newArrayList
+					val values = new ArrayList<EObject>
+					values.addAll(o as List<? extends EObject>)
+					val toBeRemoved = new ArrayList<EObject>
 
 					values.forEach[v |
 						if (ctx.objectSubstitutions.keySet.exists[it.equals(v)])
-							toRemove += v
+							toBeRemoved.add(v)
 					]
 
-					toRemove.forEach[r |
+					toBeRemoved.forEach[r |
 						values.remove(r)
-						values += ctx.objectSubstitutions.get(r)
+						values.add(ctx.objectSubstitutions.get(r))
 					]
 				} else if (ctx.objectSubstitutions.keySet.exists[it.equals(o)])
 					obj.eSet(ref, ctx.objectSubstitutions.get(o))
 		]
 	}
 
+	def private void fixReferences(EObject obj) {
+		if (obj == null)
+			return;
 
-  def void fixReference(EObject obj)  {
-    if (obj != null) {
-      val  List<EStructuralFeature> props1 = new ArrayList<EStructuralFeature>
-      props1.addAll(
-        obj.eClass().getEAllReferences().filter(prop | { prop.isContainment().booleanValue() }))
-        
-      val  it_1 = props1.iterator()
-      while (it_1.hasNext()){
-      val prop = it_1.next()
-        var o = obj.eGet(prop as EStructuralFeature, true)
-        if ((prop as EStructuralFeature).isMany) {
-          val col = o as List<EObject>
-          //val  it1 = col.iterator()
-         var it1 = 0
-          while (it1 < col.size()){
-        	 
-        	 val o1 = col.get(it1)
-        	 this.fixReference(o1 as EObject)
-        	 it1=it1+1
-          }
-        } else {
-          //if (domainResource.getContents.contains(o))
-          fixReference(o as EObject)
-        }
-      }
-      val props2 = obj.eClass().getEAllStructuralFeatures().filter(prop | !prop.isDerived() && !prop.isTransient())
-      props2.forEach(prop | {
-        val o = obj.eGet(prop as EStructuralFeature, true)
-        if ((prop as EStructuralFeature).isMany) {
-          val col =  o as List<EObject>
-          if (col != null) {
-            val colleToRemove = new ArrayList<EObject>
-            col.forEach(o1 | {
-              if (toRemove.exists(objtoremove | objtoremove.equals(o1))) {
-                colleToRemove.add(o1 as EObject)
-              }
-            })
-                    colleToRemove.forEach(EObject element | col.remove(element))
-            //else
-            //	stdio.writeln("col est nulle " + o.toString)
-          }
-        } else {
-          if (toRemove.exists(objtoremove | { objtoremove.equals(o) })) {
-            obj.eSet(prop as EStructuralFeature, null)
-          }
-        }
-      })
-    }
-  }
+		obj.eClass.EAllReferences
+		.filter[containment]
+		.forEach[ref |
+			val o = obj.eGet(ref, true)
+
+			if (o != null)
+				if (ref.many) {
+					val values = o as List<? extends EObject>
+					values.forEach[fixReferences(it)]
+				} else if (o instanceof EObject)
+					fixReferences(o as EObject)
+		]
+
+		obj.eClass.EAllStructuralFeatures
+		.filter[!derived && !transient]
+		.forEach[ref |
+			val o = obj.eGet(ref, true)
+
+			if (o != null)
+				if (ref.many) {
+					val values = o as List<? extends EObject>
+					val toBeRemoved = new ArrayList<EObject>
+
+					values.forEach[v |
+						if (toRemove.exists[it.equals(v)])
+							toBeRemoved.add(v)
+					]
+
+					toBeRemoved.forEach[r |
+						values.remove(r)
+					]
+				} else if (ctx.objectSubstitutions.keySet.exists[it.equals(o)])
+					obj.eSet(ref, ctx.objectSubstitutions.get(o))
+		]
+	}
 
   def boolean isNotSelected(EObject obj ) {
 
