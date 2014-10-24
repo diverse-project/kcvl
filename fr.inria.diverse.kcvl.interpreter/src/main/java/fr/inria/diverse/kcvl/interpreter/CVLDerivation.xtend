@@ -517,11 +517,6 @@ class Derivator
 		// TODO: We do nothing with the result?!
 	}
 
-	// TODO: Implement me?
-	def private Object evalExpression(EObject o, VPackage root, ChoiceResolutuion parent) {
-		return null
-	}
-
 	def void substituteObject(EObject obj) {
 	    if (obj != null) {
 	      val List<EStructuralFeature> props  = new ArrayList<EStructuralFeature>()
