@@ -120,7 +120,7 @@ class Derivator
 			val r = it.findRoot
 			
 			if (!roots.contains(r))
-				roots += r
+				roots.add(r)
 		]
 
 		roots.forEach[domainResources.add(eResource)]
@@ -456,7 +456,7 @@ class Derivator
 				val ctx_ = new ArrayList<EObject>
 				val args = new HashMap<String, Object>
 				
-				o.sourceObject.forEach[ctx_ += reference]
+				o.sourceObject.forEach[ctx_.add(reference)]
 				
 				if (!o.bindingChoice.empty) {
 					val choice = o.bindingChoice.head
