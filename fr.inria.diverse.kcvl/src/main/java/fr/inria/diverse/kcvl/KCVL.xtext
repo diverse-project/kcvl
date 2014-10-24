@@ -181,7 +181,7 @@ Variable:
 ;
 
 SimpleVariable returns Variable:
-	'Variable' name = ID ':' type = [Variabletype]
+	name = ID ':' type = [Variabletype]
 ;
 
 ComplexVariable returns Variable:
@@ -437,11 +437,11 @@ ParametricObjectSubstitution returns ParametricObjectSubstitution:
 
 ParametricSlotAssignmet returns ParametricSlotAssignmet:
 	'ParametricSlotAssignmet' name = ID '{'
-		'slotIdentifier' slotIdentifier = STRING
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])* )?
 		('precedenceConstraint' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
-		'bindingVariable' bindingVariable = [Variable]
 		'slotOwner' slotOwner = ObjectHandle
+		'slotIdentifier' slotIdentifier = STRING
+		'bindingVariable' bindingVariable = [Variable]
 	'}'
 ;
 
