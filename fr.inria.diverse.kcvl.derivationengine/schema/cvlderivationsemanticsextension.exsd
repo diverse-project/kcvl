@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="fr.inria.cvl.derivationengine" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="fr.inria.diverse.kcvl.derivationengine" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="fr.inria.cvl.derivationengine" id="cvlderivationsemanticsextension" name="cvlderivationsemanticsextension"/>
+         <meta.schema plugin="fr.inria.diverse.kcvl.derivationengine" id="cvlderivationsemanticsextension" name="cvlderivationsemanticsextension"/>
       </appinfo>
       <documentation>
          This extension point allows designer to add new plugin to refine the cvl derivation semantics
@@ -69,7 +69,7 @@
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":com.thales.movida.derivation.service.SemanticDeleteOfObject"/>
+                  <meta.attribute kind="java" basedOn=":fr.inria.diverse.kcvl.extensions.SemanticDeleteOfObject"/>
                </appinfo>
             </annotation>
          </attribute>

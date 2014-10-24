@@ -13,14 +13,11 @@
  ******************************************************************************/
 package fr.inria.exec_derivation.core;
 
-import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -41,7 +38,6 @@ import org.eclipse.emf.diffmerge.patterns.core.api.IPatternInstance;
 import org.eclipse.emf.diffmerge.patterns.core.api.IPatternRole;
 import org.eclipse.emf.diffmerge.patterns.core.api.ext.IModelOperation;
 import org.eclipse.emf.diffmerge.patterns.core.api.locations.IElementLocation;
-import org.eclipse.emf.diffmerge.patterns.core.api.locations.ILocation;
 import org.eclipse.emf.diffmerge.patterns.core.util.BasicPatternApplication;
 import org.eclipse.emf.diffmerge.patterns.core.util.locations.BasicCompositeLocation;
 import org.eclipse.emf.diffmerge.patterns.core.util.locations.BasicElementLocation;
@@ -52,7 +48,6 @@ import org.eclipse.emf.diffmerge.patterns.templates.gen.templatepatterns.Templat
 import org.eclipse.emf.diffmerge.patterns.templates.gen.templatepatterns.impl.TemplatePatternRoleImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.transaction.RecordingCommand;
@@ -72,11 +67,10 @@ import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.omg.CVLMetamodelMaster.cvl.VPackage;
 
-import com.thales.movida.derivation.service.SemanticDeleteOfObject;
-
 import fr.inria.diverse.kcvl.interpreter.Derivator;
 import fr.inria.diverse.kcvl.interpreter.Pair;
 import fr.inria.diverse.kcvl.interpreter.PatternIntegration;
+import fr.inria.diverse.kcvl.extensions.SemanticDeleteOfObject;
 
 /**
  * This class permits to execute product derivation from a given resolution
@@ -183,7 +177,7 @@ public class ExecDerivation implements PatternIntegration {
 		IExtensionRegistry extensionRegistry = Platform.getExtensionRegistry();
 
 		for (IConfigurationElement f : extensionRegistry
-				.getConfigurationElementsFor("fr.inria.cvl.derivationengine.cvlderivationsemanticsextension")) {
+				.getConfigurationElementsFor("fr.inria.diverse.kcvl.derivationengine.cvlderivationsemanticsextension")) {
 
 			try {
 				toD = (SemanticDeleteOfObject) f

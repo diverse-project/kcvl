@@ -55,7 +55,7 @@ import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.omg.CVLMetamodelMaster.cvl.VPackage;
 
-import com.thales.movida.derivation.service.SemanticDeleteOfObject;
+import fr.inria.diverse.kcvl.extensions.SemanticDeleteOfObject;
 
 //import fr.inria.diverse.kcvl.interpreter.CVLSynthesis;
 import fr.inria.diverse.kcvl.interpreter.Derivator;
