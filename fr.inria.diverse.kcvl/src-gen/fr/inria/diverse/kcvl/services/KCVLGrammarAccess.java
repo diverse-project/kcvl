@@ -6693,12 +6693,15 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cReferenceStringSTRINGTerminalRuleCall_0 = (RuleCall)cReferenceStringAssignment.eContents().get(0);
 		
 		//SimpleObjectHandle returns ObjectHandle:
-		//	referenceString=STRING;
+		//	referenceString= // "X.uml#//umlID"
+		//	STRING;
 		public ParserRule getRule() { return rule; }
 
-		//referenceString=STRING
+		//referenceString= // "X.uml#//umlID"
+		//STRING
 		public Assignment getReferenceStringAssignment() { return cReferenceStringAssignment; }
 
+		//// "X.uml#//umlID"
 		//STRING
 		public RuleCall getReferenceStringSTRINGTerminalRuleCall_0() { return cReferenceStringSTRINGTerminalRuleCall_0; }
 	}
@@ -6761,30 +6764,22 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class EObjectHandleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EObjectHandle");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cPlopKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cReferenceAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cReferenceEObjectCrossReference_1_0 = (CrossReference)cReferenceAssignment_1.eContents().get(0);
-		private final RuleCall cReferenceEObjectQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cReferenceEObjectCrossReference_1_0.eContents().get(1);
+		private final Assignment cReferenceAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cReferenceEObjectCrossReference_0 = (CrossReference)cReferenceAssignment.eContents().get(0);
+		private final RuleCall cReferenceEObjectQualifiedNameParserRuleCall_0_1 = (RuleCall)cReferenceEObjectCrossReference_0.eContents().get(1);
 		
 		//EObjectHandle returns ObjectHandle:
-		//	"plop" reference=[ecore::EObject|QualifiedName];
+		//	reference=[ecore::EObject|QualifiedName];
 		public ParserRule getRule() { return rule; }
 
-		//"plop" reference=[ecore::EObject|QualifiedName]
-		public Group getGroup() { return cGroup; }
-
-		//"plop"
-		public Keyword getPlopKeyword_0() { return cPlopKeyword_0; }
-
 		//reference=[ecore::EObject|QualifiedName]
-		public Assignment getReferenceAssignment_1() { return cReferenceAssignment_1; }
+		public Assignment getReferenceAssignment() { return cReferenceAssignment; }
 
 		//[ecore::EObject|QualifiedName]
-		public CrossReference getReferenceEObjectCrossReference_1_0() { return cReferenceEObjectCrossReference_1_0; }
+		public CrossReference getReferenceEObjectCrossReference_0() { return cReferenceEObjectCrossReference_0; }
 
 		//QualifiedName
-		public RuleCall getReferenceEObjectQualifiedNameParserRuleCall_1_0_1() { return cReferenceEObjectQualifiedNameParserRuleCall_1_0_1; }
+		public RuleCall getReferenceEObjectQualifiedNameParserRuleCall_0_1() { return cReferenceEObjectQualifiedNameParserRuleCall_0_1; }
 	}
 
 	public class FromPlacementElements extends AbstractParserRuleElementFinder {
@@ -7504,12 +7499,13 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cSimpleLinkHandleParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cCompleteLinkHandleParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cEObjectLinkHandleParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//LinkHandle:
-		//	SimpleLinkHandle | CompleteLinkHandle;
+		//	SimpleLinkHandle | CompleteLinkHandle | EObjectLinkHandle;
 		public ParserRule getRule() { return rule; }
 
-		//SimpleLinkHandle | CompleteLinkHandle
+		//SimpleLinkHandle | CompleteLinkHandle | EObjectLinkHandle
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//SimpleLinkHandle
@@ -7517,6 +7513,9 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 
 		//CompleteLinkHandle
 		public RuleCall getCompleteLinkHandleParserRuleCall_1() { return cCompleteLinkHandleParserRuleCall_1; }
+
+		//EObjectLinkHandle
+		public RuleCall getEObjectLinkHandleParserRuleCall_2() { return cEObjectLinkHandleParserRuleCall_2; }
 	}
 
 	public class SimpleLinkHandleElements extends AbstractParserRuleElementFinder {
@@ -7589,6 +7588,26 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 
 		//")"
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
+	}
+
+	public class EObjectLinkHandleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EObjectLinkHandle");
+		private final Assignment cReferenceAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cReferenceEObjectCrossReference_0 = (CrossReference)cReferenceAssignment.eContents().get(0);
+		private final RuleCall cReferenceEObjectQualifiedNameParserRuleCall_0_1 = (RuleCall)cReferenceEObjectCrossReference_0.eContents().get(1);
+		
+		//EObjectLinkHandle returns LinkHandle:
+		//	reference=[ecore::EObject|QualifiedName];
+		public ParserRule getRule() { return rule; }
+
+		//reference=[ecore::EObject|QualifiedName]
+		public Assignment getReferenceAssignment() { return cReferenceAssignment; }
+
+		//[ecore::EObject|QualifiedName]
+		public CrossReference getReferenceEObjectCrossReference_0() { return cReferenceEObjectCrossReference_0; }
+
+		//QualifiedName
+		public RuleCall getReferenceEObjectQualifiedNameParserRuleCall_0_1() { return cReferenceEObjectQualifiedNameParserRuleCall_0_1; }
 	}
 
 	public class BaseModelHandle_ImplElements extends AbstractParserRuleElementFinder {
@@ -8005,6 +8024,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	private LinkHandleElements pLinkHandle;
 	private SimpleLinkHandleElements pSimpleLinkHandle;
 	private CompleteLinkHandleElements pCompleteLinkHandle;
+	private EObjectLinkHandleElements pEObjectLinkHandle;
 	private BaseModelHandle_ImplElements pBaseModelHandle_Impl;
 	private OVPSemanticSpecElements pOVPSemanticSpec;
 	
@@ -8838,7 +8858,8 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SimpleObjectHandle returns ObjectHandle:
-	//	referenceString=STRING;
+	//	referenceString= // "X.uml#//umlID"
+	//	STRING;
 	public SimpleObjectHandleElements getSimpleObjectHandleAccess() {
 		return (pSimpleObjectHandle != null) ? pSimpleObjectHandle : (pSimpleObjectHandle = new SimpleObjectHandleElements());
 	}
@@ -8858,7 +8879,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//EObjectHandle returns ObjectHandle:
-	//	"plop" reference=[ecore::EObject|QualifiedName];
+	//	reference=[ecore::EObject|QualifiedName];
 	public EObjectHandleElements getEObjectHandleAccess() {
 		return (pEObjectHandle != null) ? pEObjectHandle : (pEObjectHandle = new EObjectHandleElements());
 	}
@@ -9064,7 +9085,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//LinkHandle:
-	//	SimpleLinkHandle | CompleteLinkHandle;
+	//	SimpleLinkHandle | CompleteLinkHandle | EObjectLinkHandle;
 	public LinkHandleElements getLinkHandleAccess() {
 		return (pLinkHandle != null) ? pLinkHandle : (pLinkHandle = new LinkHandleElements());
 	}
@@ -9091,6 +9112,16 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getCompleteLinkHandleRule() {
 		return getCompleteLinkHandleAccess().getRule();
+	}
+
+	//EObjectLinkHandle returns LinkHandle:
+	//	reference=[ecore::EObject|QualifiedName];
+	public EObjectLinkHandleElements getEObjectLinkHandleAccess() {
+		return (pEObjectLinkHandle != null) ? pEObjectLinkHandle : (pEObjectLinkHandle = new EObjectLinkHandleElements());
+	}
+	
+	public ParserRule getEObjectLinkHandleRule() {
+		return getEObjectLinkHandleAccess().getRule();
 	}
 
 	//BaseModelHandle_Impl returns BaseModelHandle:

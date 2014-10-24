@@ -274,13 +274,17 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 				}
 				else break;
 			case CvlPackage.LINK_HANDLE:
-				if(context == grammarAccess.getCompleteLinkHandleRule()) {
+				if(context == grammarAccess.getBaseModelHandleRule() ||
+				   context == grammarAccess.getLinkHandleRule()) {
+					sequence_CompleteLinkHandle_EObjectLinkHandle_LinkHandle_SimpleLinkHandle(context, (LinkHandle) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getCompleteLinkHandleRule()) {
 					sequence_CompleteLinkHandle(context, (LinkHandle) semanticObject); 
 					return; 
 				}
-				else if(context == grammarAccess.getBaseModelHandleRule() ||
-				   context == grammarAccess.getLinkHandleRule()) {
-					sequence_CompleteLinkHandle_LinkHandle_SimpleLinkHandle(context, (LinkHandle) semanticObject); 
+				else if(context == grammarAccess.getEObjectLinkHandleRule()) {
+					sequence_EObjectLinkHandle(context, (LinkHandle) semanticObject); 
 					return; 
 				}
 				else if(context == grammarAccess.getSimpleLinkHandleRule()) {
@@ -1624,18 +1628,18 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (MOFRef=STRING referenceString=STRING)
+	 *     (referenceString=STRING | (MOFRef=STRING referenceString=STRING) | reference=[EObject|QualifiedName])
 	 */
-	protected void sequence_CompleteLinkHandle(EObject context, LinkHandle semanticObject) {
+	protected void sequence_CompleteLinkHandle_EObjectLinkHandle_LinkHandle_SimpleLinkHandle(EObject context, LinkHandle semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (referenceString=STRING | (MOFRef=STRING referenceString=STRING))
+	 *     (MOFRef=STRING referenceString=STRING)
 	 */
-	protected void sequence_CompleteLinkHandle_LinkHandle_SimpleLinkHandle(EObject context, LinkHandle semanticObject) {
+	protected void sequence_CompleteLinkHandle(EObject context, LinkHandle semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1870,6 +1874,15 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	 *     reference=[EObject|QualifiedName]
 	 */
 	protected void sequence_EObjectHandle(EObject context, ObjectHandle semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     reference=[EObject|QualifiedName]
+	 */
+	protected void sequence_EObjectLinkHandle(EObject context, LinkHandle semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

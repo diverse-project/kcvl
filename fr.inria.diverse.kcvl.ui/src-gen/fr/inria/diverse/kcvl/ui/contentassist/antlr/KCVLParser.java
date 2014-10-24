@@ -318,7 +318,6 @@ public class KCVLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getToReplacementAccess().getGroup_3(), "rule__ToReplacement__Group_3__0");
 					put(grammarAccess.getToReplacementAccess().getGroup_4(), "rule__ToReplacement__Group_4__0");
 					put(grammarAccess.getCompleteObjectHandleAccess().getGroup(), "rule__CompleteObjectHandle__Group__0");
-					put(grammarAccess.getEObjectHandleAccess().getGroup(), "rule__EObjectHandle__Group__0");
 					put(grammarAccess.getFromPlacementAccess().getGroup(), "rule__FromPlacement__Group__0");
 					put(grammarAccess.getFromPlacementAccess().getGroup_3(), "rule__FromPlacement__Group_3__0");
 					put(grammarAccess.getFromPlacementAccess().getGroup_4(), "rule__FromPlacement__Group_4__0");
@@ -795,7 +794,7 @@ public class KCVLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSimpleObjectHandleAccess().getReferenceStringAssignment(), "rule__SimpleObjectHandle__ReferenceStringAssignment");
 					put(grammarAccess.getCompleteObjectHandleAccess().getMOFRefAssignment_3(), "rule__CompleteObjectHandle__MOFRefAssignment_3");
 					put(grammarAccess.getCompleteObjectHandleAccess().getReferenceStringAssignment_7(), "rule__CompleteObjectHandle__ReferenceStringAssignment_7");
-					put(grammarAccess.getEObjectHandleAccess().getReferenceAssignment_1(), "rule__EObjectHandle__ReferenceAssignment_1");
+					put(grammarAccess.getEObjectHandleAccess().getReferenceAssignment(), "rule__EObjectHandle__ReferenceAssignment");
 					put(grammarAccess.getFromPlacementAccess().getFromReplacementAssignment_3_1(), "rule__FromPlacement__FromReplacementAssignment_3_1");
 					put(grammarAccess.getFromPlacementAccess().getOutsideBoundaryElementAssignment_4_2(), "rule__FromPlacement__OutsideBoundaryElementAssignment_4_2");
 					put(grammarAccess.getFromReplacementAccess().getPropertyNameAssignment_3(), "rule__FromReplacement__PropertyNameAssignment_3");
@@ -821,6 +820,7 @@ public class KCVLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSimpleLinkHandleAccess().getReferenceStringAssignment(), "rule__SimpleLinkHandle__ReferenceStringAssignment");
 					put(grammarAccess.getCompleteLinkHandleAccess().getMOFRefAssignment_3(), "rule__CompleteLinkHandle__MOFRefAssignment_3");
 					put(grammarAccess.getCompleteLinkHandleAccess().getReferenceStringAssignment_7(), "rule__CompleteLinkHandle__ReferenceStringAssignment_7");
+					put(grammarAccess.getEObjectLinkHandleAccess().getReferenceAssignment(), "rule__EObjectLinkHandle__ReferenceAssignment");
 					put(grammarAccess.getBaseModelHandle_ImplAccess().getReferenceAssignment_3_1(), "rule__BaseModelHandle_Impl__ReferenceAssignment_3_1");
 					put(grammarAccess.getOVPSemanticSpecAccess().getModelTransformationAssignment_3(), "rule__OVPSemanticSpec__ModelTransformationAssignment_3");
 					put(grammarAccess.getOVPSemanticSpecAccess().getTransfromationLanguageAssignment_5(), "rule__OVPSemanticSpec__TransfromationLanguageAssignment_5");

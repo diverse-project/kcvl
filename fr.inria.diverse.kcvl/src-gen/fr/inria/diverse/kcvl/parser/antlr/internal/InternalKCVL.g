@@ -8592,10 +8592,6 @@ ruleEObjectHandle returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='plop' 
-    {
-    	newLeafNode(otherlv_0, grammarAccess.getEObjectHandleAccess().getPlopKeyword_0());
-    }
 (
 (
 		{
@@ -8604,14 +8600,14 @@ ruleEObjectHandle returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getEObjectHandleAccess().getReferenceEObjectCrossReference_1_0()); 
+	        newCompositeNode(grammarAccess.getEObjectHandleAccess().getReferenceEObjectCrossReference_0()); 
 	    }
 		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))
+)
 ;
 
 
@@ -9667,6 +9663,16 @@ ruleLinkHandle returns [EObject current=null]
         $current = $this_CompleteLinkHandle_1.current; 
         afterParserOrEnumRuleCall();
     }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getLinkHandleAccess().getEObjectLinkHandleParserRuleCall_2()); 
+    }
+    this_EObjectLinkHandle_2=ruleEObjectLinkHandle
+    { 
+        $current = $this_EObjectLinkHandle_2.current; 
+        afterParserOrEnumRuleCall();
+    }
 )
 ;
 
@@ -9791,6 +9797,42 @@ ruleCompleteLinkHandle returns [EObject current=null]
     {
     	newLeafNode(otherlv_8, grammarAccess.getCompleteLinkHandleAccess().getRightParenthesisKeyword_8());
     }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleEObjectLinkHandle
+entryRuleEObjectLinkHandle returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getEObjectLinkHandleRule()); }
+	 iv_ruleEObjectLinkHandle=ruleEObjectLinkHandle 
+	 { $current=$iv_ruleEObjectLinkHandle.current; } 
+	 EOF 
+;
+
+// Rule EObjectLinkHandle
+ruleEObjectLinkHandle returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getEObjectLinkHandleRule());
+	        }
+        }
+		{ 
+	        newCompositeNode(grammarAccess.getEObjectLinkHandleAccess().getReferenceEObjectCrossReference_0()); 
+	    }
+		ruleQualifiedName		{ 
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
 )
 ;
 

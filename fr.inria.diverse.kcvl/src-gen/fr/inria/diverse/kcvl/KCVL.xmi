@@ -1886,7 +1886,7 @@
         <elements xsi:type="xtext:Keyword" value="{"/>
         <elements xsi:type="xtext:Keyword" value="spec"/>
         <elements xsi:type="xtext:Assignment" feature="spec" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.96"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.97"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -2998,16 +2998,13 @@
       <type metamodel="/0/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//ObjectHandle"/>
       </type>
-      <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Keyword" value="plop"/>
-        <elements xsi:type="xtext:Assignment" feature="reference" operator="=">
-          <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.1">
-              <classifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-            </type>
-            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.52"/>
-          </terminal>
-        </elements>
+      <alternatives xsi:type="xtext:Assignment" feature="reference" operator="=">
+        <terminal xsi:type="xtext:CrossReference">
+          <type metamodel="/0/@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+          </type>
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.52"/>
+        </terminal>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="FromPlacement">
@@ -3441,6 +3438,7 @@
       <alternatives xsi:type="xtext:Alternatives">
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.93"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.94"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.95"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="SimpleLinkHandle">
@@ -3469,6 +3467,19 @@
           <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.12"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value=")"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="EObjectLinkHandle">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//LinkHandle"/>
+      </type>
+      <alternatives xsi:type="xtext:Assignment" feature="reference" operator="=">
+        <terminal xsi:type="xtext:CrossReference">
+          <type metamodel="/0/@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+          </type>
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.52"/>
+        </terminal>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="BaseModelHandle_Impl">
