@@ -136,8 +136,8 @@ public class KCVLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCvlObjectSubstitutionAccess().getGroup_5_2(), "rule__CvlObjectSubstitution__Group_5_2__0");
 					put(grammarAccess.getCvlObjectSubstitutionAccess().getGroup_6(), "rule__CvlObjectSubstitution__Group_6__0");
 					put(grammarAccess.getCvlObjectSubstitutionAccess().getGroup_6_2(), "rule__CvlObjectSubstitution__Group_6_2__0");
-					put(grammarAccess.getCvlObjectSubstitutionAccess().getGroup_7(), "rule__CvlObjectSubstitution__Group_7__0");
-					put(grammarAccess.getCvlObjectSubstitutionAccess().getGroup_7_2(), "rule__CvlObjectSubstitution__Group_7_2__0");
+					put(grammarAccess.getCvlObjectSubstitutionAccess().getGroup_11(), "rule__CvlObjectSubstitution__Group_11__0");
+					put(grammarAccess.getCvlObjectSubstitutionAccess().getGroup_11_2(), "rule__CvlObjectSubstitution__Group_11_2__0");
 					put(grammarAccess.getPatternRoleBindingAccess().getGroup(), "rule__PatternRoleBinding__Group__0");
 					put(grammarAccess.getSimpleVariableAccess().getGroup(), "rule__SimpleVariable__Group__0");
 					put(grammarAccess.getComplexVariableAccess().getGroup(), "rule__ComplexVariable__Group__0");
@@ -547,10 +547,10 @@ public class KCVLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCvlObjectSubstitutionAccess().getBindingVspecAssignment_5_2_1(), "rule__CvlObjectSubstitution__BindingVspecAssignment_5_2_1");
 					put(grammarAccess.getCvlObjectSubstitutionAccess().getPrecedenceConstraintAssignment_6_1(), "rule__CvlObjectSubstitution__PrecedenceConstraintAssignment_6_1");
 					put(grammarAccess.getCvlObjectSubstitutionAccess().getPrecedenceConstraintAssignment_6_2_1(), "rule__CvlObjectSubstitution__PrecedenceConstraintAssignment_6_2_1");
-					put(grammarAccess.getCvlObjectSubstitutionAccess().getBindingChoiceAssignment_7_1(), "rule__CvlObjectSubstitution__BindingChoiceAssignment_7_1");
-					put(grammarAccess.getCvlObjectSubstitutionAccess().getBindingChoiceAssignment_7_2_1(), "rule__CvlObjectSubstitution__BindingChoiceAssignment_7_2_1");
-					put(grammarAccess.getCvlObjectSubstitutionAccess().getPlacementObjectAssignment_9(), "rule__CvlObjectSubstitution__PlacementObjectAssignment_9");
-					put(grammarAccess.getCvlObjectSubstitutionAccess().getReplacementObjectAssignment_11(), "rule__CvlObjectSubstitution__ReplacementObjectAssignment_11");
+					put(grammarAccess.getCvlObjectSubstitutionAccess().getPlacementObjectAssignment_8(), "rule__CvlObjectSubstitution__PlacementObjectAssignment_8");
+					put(grammarAccess.getCvlObjectSubstitutionAccess().getReplacementObjectAssignment_10(), "rule__CvlObjectSubstitution__ReplacementObjectAssignment_10");
+					put(grammarAccess.getCvlObjectSubstitutionAccess().getBindingChoiceAssignment_11_1(), "rule__CvlObjectSubstitution__BindingChoiceAssignment_11_1");
+					put(grammarAccess.getCvlObjectSubstitutionAccess().getBindingChoiceAssignment_11_2_1(), "rule__CvlObjectSubstitution__BindingChoiceAssignment_11_2_1");
 					put(grammarAccess.getPatternRoleBindingAccess().getNameAssignment_1(), "rule__PatternRoleBinding__NameAssignment_1");
 					put(grammarAccess.getPatternRoleBindingAccess().getPlacementObjectAssignment_4(), "rule__PatternRoleBinding__PlacementObjectAssignment_4");
 					put(grammarAccess.getPatternRoleBindingAccess().getReplacementObjectAssignment_6(), "rule__PatternRoleBinding__ReplacementObjectAssignment_6");

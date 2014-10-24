@@ -681,8 +681,16 @@
             </elements>
           </elements>
         </elements>
+        <elements xsi:type="xtext:Keyword" value="placement"/>
+        <elements xsi:type="xtext:Assignment" feature="placementObject" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="replacement"/>
+        <elements xsi:type="xtext:Assignment" feature="replacementObject" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
+        </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
-          <elements xsi:type="xtext:Keyword" value="bindingChoice"/>
+          <elements xsi:type="xtext:Keyword" value="choice"/>
           <elements xsi:type="xtext:Assignment" feature="bindingChoice" operator="+=">
             <terminal xsi:type="xtext:CrossReference">
               <type metamodel="/0/@metamodelDeclarations.0">
@@ -702,14 +710,6 @@
               </terminal>
             </elements>
           </elements>
-        </elements>
-        <elements xsi:type="xtext:Keyword" value="placement"/>
-        <elements xsi:type="xtext:Assignment" feature="placementObject" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
-        </elements>
-        <elements xsi:type="xtext:Keyword" value="replacement"/>
-        <elements xsi:type="xtext:Assignment" feature="replacementObject" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -1191,7 +1191,7 @@
           </elements>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="*">
-          <elements xsi:type="xtext:Keyword" value="exist"/>
+          <elements xsi:type="xtext:Keyword" value="object"/>
           <elements xsi:type="xtext:Assignment" feature="optionalObject" operator="+=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.68"/>
           </elements>

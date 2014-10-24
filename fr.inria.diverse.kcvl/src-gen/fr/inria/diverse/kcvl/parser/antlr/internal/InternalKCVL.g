@@ -2519,85 +2519,85 @@ ruleCvlObjectSubstitution returns [EObject current=null]
 	}
 
 )
-))*)?(	otherlv_15='bindingChoice' 
+))*)?	otherlv_15='placement' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getCvlObjectSubstitutionAccess().getBindingChoiceKeyword_7_0());
-    }
-(
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getCvlObjectSubstitutionRule());
-	        }
-        }
-	otherlv_16=RULE_ID
-	{
-		newLeafNode(otherlv_16, grammarAccess.getCvlObjectSubstitutionAccess().getBindingChoiceChoiceCrossReference_7_1_0()); 
-	}
-
-)
-)(	otherlv_17=',' 
-    {
-    	newLeafNode(otherlv_17, grammarAccess.getCvlObjectSubstitutionAccess().getCommaKeyword_7_2_0());
-    }
-(
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getCvlObjectSubstitutionRule());
-	        }
-        }
-	otherlv_18=RULE_ID
-	{
-		newLeafNode(otherlv_18, grammarAccess.getCvlObjectSubstitutionAccess().getBindingChoiceChoiceCrossReference_7_2_1_0()); 
-	}
-
-)
-))*)?	otherlv_19='placement' 
-    {
-    	newLeafNode(otherlv_19, grammarAccess.getCvlObjectSubstitutionAccess().getPlacementKeyword_8());
+    	newLeafNode(otherlv_15, grammarAccess.getCvlObjectSubstitutionAccess().getPlacementKeyword_7());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCvlObjectSubstitutionAccess().getPlacementObjectObjectHandleParserRuleCall_9_0()); 
+	        newCompositeNode(grammarAccess.getCvlObjectSubstitutionAccess().getPlacementObjectObjectHandleParserRuleCall_8_0()); 
 	    }
-		lv_placementObject_20_0=ruleObjectHandle		{
+		lv_placementObject_16_0=ruleObjectHandle		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getCvlObjectSubstitutionRule());
 	        }
        		set(
        			$current, 
        			"placementObject",
-        		lv_placementObject_20_0, 
+        		lv_placementObject_16_0, 
         		"ObjectHandle");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_21='replacement' 
+)	otherlv_17='replacement' 
     {
-    	newLeafNode(otherlv_21, grammarAccess.getCvlObjectSubstitutionAccess().getReplacementKeyword_10());
+    	newLeafNode(otherlv_17, grammarAccess.getCvlObjectSubstitutionAccess().getReplacementKeyword_9());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCvlObjectSubstitutionAccess().getReplacementObjectObjectHandleParserRuleCall_11_0()); 
+	        newCompositeNode(grammarAccess.getCvlObjectSubstitutionAccess().getReplacementObjectObjectHandleParserRuleCall_10_0()); 
 	    }
-		lv_replacementObject_22_0=ruleObjectHandle		{
+		lv_replacementObject_18_0=ruleObjectHandle		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getCvlObjectSubstitutionRule());
 	        }
        		set(
        			$current, 
        			"replacementObject",
-        		lv_replacementObject_22_0, 
+        		lv_replacementObject_18_0, 
         		"ObjectHandle");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_23='}' 
+)(	otherlv_19='choice' 
+    {
+    	newLeafNode(otherlv_19, grammarAccess.getCvlObjectSubstitutionAccess().getChoiceKeyword_11_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getCvlObjectSubstitutionRule());
+	        }
+        }
+	otherlv_20=RULE_ID
+	{
+		newLeafNode(otherlv_20, grammarAccess.getCvlObjectSubstitutionAccess().getBindingChoiceChoiceCrossReference_11_1_0()); 
+	}
+
+)
+)(	otherlv_21=',' 
+    {
+    	newLeafNode(otherlv_21, grammarAccess.getCvlObjectSubstitutionAccess().getCommaKeyword_11_2_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getCvlObjectSubstitutionRule());
+	        }
+        }
+	otherlv_22=RULE_ID
+	{
+		newLeafNode(otherlv_22, grammarAccess.getCvlObjectSubstitutionAccess().getBindingChoiceChoiceCrossReference_11_2_1_0()); 
+	}
+
+)
+))*)?	otherlv_23='}' 
     {
     	newLeafNode(otherlv_23, grammarAccess.getCvlObjectSubstitutionAccess().getRightCurlyBracketKeyword_12());
     }
@@ -3912,9 +3912,9 @@ ruleObjectExistence returns [EObject current=null]
 	}
 
 )
-))*)?(	otherlv_19='exist' 
+))*)?(	otherlv_19='object' 
     {
-    	newLeafNode(otherlv_19, grammarAccess.getObjectExistenceAccess().getExistKeyword_8_0());
+    	newLeafNode(otherlv_19, grammarAccess.getObjectExistenceAccess().getObjectKeyword_8_0());
     }
 (
 (

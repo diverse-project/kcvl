@@ -1823,9 +1823,9 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	 *         expression=STRING? 
 	 *         (bindingVspec+=[VSpec|ID] bindingVspec+=[VSpec|ID]*)? 
 	 *         (precedenceConstraint+=[VariationPoint|ID] precedenceConstraint+=[VariationPoint|ID]*)? 
-	 *         (bindingChoice+=[Choice|ID] bindingChoice+=[Choice|ID]*)? 
 	 *         placementObject=ObjectHandle 
-	 *         replacementObject=ObjectHandle
+	 *         replacementObject=ObjectHandle 
+	 *         (bindingChoice+=[Choice|ID] bindingChoice+=[Choice|ID]*)?
 	 *     )
 	 */
 	protected void sequence_CvlObjectSubstitution(EObject context, ObjectSubstitution semanticObject) {
@@ -1842,9 +1842,9 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	 *             expression=STRING? 
 	 *             (bindingVspec+=[VSpec|ID] bindingVspec+=[VSpec|ID]*)? 
 	 *             (precedenceConstraint+=[VariationPoint|ID] precedenceConstraint+=[VariationPoint|ID]*)? 
-	 *             (bindingChoice+=[Choice|ID] bindingChoice+=[Choice|ID]*)? 
 	 *             placementObject=ObjectHandle 
-	 *             replacementObject=ObjectHandle
+	 *             replacementObject=ObjectHandle 
+	 *             (bindingChoice+=[Choice|ID] bindingChoice+=[Choice|ID]*)?
 	 *         ) | 
 	 *         (name=ID placementObject=ObjectHandle replacementObject=ObjectHandle)
 	 *     )

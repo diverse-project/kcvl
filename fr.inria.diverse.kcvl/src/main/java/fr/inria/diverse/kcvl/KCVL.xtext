@@ -114,7 +114,7 @@ FragmentSubstitution returns FragmentSubstitution:
 		('expression' expression = STRING)?
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])*)?
 		('precedence' precedenceConstraint += [VariationPoint] (precedenceConstraint += [VariationPoint])*)?
-		('bindingChoice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
+		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 		'bindingClassifier' bindingClassifier = [VClassifier]
 		'placement' placement = [PlacementFragment]
 		('replacement' replacement = [ReplacementFragmentType])?
@@ -163,9 +163,9 @@ CvlObjectSubstitution returns ObjectSubstitution:
 		('expression' expression = STRING)?
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])*)?
 		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
-		('bindingChoice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 		'placement' placementObject = ObjectHandle
 		'replacement' replacementObject = ObjectHandle
+		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 	'}'
 ;
 
@@ -252,7 +252,7 @@ SlotAssignment returns SlotAssignment:
 		'slotIdentifier' slotIdentifier = STRING
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec+=[VSpec])*)?
 		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
-		('bindingChoice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
+		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 		('value' value = ValueSpecification)?
 		'SlotOwner' SlotOwner = ObjectHandle
 	'}'
@@ -264,8 +264,8 @@ ObjectExistence returns ObjectExistence:
 		('expression' expression = STRING)?
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])*)?
 		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
-		('bindingChoice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
-		('exist' optionalObject += ObjectHandle)*
+		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
+		('object' optionalObject += ObjectHandle)*
 		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 	'}'
 ;
@@ -391,7 +391,7 @@ OpaqueVariationPoint returns OpaqueVariationPoint:
 		('expression' expression = STRING)?
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])*)?
 		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
-		('bindingChoice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
+		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 		'type' type=[OVPType]
 		'placeHolder' placeHolder = BaseModelHandle
 		('sourceObject' sourceObject += ObjectHandle)*
@@ -411,7 +411,7 @@ SlotValueExistence returns SlotValueExistence:
 		'slotIdentifier' slotIdentifier = STRING
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])*)?
 		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
-		('bindingChoice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
+		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 		'slotOwner' slotOwner = ObjectHandle
 	'}'
 ;
