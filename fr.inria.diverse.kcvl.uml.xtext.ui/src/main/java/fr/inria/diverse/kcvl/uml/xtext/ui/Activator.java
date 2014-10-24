@@ -45,7 +45,6 @@ public class Activator extends AbstractUIPlugin {
     @Override
     public void start(BundleContext context) throws Exception {
         super.start(context);
-        System.out.println("started");
         plugin = this;
         try {
             initializeEcoreInjector();
@@ -57,7 +56,6 @@ public class Activator extends AbstractUIPlugin {
  
     @Override
     public void stop(BundleContext context) throws Exception {
-    	System.out.println("stopped");
         plugin = null;
         injector = null;
         super.stop(context);

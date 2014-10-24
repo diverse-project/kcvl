@@ -9,11 +9,7 @@ public class ExecutableExtensionFactory extends AbstractGuiceAwareExecutableExte
 
    @Override
    protected Bundle getBundle() {
-	   Activator v = Activator.getDefault();
-	   System.out.println("v="+v);
-	   Bundle b = v.getBundle() ;
-	   System.out.println("b="+b);
-       return b;
+       return Activator.getDefault().getBundle();
    }
 
    @Override
