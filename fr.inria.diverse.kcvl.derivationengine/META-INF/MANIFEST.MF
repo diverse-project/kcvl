@@ -39,7 +39,8 @@ Require-Bundle: org.eclipse.xtext;bundle-version="[2.3.1,2.3.2)",
  org.eclipse.sirius.tree.ui;bundle-version="1.0.0",
  fr.inria.diverse.kcvl.fd2assets;bundle-version="0.1.0",
  fr.inria.diverse.kcvl.interpreter;bundle-version="0.1.0",
- fr.inria.diverse.kcvl.extensions;bundle-version="0.1.0"
+ fr.inria.diverse.kcvl.extensions;bundle-version="0.1.0",
+ org.junit;bundle-version="4.10.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: 
@@ -62,13 +63,15 @@ Import-Package:
  org.eclipse.ui.console
 Bundle-ClassPath: .,
  dependencies/cvlderivation.jar,
- dependencies/hasfeature.jar,
- dependencies/movidaderivation.jar,
  dependencies/scala-library.jar,
  dependencies/language.library.core-2.0.1-SNAPSHOT.jar,
  dependencies/language.model-2.0.1-SNAPSHOT.jar,
- dependencies/diffmerge.jar,
- dependencies/FAMILIAR-1.0.10.jar
+ dependencies/FAMILIAR-1.0.10.jar,
+ dependencies/collections-generic-4.01.jar,
+ dependencies/org.xtext.example.fml-1.0.10.jar,
+ dependencies/javabdd-1.0b2.jar,
+ dependencies/SPLAR-plugin-1.0.10.jar,
+ dependencies/jgrapht-jdk1.5.jar
 Export-Package: fr.inria.exec_derivation.core,
  fr.inria.exec_derivation.popup.actions,
  fr.inria.exec_selection,
