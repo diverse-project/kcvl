@@ -11,7 +11,7 @@
  * 	INRIA-IRISA- Triskell Team
  * 	contact : marie.gouyette@gmail.com
  ******************************************************************************/
-package fr.inria.exec_selection.wizard;
+package fr.inria.diverse.kcvl.derivationengine.execselection.wizard;
 
 import org.eclipse.jface.wizard.Wizard;
 

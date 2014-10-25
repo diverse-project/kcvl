@@ -33,10 +33,10 @@ Bundle-ClassPath: .,
  dependencies/javabdd-1.0b2.jar,
  dependencies/SPLAR-plugin-1.0.10.jar,
  dependencies/jgrapht-jdk1.5.jar
-Export-Package: fr.inria.exec_derivation.core,
- fr.inria.exec_derivation.popup.actions,
- fr.inria.exec_selection,
- fr.inria.exec_selection.wizard,
- fr.inria.file_methods.method
-Bundle-Activator: fr.inria.exec_selection.Activator
+Export-Package: fr.inria.diverse.kcvl.derivationengine.execderivation.core,
+ fr.inria.diverse.kcvl.derivationengine.execderivation.popup.actions,
+ fr.inria.diverse.kcvl.derivationengine.execselection,
+ fr.inria.diverse.kcvl.derivationengine.execselection.wizard,
+ fr.inria.diverse.kcvl.derivationengine.utils
+Bundle-Activator: fr.inria.diverse.kcvl.derivationengine.execselection.Activator
 

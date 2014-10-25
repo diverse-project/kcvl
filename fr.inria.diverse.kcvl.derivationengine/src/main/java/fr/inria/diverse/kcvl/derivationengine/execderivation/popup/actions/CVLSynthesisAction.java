@@ -11,7 +11,7 @@
  * 	INRIA-IRISA- Triskell Team
  * 	contact : marie.gouyette@gmail.com
  ******************************************************************************/
-package fr.inria.exec_derivation.popup.actions;
+package fr.inria.diverse.kcvl.derivationengine.execderivation.popup.actions;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
@@ -28,9 +28,9 @@ import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
-import fr.inria.exec_derivation.core.ExecDerivation;
-import fr.inria.exec_derivation.core.ExecMelodySynthesis;
-import fr.inria.file_methods.method.PathMethod;
+import fr.inria.diverse.kcvl.derivationengine.execderivation.core.ExecDerivation;
+import fr.inria.diverse.kcvl.derivationengine.execderivation.core.ExecMelodySynthesis;
+import fr.inria.diverse.kcvl.derivationengine.utils.PathMethod;
 
 /** This class defines the action of the popup menu for the derivation*/
 public class CVLSynthesisAction implements IObjectActionDelegate {

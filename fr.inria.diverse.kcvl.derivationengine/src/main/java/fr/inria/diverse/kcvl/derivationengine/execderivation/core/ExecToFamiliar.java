@@ -11,7 +11,7 @@
  * 	INRIA-IRISA- Triskell Team
  * 	contact : marie.gouyette@gmail.com
  ******************************************************************************/
-package fr.inria.exec_derivation.core;
+package fr.inria.diverse.kcvl.derivationengine.execderivation.core;
 
 import java.io.File;
 import java.io.FileNotFoundException;

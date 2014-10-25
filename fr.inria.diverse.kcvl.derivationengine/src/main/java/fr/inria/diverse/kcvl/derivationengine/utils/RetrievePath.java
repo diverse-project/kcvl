@@ -11,7 +11,7 @@
  * 	INRIA-IRISA- Triskell Team
  * 	contact : marie.gouyette@gmail.com
  ******************************************************************************/
-package fr.inria.file_methods.method;
+package fr.inria.diverse.kcvl.derivationengine.utils;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspace;

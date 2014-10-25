@@ -11,7 +11,7 @@
  * 	INRIA-IRISA- Triskell Team
  * 	contact : marie.gouyette@gmail.com
  ******************************************************************************/
-package fr.inria.exec_derivation.popup.actions;
+package fr.inria.diverse.kcvl.derivationengine.execderivation.popup.actions;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
@@ -28,11 +28,11 @@ import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
-import fr.inria.exec_derivation.core.ExecToFamiliar;
-import fr.inria.file_methods.method.PathMethod;
+import fr.inria.diverse.kcvl.derivationengine.execderivation.core.ExecDerivation;
+import fr.inria.diverse.kcvl.derivationengine.utils.PathMethod;
 
 /** This class defines the action of the popup menu for the derivation*/
-public class ToFamiliarAction implements IObjectActionDelegate {
+public class ProductDerivationAction implements IObjectActionDelegate {
 
 	private Shell shell;
 	
@@ -44,7 +44,7 @@ public class ToFamiliarAction implements IObjectActionDelegate {
 	/**
 	 * Constructor for Action1.
 	 */
-	public ToFamiliarAction() {
+	public ProductDerivationAction() {
 		super();
 	}
 
@@ -66,24 +66,26 @@ public class ToFamiliarAction implements IObjectActionDelegate {
             final Object object = structured.getFirstElement();
 
 
-            // if the sel ection is a valid project file, get its name.
+            // if the selection is a valid project file, get its name.
             if (object instanceof IFile) {
             	// Retrieve feature diagram path
                 IFile resolutionModelFile = (IFile) object;
-              final  String resolutionModelPath = resolutionModelFile.getLocation().toString();
+              final  String resolutionModelPath = "file:/" + resolutionModelFile.getLocation().toString();
+              System.out.println("resolutionModelPath " + resolutionModelPath);
              final URI file  =URI.createPlatformResourceURI(resolutionModelFile.getFullPath().toString(), true);
               
               //----------------------------------------------------------
             final  String resolvedModelPath = PathMethod.getResolvedModelPath(resolutionModelPath) ;
+              System.out.println("resolvedModelPath " + resolvedModelPath);
               //----------------------------------------------------------
 
-                // Call 	Selection
+                // Call Selection
                 new Job("Console cvl derivation") {
     				public IStatus run(IProgressMonitor pm) {
     					
-    					ExecToFamiliar exec = new ExecToFamiliar(resolvedModelPath);
+    					ExecDerivation exec = new ExecDerivation();
     						
-						exec.callReportProduction(file);
+						exec.callProductDerivation(file);
 							
 					
     					try {

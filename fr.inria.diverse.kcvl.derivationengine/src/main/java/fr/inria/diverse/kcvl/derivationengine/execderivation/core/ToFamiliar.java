@@ -1,4 +1,4 @@
-package fr.inria.exec_derivation.core;
+package fr.inria.diverse.kcvl.derivationengine.execderivation.core;
 
 import fr.familiar.test.FMLTest;
 import fr.familiar.variable.FeatureModelVariable;

@@ -11,7 +11,7 @@
  * 	INRIA-IRISA- Triskell Team
  * 	contact : marie.gouyette@gmail.com
  ******************************************************************************/
-package fr.inria.file_methods.method;
+package fr.inria.diverse.kcvl.derivationengine.utils;
 
 import java.io.File;
 import java.io.FileInputStream;

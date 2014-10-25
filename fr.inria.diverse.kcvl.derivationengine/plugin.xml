@@ -5,71 +5,71 @@
       <extension
          point="org.eclipse.ui.popupMenus">
       <objectContribution
-            id="fr.inria.exec_derivation.contribution1"
+            id="fr.inria.diverse.kcvl.derivationengine.execderivation.contribution1"
             nameFilter="*.cvl"
             objectClass="org.eclipse.core.resources.IResource">
          <menu
-               id="fr.inria.exec_derivation.menu2"
-               label="CVL"
+               id="fr.inria.diverse.kcvl.derivationengine.execderivation.menu2"
+               label="KCVL"
                path="additions">
             <separator
                   name="group1">
             </separator>
          </menu>
          <action
-               class="fr.inria.exec_derivation.popup.actions.ProductDerivationAction"
+               class="fr.inria.diverse.kcvl.derivationengine.execderivation.popup.actions.ProductDerivationAction"
                enablesFor="1"
-               id="fr.inria.exec_derivation.newAction"
+               id="fr.inria.diverse.kcvl.derivationengine.execderivation.newAction"
                label="Derive Product"
-               menubarPath="fr.inria.exec_derivation.menu2/group1">
+               menubarPath="fr.inria.diverse.kcvl.derivationengine.execderivation.menu2/group1">
          </action>
          <action
-               class="fr.inria.exec_derivation.popup.actions.CVLSynthesisAction"
+               class="fr.inria.diverse.kcvl.derivationengine.execderivation.popup.actions.CVLSynthesisAction"
                enablesFor="1"
-               id="fr.inria.exec_derivation.newAction2"
+               id="fr.inria.diverse.kcvl.derivationengine.execderivation.newAction2"
                label="CVL CounterExample Synthesis"
-               menubarPath="fr.inria.exec_derivation.menu2/group1">
+               menubarPath="fr.inria.diverse.kcvl.derivationengine.execderivation.menu2/group1">
          </action>
          <action
-               class="fr.inria.exec_derivation.popup.actions.ToFamiliarAction"
+               class="fr.inria.diverse.kcvl.derivationengine.execderivation.popup.actions.ToFamiliarAction"
                enablesFor="1"
-               id="fr.inria.exec_derivation.newAction1"
+               id="fr.inria.diverse.kcvl.derivationengine.execderivation.newAction1"
                label="FAMILIAR Report"
-               menubarPath="fr.inria.exec_derivation.menu2/group1">
+               menubarPath="fr.inria.diverse.kcvl.derivationengine.execderivation.menu2/group1">
          </action>
       </objectContribution>
       <objectContribution
-            id="fr.inria.exec_derivation.contribution1"
+            id="fr.inria.diverse.kcvl.derivationengine.execderivation.contribution1"
             nameFilter="*.kcvl"
             objectClass="org.eclipse.core.resources.IResource">
          <menu
-               id="fr.inria.exec_derivation.menu2"
-               label="CVL"
+               id="fr.inria.diverse.kcvl.derivationengine.execderivation.menu2"
+               label="KCVL"
                path="additions">
             <separator
                   name="group1">
             </separator>
          </menu>
          <action
-               class="fr.inria.exec_derivation.popup.actions.ProductDerivationAction"
+               class="fr.inria.diverse.kcvl.derivationengine.execderivation.popup.actions.ProductDerivationAction"
                enablesFor="1"
-               id="fr.inria.exec_derivation.newAction"
+               id="fr.inria.diverse.kcvl.derivationengine.execderivation.newAction"
                label="Derive Product"
-               menubarPath="fr.inria.exec_derivation.menu2/group1">
+               menubarPath="fr.inria.diverse.kcvl.derivationengine.execderivation.menu2/group1">
          </action>
          <action
-               class="fr.inria.exec_derivation.popup.actions.CVLSynthesisAction"
+               class="fr.inria.diverse.kcvl.derivationengine.execderivation.popup.actions.CVLSynthesisAction"
                enablesFor="1"
-               id="fr.inria.exec_derivation.newAction2"
+               id="fr.inria.diverse.kcvl.derivationengine.execderivation.newAction2"
                label="CVL CounterExample Synthesis"
-               menubarPath="fr.inria.exec_derivation.menu2/group1">
+               menubarPath="fr.inria.diverse.kcvl.derivationengine.execderivation.menu2/group1">
          </action>
          <action
-               class="fr.inria.exec_derivation.popup.actions.ToFamiliarAction"
+               class="fr.inria.diverse.kcvl.derivationengine.execderivation.popup.actions.ToFamiliarAction"
                enablesFor="1"
-               id="fr.inria.exec_derivation.newAction1"
+               id="fr.inria.diverse.kcvl.derivationengine.execderivation.newAction1"
                label="FAMILIAR Report"
-               menubarPath="fr.inria.exec_derivation.menu2/group1">
+               menubarPath="fr.inria.diverse.kcvl.derivationengine.execderivation.menu2/group1">
          </action>
       </objectContribution>
    </extension>
