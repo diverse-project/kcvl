@@ -48,6 +48,7 @@ import org.omg.CVLMetamodelMaster.cvl.ChoiceResolutuion
 import org.omg.CVLMetamodelMaster.cvl.ChoiceVariationPoint
 import org.omg.CVLMetamodelMaster.cvl.CompositeVariationPoint
 import org.omg.CVLMetamodelMaster.cvl.ConfigurableUnit
+import org.omg.CVLMetamodelMaster.cvl.Existence
 import org.omg.CVLMetamodelMaster.cvl.FragmentSubstitution
 import org.omg.CVLMetamodelMaster.cvl.LinkAssignment
 import org.omg.CVLMetamodelMaster.cvl.LinkExistence
@@ -108,20 +109,20 @@ class Derivator
 			return
 		}
 
-		println("Number of choices resolved to true: " + ctx.selectedChoices.size.toString)
-		println("Number of choices resolved to false: " + ctx.unselectedChoices.size.toString)
+		println("Choices resolved to true: " + ctx.selectedChoices.map[name].join(", "))
+		println("Choices resolved to false: " + ctx.unselectedChoices.map[name].join(", "))
 
 		ctxs.forEach[ctx |
 			findBinding(o)
 
-			println("Number of realizations resolved to true: " + ctx.selectedVPs.size.toString)
-			println("Number of realizations resolved to false: " + ctx.unselectedVPs.size.toString)
+			println("Realizations resolved to true: " + ctx.selectedVPs.map[name].join(", "))
+			println("Realizations resolved to false: " + ctx.unselectedVPs.map[name].join(", "))
 
 			ctx.unselectedVPs
-				.filter[it instanceof ObjectExistence || it instanceof LinkExistence]
+				.filter[it instanceof Existence]
 				.forEach[it.executeDerivation]
 			ctx.selectedVPs
-				.filter[!(it instanceof ObjectExistence || it instanceof LinkExistence)]
+				.filter[!(it instanceof Existence)]
 				.forEach[it.executeDerivation]
 		]
 
