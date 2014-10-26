@@ -17,7 +17,6 @@ Require-Bundle: org.eclipse.xtext;bundle-version="[2.3.1,2.3.2)",
  fr.inria.diverse.kcvl.interpreter;bundle-version="0.1.0",
  fr.inria.diverse.kcvl.extensions;bundle-version="0.1.0",
  org.junit;bundle-version="4.10.0",
- org.eclipse.emf.diffmerge.patterns;bundle-version="0.4.0",
  org.eclipse.ui.console;bundle-version="3.5.100",
  org.eclipse.sirius;bundle-version="1.0.1"
 Bundle-ActivationPolicy: lazy
@@ -39,4 +38,18 @@ Export-Package: fr.inria.diverse.kcvl.derivationengine.execderivation.core,
  fr.inria.diverse.kcvl.derivationengine.execselection.wizard,
  fr.inria.diverse.kcvl.derivationengine.utils
 Bundle-Activator: fr.inria.diverse.kcvl.derivationengine.execselection.Activator
+Import-Package: org.eclipse.emf.diffmerge.patterns.core,
+ org.eclipse.emf.diffmerge.patterns.core.api,
+ org.eclipse.emf.diffmerge.patterns.core.api.ext,
+ org.eclipse.emf.diffmerge.patterns.core.api.locations,
+ org.eclipse.emf.diffmerge.patterns.core.gen.corepatterns.impl,
+ org.eclipse.emf.diffmerge.patterns.core.util,
+ org.eclipse.emf.diffmerge.patterns.core.util.locations,
+ org.eclipse.emf.diffmerge.patterns.repositories.catalogs,
+ org.eclipse.emf.diffmerge.patterns.repositories.catalogs.operations,
+ org.eclipse.emf.diffmerge.patterns.templates.engine,
+ org.eclipse.emf.diffmerge.patterns.templates.engine.operations,
+ org.eclipse.emf.diffmerge.patterns.templates.gen,
+ org.eclipse.emf.diffmerge.patterns.templates.gen.templatepatterns,
+ org.eclipse.emf.diffmerge.patterns.templates.gen.templatepatterns.impl
 
