@@ -52,14 +52,42 @@
          unpack="false"/>
 
    <plugin
-         id="fr.inria.diverse.kcvl.movidaderivation"
+         id="fr.inria.diverse.kcvl.cvlmappingvaribilitychoice"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="fr.inria.diverse.kcvl.cvlmappingvaribilitychoice"
+         id="fr.inria.diverse.kcvl.metamodel.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="fr.inria.diverse.kcvl.metamodel.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="fr.inria.diverse.kcvl.extensions"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="fr.inria.diverse.kcvl.uml.xtext"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="fr.inria.diverse.kcvl.uml.xtext.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
