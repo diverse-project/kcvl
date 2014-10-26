@@ -7398,9 +7398,9 @@ rulePatternIntegration returns [EObject current=null]
 	}
 
 )
-)(	otherlv_22='substitutes' 
+)(	otherlv_22='bindings' 
     {
-    	newLeafNode(otherlv_22, grammarAccess.getPatternIntegrationAccess().getSubstitutesKeyword_11_0());
+    	newLeafNode(otherlv_22, grammarAccess.getPatternIntegrationAccess().getBindingsKeyword_11_0());
     }
 (
 (
@@ -7924,9 +7924,9 @@ ruleStructuralOrganisationalPattern returns [EObject current=null]
 	}
 
 )
-)(	otherlv_22='substitutes' 
+)(	otherlv_22='bindings' 
     {
-    	newLeafNode(otherlv_22, grammarAccess.getStructuralOrganisationalPatternAccess().getSubstitutesKeyword_11_0());
+    	newLeafNode(otherlv_22, grammarAccess.getStructuralOrganisationalPatternAccess().getBindingsKeyword_11_0());
     }
 (
 (

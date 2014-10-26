@@ -29779,11 +29779,11 @@ rule__PatternIntegration__Group_11__0__Impl
     }
 :
 (
-{ before(grammarAccess.getPatternIntegrationAccess().getSubstitutesKeyword_11_0()); }
+{ before(grammarAccess.getPatternIntegrationAccess().getBindingsKeyword_11_0()); }
 
-	'substitutes' 
+	'bindings' 
 
-{ after(grammarAccess.getPatternIntegrationAccess().getSubstitutesKeyword_11_0()); }
+{ after(grammarAccess.getPatternIntegrationAccess().getBindingsKeyword_11_0()); }
 )
 
 ;
@@ -32137,11 +32137,11 @@ rule__StructuralOrganisationalPattern__Group_11__0__Impl
     }
 :
 (
-{ before(grammarAccess.getStructuralOrganisationalPatternAccess().getSubstitutesKeyword_11_0()); }
+{ before(grammarAccess.getStructuralOrganisationalPatternAccess().getBindingsKeyword_11_0()); }
 
-	'substitutes' 
+	'bindings' 
 
-{ after(grammarAccess.getStructuralOrganisationalPatternAccess().getSubstitutesKeyword_11_0()); }
+{ after(grammarAccess.getStructuralOrganisationalPatternAccess().getBindingsKeyword_11_0()); }
 )
 
 ;

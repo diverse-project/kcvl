@@ -5622,7 +5622,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cBindingClassifierVClassifierCrossReference_10_0 = (CrossReference)cBindingClassifierAssignment_10.eContents().get(0);
 		private final RuleCall cBindingClassifierVClassifierIDTerminalRuleCall_10_0_1 = (RuleCall)cBindingClassifierVClassifierCrossReference_10_0.eContents().get(1);
 		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
-		private final Keyword cSubstitutesKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Keyword cBindingsKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
 		private final Assignment cSubstitutesAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
 		private final CrossReference cSubstitutesObjectSubstitutionCrossReference_11_1_0 = (CrossReference)cSubstitutesAssignment_11_1.eContents().get(0);
 		private final RuleCall cSubstitutesObjectSubstitutionIDTerminalRuleCall_11_1_0_1 = (RuleCall)cSubstitutesObjectSubstitutionCrossReference_11_1_0.eContents().get(1);
@@ -5637,14 +5637,14 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		//	"PatternIntegration" name=ID multi?="[*]"? "{" ("mapping" mappingExpression=STRING)? ("expression" expression=STRING)?
 		//	("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
 		//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("choice"
-		//	bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "classifier" bindingClassifier=[VClassifier] ("substitutes"
+		//	bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "classifier" bindingClassifier=[VClassifier] ("bindings"
 		//	substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}";
 		public ParserRule getRule() { return rule; }
 
 		//"PatternIntegration" name=ID multi?="[*]"? "{" ("mapping" mappingExpression=STRING)? ("expression" expression=STRING)?
 		//("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
 		//precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("choice"
-		//bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "classifier" bindingClassifier=[VClassifier] ("substitutes"
+		//bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "classifier" bindingClassifier=[VClassifier] ("bindings"
 		//substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}"
 		public Group getGroup() { return cGroup; }
 
@@ -5792,11 +5792,11 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getBindingClassifierVClassifierIDTerminalRuleCall_10_0_1() { return cBindingClassifierVClassifierIDTerminalRuleCall_10_0_1; }
 
-		//("substitutes" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)?
+		//("bindings" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)?
 		public Group getGroup_11() { return cGroup_11; }
 
-		//"substitutes"
-		public Keyword getSubstitutesKeyword_11_0() { return cSubstitutesKeyword_11_0; }
+		//"bindings"
+		public Keyword getBindingsKeyword_11_0() { return cBindingsKeyword_11_0; }
 
 		//substitutes+=[ObjectSubstitution]
 		public Assignment getSubstitutesAssignment_11_1() { return cSubstitutesAssignment_11_1; }
@@ -6138,7 +6138,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cBindingClassifierVClassifierCrossReference_10_0 = (CrossReference)cBindingClassifierAssignment_10.eContents().get(0);
 		private final RuleCall cBindingClassifierVClassifierIDTerminalRuleCall_10_0_1 = (RuleCall)cBindingClassifierVClassifierCrossReference_10_0.eContents().get(1);
 		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
-		private final Keyword cSubstitutesKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Keyword cBindingsKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
 		private final Assignment cSubstitutesAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
 		private final CrossReference cSubstitutesObjectSubstitutionCrossReference_11_1_0 = (CrossReference)cSubstitutesAssignment_11_1.eContents().get(0);
 		private final RuleCall cSubstitutesObjectSubstitutionIDTerminalRuleCall_11_1_0_1 = (RuleCall)cSubstitutesObjectSubstitutionCrossReference_11_1_0.eContents().get(1);
@@ -6154,14 +6154,14 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		//	expression=STRING)? ("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
 		//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("choice"
 		//	bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "bindingClassifier" bindingClassifier=[VClassifier]
-		//	("substitutes" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}";
+		//	("bindings" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}";
 		public ParserRule getRule() { return rule; }
 
 		//"StructuralOrganisationalPattern" name=ID multi?="[*]"? "{" ("mapping" mappingExpression=STRING)? ("expression"
 		//expression=STRING)? ("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
 		//precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("choice"
 		//bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "bindingClassifier" bindingClassifier=[VClassifier]
-		//("substitutes" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}"
+		//("bindings" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"StructuralOrganisationalPattern"
@@ -6308,11 +6308,11 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getBindingClassifierVClassifierIDTerminalRuleCall_10_0_1() { return cBindingClassifierVClassifierIDTerminalRuleCall_10_0_1; }
 
-		//("substitutes" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)?
+		//("bindings" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)?
 		public Group getGroup_11() { return cGroup_11; }
 
-		//"substitutes"
-		public Keyword getSubstitutesKeyword_11_0() { return cSubstitutesKeyword_11_0; }
+		//"bindings"
+		public Keyword getBindingsKeyword_11_0() { return cBindingsKeyword_11_0; }
 
 		//substitutes+=[ObjectSubstitution]
 		public Assignment getSubstitutesAssignment_11_1() { return cSubstitutesAssignment_11_1; }
@@ -8746,7 +8746,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	//	"PatternIntegration" name=ID multi?="[*]"? "{" ("mapping" mappingExpression=STRING)? ("expression" expression=STRING)?
 	//	("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
 	//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("choice"
-	//	bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "classifier" bindingClassifier=[VClassifier] ("substitutes"
+	//	bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "classifier" bindingClassifier=[VClassifier] ("bindings"
 	//	substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}";
 	public PatternIntegrationElements getPatternIntegrationAccess() {
 		return (pPatternIntegration != null) ? pPatternIntegration : (pPatternIntegration = new PatternIntegrationElements());
@@ -8775,7 +8775,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	//	expression=STRING)? ("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
 	//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("choice"
 	//	bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "bindingClassifier" bindingClassifier=[VClassifier]
-	//	("substitutes" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}";
+	//	("bindings" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}";
 	public StructuralOrganisationalPatternElements getStructuralOrganisationalPatternAccess() {
 		return (pStructuralOrganisationalPattern != null) ? pStructuralOrganisationalPattern : (pStructuralOrganisationalPattern = new StructuralOrganisationalPatternElements());
 	}

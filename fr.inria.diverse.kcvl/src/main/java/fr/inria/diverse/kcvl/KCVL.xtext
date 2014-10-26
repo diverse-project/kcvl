@@ -514,7 +514,7 @@ PatternIntegration returns PatternIntegration:
 		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
 		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 		'classifier' bindingClassifier = [VClassifier]
-		('substitutes' substitutes += [ObjectSubstitution] (',' substitutes += [ObjectSubstitution])*)?
+		('bindings' substitutes += [ObjectSubstitution] (',' substitutes += [ObjectSubstitution])*)?
 	'}'
 ;
 
@@ -538,7 +538,7 @@ StructuralOrganisationalPattern returns StructuralOrganisationalPattern:
 		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
 		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 		'bindingClassifier' bindingClassifier = [VClassifier]
-		('substitutes' substitutes += [ObjectSubstitution] (',' substitutes += [ObjectSubstitution])*)?
+		('bindings' substitutes += [ObjectSubstitution] (',' substitutes += [ObjectSubstitution])*)?
 	'}'
 ;
 
