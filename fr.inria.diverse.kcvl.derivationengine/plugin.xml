@@ -23,13 +23,13 @@
                label="Derive Product"
                menubarPath="fr.inria.diverse.kcvl.derivationengine.execderivation.menu2/group1">
          </action>
-         <action
+         <!--<action
                class="fr.inria.diverse.kcvl.derivationengine.execderivation.popup.actions.CVLSynthesisAction"
                enablesFor="1"
                id="fr.inria.diverse.kcvl.derivationengine.execderivation.newAction2"
                label="CVL CounterExample Synthesis"
                menubarPath="fr.inria.diverse.kcvl.derivationengine.execderivation.menu2/group1">
-         </action>
+         </action>-->
          <action
                class="fr.inria.diverse.kcvl.derivationengine.execderivation.popup.actions.ToFamiliarAction"
                enablesFor="1"
@@ -57,13 +57,13 @@
                label="Derive Product"
                menubarPath="fr.inria.diverse.kcvl.derivationengine.execderivation.menu2/group1">
          </action>
-         <action
+         <!--<action
                class="fr.inria.diverse.kcvl.derivationengine.execderivation.popup.actions.CVLSynthesisAction"
                enablesFor="1"
                id="fr.inria.diverse.kcvl.derivationengine.execderivation.newAction2"
                label="CVL CounterExample Synthesis"
                menubarPath="fr.inria.diverse.kcvl.derivationengine.execderivation.menu2/group1">
-         </action>
+         </action>-->
          <action
                class="fr.inria.diverse.kcvl.derivationengine.execderivation.popup.actions.ToFamiliarAction"
                enablesFor="1"
