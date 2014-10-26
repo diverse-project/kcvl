@@ -12,7 +12,7 @@
 		<module>../fr.inria.diverse.kcvl</module>
 		<module>../fr.inria.diverse.kcvl.metamodel</module>
 		<module>../fr.inria.diverse.kcvl.metamodel.edit</module>
-		<module>../fr.inira.diverse.kcvl.metamodel.editor</module>
+		<module>../fr.inria.diverse.kcvl.metamodel.editor</module>
 		<module>../fr.inria.diverse.kcvl.ui</module>
 		<module>../fr.inria.diverse.kcvl.fd2assets</module>
 		<module>../fr.inria.diverse.kcvl.cvlmappingvaribilitychoice</module>
