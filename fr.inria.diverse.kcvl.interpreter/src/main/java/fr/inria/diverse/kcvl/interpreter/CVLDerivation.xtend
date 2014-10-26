@@ -602,7 +602,13 @@ class Derivator
 			if (o != null)
 				if (ref.many) {
 					val values = o as List<? extends EObject>
-					values.forEach[fixReferences(it)]
+					val toFix = new ArrayList<EObject>
+
+					values.forEach[v | toFix.add(v)]
+
+					toFix.forEach[EObject r |
+						fixReferences(r)
+					]
 				} else if (o instanceof EObject)
 					fixReferences(o as EObject)
 		]
