@@ -13,10 +13,12 @@
  ******************************************************************************/
 package fr.inria.diverse.kcvl.derivationengine.execderivation.core;
 
+import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -207,7 +209,6 @@ public class ExecDerivation implements PatternIntegration {
 
 			@Override
 			protected void doExecute() {
-
 				// Derive domain model
 
 				MessageConsole myConsole = findConsole("cvl");
@@ -264,7 +265,7 @@ public class ExecDerivation implements PatternIntegration {
 				System.err.println(v.getDomainResources().size());
 				
 				// Save model
-				/*for (Resource res1 : v.getDomainResources()) {
+				for (Resource res1 : v.getDomainResources()) {
 					URI newuri = res1.getURI();
 					newuri = newuri.trimFileExtension();
 					newuri = URI.createURI(newuri.toString() + "_new");
@@ -284,13 +285,13 @@ public class ExecDerivation implements PatternIntegration {
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-				}*/
+				}
 			}
 		});
 
 		// We undo the command to not keep some modifications in base model
 		// resource
-		//domain.getCommandStack().undo();
+		domain.getCommandStack().undo();
 	}
 
 	public boolean includePattern(List<Pair<EObject, EObject>> substitutes) {
