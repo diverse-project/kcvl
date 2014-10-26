@@ -21,10 +21,10 @@
           <h1 id="project_title">KCVL</h1>
           <h2 id="project_tagline">kcvl</h2>
 
-            <!--<section id="downloads">
+            <section id="downloads">
               <a class="zip_download_link" href="https://github.com/diverse-project/kcvl/zipball/master">Download this project as a .zip file</a>
               <a class="tar_download_link" href="https://github.com/diverse-project/kcvl/tarball/master">Download this project as a tar.gz file</a>
-	      </section>-->
+            </section>
         </header>
     </div>
 
@@ -32,36 +32,47 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<a name="kcvl" class="anchor" href="#kcvl"><span class="octicon octicon-link"></span></a>KCVL</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>KCVL is a <em>prototype</em> implementation of the OMG <a href="http://www.omgwiki.org/variability/doku.php">Common Variability Language</a> with several additional features. KCVL comes with a textual editor for expressing variability abstraction models, variability realization models and resolution models. Several services are built around this textual representation, including:</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<ul>
+<li>The manipulation of base architecture models expressed in different formalisms such as <a href="http://marketplace.obeonetwork.com/module/uml">UML</a>, <a href="http://www.eclipse.org/modeling/emf/">EMF Ecore</a> or <a href="https://www.polarsys.org/proposals/capella">Capella</a>. Any MOF-compliant language can be integrated with little effort.</li>
+<li>An interpreter for deriving specific products architectures from a common base model</li>
+<li>A binding to <a href="http://familiar-project.github.io/">FAMILIAR</a> for manipulating and reasoning about (multiple) feature models</li>
+<li>New variability realization concepts leveraging <a href="http://eclipse.org/diffmerge/">EMF Diff/Merge</a> patterns mechanism</li>
+</ul>
 
 <h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>KCVL is bundled as a set of Eclipse plugins.</p>
+
+<h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<ul>
+<li>Eclipse Juno (3.8/4.2)</li>
+<li>Xtext 2.3.1</li>
+<li>EMF Diff/Merge + EMF Diff/Merge patterns</li>
+<li>Sirius</li>
+<li>Groovy-Eclipse</li>
+</ul>
+
+<h2>
+<a name="installation-1" class="anchor" href="#installation-1"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p><em>Help -&gt; Install New Software...</em></p>
+
+<ul>
+<li>Update Site: <a href="https://ci.inria.fr/k3al/job/kcvl/lastSuccessfulBuild/artifact/fr.inria.diverse.kcvl.p2updatesite/target/site/">https://ci.inria.fr/k3al/job/kcvl/lastSuccessfulBuild/artifact/fr.inria.diverse.kcvl.p2updatesite/target/site/</a>
+</li>
+<li>Continuous Integration: <a href="https://ci.inria.fr/k3al/job/kcvl/">https://ci.inria.fr/k3al/job/kcvl/</a>
+</li>
+</ul>
 
 <h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<a name="quick-start" class="anchor" href="#quick-start"><span class="octicon octicon-link"></span></a>Quick Start</h3>
       </section>
     </div>
 
