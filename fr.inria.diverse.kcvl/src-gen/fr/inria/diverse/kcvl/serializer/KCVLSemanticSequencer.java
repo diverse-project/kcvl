@@ -2237,9 +2237,9 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	 *         expression=STRING? 
 	 *         (bindingVspec+=[VSpec|ID] bindingVspec+=[VSpec|ID]*)? 
 	 *         (precedenceConstraint+=[VariationPoint|ID] precedenceConstraint+=[VariationPoint|ID]*)? 
-	 *         (bindingChoice+=[Choice|ID] bindingChoice+=[Choice|ID]*)? 
 	 *         bindingClassifier=[VClassifier|ID]? 
-	 *         (substitutes+=[ObjectSubstitution|ID] substitutes+=[ObjectSubstitution|ID]*)?
+	 *         (substitutes+=[ObjectSubstitution|ID] substitutes+=[ObjectSubstitution|ID]*)? 
+	 *         (bindingChoice+=[Choice|ID] bindingChoice+=[Choice|ID]*)?
 	 *     )
 	 */
 	protected void sequence_PatternFusion(EObject context, PatternFusion semanticObject) {
@@ -2256,9 +2256,9 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	 *         expression=STRING? 
 	 *         (bindingVspec+=[VSpec|ID] bindingVspec+=[VSpec|ID]*)? 
 	 *         (precedenceConstraint+=[VariationPoint|ID] precedenceConstraint+=[VariationPoint|ID]*)? 
-	 *         (bindingChoice+=[Choice|ID] bindingChoice+=[Choice|ID]*)? 
-	 *         bindingClassifier=[VClassifier|ID] 
-	 *         (substitutes+=[ObjectSubstitution|ID] substitutes+=[ObjectSubstitution|ID]*)?
+	 *         bindingClassifier=[VClassifier|ID]? 
+	 *         (substitutes+=[ObjectSubstitution|ID] substitutes+=[ObjectSubstitution|ID]*)? 
+	 *         (bindingChoice+=[Choice|ID] bindingChoice+=[Choice|ID]*)?
 	 *     )
 	 */
 	protected void sequence_PatternIntegration(EObject context, PatternIntegration semanticObject) {
@@ -2474,9 +2474,9 @@ public class KCVLSemanticSequencer extends XbaseSemanticSequencer {
 	 *         expression=STRING? 
 	 *         (bindingVspec+=[VSpec|ID] bindingVspec+=[VSpec|ID]*)? 
 	 *         (precedenceConstraint+=[VariationPoint|ID] precedenceConstraint+=[VariationPoint|ID]*)? 
-	 *         (bindingChoice+=[Choice|ID] bindingChoice+=[Choice|ID]*)? 
-	 *         bindingClassifier=[VClassifier|ID] 
-	 *         (substitutes+=[ObjectSubstitution|ID] substitutes+=[ObjectSubstitution|ID]*)?
+	 *         bindingClassifier=[VClassifier|ID]? 
+	 *         (substitutes+=[ObjectSubstitution|ID] substitutes+=[ObjectSubstitution|ID]*)? 
+	 *         (bindingChoice+=[Choice|ID] bindingChoice+=[Choice|ID]*)?
 	 *     )
 	 */
 	protected void sequence_StructuralOrganisationalPattern(EObject context, StructuralOrganisationalPattern semanticObject) {

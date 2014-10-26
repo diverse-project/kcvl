@@ -2511,35 +2511,15 @@
           </elements>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
-          <elements xsi:type="xtext:Keyword" value="choice"/>
-          <elements xsi:type="xtext:Assignment" feature="bindingChoice" operator="+=">
+          <elements xsi:type="xtext:Keyword" value="classifier"/>
+          <elements xsi:type="xtext:Assignment" feature="bindingClassifier" operator="=">
             <terminal xsi:type="xtext:CrossReference">
               <type metamodel="/0/@metamodelDeclarations.0">
-                <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//Choice"/>
+                <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//VClassifier"/>
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
             </terminal>
           </elements>
-          <elements xsi:type="xtext:Group" cardinality="*">
-            <elements xsi:type="xtext:Keyword" value=","/>
-            <elements xsi:type="xtext:Assignment" feature="bindingChoice" operator="+=">
-              <terminal xsi:type="xtext:CrossReference">
-                <type metamodel="/0/@metamodelDeclarations.0">
-                  <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//Choice"/>
-                </type>
-                <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
-              </terminal>
-            </elements>
-          </elements>
-        </elements>
-        <elements xsi:type="xtext:Keyword" value="classifier"/>
-        <elements xsi:type="xtext:Assignment" feature="bindingClassifier" operator="=">
-          <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.0">
-              <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//VClassifier"/>
-            </type>
-            <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
-          </terminal>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="bindings"/>
@@ -2557,6 +2537,28 @@
               <terminal xsi:type="xtext:CrossReference">
                 <type metamodel="/0/@metamodelDeclarations.0">
                   <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//ObjectSubstitution"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
+              </terminal>
+            </elements>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="choice"/>
+          <elements xsi:type="xtext:Assignment" feature="bindingChoice" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.0">
+                <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//Choice"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="bindingChoice" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.0">
+                  <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//Choice"/>
                 </type>
                 <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
               </terminal>
@@ -2636,28 +2638,6 @@
           </elements>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
-          <elements xsi:type="xtext:Keyword" value="choice"/>
-          <elements xsi:type="xtext:Assignment" feature="bindingChoice" operator="+=">
-            <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.0">
-                <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//Choice"/>
-              </type>
-              <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
-            </terminal>
-          </elements>
-          <elements xsi:type="xtext:Group" cardinality="*">
-            <elements xsi:type="xtext:Keyword" value=","/>
-            <elements xsi:type="xtext:Assignment" feature="bindingChoice" operator="+=">
-              <terminal xsi:type="xtext:CrossReference">
-                <type metamodel="/0/@metamodelDeclarations.0">
-                  <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//Choice"/>
-                </type>
-                <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
-              </terminal>
-            </elements>
-          </elements>
-        </elements>
-        <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="classifier"/>
           <elements xsi:type="xtext:Assignment" feature="bindingClassifier" operator="=">
             <terminal xsi:type="xtext:CrossReference">
@@ -2684,6 +2664,28 @@
               <terminal xsi:type="xtext:CrossReference">
                 <type metamodel="/0/@metamodelDeclarations.0">
                   <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//ObjectSubstitution"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
+              </terminal>
+            </elements>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="choice"/>
+          <elements xsi:type="xtext:Assignment" feature="bindingChoice" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.0">
+                <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//Choice"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="bindingChoice" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.0">
+                  <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//Choice"/>
                 </type>
                 <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
               </terminal>
@@ -2763,35 +2765,15 @@
           </elements>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
-          <elements xsi:type="xtext:Keyword" value="choice"/>
-          <elements xsi:type="xtext:Assignment" feature="bindingChoice" operator="+=">
+          <elements xsi:type="xtext:Keyword" value="classifier"/>
+          <elements xsi:type="xtext:Assignment" feature="bindingClassifier" operator="=">
             <terminal xsi:type="xtext:CrossReference">
               <type metamodel="/0/@metamodelDeclarations.0">
-                <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//Choice"/>
+                <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//VClassifier"/>
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
             </terminal>
           </elements>
-          <elements xsi:type="xtext:Group" cardinality="*">
-            <elements xsi:type="xtext:Keyword" value=","/>
-            <elements xsi:type="xtext:Assignment" feature="bindingChoice" operator="+=">
-              <terminal xsi:type="xtext:CrossReference">
-                <type metamodel="/0/@metamodelDeclarations.0">
-                  <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//Choice"/>
-                </type>
-                <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
-              </terminal>
-            </elements>
-          </elements>
-        </elements>
-        <elements xsi:type="xtext:Keyword" value="bindingClassifier"/>
-        <elements xsi:type="xtext:Assignment" feature="bindingClassifier" operator="=">
-          <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.0">
-              <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//VClassifier"/>
-            </type>
-            <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
-          </terminal>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="bindings"/>
@@ -2809,6 +2791,28 @@
               <terminal xsi:type="xtext:CrossReference">
                 <type metamodel="/0/@metamodelDeclarations.0">
                   <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//ObjectSubstitution"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
+              </terminal>
+            </elements>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="choice"/>
+          <elements xsi:type="xtext:Assignment" feature="bindingChoice" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.0">
+                <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//Choice"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="bindingChoice" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.0">
+                  <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//Choice"/>
                 </type>
                 <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
               </terminal>

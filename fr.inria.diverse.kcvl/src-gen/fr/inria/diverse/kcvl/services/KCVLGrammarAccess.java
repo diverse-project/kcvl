@@ -5608,44 +5608,45 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cPrecedenceConstraintVariationPointCrossReference_7_2_1_0 = (CrossReference)cPrecedenceConstraintAssignment_7_2_1.eContents().get(0);
 		private final RuleCall cPrecedenceConstraintVariationPointIDTerminalRuleCall_7_2_1_0_1 = (RuleCall)cPrecedenceConstraintVariationPointCrossReference_7_2_1_0.eContents().get(1);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cChoiceKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cBindingChoiceAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final CrossReference cBindingChoiceChoiceCrossReference_8_1_0 = (CrossReference)cBindingChoiceAssignment_8_1.eContents().get(0);
-		private final RuleCall cBindingChoiceChoiceIDTerminalRuleCall_8_1_0_1 = (RuleCall)cBindingChoiceChoiceCrossReference_8_1_0.eContents().get(1);
-		private final Group cGroup_8_2 = (Group)cGroup_8.eContents().get(2);
-		private final Keyword cCommaKeyword_8_2_0 = (Keyword)cGroup_8_2.eContents().get(0);
-		private final Assignment cBindingChoiceAssignment_8_2_1 = (Assignment)cGroup_8_2.eContents().get(1);
-		private final CrossReference cBindingChoiceChoiceCrossReference_8_2_1_0 = (CrossReference)cBindingChoiceAssignment_8_2_1.eContents().get(0);
-		private final RuleCall cBindingChoiceChoiceIDTerminalRuleCall_8_2_1_0_1 = (RuleCall)cBindingChoiceChoiceCrossReference_8_2_1_0.eContents().get(1);
-		private final Keyword cClassifierKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cBindingClassifierAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final CrossReference cBindingClassifierVClassifierCrossReference_10_0 = (CrossReference)cBindingClassifierAssignment_10.eContents().get(0);
-		private final RuleCall cBindingClassifierVClassifierIDTerminalRuleCall_10_0_1 = (RuleCall)cBindingClassifierVClassifierCrossReference_10_0.eContents().get(1);
-		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
-		private final Keyword cBindingsKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
-		private final Assignment cSubstitutesAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
-		private final CrossReference cSubstitutesObjectSubstitutionCrossReference_11_1_0 = (CrossReference)cSubstitutesAssignment_11_1.eContents().get(0);
-		private final RuleCall cSubstitutesObjectSubstitutionIDTerminalRuleCall_11_1_0_1 = (RuleCall)cSubstitutesObjectSubstitutionCrossReference_11_1_0.eContents().get(1);
-		private final Group cGroup_11_2 = (Group)cGroup_11.eContents().get(2);
-		private final Keyword cCommaKeyword_11_2_0 = (Keyword)cGroup_11_2.eContents().get(0);
-		private final Assignment cSubstitutesAssignment_11_2_1 = (Assignment)cGroup_11_2.eContents().get(1);
-		private final CrossReference cSubstitutesObjectSubstitutionCrossReference_11_2_1_0 = (CrossReference)cSubstitutesAssignment_11_2_1.eContents().get(0);
-		private final RuleCall cSubstitutesObjectSubstitutionIDTerminalRuleCall_11_2_1_0_1 = (RuleCall)cSubstitutesObjectSubstitutionCrossReference_11_2_1_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Keyword cClassifierKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cBindingClassifierAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final CrossReference cBindingClassifierVClassifierCrossReference_8_1_0 = (CrossReference)cBindingClassifierAssignment_8_1.eContents().get(0);
+		private final RuleCall cBindingClassifierVClassifierIDTerminalRuleCall_8_1_0_1 = (RuleCall)cBindingClassifierVClassifierCrossReference_8_1_0.eContents().get(1);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cBindingsKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cSubstitutesAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final CrossReference cSubstitutesObjectSubstitutionCrossReference_9_1_0 = (CrossReference)cSubstitutesAssignment_9_1.eContents().get(0);
+		private final RuleCall cSubstitutesObjectSubstitutionIDTerminalRuleCall_9_1_0_1 = (RuleCall)cSubstitutesObjectSubstitutionCrossReference_9_1_0.eContents().get(1);
+		private final Group cGroup_9_2 = (Group)cGroup_9.eContents().get(2);
+		private final Keyword cCommaKeyword_9_2_0 = (Keyword)cGroup_9_2.eContents().get(0);
+		private final Assignment cSubstitutesAssignment_9_2_1 = (Assignment)cGroup_9_2.eContents().get(1);
+		private final CrossReference cSubstitutesObjectSubstitutionCrossReference_9_2_1_0 = (CrossReference)cSubstitutesAssignment_9_2_1.eContents().get(0);
+		private final RuleCall cSubstitutesObjectSubstitutionIDTerminalRuleCall_9_2_1_0_1 = (RuleCall)cSubstitutesObjectSubstitutionCrossReference_9_2_1_0.eContents().get(1);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cChoiceKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cBindingChoiceAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final CrossReference cBindingChoiceChoiceCrossReference_10_1_0 = (CrossReference)cBindingChoiceAssignment_10_1.eContents().get(0);
+		private final RuleCall cBindingChoiceChoiceIDTerminalRuleCall_10_1_0_1 = (RuleCall)cBindingChoiceChoiceCrossReference_10_1_0.eContents().get(1);
+		private final Group cGroup_10_2 = (Group)cGroup_10.eContents().get(2);
+		private final Keyword cCommaKeyword_10_2_0 = (Keyword)cGroup_10_2.eContents().get(0);
+		private final Assignment cBindingChoiceAssignment_10_2_1 = (Assignment)cGroup_10_2.eContents().get(1);
+		private final CrossReference cBindingChoiceChoiceCrossReference_10_2_1_0 = (CrossReference)cBindingChoiceAssignment_10_2_1.eContents().get(0);
+		private final RuleCall cBindingChoiceChoiceIDTerminalRuleCall_10_2_1_0_1 = (RuleCall)cBindingChoiceChoiceCrossReference_10_2_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//PatternIntegration:
 		//	"PatternIntegration" name=ID multi?="[*]"? "{" ("mapping" mappingExpression=STRING)? ("expression" expression=STRING)?
 		//	("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
-		//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("choice"
-		//	bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "classifier" bindingClassifier=[VClassifier] ("bindings"
-		//	substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}";
+		//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("classifier"
+		//	bindingClassifier=[VClassifier])? ("bindings" substitutes+=[ObjectSubstitution] (","
+		//	substitutes+=[ObjectSubstitution])*)? ("choice" bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "}";
 		public ParserRule getRule() { return rule; }
 
 		//"PatternIntegration" name=ID multi?="[*]"? "{" ("mapping" mappingExpression=STRING)? ("expression" expression=STRING)?
 		//("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
-		//precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("choice"
-		//bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "classifier" bindingClassifier=[VClassifier] ("bindings"
-		//substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}"
+		//precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("classifier"
+		//bindingClassifier=[VClassifier])? ("bindings" substitutes+=[ObjectSubstitution] (","
+		//substitutes+=[ObjectSubstitution])*)? ("choice" bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"PatternIntegration"
@@ -5750,80 +5751,83 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getPrecedenceConstraintVariationPointIDTerminalRuleCall_7_2_1_0_1() { return cPrecedenceConstraintVariationPointIDTerminalRuleCall_7_2_1_0_1; }
 
-		//("choice" bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)?
+		//("classifier" bindingClassifier=[VClassifier])?
 		public Group getGroup_8() { return cGroup_8; }
 
-		//"choice"
-		public Keyword getChoiceKeyword_8_0() { return cChoiceKeyword_8_0; }
-
-		//bindingChoice+=[Choice]
-		public Assignment getBindingChoiceAssignment_8_1() { return cBindingChoiceAssignment_8_1; }
-
-		//[Choice]
-		public CrossReference getBindingChoiceChoiceCrossReference_8_1_0() { return cBindingChoiceChoiceCrossReference_8_1_0; }
-
-		//ID
-		public RuleCall getBindingChoiceChoiceIDTerminalRuleCall_8_1_0_1() { return cBindingChoiceChoiceIDTerminalRuleCall_8_1_0_1; }
-
-		//("," bindingChoice+=[Choice])*
-		public Group getGroup_8_2() { return cGroup_8_2; }
-
-		//","
-		public Keyword getCommaKeyword_8_2_0() { return cCommaKeyword_8_2_0; }
-
-		//bindingChoice+=[Choice]
-		public Assignment getBindingChoiceAssignment_8_2_1() { return cBindingChoiceAssignment_8_2_1; }
-
-		//[Choice]
-		public CrossReference getBindingChoiceChoiceCrossReference_8_2_1_0() { return cBindingChoiceChoiceCrossReference_8_2_1_0; }
-
-		//ID
-		public RuleCall getBindingChoiceChoiceIDTerminalRuleCall_8_2_1_0_1() { return cBindingChoiceChoiceIDTerminalRuleCall_8_2_1_0_1; }
-
 		//"classifier"
-		public Keyword getClassifierKeyword_9() { return cClassifierKeyword_9; }
+		public Keyword getClassifierKeyword_8_0() { return cClassifierKeyword_8_0; }
 
 		//bindingClassifier=[VClassifier]
-		public Assignment getBindingClassifierAssignment_10() { return cBindingClassifierAssignment_10; }
+		public Assignment getBindingClassifierAssignment_8_1() { return cBindingClassifierAssignment_8_1; }
 
 		//[VClassifier]
-		public CrossReference getBindingClassifierVClassifierCrossReference_10_0() { return cBindingClassifierVClassifierCrossReference_10_0; }
+		public CrossReference getBindingClassifierVClassifierCrossReference_8_1_0() { return cBindingClassifierVClassifierCrossReference_8_1_0; }
 
 		//ID
-		public RuleCall getBindingClassifierVClassifierIDTerminalRuleCall_10_0_1() { return cBindingClassifierVClassifierIDTerminalRuleCall_10_0_1; }
+		public RuleCall getBindingClassifierVClassifierIDTerminalRuleCall_8_1_0_1() { return cBindingClassifierVClassifierIDTerminalRuleCall_8_1_0_1; }
 
 		//("bindings" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)?
-		public Group getGroup_11() { return cGroup_11; }
+		public Group getGroup_9() { return cGroup_9; }
 
 		//"bindings"
-		public Keyword getBindingsKeyword_11_0() { return cBindingsKeyword_11_0; }
+		public Keyword getBindingsKeyword_9_0() { return cBindingsKeyword_9_0; }
 
 		//substitutes+=[ObjectSubstitution]
-		public Assignment getSubstitutesAssignment_11_1() { return cSubstitutesAssignment_11_1; }
+		public Assignment getSubstitutesAssignment_9_1() { return cSubstitutesAssignment_9_1; }
 
 		//[ObjectSubstitution]
-		public CrossReference getSubstitutesObjectSubstitutionCrossReference_11_1_0() { return cSubstitutesObjectSubstitutionCrossReference_11_1_0; }
+		public CrossReference getSubstitutesObjectSubstitutionCrossReference_9_1_0() { return cSubstitutesObjectSubstitutionCrossReference_9_1_0; }
 
 		//ID
-		public RuleCall getSubstitutesObjectSubstitutionIDTerminalRuleCall_11_1_0_1() { return cSubstitutesObjectSubstitutionIDTerminalRuleCall_11_1_0_1; }
+		public RuleCall getSubstitutesObjectSubstitutionIDTerminalRuleCall_9_1_0_1() { return cSubstitutesObjectSubstitutionIDTerminalRuleCall_9_1_0_1; }
 
 		//("," substitutes+=[ObjectSubstitution])*
-		public Group getGroup_11_2() { return cGroup_11_2; }
+		public Group getGroup_9_2() { return cGroup_9_2; }
 
 		//","
-		public Keyword getCommaKeyword_11_2_0() { return cCommaKeyword_11_2_0; }
+		public Keyword getCommaKeyword_9_2_0() { return cCommaKeyword_9_2_0; }
 
 		//substitutes+=[ObjectSubstitution]
-		public Assignment getSubstitutesAssignment_11_2_1() { return cSubstitutesAssignment_11_2_1; }
+		public Assignment getSubstitutesAssignment_9_2_1() { return cSubstitutesAssignment_9_2_1; }
 
 		//[ObjectSubstitution]
-		public CrossReference getSubstitutesObjectSubstitutionCrossReference_11_2_1_0() { return cSubstitutesObjectSubstitutionCrossReference_11_2_1_0; }
+		public CrossReference getSubstitutesObjectSubstitutionCrossReference_9_2_1_0() { return cSubstitutesObjectSubstitutionCrossReference_9_2_1_0; }
 
 		//ID
-		public RuleCall getSubstitutesObjectSubstitutionIDTerminalRuleCall_11_2_1_0_1() { return cSubstitutesObjectSubstitutionIDTerminalRuleCall_11_2_1_0_1; }
+		public RuleCall getSubstitutesObjectSubstitutionIDTerminalRuleCall_9_2_1_0_1() { return cSubstitutesObjectSubstitutionIDTerminalRuleCall_9_2_1_0_1; }
+
+		//("choice" bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)?
+		public Group getGroup_10() { return cGroup_10; }
+
+		//"choice"
+		public Keyword getChoiceKeyword_10_0() { return cChoiceKeyword_10_0; }
+
+		//bindingChoice+=[Choice]
+		public Assignment getBindingChoiceAssignment_10_1() { return cBindingChoiceAssignment_10_1; }
+
+		//[Choice]
+		public CrossReference getBindingChoiceChoiceCrossReference_10_1_0() { return cBindingChoiceChoiceCrossReference_10_1_0; }
+
+		//ID
+		public RuleCall getBindingChoiceChoiceIDTerminalRuleCall_10_1_0_1() { return cBindingChoiceChoiceIDTerminalRuleCall_10_1_0_1; }
+
+		//("," bindingChoice+=[Choice])*
+		public Group getGroup_10_2() { return cGroup_10_2; }
+
+		//","
+		public Keyword getCommaKeyword_10_2_0() { return cCommaKeyword_10_2_0; }
+
+		//bindingChoice+=[Choice]
+		public Assignment getBindingChoiceAssignment_10_2_1() { return cBindingChoiceAssignment_10_2_1; }
+
+		//[Choice]
+		public CrossReference getBindingChoiceChoiceCrossReference_10_2_1_0() { return cBindingChoiceChoiceCrossReference_10_2_1_0; }
+
+		//ID
+		public RuleCall getBindingChoiceChoiceIDTerminalRuleCall_10_2_1_0_1() { return cBindingChoiceChoiceIDTerminalRuleCall_10_2_1_0_1; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
+		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
 	}
 
 	public class PatternFusionElements extends AbstractParserRuleElementFinder {
@@ -5864,45 +5868,45 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cPrecedenceConstraintVariationPointCrossReference_7_2_1_0 = (CrossReference)cPrecedenceConstraintAssignment_7_2_1.eContents().get(0);
 		private final RuleCall cPrecedenceConstraintVariationPointIDTerminalRuleCall_7_2_1_0_1 = (RuleCall)cPrecedenceConstraintVariationPointCrossReference_7_2_1_0.eContents().get(1);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cChoiceKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cBindingChoiceAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final CrossReference cBindingChoiceChoiceCrossReference_8_1_0 = (CrossReference)cBindingChoiceAssignment_8_1.eContents().get(0);
-		private final RuleCall cBindingChoiceChoiceIDTerminalRuleCall_8_1_0_1 = (RuleCall)cBindingChoiceChoiceCrossReference_8_1_0.eContents().get(1);
-		private final Group cGroup_8_2 = (Group)cGroup_8.eContents().get(2);
-		private final Keyword cCommaKeyword_8_2_0 = (Keyword)cGroup_8_2.eContents().get(0);
-		private final Assignment cBindingChoiceAssignment_8_2_1 = (Assignment)cGroup_8_2.eContents().get(1);
-		private final CrossReference cBindingChoiceChoiceCrossReference_8_2_1_0 = (CrossReference)cBindingChoiceAssignment_8_2_1.eContents().get(0);
-		private final RuleCall cBindingChoiceChoiceIDTerminalRuleCall_8_2_1_0_1 = (RuleCall)cBindingChoiceChoiceCrossReference_8_2_1_0.eContents().get(1);
+		private final Keyword cClassifierKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cBindingClassifierAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final CrossReference cBindingClassifierVClassifierCrossReference_8_1_0 = (CrossReference)cBindingClassifierAssignment_8_1.eContents().get(0);
+		private final RuleCall cBindingClassifierVClassifierIDTerminalRuleCall_8_1_0_1 = (RuleCall)cBindingClassifierVClassifierCrossReference_8_1_0.eContents().get(1);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final Keyword cClassifierKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final Assignment cBindingClassifierAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final CrossReference cBindingClassifierVClassifierCrossReference_9_1_0 = (CrossReference)cBindingClassifierAssignment_9_1.eContents().get(0);
-		private final RuleCall cBindingClassifierVClassifierIDTerminalRuleCall_9_1_0_1 = (RuleCall)cBindingClassifierVClassifierCrossReference_9_1_0.eContents().get(1);
+		private final Keyword cBindingsKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cSubstitutesAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final CrossReference cSubstitutesObjectSubstitutionCrossReference_9_1_0 = (CrossReference)cSubstitutesAssignment_9_1.eContents().get(0);
+		private final RuleCall cSubstitutesObjectSubstitutionIDTerminalRuleCall_9_1_0_1 = (RuleCall)cSubstitutesObjectSubstitutionCrossReference_9_1_0.eContents().get(1);
+		private final Group cGroup_9_2 = (Group)cGroup_9.eContents().get(2);
+		private final Keyword cCommaKeyword_9_2_0 = (Keyword)cGroup_9_2.eContents().get(0);
+		private final Assignment cSubstitutesAssignment_9_2_1 = (Assignment)cGroup_9_2.eContents().get(1);
+		private final CrossReference cSubstitutesObjectSubstitutionCrossReference_9_2_1_0 = (CrossReference)cSubstitutesAssignment_9_2_1.eContents().get(0);
+		private final RuleCall cSubstitutesObjectSubstitutionIDTerminalRuleCall_9_2_1_0_1 = (RuleCall)cSubstitutesObjectSubstitutionCrossReference_9_2_1_0.eContents().get(1);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
-		private final Keyword cBindingsKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
-		private final Assignment cSubstitutesAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
-		private final CrossReference cSubstitutesObjectSubstitutionCrossReference_10_1_0 = (CrossReference)cSubstitutesAssignment_10_1.eContents().get(0);
-		private final RuleCall cSubstitutesObjectSubstitutionIDTerminalRuleCall_10_1_0_1 = (RuleCall)cSubstitutesObjectSubstitutionCrossReference_10_1_0.eContents().get(1);
+		private final Keyword cChoiceKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cBindingChoiceAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final CrossReference cBindingChoiceChoiceCrossReference_10_1_0 = (CrossReference)cBindingChoiceAssignment_10_1.eContents().get(0);
+		private final RuleCall cBindingChoiceChoiceIDTerminalRuleCall_10_1_0_1 = (RuleCall)cBindingChoiceChoiceCrossReference_10_1_0.eContents().get(1);
 		private final Group cGroup_10_2 = (Group)cGroup_10.eContents().get(2);
 		private final Keyword cCommaKeyword_10_2_0 = (Keyword)cGroup_10_2.eContents().get(0);
-		private final Assignment cSubstitutesAssignment_10_2_1 = (Assignment)cGroup_10_2.eContents().get(1);
-		private final CrossReference cSubstitutesObjectSubstitutionCrossReference_10_2_1_0 = (CrossReference)cSubstitutesAssignment_10_2_1.eContents().get(0);
-		private final RuleCall cSubstitutesObjectSubstitutionIDTerminalRuleCall_10_2_1_0_1 = (RuleCall)cSubstitutesObjectSubstitutionCrossReference_10_2_1_0.eContents().get(1);
+		private final Assignment cBindingChoiceAssignment_10_2_1 = (Assignment)cGroup_10_2.eContents().get(1);
+		private final CrossReference cBindingChoiceChoiceCrossReference_10_2_1_0 = (CrossReference)cBindingChoiceAssignment_10_2_1.eContents().get(0);
+		private final RuleCall cBindingChoiceChoiceIDTerminalRuleCall_10_2_1_0_1 = (RuleCall)cBindingChoiceChoiceCrossReference_10_2_1_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//PatternFusion:
 		//	"PatternFusion" name=ID multi?="[*]"? "{" ("mapping" mappingExpression=STRING)? ("expression" expression=STRING)?
 		//	("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
-		//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("choice"
-		//	bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? ("classifier" bindingClassifier=[VClassifier])? ("bindings"
-		//	substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}";
+		//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("classifier"
+		//	bindingClassifier=[VClassifier])? ("bindings" substitutes+=[ObjectSubstitution] (","
+		//	substitutes+=[ObjectSubstitution])*)? ("choice" bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "}";
 		public ParserRule getRule() { return rule; }
 
 		//"PatternFusion" name=ID multi?="[*]"? "{" ("mapping" mappingExpression=STRING)? ("expression" expression=STRING)?
 		//("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
-		//precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("choice"
-		//bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? ("classifier" bindingClassifier=[VClassifier])? ("bindings"
-		//substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}"
+		//precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("classifier"
+		//bindingClassifier=[VClassifier])? ("bindings" substitutes+=[ObjectSubstitution] (","
+		//substitutes+=[ObjectSubstitution])*)? ("choice" bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"PatternFusion"
@@ -6007,80 +6011,80 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getPrecedenceConstraintVariationPointIDTerminalRuleCall_7_2_1_0_1() { return cPrecedenceConstraintVariationPointIDTerminalRuleCall_7_2_1_0_1; }
 
-		//("choice" bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)?
+		//("classifier" bindingClassifier=[VClassifier])?
 		public Group getGroup_8() { return cGroup_8; }
 
-		//"choice"
-		public Keyword getChoiceKeyword_8_0() { return cChoiceKeyword_8_0; }
-
-		//bindingChoice+=[Choice]
-		public Assignment getBindingChoiceAssignment_8_1() { return cBindingChoiceAssignment_8_1; }
-
-		//[Choice]
-		public CrossReference getBindingChoiceChoiceCrossReference_8_1_0() { return cBindingChoiceChoiceCrossReference_8_1_0; }
-
-		//ID
-		public RuleCall getBindingChoiceChoiceIDTerminalRuleCall_8_1_0_1() { return cBindingChoiceChoiceIDTerminalRuleCall_8_1_0_1; }
-
-		//("," bindingChoice+=[Choice])*
-		public Group getGroup_8_2() { return cGroup_8_2; }
-
-		//","
-		public Keyword getCommaKeyword_8_2_0() { return cCommaKeyword_8_2_0; }
-
-		//bindingChoice+=[Choice]
-		public Assignment getBindingChoiceAssignment_8_2_1() { return cBindingChoiceAssignment_8_2_1; }
-
-		//[Choice]
-		public CrossReference getBindingChoiceChoiceCrossReference_8_2_1_0() { return cBindingChoiceChoiceCrossReference_8_2_1_0; }
-
-		//ID
-		public RuleCall getBindingChoiceChoiceIDTerminalRuleCall_8_2_1_0_1() { return cBindingChoiceChoiceIDTerminalRuleCall_8_2_1_0_1; }
-
-		//("classifier" bindingClassifier=[VClassifier])?
-		public Group getGroup_9() { return cGroup_9; }
-
 		//"classifier"
-		public Keyword getClassifierKeyword_9_0() { return cClassifierKeyword_9_0; }
+		public Keyword getClassifierKeyword_8_0() { return cClassifierKeyword_8_0; }
 
 		//bindingClassifier=[VClassifier]
-		public Assignment getBindingClassifierAssignment_9_1() { return cBindingClassifierAssignment_9_1; }
+		public Assignment getBindingClassifierAssignment_8_1() { return cBindingClassifierAssignment_8_1; }
 
 		//[VClassifier]
-		public CrossReference getBindingClassifierVClassifierCrossReference_9_1_0() { return cBindingClassifierVClassifierCrossReference_9_1_0; }
+		public CrossReference getBindingClassifierVClassifierCrossReference_8_1_0() { return cBindingClassifierVClassifierCrossReference_8_1_0; }
 
 		//ID
-		public RuleCall getBindingClassifierVClassifierIDTerminalRuleCall_9_1_0_1() { return cBindingClassifierVClassifierIDTerminalRuleCall_9_1_0_1; }
+		public RuleCall getBindingClassifierVClassifierIDTerminalRuleCall_8_1_0_1() { return cBindingClassifierVClassifierIDTerminalRuleCall_8_1_0_1; }
 
 		//("bindings" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)?
-		public Group getGroup_10() { return cGroup_10; }
+		public Group getGroup_9() { return cGroup_9; }
 
 		//"bindings"
-		public Keyword getBindingsKeyword_10_0() { return cBindingsKeyword_10_0; }
+		public Keyword getBindingsKeyword_9_0() { return cBindingsKeyword_9_0; }
 
 		//substitutes+=[ObjectSubstitution]
-		public Assignment getSubstitutesAssignment_10_1() { return cSubstitutesAssignment_10_1; }
+		public Assignment getSubstitutesAssignment_9_1() { return cSubstitutesAssignment_9_1; }
 
 		//[ObjectSubstitution]
-		public CrossReference getSubstitutesObjectSubstitutionCrossReference_10_1_0() { return cSubstitutesObjectSubstitutionCrossReference_10_1_0; }
+		public CrossReference getSubstitutesObjectSubstitutionCrossReference_9_1_0() { return cSubstitutesObjectSubstitutionCrossReference_9_1_0; }
 
 		//ID
-		public RuleCall getSubstitutesObjectSubstitutionIDTerminalRuleCall_10_1_0_1() { return cSubstitutesObjectSubstitutionIDTerminalRuleCall_10_1_0_1; }
+		public RuleCall getSubstitutesObjectSubstitutionIDTerminalRuleCall_9_1_0_1() { return cSubstitutesObjectSubstitutionIDTerminalRuleCall_9_1_0_1; }
 
 		//("," substitutes+=[ObjectSubstitution])*
+		public Group getGroup_9_2() { return cGroup_9_2; }
+
+		//","
+		public Keyword getCommaKeyword_9_2_0() { return cCommaKeyword_9_2_0; }
+
+		//substitutes+=[ObjectSubstitution]
+		public Assignment getSubstitutesAssignment_9_2_1() { return cSubstitutesAssignment_9_2_1; }
+
+		//[ObjectSubstitution]
+		public CrossReference getSubstitutesObjectSubstitutionCrossReference_9_2_1_0() { return cSubstitutesObjectSubstitutionCrossReference_9_2_1_0; }
+
+		//ID
+		public RuleCall getSubstitutesObjectSubstitutionIDTerminalRuleCall_9_2_1_0_1() { return cSubstitutesObjectSubstitutionIDTerminalRuleCall_9_2_1_0_1; }
+
+		//("choice" bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)?
+		public Group getGroup_10() { return cGroup_10; }
+
+		//"choice"
+		public Keyword getChoiceKeyword_10_0() { return cChoiceKeyword_10_0; }
+
+		//bindingChoice+=[Choice]
+		public Assignment getBindingChoiceAssignment_10_1() { return cBindingChoiceAssignment_10_1; }
+
+		//[Choice]
+		public CrossReference getBindingChoiceChoiceCrossReference_10_1_0() { return cBindingChoiceChoiceCrossReference_10_1_0; }
+
+		//ID
+		public RuleCall getBindingChoiceChoiceIDTerminalRuleCall_10_1_0_1() { return cBindingChoiceChoiceIDTerminalRuleCall_10_1_0_1; }
+
+		//("," bindingChoice+=[Choice])*
 		public Group getGroup_10_2() { return cGroup_10_2; }
 
 		//","
 		public Keyword getCommaKeyword_10_2_0() { return cCommaKeyword_10_2_0; }
 
-		//substitutes+=[ObjectSubstitution]
-		public Assignment getSubstitutesAssignment_10_2_1() { return cSubstitutesAssignment_10_2_1; }
+		//bindingChoice+=[Choice]
+		public Assignment getBindingChoiceAssignment_10_2_1() { return cBindingChoiceAssignment_10_2_1; }
 
-		//[ObjectSubstitution]
-		public CrossReference getSubstitutesObjectSubstitutionCrossReference_10_2_1_0() { return cSubstitutesObjectSubstitutionCrossReference_10_2_1_0; }
+		//[Choice]
+		public CrossReference getBindingChoiceChoiceCrossReference_10_2_1_0() { return cBindingChoiceChoiceCrossReference_10_2_1_0; }
 
 		//ID
-		public RuleCall getSubstitutesObjectSubstitutionIDTerminalRuleCall_10_2_1_0_1() { return cSubstitutesObjectSubstitutionIDTerminalRuleCall_10_2_1_0_1; }
+		public RuleCall getBindingChoiceChoiceIDTerminalRuleCall_10_2_1_0_1() { return cBindingChoiceChoiceIDTerminalRuleCall_10_2_1_0_1; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
@@ -6124,44 +6128,45 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cPrecedenceConstraintVariationPointCrossReference_7_2_1_0 = (CrossReference)cPrecedenceConstraintAssignment_7_2_1.eContents().get(0);
 		private final RuleCall cPrecedenceConstraintVariationPointIDTerminalRuleCall_7_2_1_0_1 = (RuleCall)cPrecedenceConstraintVariationPointCrossReference_7_2_1_0.eContents().get(1);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cChoiceKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cBindingChoiceAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final CrossReference cBindingChoiceChoiceCrossReference_8_1_0 = (CrossReference)cBindingChoiceAssignment_8_1.eContents().get(0);
-		private final RuleCall cBindingChoiceChoiceIDTerminalRuleCall_8_1_0_1 = (RuleCall)cBindingChoiceChoiceCrossReference_8_1_0.eContents().get(1);
-		private final Group cGroup_8_2 = (Group)cGroup_8.eContents().get(2);
-		private final Keyword cCommaKeyword_8_2_0 = (Keyword)cGroup_8_2.eContents().get(0);
-		private final Assignment cBindingChoiceAssignment_8_2_1 = (Assignment)cGroup_8_2.eContents().get(1);
-		private final CrossReference cBindingChoiceChoiceCrossReference_8_2_1_0 = (CrossReference)cBindingChoiceAssignment_8_2_1.eContents().get(0);
-		private final RuleCall cBindingChoiceChoiceIDTerminalRuleCall_8_2_1_0_1 = (RuleCall)cBindingChoiceChoiceCrossReference_8_2_1_0.eContents().get(1);
-		private final Keyword cBindingClassifierKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cBindingClassifierAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final CrossReference cBindingClassifierVClassifierCrossReference_10_0 = (CrossReference)cBindingClassifierAssignment_10.eContents().get(0);
-		private final RuleCall cBindingClassifierVClassifierIDTerminalRuleCall_10_0_1 = (RuleCall)cBindingClassifierVClassifierCrossReference_10_0.eContents().get(1);
-		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
-		private final Keyword cBindingsKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
-		private final Assignment cSubstitutesAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
-		private final CrossReference cSubstitutesObjectSubstitutionCrossReference_11_1_0 = (CrossReference)cSubstitutesAssignment_11_1.eContents().get(0);
-		private final RuleCall cSubstitutesObjectSubstitutionIDTerminalRuleCall_11_1_0_1 = (RuleCall)cSubstitutesObjectSubstitutionCrossReference_11_1_0.eContents().get(1);
-		private final Group cGroup_11_2 = (Group)cGroup_11.eContents().get(2);
-		private final Keyword cCommaKeyword_11_2_0 = (Keyword)cGroup_11_2.eContents().get(0);
-		private final Assignment cSubstitutesAssignment_11_2_1 = (Assignment)cGroup_11_2.eContents().get(1);
-		private final CrossReference cSubstitutesObjectSubstitutionCrossReference_11_2_1_0 = (CrossReference)cSubstitutesAssignment_11_2_1.eContents().get(0);
-		private final RuleCall cSubstitutesObjectSubstitutionIDTerminalRuleCall_11_2_1_0_1 = (RuleCall)cSubstitutesObjectSubstitutionCrossReference_11_2_1_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Keyword cClassifierKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cBindingClassifierAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final CrossReference cBindingClassifierVClassifierCrossReference_8_1_0 = (CrossReference)cBindingClassifierAssignment_8_1.eContents().get(0);
+		private final RuleCall cBindingClassifierVClassifierIDTerminalRuleCall_8_1_0_1 = (RuleCall)cBindingClassifierVClassifierCrossReference_8_1_0.eContents().get(1);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cBindingsKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cSubstitutesAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final CrossReference cSubstitutesObjectSubstitutionCrossReference_9_1_0 = (CrossReference)cSubstitutesAssignment_9_1.eContents().get(0);
+		private final RuleCall cSubstitutesObjectSubstitutionIDTerminalRuleCall_9_1_0_1 = (RuleCall)cSubstitutesObjectSubstitutionCrossReference_9_1_0.eContents().get(1);
+		private final Group cGroup_9_2 = (Group)cGroup_9.eContents().get(2);
+		private final Keyword cCommaKeyword_9_2_0 = (Keyword)cGroup_9_2.eContents().get(0);
+		private final Assignment cSubstitutesAssignment_9_2_1 = (Assignment)cGroup_9_2.eContents().get(1);
+		private final CrossReference cSubstitutesObjectSubstitutionCrossReference_9_2_1_0 = (CrossReference)cSubstitutesAssignment_9_2_1.eContents().get(0);
+		private final RuleCall cSubstitutesObjectSubstitutionIDTerminalRuleCall_9_2_1_0_1 = (RuleCall)cSubstitutesObjectSubstitutionCrossReference_9_2_1_0.eContents().get(1);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cChoiceKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cBindingChoiceAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final CrossReference cBindingChoiceChoiceCrossReference_10_1_0 = (CrossReference)cBindingChoiceAssignment_10_1.eContents().get(0);
+		private final RuleCall cBindingChoiceChoiceIDTerminalRuleCall_10_1_0_1 = (RuleCall)cBindingChoiceChoiceCrossReference_10_1_0.eContents().get(1);
+		private final Group cGroup_10_2 = (Group)cGroup_10.eContents().get(2);
+		private final Keyword cCommaKeyword_10_2_0 = (Keyword)cGroup_10_2.eContents().get(0);
+		private final Assignment cBindingChoiceAssignment_10_2_1 = (Assignment)cGroup_10_2.eContents().get(1);
+		private final CrossReference cBindingChoiceChoiceCrossReference_10_2_1_0 = (CrossReference)cBindingChoiceAssignment_10_2_1.eContents().get(0);
+		private final RuleCall cBindingChoiceChoiceIDTerminalRuleCall_10_2_1_0_1 = (RuleCall)cBindingChoiceChoiceCrossReference_10_2_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//StructuralOrganisationalPattern:
 		//	"StructuralOrganisationalPattern" name=ID multi?="[*]"? "{" ("mapping" mappingExpression=STRING)? ("expression"
 		//	expression=STRING)? ("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
-		//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("choice"
-		//	bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "bindingClassifier" bindingClassifier=[VClassifier]
-		//	("bindings" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}";
+		//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("classifier"
+		//	bindingClassifier=[VClassifier])? ("bindings" substitutes+=[ObjectSubstitution] (","
+		//	substitutes+=[ObjectSubstitution])*)? ("choice" bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "}";
 		public ParserRule getRule() { return rule; }
 
 		//"StructuralOrganisationalPattern" name=ID multi?="[*]"? "{" ("mapping" mappingExpression=STRING)? ("expression"
 		//expression=STRING)? ("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
-		//precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("choice"
-		//bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "bindingClassifier" bindingClassifier=[VClassifier]
-		//("bindings" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}"
+		//precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("classifier"
+		//bindingClassifier=[VClassifier])? ("bindings" substitutes+=[ObjectSubstitution] (","
+		//substitutes+=[ObjectSubstitution])*)? ("choice" bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"StructuralOrganisationalPattern"
@@ -6266,80 +6271,83 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getPrecedenceConstraintVariationPointIDTerminalRuleCall_7_2_1_0_1() { return cPrecedenceConstraintVariationPointIDTerminalRuleCall_7_2_1_0_1; }
 
-		//("choice" bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)?
+		//("classifier" bindingClassifier=[VClassifier])?
 		public Group getGroup_8() { return cGroup_8; }
 
-		//"choice"
-		public Keyword getChoiceKeyword_8_0() { return cChoiceKeyword_8_0; }
-
-		//bindingChoice+=[Choice]
-		public Assignment getBindingChoiceAssignment_8_1() { return cBindingChoiceAssignment_8_1; }
-
-		//[Choice]
-		public CrossReference getBindingChoiceChoiceCrossReference_8_1_0() { return cBindingChoiceChoiceCrossReference_8_1_0; }
-
-		//ID
-		public RuleCall getBindingChoiceChoiceIDTerminalRuleCall_8_1_0_1() { return cBindingChoiceChoiceIDTerminalRuleCall_8_1_0_1; }
-
-		//("," bindingChoice+=[Choice])*
-		public Group getGroup_8_2() { return cGroup_8_2; }
-
-		//","
-		public Keyword getCommaKeyword_8_2_0() { return cCommaKeyword_8_2_0; }
-
-		//bindingChoice+=[Choice]
-		public Assignment getBindingChoiceAssignment_8_2_1() { return cBindingChoiceAssignment_8_2_1; }
-
-		//[Choice]
-		public CrossReference getBindingChoiceChoiceCrossReference_8_2_1_0() { return cBindingChoiceChoiceCrossReference_8_2_1_0; }
-
-		//ID
-		public RuleCall getBindingChoiceChoiceIDTerminalRuleCall_8_2_1_0_1() { return cBindingChoiceChoiceIDTerminalRuleCall_8_2_1_0_1; }
-
-		//"bindingClassifier"
-		public Keyword getBindingClassifierKeyword_9() { return cBindingClassifierKeyword_9; }
+		//"classifier"
+		public Keyword getClassifierKeyword_8_0() { return cClassifierKeyword_8_0; }
 
 		//bindingClassifier=[VClassifier]
-		public Assignment getBindingClassifierAssignment_10() { return cBindingClassifierAssignment_10; }
+		public Assignment getBindingClassifierAssignment_8_1() { return cBindingClassifierAssignment_8_1; }
 
 		//[VClassifier]
-		public CrossReference getBindingClassifierVClassifierCrossReference_10_0() { return cBindingClassifierVClassifierCrossReference_10_0; }
+		public CrossReference getBindingClassifierVClassifierCrossReference_8_1_0() { return cBindingClassifierVClassifierCrossReference_8_1_0; }
 
 		//ID
-		public RuleCall getBindingClassifierVClassifierIDTerminalRuleCall_10_0_1() { return cBindingClassifierVClassifierIDTerminalRuleCall_10_0_1; }
+		public RuleCall getBindingClassifierVClassifierIDTerminalRuleCall_8_1_0_1() { return cBindingClassifierVClassifierIDTerminalRuleCall_8_1_0_1; }
 
 		//("bindings" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)?
-		public Group getGroup_11() { return cGroup_11; }
+		public Group getGroup_9() { return cGroup_9; }
 
 		//"bindings"
-		public Keyword getBindingsKeyword_11_0() { return cBindingsKeyword_11_0; }
+		public Keyword getBindingsKeyword_9_0() { return cBindingsKeyword_9_0; }
 
 		//substitutes+=[ObjectSubstitution]
-		public Assignment getSubstitutesAssignment_11_1() { return cSubstitutesAssignment_11_1; }
+		public Assignment getSubstitutesAssignment_9_1() { return cSubstitutesAssignment_9_1; }
 
 		//[ObjectSubstitution]
-		public CrossReference getSubstitutesObjectSubstitutionCrossReference_11_1_0() { return cSubstitutesObjectSubstitutionCrossReference_11_1_0; }
+		public CrossReference getSubstitutesObjectSubstitutionCrossReference_9_1_0() { return cSubstitutesObjectSubstitutionCrossReference_9_1_0; }
 
 		//ID
-		public RuleCall getSubstitutesObjectSubstitutionIDTerminalRuleCall_11_1_0_1() { return cSubstitutesObjectSubstitutionIDTerminalRuleCall_11_1_0_1; }
+		public RuleCall getSubstitutesObjectSubstitutionIDTerminalRuleCall_9_1_0_1() { return cSubstitutesObjectSubstitutionIDTerminalRuleCall_9_1_0_1; }
 
 		//("," substitutes+=[ObjectSubstitution])*
-		public Group getGroup_11_2() { return cGroup_11_2; }
+		public Group getGroup_9_2() { return cGroup_9_2; }
 
 		//","
-		public Keyword getCommaKeyword_11_2_0() { return cCommaKeyword_11_2_0; }
+		public Keyword getCommaKeyword_9_2_0() { return cCommaKeyword_9_2_0; }
 
 		//substitutes+=[ObjectSubstitution]
-		public Assignment getSubstitutesAssignment_11_2_1() { return cSubstitutesAssignment_11_2_1; }
+		public Assignment getSubstitutesAssignment_9_2_1() { return cSubstitutesAssignment_9_2_1; }
 
 		//[ObjectSubstitution]
-		public CrossReference getSubstitutesObjectSubstitutionCrossReference_11_2_1_0() { return cSubstitutesObjectSubstitutionCrossReference_11_2_1_0; }
+		public CrossReference getSubstitutesObjectSubstitutionCrossReference_9_2_1_0() { return cSubstitutesObjectSubstitutionCrossReference_9_2_1_0; }
 
 		//ID
-		public RuleCall getSubstitutesObjectSubstitutionIDTerminalRuleCall_11_2_1_0_1() { return cSubstitutesObjectSubstitutionIDTerminalRuleCall_11_2_1_0_1; }
+		public RuleCall getSubstitutesObjectSubstitutionIDTerminalRuleCall_9_2_1_0_1() { return cSubstitutesObjectSubstitutionIDTerminalRuleCall_9_2_1_0_1; }
+
+		//("choice" bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)?
+		public Group getGroup_10() { return cGroup_10; }
+
+		//"choice"
+		public Keyword getChoiceKeyword_10_0() { return cChoiceKeyword_10_0; }
+
+		//bindingChoice+=[Choice]
+		public Assignment getBindingChoiceAssignment_10_1() { return cBindingChoiceAssignment_10_1; }
+
+		//[Choice]
+		public CrossReference getBindingChoiceChoiceCrossReference_10_1_0() { return cBindingChoiceChoiceCrossReference_10_1_0; }
+
+		//ID
+		public RuleCall getBindingChoiceChoiceIDTerminalRuleCall_10_1_0_1() { return cBindingChoiceChoiceIDTerminalRuleCall_10_1_0_1; }
+
+		//("," bindingChoice+=[Choice])*
+		public Group getGroup_10_2() { return cGroup_10_2; }
+
+		//","
+		public Keyword getCommaKeyword_10_2_0() { return cCommaKeyword_10_2_0; }
+
+		//bindingChoice+=[Choice]
+		public Assignment getBindingChoiceAssignment_10_2_1() { return cBindingChoiceAssignment_10_2_1; }
+
+		//[Choice]
+		public CrossReference getBindingChoiceChoiceCrossReference_10_2_1_0() { return cBindingChoiceChoiceCrossReference_10_2_1_0; }
+
+		//ID
+		public RuleCall getBindingChoiceChoiceIDTerminalRuleCall_10_2_1_0_1() { return cBindingChoiceChoiceIDTerminalRuleCall_10_2_1_0_1; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
+		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
 	}
 
 	public class MultiplicityIntervalElements extends AbstractParserRuleElementFinder {
@@ -8745,9 +8753,9 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	//PatternIntegration:
 	//	"PatternIntegration" name=ID multi?="[*]"? "{" ("mapping" mappingExpression=STRING)? ("expression" expression=STRING)?
 	//	("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
-	//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("choice"
-	//	bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "classifier" bindingClassifier=[VClassifier] ("bindings"
-	//	substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}";
+	//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("classifier"
+	//	bindingClassifier=[VClassifier])? ("bindings" substitutes+=[ObjectSubstitution] (","
+	//	substitutes+=[ObjectSubstitution])*)? ("choice" bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "}";
 	public PatternIntegrationElements getPatternIntegrationAccess() {
 		return (pPatternIntegration != null) ? pPatternIntegration : (pPatternIntegration = new PatternIntegrationElements());
 	}
@@ -8759,9 +8767,9 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	//PatternFusion:
 	//	"PatternFusion" name=ID multi?="[*]"? "{" ("mapping" mappingExpression=STRING)? ("expression" expression=STRING)?
 	//	("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
-	//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("choice"
-	//	bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? ("classifier" bindingClassifier=[VClassifier])? ("bindings"
-	//	substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}";
+	//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("classifier"
+	//	bindingClassifier=[VClassifier])? ("bindings" substitutes+=[ObjectSubstitution] (","
+	//	substitutes+=[ObjectSubstitution])*)? ("choice" bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "}";
 	public PatternFusionElements getPatternFusionAccess() {
 		return (pPatternFusion != null) ? pPatternFusion : (pPatternFusion = new PatternFusionElements());
 	}
@@ -8773,9 +8781,9 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	//StructuralOrganisationalPattern:
 	//	"StructuralOrganisationalPattern" name=ID multi?="[*]"? "{" ("mapping" mappingExpression=STRING)? ("expression"
 	//	expression=STRING)? ("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)? ("precedence"
-	//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("choice"
-	//	bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "bindingClassifier" bindingClassifier=[VClassifier]
-	//	("bindings" substitutes+=[ObjectSubstitution] ("," substitutes+=[ObjectSubstitution])*)? "}";
+	//	precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)? ("classifier"
+	//	bindingClassifier=[VClassifier])? ("bindings" substitutes+=[ObjectSubstitution] (","
+	//	substitutes+=[ObjectSubstitution])*)? ("choice" bindingChoice+=[Choice] ("," bindingChoice+=[Choice])*)? "}";
 	public StructuralOrganisationalPatternElements getStructuralOrganisationalPatternAccess() {
 		return (pStructuralOrganisationalPattern != null) ? pStructuralOrganisationalPattern : (pStructuralOrganisationalPattern = new StructuralOrganisationalPatternElements());
 	}

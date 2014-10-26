@@ -512,9 +512,9 @@ PatternIntegration returns PatternIntegration:
 		('expression' expression = STRING)?
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])*)?
 		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
-		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
-		'classifier' bindingClassifier = [VClassifier]
+		('classifier' bindingClassifier = [VClassifier])?
 		('bindings' substitutes += [ObjectSubstitution] (',' substitutes += [ObjectSubstitution])*)?
+		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 	'}'
 ;
 
@@ -524,9 +524,9 @@ PatternFusion returns PatternFusion:
 		('expression' expression = STRING)?
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])*)?
 		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
-		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 		('classifier' bindingClassifier = [VClassifier])?
 		('bindings' substitutes += [ObjectSubstitution] (',' substitutes += [ObjectSubstitution])*)?
+		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 	'}'
 ;
 
@@ -536,9 +536,9 @@ StructuralOrganisationalPattern returns StructuralOrganisationalPattern:
 		('expression' expression = STRING)?
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])*)?
 		('precedence' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
-		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
-		'bindingClassifier' bindingClassifier = [VClassifier]
+		('classifier' bindingClassifier = [VClassifier])?
 		('bindings' substitutes += [ObjectSubstitution] (',' substitutes += [ObjectSubstitution])*)?
+		('choice' bindingChoice += [Choice] (',' bindingChoice += [Choice])*)?
 	'}'
 ;
 

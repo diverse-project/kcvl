@@ -4989,10 +4989,10 @@ public class InternalKCVLLexer extends Lexer {
         try {
             int _type = RULE_HEX;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55491:10: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )? )
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55491:12: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55551:10: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )? )
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55551:12: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
             {
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55491:12: ( '0x' | '0X' )
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55551:12: ( '0x' | '0X' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -5020,7 +5020,7 @@ public class InternalKCVLLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55491:13: '0x'
+                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55551:13: '0x'
                     {
                     match("0x"); 
 
@@ -5028,7 +5028,7 @@ public class InternalKCVLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55491:18: '0X'
+                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55551:18: '0X'
                     {
                     match("0X"); 
 
@@ -5038,7 +5038,7 @@ public class InternalKCVLLexer extends Lexer {
 
             }
 
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55491:24: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55551:24: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
             int cnt2=0;
             loop2:
             do {
@@ -5076,7 +5076,7 @@ public class InternalKCVLLexer extends Lexer {
                 cnt2++;
             } while (true);
 
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55491:58: ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55551:58: ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -5085,10 +5085,10 @@ public class InternalKCVLLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55491:59: '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
+                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55551:59: '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
                     {
                     match('#'); 
-                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55491:63: ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
+                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55551:63: ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
                     int alt3=2;
                     int LA3_0 = input.LA(1);
 
@@ -5106,7 +5106,7 @@ public class InternalKCVLLexer extends Lexer {
                     }
                     switch (alt3) {
                         case 1 :
-                            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55491:64: ( 'b' | 'B' ) ( 'i' | 'I' )
+                            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55551:64: ( 'b' | 'B' ) ( 'i' | 'I' )
                             {
                             if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
                                 input.consume();
@@ -5130,7 +5130,7 @@ public class InternalKCVLLexer extends Lexer {
                             }
                             break;
                         case 2 :
-                            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55491:84: ( 'l' | 'L' )
+                            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55551:84: ( 'l' | 'L' )
                             {
                             if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
                                 input.consume();
@@ -5169,11 +5169,11 @@ public class InternalKCVLLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55493:10: ( '0' .. '9' ( '0' .. '9' | '_' )* )
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55493:12: '0' .. '9' ( '0' .. '9' | '_' )*
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55553:10: ( '0' .. '9' ( '0' .. '9' | '_' )* )
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55553:12: '0' .. '9' ( '0' .. '9' | '_' )*
             {
             matchRange('0','9'); 
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55493:21: ( '0' .. '9' | '_' )*
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55553:21: ( '0' .. '9' | '_' )*
             loop5:
             do {
                 int alt5=2;
@@ -5222,11 +5222,11 @@ public class InternalKCVLLexer extends Lexer {
         try {
             int _type = RULE_DECIMAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55495:14: ( RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )? )
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55495:16: RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55555:14: ( RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )? )
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55555:16: RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
             {
             mRULE_INT(); 
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55495:25: ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )?
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55555:25: ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -5235,7 +5235,7 @@ public class InternalKCVLLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55495:26: ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT
+                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55555:26: ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT
                     {
                     if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                         input.consume();
@@ -5246,7 +5246,7 @@ public class InternalKCVLLexer extends Lexer {
                         recover(mse);
                         throw mse;}
 
-                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55495:36: ( '+' | '-' )?
+                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55555:36: ( '+' | '-' )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -5279,7 +5279,7 @@ public class InternalKCVLLexer extends Lexer {
 
             }
 
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55495:58: ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55555:58: ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
             int alt8=3;
             int LA8_0 = input.LA(1);
 
@@ -5291,7 +5291,7 @@ public class InternalKCVLLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55495:59: ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' )
+                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55555:59: ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' )
                     {
                     if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
                         input.consume();
@@ -5315,7 +5315,7 @@ public class InternalKCVLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55495:87: ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' )
+                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55555:87: ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' )
                     {
                     if ( input.LA(1)=='D'||input.LA(1)=='F'||input.LA(1)=='L'||input.LA(1)=='d'||input.LA(1)=='f'||input.LA(1)=='l' ) {
                         input.consume();
@@ -5348,10 +5348,10 @@ public class InternalKCVLLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55497:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )* )
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55497:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55557:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )* )
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55557:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
             {
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55497:11: ( '^' )?
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55557:11: ( '^' )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -5360,7 +5360,7 @@ public class InternalKCVLLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55497:11: '^'
+                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55557:11: '^'
                     {
                     match('^'); 
 
@@ -5378,7 +5378,7 @@ public class InternalKCVLLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55497:44: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55557:44: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
             loop10:
             do {
                 int alt10=2;
@@ -5427,10 +5427,10 @@ public class InternalKCVLLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55499:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55499:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55559:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55559:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55499:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55559:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -5448,10 +5448,10 @@ public class InternalKCVLLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55499:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55559:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55499:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55559:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop11:
                     do {
                         int alt11=3;
@@ -5467,7 +5467,7 @@ public class InternalKCVLLexer extends Lexer {
 
                         switch (alt11) {
                     	case 1 :
-                    	    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55499:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55559:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -5483,7 +5483,7 @@ public class InternalKCVLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55499:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55559:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -5508,10 +5508,10 @@ public class InternalKCVLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55499:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55559:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55499:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55559:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop12:
                     do {
                         int alt12=3;
@@ -5527,7 +5527,7 @@ public class InternalKCVLLexer extends Lexer {
 
                         switch (alt12) {
                     	case 1 :
-                    	    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55499:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55559:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -5543,7 +5543,7 @@ public class InternalKCVLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55499:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55559:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -5586,12 +5586,12 @@ public class InternalKCVLLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55501:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55501:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55561:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55561:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55501:24: ( options {greedy=false; } : . )*
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55561:24: ( options {greedy=false; } : . )*
             loop14:
             do {
                 int alt14=2;
@@ -5616,7 +5616,7 @@ public class InternalKCVLLexer extends Lexer {
 
                 switch (alt14) {
             	case 1 :
-            	    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55501:52: .
+            	    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55561:52: .
             	    {
             	    matchAny(); 
 
@@ -5646,12 +5646,12 @@ public class InternalKCVLLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55503:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55503:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55563:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55563:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55503:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55563:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop15:
             do {
                 int alt15=2;
@@ -5664,7 +5664,7 @@ public class InternalKCVLLexer extends Lexer {
 
                 switch (alt15) {
             	case 1 :
-            	    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55503:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55563:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -5684,7 +5684,7 @@ public class InternalKCVLLexer extends Lexer {
                 }
             } while (true);
 
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55503:40: ( ( '\\r' )? '\\n' )?
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55563:40: ( ( '\\r' )? '\\n' )?
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -5693,9 +5693,9 @@ public class InternalKCVLLexer extends Lexer {
             }
             switch (alt17) {
                 case 1 :
-                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55503:41: ( '\\r' )? '\\n'
+                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55563:41: ( '\\r' )? '\\n'
                     {
-                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55503:41: ( '\\r' )?
+                    // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55563:41: ( '\\r' )?
                     int alt16=2;
                     int LA16_0 = input.LA(1);
 
@@ -5704,7 +5704,7 @@ public class InternalKCVLLexer extends Lexer {
                     }
                     switch (alt16) {
                         case 1 :
-                            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55503:41: '\\r'
+                            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55563:41: '\\r'
                             {
                             match('\r'); 
 
@@ -5736,10 +5736,10 @@ public class InternalKCVLLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55505:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55505:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55565:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55565:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55505:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55565:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt18=0;
             loop18:
             do {
@@ -5793,8 +5793,8 @@ public class InternalKCVLLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55507:16: ( . )
-            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55507:18: .
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55567:16: ( . )
+            // ../fr.inria.diverse.kcvl.ui/src-gen/fr/inria/diverse/kcvl/ui/contentassist/antlr/internal/InternalKCVL.g:55567:18: .
             {
             matchAny(); 
 

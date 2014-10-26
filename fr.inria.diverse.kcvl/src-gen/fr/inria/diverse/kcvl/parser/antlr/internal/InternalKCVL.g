@@ -7347,9 +7347,9 @@ rulePatternIntegration returns [EObject current=null]
 	}
 
 )
-))*)?(	otherlv_16='choice' 
+))*)?(	otherlv_16='classifier' 
     {
-    	newLeafNode(otherlv_16, grammarAccess.getPatternIntegrationAccess().getChoiceKeyword_8_0());
+    	newLeafNode(otherlv_16, grammarAccess.getPatternIntegrationAccess().getClassifierKeyword_8_0());
     }
 (
 (
@@ -7360,13 +7360,13 @@ rulePatternIntegration returns [EObject current=null]
         }
 	otherlv_17=RULE_ID
 	{
-		newLeafNode(otherlv_17, grammarAccess.getPatternIntegrationAccess().getBindingChoiceChoiceCrossReference_8_1_0()); 
+		newLeafNode(otherlv_17, grammarAccess.getPatternIntegrationAccess().getBindingClassifierVClassifierCrossReference_8_1_0()); 
 	}
 
 )
-)(	otherlv_18=',' 
+))?(	otherlv_18='bindings' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getPatternIntegrationAccess().getCommaKeyword_8_2_0());
+    	newLeafNode(otherlv_18, grammarAccess.getPatternIntegrationAccess().getBindingsKeyword_9_0());
     }
 (
 (
@@ -7377,13 +7377,13 @@ rulePatternIntegration returns [EObject current=null]
         }
 	otherlv_19=RULE_ID
 	{
-		newLeafNode(otherlv_19, grammarAccess.getPatternIntegrationAccess().getBindingChoiceChoiceCrossReference_8_2_1_0()); 
+		newLeafNode(otherlv_19, grammarAccess.getPatternIntegrationAccess().getSubstitutesObjectSubstitutionCrossReference_9_1_0()); 
 	}
 
 )
-))*)?	otherlv_20='classifier' 
+)(	otherlv_20=',' 
     {
-    	newLeafNode(otherlv_20, grammarAccess.getPatternIntegrationAccess().getClassifierKeyword_9());
+    	newLeafNode(otherlv_20, grammarAccess.getPatternIntegrationAccess().getCommaKeyword_9_2_0());
     }
 (
 (
@@ -7394,13 +7394,13 @@ rulePatternIntegration returns [EObject current=null]
         }
 	otherlv_21=RULE_ID
 	{
-		newLeafNode(otherlv_21, grammarAccess.getPatternIntegrationAccess().getBindingClassifierVClassifierCrossReference_10_0()); 
+		newLeafNode(otherlv_21, grammarAccess.getPatternIntegrationAccess().getSubstitutesObjectSubstitutionCrossReference_9_2_1_0()); 
 	}
 
 )
-)(	otherlv_22='bindings' 
+))*)?(	otherlv_22='choice' 
     {
-    	newLeafNode(otherlv_22, grammarAccess.getPatternIntegrationAccess().getBindingsKeyword_11_0());
+    	newLeafNode(otherlv_22, grammarAccess.getPatternIntegrationAccess().getChoiceKeyword_10_0());
     }
 (
 (
@@ -7411,13 +7411,13 @@ rulePatternIntegration returns [EObject current=null]
         }
 	otherlv_23=RULE_ID
 	{
-		newLeafNode(otherlv_23, grammarAccess.getPatternIntegrationAccess().getSubstitutesObjectSubstitutionCrossReference_11_1_0()); 
+		newLeafNode(otherlv_23, grammarAccess.getPatternIntegrationAccess().getBindingChoiceChoiceCrossReference_10_1_0()); 
 	}
 
 )
 )(	otherlv_24=',' 
     {
-    	newLeafNode(otherlv_24, grammarAccess.getPatternIntegrationAccess().getCommaKeyword_11_2_0());
+    	newLeafNode(otherlv_24, grammarAccess.getPatternIntegrationAccess().getCommaKeyword_10_2_0());
     }
 (
 (
@@ -7428,13 +7428,13 @@ rulePatternIntegration returns [EObject current=null]
         }
 	otherlv_25=RULE_ID
 	{
-		newLeafNode(otherlv_25, grammarAccess.getPatternIntegrationAccess().getSubstitutesObjectSubstitutionCrossReference_11_2_1_0()); 
+		newLeafNode(otherlv_25, grammarAccess.getPatternIntegrationAccess().getBindingChoiceChoiceCrossReference_10_2_1_0()); 
 	}
 
 )
 ))*)?	otherlv_26='}' 
     {
-    	newLeafNode(otherlv_26, grammarAccess.getPatternIntegrationAccess().getRightCurlyBracketKeyword_12());
+    	newLeafNode(otherlv_26, grammarAccess.getPatternIntegrationAccess().getRightCurlyBracketKeyword_11());
     }
 )
 ;
@@ -7610,9 +7610,9 @@ rulePatternFusion returns [EObject current=null]
 	}
 
 )
-))*)?(	otherlv_16='choice' 
+))*)?(	otherlv_16='classifier' 
     {
-    	newLeafNode(otherlv_16, grammarAccess.getPatternFusionAccess().getChoiceKeyword_8_0());
+    	newLeafNode(otherlv_16, grammarAccess.getPatternFusionAccess().getClassifierKeyword_8_0());
     }
 (
 (
@@ -7623,13 +7623,13 @@ rulePatternFusion returns [EObject current=null]
         }
 	otherlv_17=RULE_ID
 	{
-		newLeafNode(otherlv_17, grammarAccess.getPatternFusionAccess().getBindingChoiceChoiceCrossReference_8_1_0()); 
+		newLeafNode(otherlv_17, grammarAccess.getPatternFusionAccess().getBindingClassifierVClassifierCrossReference_8_1_0()); 
 	}
 
 )
-)(	otherlv_18=',' 
+))?(	otherlv_18='bindings' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getPatternFusionAccess().getCommaKeyword_8_2_0());
+    	newLeafNode(otherlv_18, grammarAccess.getPatternFusionAccess().getBindingsKeyword_9_0());
     }
 (
 (
@@ -7640,13 +7640,13 @@ rulePatternFusion returns [EObject current=null]
         }
 	otherlv_19=RULE_ID
 	{
-		newLeafNode(otherlv_19, grammarAccess.getPatternFusionAccess().getBindingChoiceChoiceCrossReference_8_2_1_0()); 
+		newLeafNode(otherlv_19, grammarAccess.getPatternFusionAccess().getSubstitutesObjectSubstitutionCrossReference_9_1_0()); 
 	}
 
 )
-))*)?(	otherlv_20='classifier' 
+)(	otherlv_20=',' 
     {
-    	newLeafNode(otherlv_20, grammarAccess.getPatternFusionAccess().getClassifierKeyword_9_0());
+    	newLeafNode(otherlv_20, grammarAccess.getPatternFusionAccess().getCommaKeyword_9_2_0());
     }
 (
 (
@@ -7657,13 +7657,13 @@ rulePatternFusion returns [EObject current=null]
         }
 	otherlv_21=RULE_ID
 	{
-		newLeafNode(otherlv_21, grammarAccess.getPatternFusionAccess().getBindingClassifierVClassifierCrossReference_9_1_0()); 
+		newLeafNode(otherlv_21, grammarAccess.getPatternFusionAccess().getSubstitutesObjectSubstitutionCrossReference_9_2_1_0()); 
 	}
 
 )
-))?(	otherlv_22='bindings' 
+))*)?(	otherlv_22='choice' 
     {
-    	newLeafNode(otherlv_22, grammarAccess.getPatternFusionAccess().getBindingsKeyword_10_0());
+    	newLeafNode(otherlv_22, grammarAccess.getPatternFusionAccess().getChoiceKeyword_10_0());
     }
 (
 (
@@ -7674,7 +7674,7 @@ rulePatternFusion returns [EObject current=null]
         }
 	otherlv_23=RULE_ID
 	{
-		newLeafNode(otherlv_23, grammarAccess.getPatternFusionAccess().getSubstitutesObjectSubstitutionCrossReference_10_1_0()); 
+		newLeafNode(otherlv_23, grammarAccess.getPatternFusionAccess().getBindingChoiceChoiceCrossReference_10_1_0()); 
 	}
 
 )
@@ -7691,7 +7691,7 @@ rulePatternFusion returns [EObject current=null]
         }
 	otherlv_25=RULE_ID
 	{
-		newLeafNode(otherlv_25, grammarAccess.getPatternFusionAccess().getSubstitutesObjectSubstitutionCrossReference_10_2_1_0()); 
+		newLeafNode(otherlv_25, grammarAccess.getPatternFusionAccess().getBindingChoiceChoiceCrossReference_10_2_1_0()); 
 	}
 
 )
@@ -7873,9 +7873,9 @@ ruleStructuralOrganisationalPattern returns [EObject current=null]
 	}
 
 )
-))*)?(	otherlv_16='choice' 
+))*)?(	otherlv_16='classifier' 
     {
-    	newLeafNode(otherlv_16, grammarAccess.getStructuralOrganisationalPatternAccess().getChoiceKeyword_8_0());
+    	newLeafNode(otherlv_16, grammarAccess.getStructuralOrganisationalPatternAccess().getClassifierKeyword_8_0());
     }
 (
 (
@@ -7886,13 +7886,13 @@ ruleStructuralOrganisationalPattern returns [EObject current=null]
         }
 	otherlv_17=RULE_ID
 	{
-		newLeafNode(otherlv_17, grammarAccess.getStructuralOrganisationalPatternAccess().getBindingChoiceChoiceCrossReference_8_1_0()); 
+		newLeafNode(otherlv_17, grammarAccess.getStructuralOrganisationalPatternAccess().getBindingClassifierVClassifierCrossReference_8_1_0()); 
 	}
 
 )
-)(	otherlv_18=',' 
+))?(	otherlv_18='bindings' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getStructuralOrganisationalPatternAccess().getCommaKeyword_8_2_0());
+    	newLeafNode(otherlv_18, grammarAccess.getStructuralOrganisationalPatternAccess().getBindingsKeyword_9_0());
     }
 (
 (
@@ -7903,13 +7903,13 @@ ruleStructuralOrganisationalPattern returns [EObject current=null]
         }
 	otherlv_19=RULE_ID
 	{
-		newLeafNode(otherlv_19, grammarAccess.getStructuralOrganisationalPatternAccess().getBindingChoiceChoiceCrossReference_8_2_1_0()); 
+		newLeafNode(otherlv_19, grammarAccess.getStructuralOrganisationalPatternAccess().getSubstitutesObjectSubstitutionCrossReference_9_1_0()); 
 	}
 
 )
-))*)?	otherlv_20='bindingClassifier' 
+)(	otherlv_20=',' 
     {
-    	newLeafNode(otherlv_20, grammarAccess.getStructuralOrganisationalPatternAccess().getBindingClassifierKeyword_9());
+    	newLeafNode(otherlv_20, grammarAccess.getStructuralOrganisationalPatternAccess().getCommaKeyword_9_2_0());
     }
 (
 (
@@ -7920,13 +7920,13 @@ ruleStructuralOrganisationalPattern returns [EObject current=null]
         }
 	otherlv_21=RULE_ID
 	{
-		newLeafNode(otherlv_21, grammarAccess.getStructuralOrganisationalPatternAccess().getBindingClassifierVClassifierCrossReference_10_0()); 
+		newLeafNode(otherlv_21, grammarAccess.getStructuralOrganisationalPatternAccess().getSubstitutesObjectSubstitutionCrossReference_9_2_1_0()); 
 	}
 
 )
-)(	otherlv_22='bindings' 
+))*)?(	otherlv_22='choice' 
     {
-    	newLeafNode(otherlv_22, grammarAccess.getStructuralOrganisationalPatternAccess().getBindingsKeyword_11_0());
+    	newLeafNode(otherlv_22, grammarAccess.getStructuralOrganisationalPatternAccess().getChoiceKeyword_10_0());
     }
 (
 (
@@ -7937,13 +7937,13 @@ ruleStructuralOrganisationalPattern returns [EObject current=null]
         }
 	otherlv_23=RULE_ID
 	{
-		newLeafNode(otherlv_23, grammarAccess.getStructuralOrganisationalPatternAccess().getSubstitutesObjectSubstitutionCrossReference_11_1_0()); 
+		newLeafNode(otherlv_23, grammarAccess.getStructuralOrganisationalPatternAccess().getBindingChoiceChoiceCrossReference_10_1_0()); 
 	}
 
 )
 )(	otherlv_24=',' 
     {
-    	newLeafNode(otherlv_24, grammarAccess.getStructuralOrganisationalPatternAccess().getCommaKeyword_11_2_0());
+    	newLeafNode(otherlv_24, grammarAccess.getStructuralOrganisationalPatternAccess().getCommaKeyword_10_2_0());
     }
 (
 (
@@ -7954,13 +7954,13 @@ ruleStructuralOrganisationalPattern returns [EObject current=null]
         }
 	otherlv_25=RULE_ID
 	{
-		newLeafNode(otherlv_25, grammarAccess.getStructuralOrganisationalPatternAccess().getSubstitutesObjectSubstitutionCrossReference_11_2_1_0()); 
+		newLeafNode(otherlv_25, grammarAccess.getStructuralOrganisationalPatternAccess().getBindingChoiceChoiceCrossReference_10_2_1_0()); 
 	}
 
 )
 ))*)?	otherlv_26='}' 
     {
-    	newLeafNode(otherlv_26, grammarAccess.getStructuralOrganisationalPatternAccess().getRightCurlyBracketKeyword_12());
+    	newLeafNode(otherlv_26, grammarAccess.getStructuralOrganisationalPatternAccess().getRightCurlyBracketKeyword_11());
     }
 )
 ;
