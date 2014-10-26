@@ -42,6 +42,7 @@ import org.eclipse.xtext.resource.IResourceFactory
 import org.eclipse.xtext.resource.IResourceServiceProvider
 import org.eclipse.xtext.resource.XtextResourceSet
 
+import org.omg.CVLMetamodelMaster.cvl.BaseModelHandle
 import org.omg.CVLMetamodelMaster.cvl.Choice
 import org.omg.CVLMetamodelMaster.cvl.ChoiceResolutuion
 import org.omg.CVLMetamodelMaster.cvl.ChoiceVariationPoint
@@ -131,7 +132,12 @@ class Derivator
 				roots.add(r)
 		]
 
-		roots.forEach[domainResources.add(eResource)]
+		o.eResource.allContents.filter(typeof(BaseModelHandle)).forEach[h |
+			if (!domainResources.contains(h.reference.eResource))
+				domainResources.add(h.reference.eResource)
+		]
+
+		//roots.forEach[domainResources.add(eResource)]
 		roots.forEach[it.substituteObject]
 		roots.forEach[it.removeObject]
 
