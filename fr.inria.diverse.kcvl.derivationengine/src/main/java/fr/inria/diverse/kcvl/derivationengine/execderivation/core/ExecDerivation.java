@@ -266,24 +266,26 @@ public class ExecDerivation implements PatternIntegration {
 				
 				// Save model
 				for (Resource res1 : v.getDomainResources()) {
-					URI newuri = res1.getURI();
-					newuri = newuri.trimFileExtension();
-					newuri = URI.createURI(newuri.toString() + "_new");
-					System.err.println("newuri " + newuri);
-					newuri = newuri.appendFileExtension(res1.getURI()
-							.fileExtension());
-					Resource copy = domain.getResourceSet().createResource(
-							newuri);
-					EcoreUtil.Copier copier = new EcoreUtil.Copier();
-
-					for (EObject root : res1.getContents()) {
-						copy.getContents().add(copier.copy(root));
-					}
-					copier.copyReferences();
-					try {
-						copy.save(Collections.emptyMap());
-					} catch (IOException e) {
-						e.printStackTrace();
+					if (!res1.getURI().toString().endsWith(".patterns")) {
+						URI newuri = res1.getURI();
+						newuri = newuri.trimFileExtension();
+						newuri = URI.createURI(newuri.toString() + "_new");
+						System.err.println("newuri " + newuri);
+						newuri = newuri.appendFileExtension(res1.getURI()
+								.fileExtension());
+						Resource copy = domain.getResourceSet().createResource(
+								newuri);
+						EcoreUtil.Copier copier = new EcoreUtil.Copier();
+	
+						for (EObject root : res1.getContents()) {
+							copy.getContents().add(copier.copy(root));
+						}
+						copier.copyReferences();
+						try {
+							copy.save(Collections.emptyMap());
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
 					}
 				}
 			}
