@@ -36,7 +36,7 @@
 <p>KCVL is a <em>prototype</em> implementation of the OMG <a href="http://www.omgwiki.org/variability/doku.php">Common Variability Language</a> with several additional features. KCVL comes with a textual editor for expressing variability abstraction models, variability realization models and resolution models. Several services are built around this textual representation, including:</p>
 
 <ul>
-<li>The manipulation of base architecture models expressed in different formalisms such as <a href="http://marketplace.obeonetwork.com/module/uml">UML</a>, <a href="http://www.eclipse.org/modeling/emf/">EMF Ecore</a> or <a href="https://www.polarsys.org/proposals/capella">Capella</a>. Any MOF-compliant language can be integrated with little effort.</li>
+<li>The manipulation of base architecture models expressed in different formalisms such as <a href="http://marketplace.obeonetwork.com/module/uml">UML</a>, <a href="http://www.eclipse.org/modeling/emf/">EMF Ecore</a> or <a href="https://www.polarsys.org/proposals/capella">Capella</a>. Any MOF-compliant language can be integrated with little effort</li>
 <li>An interpreter for deriving specific products architectures from a common base model</li>
 <li>A binding to <a href="http://familiar-project.github.io/">FAMILIAR</a> for manipulating and reasoning about (multiple) feature models</li>
 <li>New variability realization concepts leveraging <a href="http://eclipse.org/diffmerge/">EMF Diff/Merge</a> patterns mechanism</li>
@@ -61,11 +61,201 @@
 <p><em>Help -&gt; Install New Software...</em></p>
 
 <ul>
-<li><a href="https://ci.inria.fr/k3al/job/kcvl/lastSuccessfulBuild/artifact/fr.inria.diverse.kcvl.p2updatesite/target/site/">Update Site @ INRIA</a></li>
+<li><a href="https://ci.inria.fr/k3al/job/kcvl/lastSuccessfulBuild/artifact/fr.inria.diverse.kcvl.p2updatesite/target/site/">Update Site URL @ INRIA</a></li>
 <li><a href="https://ci.inria.fr/k3al/job/kcvl/">Continous Integration @ INRIA</a></li>
 </ul>
 
 <h3>Quick Start</h3>
+
+<p>In this quick start, we use UML Designer to design the common base model of different product variants. We express variability abstraction, realization and configuration in a KCVL file and derive some products using the interpreter.</p>
+
+<p>A complete example can be found here: <a href="https://github.com/diverse-project/kcvl/tree/master/Examples">https://github.com/diverse-project/kcvl/tree/master/Examples</a> </p>
+
+<h4>Base Model Design</h4>
+
+<p>First, we create a new UML project with a simple class diagram:</p>
+
+<ol>
+<li>Open the Modeling perspective</li>
+<li>File -&gt; New -&gt; UML Project (project name: QuickStart)</li>
+<li>&#39;+&#39; sign left to model.uml -&gt; Right-click &#39;<Model> NewModel&#39; -&gt; New Representation -&gt; NewModel Class Diagram</li>
+<li>Design a class diagram using the graphical modeler
+<img src="images/01.jpg" alt="UML Class Diagram"></li>
+</ol>
+
+<h4>KCVL file</h4>
+
+<p>KCVL file are expressed in a formalism as close as possible to the CVL formalism. The <a href="http://www.omgwiki.org/variability/doku.php">CVL wiki</a> lists the different constructs available for expressing variability. KCVL files are composed of three main parts:</p>
+
+<ul>
+<li>A variability abstraction model (VAM) that expresses the feature model of the different variants</li>
+<li>A variability realization model (VRM) that specifies in which way the base model is affected by the selection of features</li>
+<li>A resolution model (RM) that allows to configure a feature model by selecting specific features corresponding to a given product</li>
+</ul>
+
+<p>We create a new KCVL file in the QuickStart project (File -&gt; New File -&gt; QuickStart.kcvl).
+<img src="images/02.jpg" alt="KCVL File"></p>
+
+<h4>Variability Abstraction Model</h4>
+
+<p>Below is an example feature model expressed in KCVL:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">VP vam {
+    Choice Blog { // Root feature
+        implied // Blog is mandatory and automatically selected
+
+        Choice Logging // Optional feature
+        Choice Stylesheet { implied } // Mandatory feature
+
+        Choice Database[1..1] { // XOR tree (one and only one feature of the subtree)
+            Choice PostgreSQL
+            Choice MySQL
+        }
+    }
+    // OCL implication constraint: Logging mechanism requires a Database
+    constraint implies(Logging, Database) on Blog
+}
+</code></pre></div>
+<h4>Variability Realization Model</h4>
+
+<p>The following listing illustrates the different variation points currently supported in KCVL. Each variation point describes the modification of the base model implied by the selection of one (or more) features. Any UML/Ecore/Capella/MOF-compliant model can be imported and supported with autocompletion.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">VP vrm {
+    import &quot;model.uml&quot; // Import all model elements
+
+    // If C1 is NOT selected
+    // ObjectExist class will be removed
+    ObjectExistence V1 {
+        object NewModel.ObjectExist
+        choice C1
+    }
+
+    // If C2 is NOT selected
+    // the ownedEnd &quot;foo&quot; of the association
+    // linkExistsToObjectSubsts will be removed
+    LinkExistence V2 {
+        link NewModel.linkExistsToObjectSubsts.foo
+        choice C2
+    }
+
+    // If C3 is selected
+    // ObjectSubst class will be replaced
+    // with Watcher class
+    ObjectSubstitution V3 {
+        placement NewModel.ObjectSubst
+        replacement NewModel.Watcher
+        choice C3
+    }
+
+    // If C4 is selected
+    // the ownedEnd &quot;foo&quot; of the association
+    // linkAssignsToSlotAssigns will be replaced
+    // with the ownedEnd &quot;bar&quot; 
+    LinkAssignment V4 {
+        link NewModel.linkAssignsToSlotAssigns.foo
+        linkEndIdentifier &quot;ownedEnd&quot;
+        newEnd NewModel.linkAssignsToSlotAssigns.bar
+        choice C4
+    }
+
+    // If C5 is selected
+    // The attribute &quot;name&quot; of the class SlotAssign
+    // will be set to &quot;NewSlotAssignmentName&quot;
+    SlotAssignment V5 {
+        slotOwner NewModel.SlotAssign
+        slotIdentifier &quot;name&quot;
+        value &quot;NewSlotAssignmentName&quot;
+        choice C5
+    }
+
+    // If C6 is NOT selected
+    // The attribute &quot;name&quot; of the property
+    // &quot;propToUnset&quot; of the class SlotValueExist
+    // will be unsetted (if possible) or set to null
+    SlotValueExistence V6 {
+        slotOwner NewModel.SlotValueExist.propToUnset
+        slotIdentifier &quot;name&quot;
+        choice C6
+    }
+
+    // If C7 is selected
+    // Pattern will be applied with the two
+    // referenced role bindings
+    PatternFusion V7 {
+        bindings BindR1, BindR2
+        choice C7
+    }
+
+    // Bind the role &quot;R1&quot; to the class PatternFusionTest
+    RoleBinding BindR1 {
+        role &quot;/QuickStart/model.patterns#_JUYycF3HEeSsLt1m8WuECQ&quot;
+        target NewModel.PatternFusionTest
+    }
+
+    // Bind the role &quot;R2&quot; to the class Watcher
+    RoleBinding BindR2 {
+        role &quot;/QuickStart/model.patterns#_JrnmsF3HEeSsLt1m8WuECQ&quot;
+        target NewModel.Watcher
+    }
+
+    PatternIntegration V8 {
+        bindings BindR1_1, BindR2_2
+        choice C8
+    }
+
+    RoleBinding BindR1_1 {
+        role &quot;/QuickStart/model.patterns#_JUYycF3HEeSsLt1m8WuECQ&quot;
+        target NewModel.PatternIntegrationTest
+    }
+
+    RoleBinding BindR2_2 {
+        role &quot;/QuickStart/model.patterns#_JrnmsF3HEeSsLt1m8WuECQ&quot;
+        target NewModel.Watcher
+    }
+}
+</code></pre></div>
+<p>Elements of the base model can be referenced in three different ways:</p>
+
+<ul>
+<li>By their name, using Ctrl-Click autocompletion (see below)</li>
+<li>By their ID, e.g. <code>object &quot;/QuickStart/model.uml#_2GQ-4F1REeSqzeBJjpaeLQ&quot;</code></li>
+<li>Using the containment tree, e.g. <code>object &quot;/QuickStart/model.uml#//@packagedElement.0/@ownedAttribute.0&quot;</code></li>
+</ul>
+
+<p><img src="images/03.jpg" alt="KCVL Autocompletion"></p>
+
+<h4>Resolution Model</h4>
+
+<p>The resolution model defines which features are selected in the target product, and which ones are not. Below is a simple example:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">VP configuration {
+    resolution for C1 = true
+    resolution for C2 = true
+    resolution for C3 = false
+    resolution for C4 = false
+    resolution for C5 = false
+    resolution for C6 = true
+    resolution for C7 = false
+    resolution for C8 = true
+}
+</code></pre></div>
+<h4>FAMILIAR report</h4>
+
+<p>FAMILIAR report can be triggered by right-clicking a KCVL file -&gt; KCVL -&gt; FAMILIAR Report. Output of FAMILIAR is displayed in the console view:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">--------------------------------------------------------------------
+Valid model = true
+Number of valid configurations = 4942080.0
+Choices that cannot be selected = []
+Automatically selected choices = [DSP, ADC, SafetyElements, XZAngleCalculation, Root, SelfCorrection, CorrectionOverGain, XYAngleCalculation, MLX90365, YZAngleCalculation, ASP, AngleMeasurement]
+--------------------------------------------------------------------
+</code></pre></div>
+<h4>CVL Derivation</h4>
+
+<p>The derivation of the target product model can be triggered by right-clicking a KCVL file -&gt; KCVL -&gt; Derive Product. A new model will be created in the project folder (e.g. model_new.uml) with the appropriate features depending on the configuration in the KCVL resolution model. A .cvl variability model conforming to the CVL metamodel will also be created in the same project.</p>
+
+<h3>Additional Notes</h3>
+
+<ul>
+<li>Currently, resolution models are not checked against constraints of the VAM</li>
+<li>Synchronization between Xtext and Sirius only happens at save-time. If you don&#39;t see new elements of your model in the KCVL file, try saving the UML model and reopen the KCVL file</li>
+</ul>
 
       </section>
     </div>

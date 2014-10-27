@@ -5,7 +5,7 @@ layout: index
 ### KCVL
 KCVL is a *prototype* implementation of the OMG [Common Variability Language](http://www.omgwiki.org/variability/doku.php) with several additional features. KCVL comes with a textual editor for expressing variability abstraction models, variability realization models and resolution models. Several services are built around this textual representation, including:
 
-* The manipulation of base architecture models expressed in different formalisms such as [UML](http://marketplace.obeonetwork.com/module/uml), [EMF Ecore](http://www.eclipse.org/modeling/emf/) or [Capella](https://www.polarsys.org/proposals/capella). Any MOF-compliant language can be integrated with little effort.
+* The manipulation of base architecture models expressed in different formalisms such as [UML](http://marketplace.obeonetwork.com/module/uml), [EMF Ecore](http://www.eclipse.org/modeling/emf/) or [Capella](https://www.polarsys.org/proposals/capella). Any MOF-compliant language can be integrated with little effort
 * An interpreter for deriving specific products architectures from a common base model
 * A binding to [FAMILIAR](http://familiar-project.github.io/) for manipulating and reasoning about (multiple) feature models
 * New variability realization concepts leveraging [EMF Diff/Merge](http://eclipse.org/diffmerge/) patterns mechanism
@@ -29,6 +29,8 @@ _Help -> Install New Software..._
 
 ### Quick Start
 In this quick start, we use UML Designer to design the common base model of different product variants. We express variability abstraction, realization and configuration in a KCVL file and derive some products using the interpreter.
+
+A complete example can be found here: [https://github.com/diverse-project/kcvl/tree/master/Examples](https://github.com/diverse-project/kcvl/tree/master/Examples) 
 
 #### Base Model Design
 First, we create a new UML project with a simple class diagram:
@@ -193,6 +195,21 @@ VP configuration {
 	resolution for C8 = true
 }
 ```
+
+#### FAMILIAR report
+FAMILIAR report can be triggered by right-clicking a KCVL file -> KCVL -> FAMILIAR Report. Output of FAMILIAR is displayed in the console view:
+
+```
+--------------------------------------------------------------------
+Valid model = true
+Number of valid configurations = 4942080.0
+Choices that cannot be selected = []
+Automatically selected choices = [DSP, ADC, SafetyElements, XZAngleCalculation, Root, SelfCorrection, CorrectionOverGain, XYAngleCalculation, MLX90365, YZAngleCalculation, ASP, AngleMeasurement]
+--------------------------------------------------------------------
+```
+
+#### CVL Derivation
+The derivation of the target product model can be triggered by right-clicking a KCVL file -> KCVL -> Derive Product. A new model will be created in the project folder (e.g. model_new.uml) with the appropriate features depending on the configuration in the KCVL resolution model. A .cvl variability model conforming to the CVL metamodel will also be created in the same project.
 
 ### Additional Notes
 
