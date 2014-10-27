@@ -211,6 +211,10 @@ Automatically selected choices = [DSP, ADC, SafetyElements, XZAngleCalculation, 
 #### CVL Derivation
 The derivation of the target product model can be triggered by right-clicking a KCVL file -> KCVL -> Derive Product. A new model will be created in the project folder (e.g. model_new.uml) with the appropriate features depending on the configuration in the KCVL resolution model. A .cvl variability model conforming to the CVL metamodel will also be created in the same project.
 
+If the VRM requires the insertion of patterns in the base model, a dialog box is opened during the derivation asking for the containers of new elements inserted by the pattern:
+
+![Pattern Derivation](images/04.jpg)
+
 ### Additional Notes
 
 * Currently, resolution models are not checked against constraints of the VAM
