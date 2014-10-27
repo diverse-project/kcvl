@@ -76,78 +76,123 @@ The following listing illustrates the different variation points currently suppo
 
 ```
 VP vrm {
-	import "model.uml"
+	import "model.uml" // Import all model elements
 	
+	// If C1 is NOT selected
+	// ObjectExist class will be removed
 	ObjectExistence V1 {
-		object NewModel.ObjectExistenceTest
+		object NewModel.ObjectExist
 		choice C1
 	}
-	
+
+	// If C2 is NOT selected
+	// the ownedEnd "foo" of the association
+	// linkExistsToObjectSubsts will be removed
 	LinkExistence V2 {
-		link NewModel.linkExistenceTestsToSlotAssignmentTests.bar
+		link NewModel.linkExistsToObjectSubsts.foo
 		choice C2
 	}
-	
+
+	// If C3 is selected
+	// ObjectSubst class will be replaced
+	// with Watcher class
 	ObjectSubstitution V3 {
-		placement NewModel.ObjectSubstitutionTest
-		replacement NewModel.Test
+		placement NewModel.ObjectSubst
+		replacement NewModel.Watcher
 		choice C3
 	}
-	
+
+	// If C4 is selected
+	// the ownedEnd "foo" of the association
+	// linkAssignsToSlotAssigns will be replaced
+	// with the ownedEnd "bar" 
 	LinkAssignment V4 {
-		link NewModel.linkAssignmentTestsToSlotValueExistenceTests.bar
+		link NewModel.linkAssignsToSlotAssigns.foo
 		linkEndIdentifier "ownedEnd"
-		newEnd NewModel.linkAssignmentTestsToSlotValueExistenceTests.bar
+		newEnd NewModel.linkAssignsToSlotAssigns.bar
 		choice C4
 	}
-	
+
+	// If C5 is selected
+	// The attribute "name" of the class SlotAssign
+	// will be set to "NewSlotAssignmentName"
 	SlotAssignment V5 {
-		slotOwner NewModel.SlotAssignmentTest
+		slotOwner NewModel.SlotAssign
 		slotIdentifier "name"
-		value "NewSlotAssignmentTestName"
+		value "NewSlotAssignmentName"
 		choice C5
 	}
-	
+
+	// If C6 is NOT selected
+	// The attribute "name" of the property
+	// "propToUnset" of the class SlotValueExist
+	// will be unsetted (if possible) or set to null
 	SlotValueExistence V6 {
-		slotOwner NewModel.SlotValueExistenceTest.propToUnset
+		slotOwner NewModel.SlotValueExist.propToUnset
 		slotIdentifier "name"
 		choice C6
 	}
-	
+
+	// If C7 is selected
+	// Pattern will be applied with the two
+	// referenced role bindings
 	PatternFusion V7 {
-		bindings BindSubject1, BindWatcher1
+		bindings BindR1, BindR2
 		choice C7
 	}
-	
-	RoleBinding BindSubject1 {
-		role "/KcvlExamples/model.patterns#_2GQ-4F1REeSqzeBJjpaeLQ"
+
+	// Bind the role "R1" to the class PatternFusionTest
+	RoleBinding BindR1 {
+		role "/QuickStart/model.patterns#_JUYycF3HEeSsLt1m8WuECQ"
 		target NewModel.PatternFusionTest
 	}
-	
-	RoleBinding BindWatcher1 {
-		role "/KcvlExamples/model.patterns#_3C6NUF1REeSqzeBJjpaeLQ"
-		target NewModel.WatcherTest
+
+	// Bind the role "R2" to the class Watcher
+	RoleBinding BindR2 {
+		role "/QuickStart/model.patterns#_JrnmsF3HEeSsLt1m8WuECQ"
+		target NewModel.Watcher
 	}
 	
 	PatternIntegration V8 {
-		bindings BindSubject2, BindWatcher2
+		bindings BindR1_1, BindR2_2
 		choice C8
 	}
 	
-	RoleBinding BindSubject2 {
-		role "/KcvlExamples/model.patterns#_2GQ-4F1REeSqzeBJjpaeLQ"
+	RoleBinding BindR1_1 {
+		role "/QuickStart/model.patterns#_JUYycF3HEeSsLt1m8WuECQ"
 		target NewModel.PatternIntegrationTest
 	}
 	
-	RoleBinding BindWatcher2 {
-		role "/KcvlExamples/model.patterns#_3C6NUF1REeSqzeBJjpaeLQ"
-		target NewModel.WatcherTest
+	RoleBinding BindR2_2 {
+		role "/QuickStart/model.patterns#_JrnmsF3HEeSsLt1m8WuECQ"
+		target NewModel.Watcher
 	}
 }
 ```
 
+Elements of the base model can be referenced in three different ways:
+
+* By their name, using Ctrl-Click autocompletion (see below)
+* By their ID, e.g. ```object "/QuickStart/model.uml#_2GQ-4F1REeSqzeBJjpaeLQ"```
+* Using the containment tree, e.g. ```object "/QuickStart/model.uml#//@packagedElement.0/@ownedAttribute.0"```
+
+![KCVL Autocompletion](images/03.jpg)
 
 #### Resolution Model
+The resolution model defines which features are selected in the target product, and which ones are not. Below is a simple example:
+
+```
+VP configuration {
+	resolution for C1 = true
+	resolution for C2 = true
+	resolution for C3 = false
+	resolution for C4 = false
+	resolution for C5 = false
+	resolution for C6 = true
+	resolution for C7 = false
+	resolution for C8 = true
+}
+```
 
 ### Additional Notes
 
