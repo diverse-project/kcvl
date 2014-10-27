@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_hf7v0FurEeSC89QYVKdSTQ" name="NewModel">
+  <packagedElement xmi:type="uml:Class" xmi:id="_1Mg7IF1LEeSrsNY91pqtmQ" name="ObjectExistenceTest"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_2fzH8F1LEeSrsNY91pqtmQ" name="LinkExistenceTest"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_4lnk8F1LEeSrsNY91pqtmQ" name="SlotAssignmentTest"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_5kCVAF1LEeSrsNY91pqtmQ" name="ObjectSubstitutionTest"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_7_rRAF1LEeSrsNY91pqtmQ" name="LinkAssignmentTest"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_CuR3AF1MEeSrsNY91pqtmQ" name="SlotValueExistenceTest">
+    <ownedAttribute xmi:id="_YO90cF1QEeSn8qxdTrQ5uQ" name="propToUnset">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YO_CkF1QEeSn8qxdTrQ5uQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YO_CkV1QEeSn8qxdTrQ5uQ" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_FbiugF1MEeSrsNY91pqtmQ" name="PatternIntegrationTest"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_GPIHkF1MEeSrsNY91pqtmQ" name="PatternFusionTest"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_TO6-0F1MEeSrsNY91pqtmQ" name="linkExistenceTestsToSlotAssignmentTests" memberEnd="_TO6-0V1MEeSrsNY91pqtmQ _TPNSsV1MEeSrsNY91pqtmQ" navigableOwnedEnd="_TO6-0V1MEeSrsNY91pqtmQ _TPNSsV1MEeSrsNY91pqtmQ">
+    <ownedEnd xmi:id="_TO6-0V1MEeSrsNY91pqtmQ" name="foo" type="_2fzH8F1LEeSrsNY91pqtmQ" association="_TO6-0F1MEeSrsNY91pqtmQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TPMroF1MEeSrsNY91pqtmQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TPNSsF1MEeSrsNY91pqtmQ" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_TPNSsV1MEeSrsNY91pqtmQ" name="bar" type="_4lnk8F1LEeSrsNY91pqtmQ" association="_TO6-0F1MEeSrsNY91pqtmQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TPdKUF1MEeSrsNY91pqtmQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TPdKUV1MEeSrsNY91pqtmQ" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Vza74F1MEeSrsNY91pqtmQ" name="linkAssignmentTestsToSlotValueExistenceTests" memberEnd="_Vzbi8F1MEeSrsNY91pqtmQ _VzcxEV1MEeSrsNY91pqtmQ" navigableOwnedEnd="_Vzbi8F1MEeSrsNY91pqtmQ _VzcxEV1MEeSrsNY91pqtmQ">
+    <ownedEnd xmi:id="_Vzbi8F1MEeSrsNY91pqtmQ" name="foo" type="_7_rRAF1LEeSrsNY91pqtmQ" association="_Vza74F1MEeSrsNY91pqtmQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VzcKAF1MEeSrsNY91pqtmQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VzcxEF1MEeSrsNY91pqtmQ" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_VzcxEV1MEeSrsNY91pqtmQ" name="bar" type="_CuR3AF1MEeSrsNY91pqtmQ" association="_Vza74F1MEeSrsNY91pqtmQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VzdYIF1MEeSrsNY91pqtmQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VzdYIV1MEeSrsNY91pqtmQ" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_lYnvIF1MEeSrsNY91pqtmQ" name="Test"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_nPmsoF1REeSqzeBJjpaeLQ" name="Observable">
+    <ownedOperation xmi:id="_xXxPcF1REeSqzeBJjpaeLQ" name="update"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_qgZH8F1REeSqzeBJjpaeLQ" name="Observer" isAbstract="true">
+    <ownedOperation xmi:id="_rb2qoF1REeSqzeBJjpaeLQ" name="notify"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_sWqtEF1REeSqzeBJjpaeLQ" name="ConcreteObserver">
+    <generalization xmi:id="_yHkUsF1REeSqzeBJjpaeLQ" general="_qgZH8F1REeSqzeBJjpaeLQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_vemuYF1REeSqzeBJjpaeLQ" name="observablesToObservers" memberEnd="_vemuYV1REeSqzeBJjpaeLQ _vfAXAV1REeSqzeBJjpaeLQ" navigableOwnedEnd="_vfAXAV1REeSqzeBJjpaeLQ">
+    <ownedEnd xmi:id="_vemuYV1REeSqzeBJjpaeLQ" name="observables" type="_nPmsoF1REeSqzeBJjpaeLQ" aggregation="shared" association="_vemuYF1REeSqzeBJjpaeLQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ve_v8F1REeSqzeBJjpaeLQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vfAXAF1REeSqzeBJjpaeLQ" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_vfAXAV1REeSqzeBJjpaeLQ" name="observers" type="_qgZH8F1REeSqzeBJjpaeLQ" association="_vemuYF1REeSqzeBJjpaeLQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vfRcwF1REeSqzeBJjpaeLQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vfRcwV1REeSqzeBJjpaeLQ" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_7PlCEF1REeSqzeBJjpaeLQ" name="WatcherTest"/>
+</uml:Model>
