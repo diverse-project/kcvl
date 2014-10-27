@@ -29,4 +29,3 @@ _Help -> Install New Software..._
 
 ### Quick Start
 
-Modifications here :)
