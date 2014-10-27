@@ -88,6 +88,6 @@ VP root {
 		resolution for C5 = false
 		resolution for C6 = true
 		resolution for C7 = false
-		resolution for C8 = true
+		resolution for C8 = false
 	}
 }
