@@ -47,10 +47,10 @@ KCVL file are expressed in a formalism as close as possible to the CVL formalism
 * A resolution model (RM) that allows to configure a feature model by selecting specific features corresponding to a given product
 
 We create a new KCVL file in the QuickStart project (File -> New File -> QuickStart.kcvl).
-![UML Class Diagram](images/02.jpg)
+![KCVL File](images/02.jpg)
 
 
-#### VAM
+#### Variability Abstraction Model
 Below is an example feature model expressed in KCVL:
 
 ```
@@ -71,8 +71,8 @@ VP vam {
 }
 ```
 
-#### VRM
-The following example illustrates the different variation points currently supported in KCVL. Any UML/Ecore/Capella/MOF-compliant model can be imported and supported with autocompletion.
+#### Variability Realization Model
+The following listing illustrates the different variation points currently supported in KCVL. Each variation point describes the modification of the base model implied by the selection of one (or more) features. Any UML/Ecore/Capella/MOF-compliant model can be imported and supported with autocompletion.
 
 ```
 VP vrm {
@@ -147,4 +147,10 @@ VP vrm {
 ```
 
 
-### RM
+#### Resolution Model
+
+### Additional Notes
+
+* Currently, resolution models are not checked against constraints of the VAM
+* Synchronization between Xtext and Sirius only happens at save-time. If you don't see new elements of your model in the KCVL file, try saving the UML model and reopen the KCVL file
+
