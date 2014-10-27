@@ -1,0 +1,6 @@
+.metadata/
+Plugin_Resources/
+Gemfile.lock
+fr.inria.diverse.kcvl*
+org.eclipse.emf.diffmerge.patterns/
+
