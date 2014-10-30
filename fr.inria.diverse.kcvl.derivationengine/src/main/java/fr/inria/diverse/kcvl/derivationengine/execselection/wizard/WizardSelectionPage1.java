@@ -22,7 +22,6 @@ public class WizardSelectionPage1 extends WizardPage {
 		super(pageName);
 	}
 
-	@Override
 	public void createControl(Composite parent) {
 		
 	}

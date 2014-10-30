@@ -18,8 +18,12 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -36,18 +40,30 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.diffmerge.patterns.core.CorePatternsPlugin;
 import org.eclipse.emf.diffmerge.patterns.core.api.IPattern;
+import org.eclipse.emf.diffmerge.patterns.core.api.IPatternApplication;
 import org.eclipse.emf.diffmerge.patterns.core.api.IPatternInstance;
 import org.eclipse.emf.diffmerge.patterns.core.api.IPatternRole;
 import org.eclipse.emf.diffmerge.patterns.core.api.ext.IModelOperation;
-import org.eclipse.emf.diffmerge.patterns.core.api.locations.IElementLocation;
+import org.eclipse.emf.diffmerge.patterns.core.operations.CompoundModelOperation;
 import org.eclipse.emf.diffmerge.patterns.core.util.BasicPatternApplication;
 import org.eclipse.emf.diffmerge.patterns.core.util.locations.BasicCompositeLocation;
 import org.eclipse.emf.diffmerge.patterns.core.util.locations.BasicElementLocation;
 import org.eclipse.emf.diffmerge.patterns.core.util.locations.BasicReferenceLocation;
+import org.eclipse.emf.diffmerge.patterns.diagrams.PatternCoreDiagramPlugin;
+import org.eclipse.emf.diffmerge.patterns.diagrams.factories.IPatternOperationFactory;
+import org.eclipse.emf.diffmerge.patterns.diagrams.operations.AbstractFilteredGraphicalUpdateOperation;
+import org.eclipse.emf.diffmerge.patterns.diagrams.operations.AbstractGraphicalWrappingInstanceOperation;
+import org.eclipse.emf.diffmerge.patterns.diagrams.operations.AbstractGraphicalWrappingInstanceOperation.RefreshRequestKind;
+import org.eclipse.emf.diffmerge.patterns.diagrams.sirius.util.SiriusDiagramUtil;
+import org.eclipse.emf.diffmerge.patterns.diagrams.sirius.util.SiriusGenericTypeUtil;
 import org.eclipse.emf.diffmerge.patterns.repositories.catalogs.operations.OpenCatalogOperation;
+import org.eclipse.emf.diffmerge.patterns.templates.engine.TemplatePatternsEnginePlugin;
+import org.eclipse.emf.diffmerge.patterns.templates.engine.ext.ISemanticRuleProvider;
 import org.eclipse.emf.diffmerge.patterns.templates.engine.operations.ApplyTemplatePatternOperation;
+import org.eclipse.emf.diffmerge.patterns.templates.engine.specifications.TemplatePatternApplicationSpecification;
+import org.eclipse.emf.diffmerge.patterns.templates.gen.templatepatterns.TemplatePattern;
 import org.eclipse.emf.diffmerge.patterns.templates.gen.templatepatterns.TemplatePatternRole;
-import org.eclipse.emf.diffmerge.patterns.templates.gen.templatepatterns.impl.TemplatePatternRoleImpl;
+import org.eclipse.emf.diffmerge.patterns.templates.gen.templatepatterns.impl.TemplatePatternDataImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -56,8 +72,12 @@ import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
+import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.DView;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
@@ -69,10 +89,10 @@ import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.omg.CVLMetamodelMaster.cvl.VPackage;
 
+import fr.inria.diverse.kcvl.extensions.SemanticDeleteOfObject;
 import fr.inria.diverse.kcvl.interpreter.Derivator;
 import fr.inria.diverse.kcvl.interpreter.Pair;
 import fr.inria.diverse.kcvl.interpreter.PatternIntegration;
-import fr.inria.diverse.kcvl.extensions.SemanticDeleteOfObject;
 
 /**
  * This class permits to execute product derivation from a given resolution
@@ -83,7 +103,16 @@ import fr.inria.diverse.kcvl.extensions.SemanticDeleteOfObject;
  */
 public class ExecDerivation implements PatternIntegration {
 
+	
+	List<IPatternInstance> instances = new ArrayList<IPatternInstance>();
 	Resource resolvedModelRes;
+
+	DRepresentation _diagramToRefresh;
+	SiriusDiagramUtil _diagramUtil = new SiriusDiagramUtil();
+
+	SiriusGenericTypeUtil _genericTypeUtil = new SiriusGenericTypeUtil();
+
+	TemplatePatternApplicationSpecification _applicationSpec;
 
 	List<String> excludingExtensions;
 
@@ -296,6 +325,7 @@ public class ExecDerivation implements PatternIntegration {
 		domain.getCommandStack().undo();
 	}
 
+
 	public boolean includePattern(List<Pair<EObject, EObject>> substitutes) {
 
 		IPatternRole r = (IPatternRole) substitutes.iterator().next().getL();
@@ -303,54 +333,127 @@ public class ExecDerivation implements PatternIntegration {
 		System.err.println(resolvedModelRes.getURI());
 		BasicPatternApplication applicationSpec = new BasicPatternApplication(
 				myPattern);
+
 		for (Pair<EObject, EObject> entry : substitutes) {
-			applicationSpec.addLocation((IPatternRole) entry.getL(),
-					new BasicReferenceLocation(entry.getR().eContainer(), entry
-							.getR().eContainmentFeature()));
+			System.err.println(r.getName());
+			IPatternRole r1 = (IPatternRole) entry.getL();
+			/*if (r1 instanceof TemplatePatternRole) {
+				EList mes = ((TemplatePatternRole) r).getMergeDerivationRule()
+						.deriveCandidateElements(applicationSpec);
+				for (Iterator iterator = mes.iterator(); iterator.hasNext();) {
+					Object object = (Object) iterator.next();
+					System.err.println(r.getName() + ":CandidateElements : "
+							+ object.toString());
+				}
+			}*/
+
+			// PatternApplicationWizard p = new PatternApplicationWizard();
+			
+			applicationSpec.addLocation(r1, new BasicReferenceLocation(entry
+					.getR().eContainer(), entry.getR().eContainmentFeature()));
+
 		}
 
-		// applicationSpec.addLocation(�);
-		// Demande-moi si c�est pas clair : pour chaque r�le du pattern
+		// applicationSpec.addLocation(ï¿½);
+		// Demande-moi si cï¿½est pas clair : pour chaque rï¿½le du pattern
 		// il faut une ILocation
-		// qui d�termine comment le r�le est � appliqu� � : soit par
-		// ajout des �l�ments du r�le dans
-		// un �l�ment du mod�le via une r�f�rence de containment
+		// qui dï¿½termine comment le rï¿½le est ï¿½ appliquï¿½ ï¿½ : soit par
+		// ajout des ï¿½lï¿½ments du rï¿½le dans
+		// un ï¿½lï¿½ment du modï¿½le via une rï¿½fï¿½rence de containment
 		// (BasicReferenceLocation),
-		// soit par fusion avec un �l�ment du mod�le
+		// soit par fusion avec un ï¿½lï¿½ment du modï¿½le
 		// (BasicElementLocation).
-		// Tu peux faire applicationSpec.isComplete() pour v�rifier que
-		// tout est par�.
+		// Tu peux faire applicationSpec.isComplete() pour vï¿½rifier que
+		// tout est parï¿½.
 		// Si applicationSpec.isComplete(), on poursuit.
 		boolean res = applicationSpec.isComplete();
 		IModelOperation<IPatternInstance> patternApplicationOperation = new ApplyTemplatePatternOperation(
-				applicationSpec, true, "$name$", 1, 1,
-				substitutes.iterator().next().getL().eResource(),
-				substitutes.iterator().next().getR().eResource());
-		CorePatternsPlugin.getDefault().getModelEnvironment()
+				applicationSpec, true, "$name$", 1, 1, substitutes.iterator()
+						.next().getL().eResource(), substitutes.iterator()
+						.next().getR().eResource());
+		IPatternInstance instance = CorePatternsPlugin.getDefault().getModelEnvironment()
 				.execute(patternApplicationOperation);
-
+		instances.add(instance);
 		return res;
 	}
 
-	public boolean fusionPattern(List<Pair<EObject, EObject>> substitutes) {
-		TemplatePatternRoleImpl r = (TemplatePatternRoleImpl) substitutes.iterator().next().getL();
-		//IPatternRole r = (IPatternRole) substitutes.iterator().next().getL();
-		IPattern myPattern = r.getPattern();
+	public boolean fusionPattern(final List<Pair<EObject, EObject>> substitutes) {
 
-		BasicPatternApplication applicationSpec = new BasicPatternApplication(
-				myPattern);
+		IPatternRole r = (IPatternRole) substitutes.iterator().next().getL();
+		TemplatePattern myPattern = (TemplatePattern) r.getPattern();
+		System.err.println("resolvedModelRes:" + resolvedModelRes.getURI());
+		final Session sess = SessionManager.INSTANCE
+				.getSession(resolvedModelRes);
 
-		List<IPatternRole> rolestointegrate = new ArrayList<IPatternRole>();
-		rolestointegrate.addAll(myPattern.getRoles());
-		for (Pair<EObject, EObject> re : substitutes) {
-			if (rolestointegrate.contains(re.getL()))
-				rolestointegrate.remove(re.getL());
+		HashMap<String, DRepresentation> representationMap = new HashMap<String, DRepresentation>();
+		Collection<DView> views = sess.getOwnedViews();
+		System.err.println(sess.getOwnedViews().size());
+		for (DView dView : views) {
+			System.err.println("tyty" + dView.getViewpoint().getName());
+			Collection<DRepresentation> representations = dView
+					.getAllRepresentations();
+
+			for (Iterator iterator2 = representations.iterator(); iterator2
+					.hasNext();) {
+				DRepresentation dRepresentation = (DRepresentation) iterator2
+						.next();
+				System.err.println("representation : "
+						+ dRepresentation.getName());
+				representationMap.put(dRepresentation.getName(),
+						dRepresentation);
+
+			}
 
 		}
 
-		EObject ob = null;
+		// BasicPatternApplication applicationSpec = new
+		// BasicPatternApplication(
+		// myPattern);
 
-		Map<EObject, EList<EObject>> composite = new HashMap<EObject, EList<EObject>>();
+		List<EObject> scope = new ArrayList<EObject>();
+
+		if (representationMap
+				.get("[SFBD] Root System Function - System Function Breakdown") instanceof DDiagram) {
+
+			DDiagram d = (DDiagram) representationMap
+					.get("[SFBD] Root System Function - System Function Breakdown");
+			_diagramToRefresh = d;
+			List diagElts = d.getOwnedDiagramElements();
+
+			if (!diagElts.isEmpty()) {
+				List<EObject> sms = _diagramUtil
+						.getSemanticElementsFor(diagElts.get(0));
+
+				if (!diagElts.isEmpty()) {
+					System.err.println("grrr " + sms.get(0).eContainer());
+					scope.add(sms.get(0).eContainer());
+				}
+
+			}
+
+		}
+
+		_applicationSpec = new TemplatePatternApplicationSpecification(scope);
+		_applicationSpec.setPattern(myPattern);
+
+		_applicationSpec.setDisplayWhenDone(true);
+		_applicationSpec.setReuseLayout(false);
+
+		List<IPatternRole> rolestointegrate = new ArrayList<IPatternRole>();
+
+		List<? extends IPatternRole> patternRoles = myPattern.getRoles();
+
+		rolestointegrate.addAll(patternRoles);
+
+		for (Pair<EObject, EObject> re : substitutes) {
+			if (rolestointegrate.contains(re.getL()))
+				rolestointegrate.remove(re.getL());
+		}
+
+		EObject ob = null;
+		// j'ai changé en linkedhasmap pour conserver l'ordre des rôles pour le
+		// support de dérivé.
+		Map<EObject, EList<EObject>> composite = new LinkedHashMap<EObject, EList<EObject>>();
 
 		for (Pair<EObject, EObject> entry : substitutes) {
 			if (!composite.containsKey(entry.getL())) {
@@ -361,78 +464,129 @@ public class ExecDerivation implements PatternIntegration {
 
 		for (Entry<EObject, EList<EObject>> entry : composite.entrySet()) {
 			if (entry.getValue().size() == 1) {
-
 				if (ob == null)
 					ob = entry.getValue().get(0);
 				{
-					applicationSpec.addLocation((IPatternRole) entry.getKey(),
-							new BasicElementLocation(entry.getValue().get(0)));
+					TemplatePatternRole role = ((TemplatePatternRole) (IPatternRole) entry
+							.getKey());
+					boolean isMultiple = role.getPattern().getMultiElements()
+							.containsAll(role.getTemplateElements());
+					if (isMultiple) {
+						BasicCompositeLocation loc = new BasicCompositeLocation();
+						EList mes = ((TemplatePatternRole) (IPatternRole) entry
+								.getKey()).getMergeDerivationRule()
+								.deriveCandidateElements(
+										_applicationSpec.getApplication());
+						if (mes != null) {
+
+							for (Iterator it = mes.iterator(); it.hasNext();) {
+								EObject object = (EObject) it.next();
+								System.err.println(r.getName()
+										+ ":CandidateElements : "
+										+ object.toString());
+								loc.getOwnedLocations().add(
+										new BasicElementLocation(object));
+
+							}
+						}
+						_applicationSpec.getApplication().addLocation(
+								(IPatternRole) entry.getKey(), loc);
+					} else {
+						_applicationSpec.getApplication().addLocation(
+								(IPatternRole) entry.getKey(),
+								new BasicElementLocation(entry.getValue()
+										.get(0)));
+					}
+
+					// _applicationSpec.addLocation((IPatternRole)
+					// entry.getKey(),
+					// new BasicElementLocation(entry.getValue().get(0)));
+
 				}
-			}else{
+			} else {
 				if (ob == null)
 					ob = entry.getValue().get(0);
 				{
 					BasicCompositeLocation loc = new BasicCompositeLocation();
-					for (EObject atomics :entry.getValue() ){
-						loc.getOwnedLocations().add(new BasicElementLocation(atomics));
+					for (EObject atomics : entry.getValue()) {
+						loc.getOwnedLocations().add(
+								new BasicElementLocation(atomics));
 					}
-					applicationSpec.addLocation((IPatternRole) entry.getKey(),
-							loc);
+
+					_applicationSpec.getApplication().addLocation(
+							(IPatternRole) entry.getKey(), loc);
+
+					// _applicationSpec.addLocation((IPatternRole)
+					// entry.getKey(),
+					// loc);
 				}
 			}
 			// BasicCompositeLocation loc = new BasicCompositeLocation();
 			// loc.getOwnedLocations().add(new BasicElementLocation(element_p))
 
 		}
-		for (IPatternRole rr : rolestointegrate) {
-			if (applicationSpec.getLocation(rr) == null) {
-				TemplatePatternRole role = (TemplatePatternRole) rr;
-				System.out.println(role + " is unbinded, trying to guess");
-				
-				if (role.isDerivable(true)) {
-					List<EObject> evalResult = role.getMergeDerivationRule().deriveCandidateElements(applicationSpec);
-					for (EObject o : evalResult) {
-						System.out.println("Found match "+o);
-					}
-					
-					if (evalResult.size() != 1) {
-						System.out.println("Don't know how to manage evalResult.size != 1");
-						return false;
-					} else {
-						EObject match = evalResult.get(0);
-						IElementLocation newLocation = new BasicElementLocation(match);
-						applicationSpec.setLocation(role, newLocation);
-					}
-				}
-//				else {
-//					applicationSpec.addLocation(
-//						rr,
-//						new BasicElementLocation(ob.eContainer()));
-//						/*new BasicReferenceLocation(ob.eContainer(), ob
-//								.eContainmentFeature()));*/
-//				}
-			}
+
+		for (IPatternRole ob1 : rolestointegrate) {
+
+			// _applicationSpec.addLocation(
+			// ob1,
+			// new BasicElementLocation(ob.eContainer()));
+
+			_applicationSpec.getApplication().addLocation(ob1,
+					new BasicElementLocation(ob.eContainer()));
+
+			/*
+			 * new BasicReferenceLocation(ob.eContainer(), ob
+			 * .eContainmentFeature()));
+			 */
 		}
+		/*for (Pair<EObject, EObject> re : substitutes) {
+					
+		_applicationSpec.getApplication().addLocation((IPatternRole) re.getL(), new BasicReferenceLocation(re
+				.getR().eContainer(), re.getR().eContainmentFeature()));
+		}*/
 
-		boolean res = applicationSpec.isComplete();
+		boolean res = _applicationSpec.isComplete();
+
+		/*
+		 * final IModelOperation<IPatternInstance> patternApplicationOperation =
+		 * new ApplyTemplatePatternOperation( applicationSpec, true, "$name$",
+		 * 1, 1,null,null);
+		 */
+
+		/*
+		 * final IModelOperation<IPatternInstance> patternApplicationOperation =
+		 * new ApplyTemplatePatternOperation( _applicationSpec.getApplication(),
+		 * true, "$name$", 1, 1,
+		 * substitutes.iterator().next().getL().eResource(),
+		 * substitutes.iterator().next().getR().eResource());
+		 */
+
+		final Resource RL = substitutes.iterator().next().getL().eResource();
+		System.err.println("RL" + RL.getURI().toString());
+
+		final Resource RR = substitutes.iterator().next().getR().eResource();
+
+		System.err.println("RR" + RR.getURI().toString());
+
+		doPerformFinish2(RL, RR);
 		
-		/*final IModelOperation<IPatternInstance> patternApplicationOperation = new ApplyTemplatePatternOperation(
-				applicationSpec, true, "$name$", 1, 1,null,null);*/
-		final IModelOperation<IPatternInstance> patternApplicationOperation = new ApplyTemplatePatternOperation(
-				applicationSpec, true, "$name$", 1, 1,
-				substitutes.iterator().next().getL().eResource(),
-				substitutes.iterator().next().getR().eResource());
-
-		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
+		/*PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
 			public void run() {
-				Shell activeShell = PlatformUI.getWorkbench()
-						.getActiveWorkbenchWindow().getShell();
-				// System.err.println("shell " + activeShell);
-				CorePatternsPlugin.getDefault().getModelEnvironment()
-						.execute(patternApplicationOperation);
-			}
-		});
 
+				/*
+				 * Shell activeShell = PlatformUI.getWorkbench()
+				 * .getActiveWorkbenchWindow().getShell(); //
+				 * System.err.println("shell " + activeShell);
+				 * CorePatternsPlugin.getDefault().getModelEnvironment()
+				 * .execute(patternApplicationOperation);
+				 */
+/*
+				doPerformFinish2(RL, RR);				
+			}
+
+		});
+*/
 		return res;
 	}
 
@@ -449,7 +603,6 @@ public class ExecDerivation implements PatternIntegration {
 		return myConsole;
 	}
 
-	@Override
 	public boolean applyStructuralOrganisationalPattern(
 			List<Pair<EObject, EObject>> substitutes) {
 
@@ -468,7 +621,7 @@ public class ExecDerivation implements PatternIntegration {
 		for (Pair<EObject, EObject> entry : substitutes) {
 			if (((TemplatePatternRole) entry.getL()).acceptsAddition()) {
 				applicationSpec.addLocation((IPatternRole) entry.getL(),
-						//new BasicReferenceLocation(entry.getR().eContainer(),
+				// new BasicReferenceLocation(entry.getR().eContainer(),
 						new BasicElementLocation(entry.getR()));
 				if (ob == null)
 					ob = entry.getR();
@@ -479,34 +632,39 @@ public class ExecDerivation implements PatternIntegration {
 		}
 
 		for (IPatternRole ob1 : rolestointegrate) {
-			/*applicationSpec.addLocation(
-					ob1,
-					new BasicReferenceLocation(ob.eContainer(), ob
-							.eContainmentFeature()));*/
+			/*
+			 * applicationSpec.addLocation( ob1, new
+			 * BasicReferenceLocation(ob.eContainer(), ob
+			 * .eContainmentFeature()));
+			 */
 			applicationSpec.addLocation((IPatternRole) ob1,
-					//new BasicReferenceLocation(entry.getR().eContainer(),
+			// new BasicReferenceLocation(entry.getR().eContainer(),
 					new BasicElementLocation(ob));
 		}
 
 		boolean res = applicationSpec.isComplete();
-		//TODO
-		/*final IModelOperation<IPatternInstance> patternApplicationOperation = new ApplyTemplatePatternOperation(
-				applicationSpec, true, "$name$", 1, 1, null, null);*/
-		Pair<EObject, EObject> current = substitutes.iterator().next() ;
+		// TODO
+		/*
+		 * final IModelOperation<IPatternInstance> patternApplicationOperation =
+		 * new ApplyTemplatePatternOperation( applicationSpec, true, "$name$",
+		 * 1, 1, null, null);
+		 */
+		Pair<EObject, EObject> current = substitutes.iterator().next();
 		Resource patternRes = current.getL().eResource();
 		Resource modelRes = current.getR().eResource();
-		System.out.println("patternRes = " + patternRes);
-		System.out.println("modelRes = " + modelRes);
+		System.err.println("patternRes = " + patternRes);
+		System.err.println("modelRes = " + modelRes);
 		final IModelOperation<IPatternInstance> patternApplicationOperation = new ApplyTemplatePatternOperation(
 				applicationSpec, true, "$name$", 1, 1, patternRes, modelRes);
 
-		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
+		PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
 			public void run() {
 				Shell activeShell = PlatformUI.getWorkbench()
 						.getActiveWorkbenchWindow().getShell();
 				System.err.println("shell " + activeShell);
-				CorePatternsPlugin.getDefault().getModelEnvironment()
+				IPatternInstance instance =CorePatternsPlugin.getDefault().getModelEnvironment()
 						.execute(patternApplicationOperation);
+				instances.add(instance);
 			}
 		});
 
@@ -516,7 +674,192 @@ public class ExecDerivation implements PatternIntegration {
 		return res;
 
 	}
+
+	
+	
+	protected void doPerformFinish2(Resource l, Resource r) {
+		Map<Object, Point> elementsLocationsMap = new Hashtable<Object, Point>();
+		Map<Object, Object> elementsContainersMap = new Hashtable<Object, Object>();
+		if (_diagramToRefresh != null) {
+			// Save current diagram elements locations
+			for (Object diagramElement : _diagramUtil
+					.getDiagramElements(_diagramToRefresh)) {
+				if (_genericTypeUtil
+						.isInstanceOfDiagramElementType(diagramElement)) {
+					elementsLocationsMap.put(diagramElement,
+							_diagramUtil.getLocation(diagramElement));
+				}
+			}
+			// Save diagram elements containers
+			for (Object diagramElement : _diagramUtil
+					.getDiagramElements(_diagramToRefresh)) {
+				if (_genericTypeUtil
+						.isInstanceOfDiagramElementType(diagramElement)) {
+					EObject container = _diagramUtil
+							.getTechnicalContainerFor(diagramElement);
+					if (_genericTypeUtil
+							.isInstanceOfGraphicalContainerType(container)) {
+						elementsContainersMap.put(diagramElement, container);
+					}
+				}
+			}
+		}
+		boolean result = false;
+
+		IPatternApplication application = _applicationSpec.getApplication();
+		// boolean unfold = _applicationSpec.mustUnfoldWhenDone();
+		boolean unfold = true;
+		boolean display = _applicationSpec.mustDisplayWhenDone();
+
+		RefreshRequestKind refreshRequest = display ? RefreshRequestKind.INSTANCE
+				: unfold ? RefreshRequestKind.DIAGRAM : RefreshRequestKind.NONE;
+
+		final int NB = _applicationSpec.getNumberOfApplications();
+		// Create all instances before showing them all because of Doremi cache
+		// for candidate elements of mappings
+
+		/*
+		 * List<IModelOperation<IPatternInstance>> applyOperations = new
+		 * ArrayList<IModelOperation<IPatternInstance>>(NB); for (int i = 1; i
+		 * <= NB; i++) { IModelOperation<IPatternInstance> mainOperation = new
+		 * ApplyTemplatePatternOperation( application, unfold,
+		 * _applicationSpec.getNamingRule(), i, 1
+		 * ,substitutes.iterator().next().getL().eResource(),
+		 * substitutes.iterator().next().getR().eResource());
+		 * applyOperations.add(mainOperation); }
+		 * 
+		 * if (!applyOperations.isEmpty()) {
+		 * IModelOperation<List<IPatternInstance>> applyAllOperation = new
+		 * CompoundModelOperation<IPatternInstance>(
+		 * applyOperations.get(0).getName(), applyOperations, null,
+		 * applyOperations.get(0).getTargetContext(),
+		 * applyOperations.get(0).getSourceContext());
+		 */
+
+		// Pattern application operation at semantic level
+		IModelOperation<IPatternInstance> mainOperation = new ApplyTemplatePatternOperation(
+				application, unfold, "$name$", 1, 1, l, r);
+		// Put it into a composite operation
+		IModelOperation<List<IPatternInstance>> applyAllOperation = new CompoundModelOperation<IPatternInstance>(
+				mainOperation.getName(),
+				Collections.singletonList(mainOperation), null,
+				mainOperation.getTargetContext(),
+				mainOperation.getSourceContext());
+		AbstractGraphicalWrappingInstanceOperation<List<? extends IPatternInstance>> graphicalOperation = instantiateGraphicalWrappingInstanceOperation(
+				applyAllOperation, _diagramToRefresh, refreshRequest);
+
+		List<? extends IPatternInstance> instances = CorePatternsPlugin
+				.getDefault().getModelEnvironment().execute(graphicalOperation);
+		System.err.println("nombre instance "+ instances.size());
+		this.instances.addAll(instances);
+		// List<? extends IPatternInstance> instances = execute(mainOperation);
+		result = instances != null && !instances.isEmpty();
+		// After execution of the main operation because the GMF/Doremi
+		// synchronization happens in post-commit listeners
+		ISemanticRuleProvider ruleProvider = null;
+		ruleProvider = TemplatePatternsEnginePlugin.getDefault()
+				.getSemanticRuleProviderFor(_diagramToRefresh);
+		if (result
+				&& _applicationSpec.mustReuseLayout()
+				&& _diagramToRefresh != null
+				&& !ruleProvider
+						.isAutomaticallyUpdatedDiagram(_diagramToRefresh)) {
+			List<AbstractFilteredGraphicalUpdateOperation> layoutOperations = new ArrayList<AbstractFilteredGraphicalUpdateOperation>(
+					instances.size());
+			final int xOffset = MULTI_INSTANCE_OFFSET, yOffset = MULTI_INSTANCE_OFFSET;
+			int currentVx = 0, currentVy = 0;
+			for (IPatternInstance instance : instances) {
+				AbstractFilteredGraphicalUpdateOperation layoutOperation = instantiateLayoutReuseOperation(
+						_diagramToRefresh, instance, elementsLocationsMap,
+						elementsContainersMap, currentVx, currentVy, true,
+						true, _applicationSpec.getScopeElement());
+				layoutOperations.add(layoutOperation);
+				currentVx += xOffset;
+				currentVy += yOffset;
+			}
+
+			CorePatternsPlugin
+					.getDefault()
+					.getModelEnvironment()
+					.execute(
+							new CompoundModelOperation<Collection<Object>>(
+									layoutOperations.get(0).getName(),
+									layoutOperations, null, layoutOperations
+											.get(0).getTargetContext(),
+									layoutOperations.get(0).getSourceContext()));
+			// execute(new CompoundModelOperation<Collection<Object>>(
+			// layoutOperations.get(0).getName(), layoutOperations, null,
+			// layoutOperations.get(0).getTargetContext(),
+			// layoutOperations.get(0).getSourceContext()));
+		}
+	}
+
+	protected AbstractFilteredGraphicalUpdateOperation instantiateLayoutReuseOperation(
+			Object diagram_p, IPatternInstance instance_p,
+			Map initialElementsLocationsMap_p, Map elementsContainersMap_p,
+			int vx_p, int vy_p, boolean updateLayout_p, boolean updateStyle_p,
+			Object modelSideContext_p) {
+		IPatternOperationFactory factory = PatternCoreDiagramPlugin
+				.getDefault().getOperationFactory();
+		if (factory != null)
+			return factory.instantiateLayoutReuseOperation(diagram_p,
+					instance_p, initialElementsLocationsMap_p,
+					elementsContainersMap_p, vx_p, vy_p, updateLayout_p,
+					updateStyle_p, modelSideContext_p);
+		else
+			return null;
+	}
+
+	protected AbstractGraphicalWrappingInstanceOperation instantiateGraphicalWrappingInstanceOperation(
+			IModelOperation<List<IPatternInstance>> operation_p,
+			Object diagram_p, RefreshRequestKind refreshRequest_p) {
+		IPatternOperationFactory factory = PatternCoreDiagramPlugin
+				.getDefault().getOperationFactory();
+		if (factory != null)
+
+			return factory.instantiateGraphicalWrappingInstanceOperation(
+					operation_p, diagram_p, refreshRequest_p, true);
+
+		else
+			return null;
+	}
+
+	private static final int MULTI_INSTANCE_OFFSET = 10;
+
+	
+	
+	public EObject getRealObject(EObject sub) {
+		System.err.println("ok arrive jusqye là " + sub);
+		//TODO Manager substitution
+		//Last pattern instances
+		IPatternInstance instance = null;
+		if (instances.size()>0){
+			 instance = instances.get(instances.size()-1);
+			//System.err.println( instance.getLocation((IPatternRole) sub));
+			TemplatePatternDataImpl data = (TemplatePatternDataImpl) instance.getPatternData();
+			
+			System.err.println(data.getCounterpart(sub, true));
+			//System.err.println(data.getCounterpart(sub, false));
+/*			for (EObject o :data.getInstanceElements()){
+				System.err.println(o.eClass() + "  " + o);
+			}*/
+			return data.getCounterpart(sub, true);
+			
+		}
+
+		
+		//System.err.println(sub.eClass().getEStructuralFeature("id"));
+		//TODO Looking for the good object corresponding to sub 
+		
+		
+		
+		return null;
+	}
+
+	
 }
+
+
 
 class MyPrintStream extends PrintStream {
 

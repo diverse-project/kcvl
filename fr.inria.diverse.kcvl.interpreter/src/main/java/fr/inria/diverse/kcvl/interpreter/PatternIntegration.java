@@ -9,4 +9,6 @@ public interface PatternIntegration {
 	public boolean includePattern(List<Pair<EObject,EObject>> substitutes);
 	public boolean fusionPattern(List<Pair<EObject,EObject>> substitutes);
 	public boolean applyStructuralOrganisationalPattern(List<Pair<EObject,EObject>> substitutes);
+	public EObject getRealObject(EObject sub);
+
 }

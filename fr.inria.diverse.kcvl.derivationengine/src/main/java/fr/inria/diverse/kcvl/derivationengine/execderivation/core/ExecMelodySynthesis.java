@@ -67,7 +67,7 @@ import fr.inria.diverse.kcvl.interpreter.PatternIntegration;
 // Creer VRM OK. Binder API 
 // Creer Configuration OK  binder API
 // Deriver OK. binder API
-// Checker modèle Melody ok
+// Checker mod��le Melody ok
 
 public class ExecMelodySynthesis implements PatternIntegration {
 
@@ -381,7 +381,7 @@ public class ExecMelodySynthesis implements PatternIntegration {
 									domain, toRemove);
 
 							if (mdc.canExecute()) {
-								// System.err.println("pass par là");
+								// System.err.println("pass par l��");
 								mdc.execute();
 
 //								try {
@@ -466,11 +466,14 @@ public class ExecMelodySynthesis implements PatternIntegration {
 		return myConsole;
 	}
 
-	@Override
 	public boolean applyStructuralOrganisationalPattern(
 			List<Pair<EObject, EObject>> substitutes) {
 		return false;
 
+	}
+
+	public EObject getRealObject(EObject sub) {
+		return null;
 	}
 
 

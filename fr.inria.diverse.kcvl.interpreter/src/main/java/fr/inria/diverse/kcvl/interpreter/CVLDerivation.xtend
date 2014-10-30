@@ -13,7 +13,7 @@ import fr.inria.diverse.kcvl.fd2assets.RestrictionRule
 import fr.inria.diverse.kcvl.fd2assets.RestrictionRuleset
 import fr.inria.diverse.kcvl.fd2assets.UnaryExpression
 import fr.inria.diverse.kcvl.fd2assets.UnaryOperator
-
+import org.eclipse.emf.ecore.util.EcoreUtil
 import groovy.lang.Binding
 import groovy.lang.GroovyShell
 
@@ -73,6 +73,8 @@ import org.omg.CVLMetamodelMaster.cvl.VariationPoint
 import org.varymde.CvlmappingvaribilitychoiceStandaloneSetup
 
 import static extension org.eclipse.xtext.xbase.lib.BooleanExtensions.*
+import org.eclipse.emf.ecore.EEnum
+import org.eclipse.emf.ecore.EEnumLiteral
 
 /**
  * Derive a target product starting from a root VPackage
@@ -410,12 +412,26 @@ class Derivator
 	}
 
 	def private dispatch void executeDerivation(ParametricSlotAssignmet o) {
-		val obj = o.slotOwner.reference
 
+
+		var obj = o.slotOwner.reference
+		
+		EcoreUtil::resolveAll(obj)
+        var parent  = EcoreUtil::getRootContainer(obj,true)
+		
+		
+				if (!domainResources.contains(parent?.eResource)){
+			if (patternIntegration != null)
+					obj = patternIntegration.getRealObject(obj)
+			}
+
+        // name of the property
 		if (
 			   !obj.eClass.EAllStructuralFeatures.empty
 			&& ctx.choiceParameter.get(o.bindingVariable).value instanceof PrimitiveValueSpecification
 		) {
+
+
 			val valueSpec = ctx.choiceParameter.get(o.bindingVariable) as PrimitiveValueSpecification
 			val feature = obj.eClass.EAllStructuralFeatures.findFirst[name.toLowerCase == o.slotIdentifier.toLowerCase]
 			val valueToSet =
@@ -427,9 +443,16 @@ class Derivator
 					default: valueSpec.value
 				}
 
-			if (feature != null)
-				obj.eSet(feature, valueToSet)
-		}
+        if (feature != null){
+	        if (feature.EType instanceof EEnum ){
+	        	var Object enumL = null
+	        	 enumL = (feature.EType as EEnum).getEEnumLiteral(""+valueSpec)        	         	 
+	        	 obj.eSet(feature, (enumL as EEnumLiteral).instance)        	         	      
+	        }
+	        else
+					obj.eSet(feature, valueToSet)
+			}         
+       }
 	}
 
 	def private dispatch void executeDerivation(ObjectSubstitution o) {

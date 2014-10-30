@@ -17,8 +17,12 @@ Require-Bundle: org.eclipse.xtext;bundle-version="[2.3.1,2.3.2)",
  fr.inria.diverse.kcvl.interpreter;bundle-version="0.1.0",
  fr.inria.diverse.kcvl.extensions;bundle-version="0.1.0",
  org.junit;bundle-version="4.10.0",
- org.eclipse.ui.console;bundle-version="3.5.100",
- org.eclipse.sirius;bundle-version="1.0.1"
+ org.eclipse.ui.console,
+ org.eclipse.sirius,
+ org.eclipse.emf.diffmerge.patterns.diagrams.sirius,
+ org.eclipse.emf.diffmerge.patterns.templates.engine,
+ org.eclipse.emf.diffmerge.patterns.diagrams,
+ org.eclipse.sirius.diagram
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ClassPath: .,
