@@ -432,7 +432,7 @@ class Derivator
 		) {
 
 
-			val valueSpec = ctx.choiceParameter.get(o.bindingVariable) as PrimitiveValueSpecification
+			val PrimitiveValueSpecification valueSpec   = ctx.choiceParameter.get(o.bindingVariable) as PrimitiveValueSpecification
 			val feature = obj.eClass.EAllStructuralFeatures.findFirst[name.toLowerCase == o.slotIdentifier.toLowerCase]
 			val valueToSet =
 				switch valueSpec.type.name {
