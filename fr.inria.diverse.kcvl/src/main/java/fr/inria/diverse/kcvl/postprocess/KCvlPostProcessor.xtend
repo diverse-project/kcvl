@@ -37,11 +37,16 @@ class KCvlPostProcessor implements IDerivedStateComputer
 	}
 
 	def dispatch void completeAST(ObjectHandle it) {
+		println("Resolving objectHandle " + it + "(ref:"+reference+")")
 		try {
 			MOFRef = MOFRef ?: ""
-			reference = reference ?: resolve
+			if (reference == null) {
+				reference = resolve
+				println("reference="+reference)
+			}
 		} catch (Exception e) {
 			// Don't cry
+			e.printStackTrace
 		}
 	}
 
@@ -71,7 +76,10 @@ class KCvlPostProcessor implements IDerivedStateComputer
 	}
 	
 	def dispatch void completeAST(VariableValueAssignment it) {
-		if (eContainer instanceof ChoiceResolutuion) {
+		if (resolvedVariable != null) {
+			resolvedVSpec = resolvedVariable
+		}
+		else if (eContainer instanceof ChoiceResolutuion) {
 			resolvedVSpec = (eContainer as ChoiceResolutuion).resolvedVSpec
 		}
 	}

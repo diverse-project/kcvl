@@ -763,6 +763,7 @@
         <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//Variable"/>
       </type>
       <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="var"/>
         <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
         </elements>
@@ -856,7 +857,7 @@
         <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//VariableValueAssignment"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Keyword" value="VariableValueAssignment"/>
+        <elements xsi:type="xtext:Keyword" value="assign"/>
         <elements xsi:type="xtext:Assignment" feature="resolvedVariable" operator="=">
           <terminal xsi:type="xtext:CrossReference">
             <type metamodel="/0/@metamodelDeclarations.0">
@@ -2139,7 +2140,7 @@
         <classifier xsi:type="ecore:EClass" href="http:///org.omg/CVLMetamodel/cvl#//ParametricSlotAssignmet"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Keyword" value="ParametricSlotAssignmet"/>
+        <elements xsi:type="xtext:Keyword" value="ParametricSlotAssignment"/>
         <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.11"/>
         </elements>

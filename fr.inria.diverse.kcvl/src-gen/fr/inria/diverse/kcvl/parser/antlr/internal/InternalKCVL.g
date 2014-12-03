@@ -2818,11 +2818,15 @@ ruleSimpleVariable returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((
+(	otherlv_0='var' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getSimpleVariableAccess().getVarKeyword_0());
+    }
 (
-		lv_name_0_0=RULE_ID
+(
+		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_name_0_0, grammarAccess.getSimpleVariableAccess().getNameIDTerminalRuleCall_0_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getSimpleVariableAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2831,14 +2835,14 @@ ruleSimpleVariable returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_0_0, 
+        		lv_name_1_0, 
         		"ID");
 	    }
 
 )
-)	otherlv_1=':' 
+)	otherlv_2=':' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getSimpleVariableAccess().getColonKeyword_1());
+    	newLeafNode(otherlv_2, grammarAccess.getSimpleVariableAccess().getColonKeyword_2());
     }
 (
 (
@@ -2847,9 +2851,9 @@ ruleSimpleVariable returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getSimpleVariableRule());
 	        }
         }
-	otherlv_2=RULE_ID
+	otherlv_3=RULE_ID
 	{
-		newLeafNode(otherlv_2, grammarAccess.getSimpleVariableAccess().getTypeVariabletypeCrossReference_2_0()); 
+		newLeafNode(otherlv_3, grammarAccess.getSimpleVariableAccess().getTypeVariabletypeCrossReference_3_0()); 
 	}
 
 )
@@ -3123,9 +3127,9 @@ ruleSimpleVariableValueAssignment returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='VariableValueAssignment' 
+(	otherlv_0='assign' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getSimpleVariableValueAssignmentAccess().getVariableValueAssignmentKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getSimpleVariableValueAssignmentAccess().getAssignKeyword_0());
     }
 (
 (
@@ -6315,9 +6319,9 @@ ruleParametricSlotAssignmet returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='ParametricSlotAssignmet' 
+(	otherlv_0='ParametricSlotAssignment' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getParametricSlotAssignmetAccess().getParametricSlotAssignmetKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getParametricSlotAssignmetAccess().getParametricSlotAssignmentKeyword_0());
     }
 (
 (

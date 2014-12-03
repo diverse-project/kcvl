@@ -186,7 +186,7 @@ Variable:
 ;
 
 SimpleVariable returns Variable:
-	name = ID ':' type = [Variabletype]
+	'var' name = ID ':' type = [Variabletype]
 ;
 
 ComplexVariable returns Variable:
@@ -206,7 +206,7 @@ VariableValueAssignment:
 ;
 
 SimpleVariableValueAssignment returns VariableValueAssignment:
-	'VariableValueAssignment' resolvedVariable = [Variable] '=' value = ValueSpecification
+	'assign' resolvedVariable = [Variable] '=' value = ValueSpecification
 ;
 
 ComplexVariableValueAssignment returns VariableValueAssignment:
@@ -441,7 +441,7 @@ ParametricObjectSubstitution returns ParametricObjectSubstitution:
 ;
 
 ParametricSlotAssignmet returns ParametricSlotAssignmet:
-	'ParametricSlotAssignmet' name = ID '{'
+	'ParametricSlotAssignment' name = ID '{'
 		('bindingVspec' bindingVspec += [VSpec] (',' bindingVspec += [VSpec])* )?
 		('precedenceConstraint' precedenceConstraint += [VariationPoint] (',' precedenceConstraint += [VariationPoint])*)?
 		'slotOwner' slotOwner = ObjectHandle
@@ -727,7 +727,7 @@ EDouble returns ecore::EDouble:
 ;
 
 enum PrimitiveTypeEnum returns PrimitiveTypeEnum:
-				String = 'String' | Boolean = 'Boolean' | Integer = 'Integer' | Real = 'Real' | UnlimitedNatural = 'UnlimitedNatural'
+	String = 'String' | Boolean = 'Boolean' | Integer = 'Integer' | Real = 'Real' | UnlimitedNatural = 'UnlimitedNatural'
 ;
 
 LinkHandle returns LinkHandle:

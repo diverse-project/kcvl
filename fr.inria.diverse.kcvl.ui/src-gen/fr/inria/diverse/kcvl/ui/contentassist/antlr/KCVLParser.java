@@ -559,8 +559,8 @@ public class KCVLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPatternRoleBindingAccess().getNameAssignment_1(), "rule__PatternRoleBinding__NameAssignment_1");
 					put(grammarAccess.getPatternRoleBindingAccess().getPlacementObjectAssignment_4(), "rule__PatternRoleBinding__PlacementObjectAssignment_4");
 					put(grammarAccess.getPatternRoleBindingAccess().getReplacementObjectAssignment_6(), "rule__PatternRoleBinding__ReplacementObjectAssignment_6");
-					put(grammarAccess.getSimpleVariableAccess().getNameAssignment_0(), "rule__SimpleVariable__NameAssignment_0");
-					put(grammarAccess.getSimpleVariableAccess().getTypeAssignment_2(), "rule__SimpleVariable__TypeAssignment_2");
+					put(grammarAccess.getSimpleVariableAccess().getNameAssignment_1(), "rule__SimpleVariable__NameAssignment_1");
+					put(grammarAccess.getSimpleVariableAccess().getTypeAssignment_3(), "rule__SimpleVariable__TypeAssignment_3");
 					put(grammarAccess.getComplexVariableAccess().getNameAssignment_1(), "rule__ComplexVariable__NameAssignment_1");
 					put(grammarAccess.getComplexVariableAccess().getResolutionTimeAssignment_3_1(), "rule__ComplexVariable__ResolutionTimeAssignment_3_1");
 					put(grammarAccess.getComplexVariableAccess().getReplacementFragmentTypesubsetstypeAssignment_4_1(), "rule__ComplexVariable__ReplacementFragmentTypesubsetstypeAssignment_4_1");

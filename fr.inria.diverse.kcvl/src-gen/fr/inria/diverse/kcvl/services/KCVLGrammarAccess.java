@@ -1815,37 +1815,41 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	public class SimpleVariableElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SimpleVariable");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cTypeVariabletypeCrossReference_2_0 = (CrossReference)cTypeAssignment_2.eContents().get(0);
-		private final RuleCall cTypeVariabletypeIDTerminalRuleCall_2_0_1 = (RuleCall)cTypeVariabletypeCrossReference_2_0.eContents().get(1);
+		private final Keyword cVarKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cTypeVariabletypeCrossReference_3_0 = (CrossReference)cTypeAssignment_3.eContents().get(0);
+		private final RuleCall cTypeVariabletypeIDTerminalRuleCall_3_0_1 = (RuleCall)cTypeVariabletypeCrossReference_3_0.eContents().get(1);
 		
 		//SimpleVariable returns Variable:
-		//	name=ID ":" type=[Variabletype];
+		//	"var" name=ID ":" type=[Variabletype];
 		public ParserRule getRule() { return rule; }
 
-		//name=ID ":" type=[Variabletype]
+		//"var" name=ID ":" type=[Variabletype]
 		public Group getGroup() { return cGroup; }
 
+		//"var"
+		public Keyword getVarKeyword_0() { return cVarKeyword_0; }
+
 		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//":"
-		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 
 		//type=[Variabletype]
-		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
 
 		//[Variabletype]
-		public CrossReference getTypeVariabletypeCrossReference_2_0() { return cTypeVariabletypeCrossReference_2_0; }
+		public CrossReference getTypeVariabletypeCrossReference_3_0() { return cTypeVariabletypeCrossReference_3_0; }
 
 		//ID
-		public RuleCall getTypeVariabletypeIDTerminalRuleCall_2_0_1() { return cTypeVariabletypeIDTerminalRuleCall_2_0_1; }
+		public RuleCall getTypeVariabletypeIDTerminalRuleCall_3_0_1() { return cTypeVariabletypeIDTerminalRuleCall_3_0_1; }
 	}
 
 	public class ComplexVariableElements extends AbstractParserRuleElementFinder {
@@ -2029,7 +2033,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	public class SimpleVariableValueAssignmentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SimpleVariableValueAssignment");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cVariableValueAssignmentKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cAssignKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cResolvedVariableAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cResolvedVariableVariableCrossReference_1_0 = (CrossReference)cResolvedVariableAssignment_1.eContents().get(0);
 		private final RuleCall cResolvedVariableVariableIDTerminalRuleCall_1_0_1 = (RuleCall)cResolvedVariableVariableCrossReference_1_0.eContents().get(1);
@@ -2038,14 +2042,14 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cValueValueSpecificationParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
 		
 		//SimpleVariableValueAssignment returns VariableValueAssignment:
-		//	"VariableValueAssignment" resolvedVariable=[Variable] "=" value=ValueSpecification;
+		//	"assign" resolvedVariable=[Variable] "=" value=ValueSpecification;
 		public ParserRule getRule() { return rule; }
 
-		//"VariableValueAssignment" resolvedVariable=[Variable] "=" value=ValueSpecification
+		//"assign" resolvedVariable=[Variable] "=" value=ValueSpecification
 		public Group getGroup() { return cGroup; }
 
-		//"VariableValueAssignment"
-		public Keyword getVariableValueAssignmentKeyword_0() { return cVariableValueAssignmentKeyword_0; }
+		//"assign"
+		public Keyword getAssignKeyword_0() { return cAssignKeyword_0; }
 
 		//resolvedVariable=[Variable]
 		public Assignment getResolvedVariableAssignment_1() { return cResolvedVariableAssignment_1; }
@@ -4885,7 +4889,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	public class ParametricSlotAssignmetElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParametricSlotAssignmet");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cParametricSlotAssignmetKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cParametricSlotAssignmentKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
@@ -4922,20 +4926,20 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//ParametricSlotAssignmet:
-		//	"ParametricSlotAssignmet" name=ID "{" ("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)?
+		//	"ParametricSlotAssignment" name=ID "{" ("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)?
 		//	("precedenceConstraint" precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)?
 		//	"slotOwner" slotOwner=ObjectHandle "slotIdentifier" slotIdentifier=STRING "bindingVariable" bindingVariable=[Variable]
 		//	"}";
 		public ParserRule getRule() { return rule; }
 
-		//"ParametricSlotAssignmet" name=ID "{" ("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)?
+		//"ParametricSlotAssignment" name=ID "{" ("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)?
 		//("precedenceConstraint" precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)?
 		//"slotOwner" slotOwner=ObjectHandle "slotIdentifier" slotIdentifier=STRING "bindingVariable" bindingVariable=[Variable]
 		//"}"
 		public Group getGroup() { return cGroup; }
 
-		//"ParametricSlotAssignmet"
-		public Keyword getParametricSlotAssignmetKeyword_0() { return cParametricSlotAssignmetKeyword_0; }
+		//"ParametricSlotAssignment"
+		public Keyword getParametricSlotAssignmentKeyword_0() { return cParametricSlotAssignmentKeyword_0; }
 
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -8389,7 +8393,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SimpleVariable returns Variable:
-	//	name=ID ":" type=[Variabletype];
+	//	"var" name=ID ":" type=[Variabletype];
 	public SimpleVariableElements getSimpleVariableAccess() {
 		return (pSimpleVariable != null) ? pSimpleVariable : (pSimpleVariable = new SimpleVariableElements());
 	}
@@ -8422,7 +8426,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SimpleVariableValueAssignment returns VariableValueAssignment:
-	//	"VariableValueAssignment" resolvedVariable=[Variable] "=" value=ValueSpecification;
+	//	"assign" resolvedVariable=[Variable] "=" value=ValueSpecification;
 	public SimpleVariableValueAssignmentElements getSimpleVariableValueAssignmentAccess() {
 		return (pSimpleVariableValueAssignment != null) ? pSimpleVariableValueAssignment : (pSimpleVariableValueAssignment = new SimpleVariableValueAssignmentElements());
 	}
@@ -8661,7 +8665,7 @@ public class KCVLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ParametricSlotAssignmet:
-	//	"ParametricSlotAssignmet" name=ID "{" ("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)?
+	//	"ParametricSlotAssignment" name=ID "{" ("bindingVspec" bindingVspec+=[VSpec] ("," bindingVspec+=[VSpec])*)?
 	//	("precedenceConstraint" precedenceConstraint+=[VariationPoint] ("," precedenceConstraint+=[VariationPoint])*)?
 	//	"slotOwner" slotOwner=ObjectHandle "slotIdentifier" slotIdentifier=STRING "bindingVariable" bindingVariable=[Variable]
 	//	"}";
