@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/fr.inria.diverse.kcvl.sdk_0.1.0.201410301836.jar" id="fr.inria.diverse.kcvl.sdk" version="0.1.0.201410301836">
+   <feature url="features/fr.inria.diverse.kcvl.sdk_0.1.0.qualifier.jar" id="fr.inria.diverse.kcvl.sdk" version="0.1.0.qualifier">
       <category name="KCVL"/>
    </feature>
    <category-def name="KCVL" label="KCVL">
