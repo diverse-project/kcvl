@@ -41,6 +41,7 @@
 		<!-- for org.eclipse.uml2.uml >= 5.0 -->
 		<modeling-repo.url>http://www.eclipse.org/modeling/updates/releases/</modeling-repo.url>
 		<groovy-repo.url>http://dist.springsource.org/release/GRECLIPSE/e4.2/</groovy-repo.url>
+		<patterns-repo.url>http://download.eclipse.org/diffmerge/releases/0.4.0/edm-patterns-site</patterns-repo.url>
 	</properties>
 	
 	<repositories>
@@ -103,6 +104,17 @@
 			<id>sirius</id>
 			<layout>p2</layout>
 			<url>${sirius-repo.url}</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>patterns</id>
+			<layout>p2</layout>
+			<url>${patterns-repo.url}</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
