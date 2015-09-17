@@ -298,7 +298,7 @@ public class ExecDerivation implements PatternIntegration {
 					if (!res1.getURI().toString().endsWith(".patterns")) {
 						URI newuri = res1.getURI();
 						newuri = newuri.trimFileExtension();
-						newuri = URI.createURI(newuri.toString() + "_new");
+						newuri = URI.createURI(newuri.toString() + "_new_"+((VPackage) resolvedModelRes.getContents().get(0)).getName());
 						System.err.println("newuri " + newuri);
 						newuri = newuri.appendFileExtension(res1.getURI()
 								.fileExtension());
@@ -315,6 +315,7 @@ public class ExecDerivation implements PatternIntegration {
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
+						break;
 					}
 				}
 			}

@@ -37,6 +37,13 @@
                label="FAMILIAR Report"
                menubarPath="fr.inria.diverse.kcvl.derivationengine.execderivation.menu2/group1">
          </action>
+         <action
+               class="fr.inria.diverse.kcvl.derivationengine.execderivation.popup.actions.AllProductsDerivationAction"
+               enablesFor="1"
+               id="fr.inria.diverse.kcvl.derivationengine.execderivation.deriveAllProducts"
+               label="Derive All Product"
+               menubarPath="fr.inria.diverse.kcvl.derivationengine.execderivation.menu2/group1">
+         </action>
       </objectContribution>
       <objectContribution
             id="fr.inria.diverse.kcvl.derivationengine.execderivation.contribution1"
@@ -69,6 +76,13 @@
                enablesFor="1"
                id="fr.inria.diverse.kcvl.derivationengine.execderivation.newAction1"
                label="FAMILIAR Report"
+               menubarPath="fr.inria.diverse.kcvl.derivationengine.execderivation.menu2/group1">
+         </action>
+         <action
+               class="fr.inria.diverse.kcvl.derivationengine.execderivation.popup.actions.AllProductsDerivationAction"
+               enablesFor="1"
+               id="fr.inria.diverse.kcvl.derivationengine.execderivation.deriveAllProducts2"
+               label="Derive All Products"
                menubarPath="fr.inria.diverse.kcvl.derivationengine.execderivation.menu2/group1">
          </action>
       </objectContribution>

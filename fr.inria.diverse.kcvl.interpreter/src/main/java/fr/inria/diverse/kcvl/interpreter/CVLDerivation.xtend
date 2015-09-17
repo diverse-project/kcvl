@@ -128,7 +128,7 @@ class Derivator
 				.forEach[it.executeDerivation]
 		]
 
-		notSelected.forEach[
+		notSelected.filterNull.forEach[
 			val r = it.findRoot
 			
 			if (!roots.contains(r))
