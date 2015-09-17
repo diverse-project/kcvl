@@ -380,12 +380,12 @@ class Derivator
 	def private dispatch void executeDerivation(ObjectExistence o) {
 		o.optionalObject.forEach[e | 
 			var obj = e.reference
-			EcoreUtil::resolveAll(obj)
-        	var parent  = EcoreUtil::getRootContainer(obj,true)
-			if (!domainResources.contains(parent?.eResource)){
-				if (patternIntegration != null)
-					obj = patternIntegration.getRealObject(obj)
-			}
+//			EcoreUtil::resolveAll(obj)
+//        	var parent  = EcoreUtil::getRootContainer(obj,true)
+//			if (!domainResources.contains(parent?.eResource)){
+//				if (patternIntegration != null)
+//					obj = patternIntegration.getRealObject(obj)
+//			}
 			notSelected.add(obj)
 		]
 	}
@@ -425,14 +425,14 @@ class Derivator
 
 		var obj = o.slotOwner.reference
 		
-		EcoreUtil::resolveAll(obj)
-        var parent  = EcoreUtil::getRootContainer(obj,true)
-		
-		
-				if (!domainResources.contains(parent?.eResource)){
-			if (patternIntegration != null)
-					obj = patternIntegration.getRealObject(obj)
-			}
+//		EcoreUtil::resolveAll(obj)
+//        var parent  = EcoreUtil::getRootContainer(obj,true)
+//		
+//		
+//				if (!domainResources.contains(parent?.eResource)){
+//			if (patternIntegration != null)
+//					obj = patternIntegration.getRealObject(obj)
+//			}
 
         // name of the property
 		if (
@@ -466,12 +466,12 @@ class Derivator
 
 	def private dispatch void executeDerivation(ObjectSubstitution o) {
 		var obj = o.placementObject.reference
-		EcoreUtil::resolveAll(obj)
-        var parent  = EcoreUtil::getRootContainer(obj,true)
-		if (!domainResources.contains(parent?.eResource)){
-			if (patternIntegration != null)
-					obj = patternIntegration.getRealObject(obj)
-			}
+//		EcoreUtil::resolveAll(obj)
+//        var parent  = EcoreUtil::getRootContainer(obj,true)
+//		if (!domainResources.contains(parent?.eResource)){
+//			if (patternIntegration != null)
+//					obj = patternIntegration.getRealObject(obj)
+//			}
 		ctx.objectSubstitutions.put(obj, o.replacementObject.reference)
 	}
 

@@ -37,6 +37,7 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.diffmerge.patterns.core.CorePatternsPlugin;
 import org.eclipse.emf.diffmerge.patterns.core.api.IPattern;
@@ -295,7 +296,7 @@ public class ExecDerivation implements PatternIntegration {
 				
 				// Save model
 				for (Resource res1 : v.getDomainResources()) {
-					if (!res1.getURI().toString().endsWith(".patterns")) {
+					if (res1 != null && !res1.getURI().toString().endsWith(".patterns")) {
 						URI newuri = res1.getURI();
 						newuri = newuri.trimFileExtension();
 						newuri = URI.createURI(newuri.toString() + "_new_"+((VPackage) resolvedModelRes.getContents().get(0)).getName());
@@ -315,7 +316,6 @@ public class ExecDerivation implements PatternIntegration {
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
-						break;
 					}
 				}
 			}

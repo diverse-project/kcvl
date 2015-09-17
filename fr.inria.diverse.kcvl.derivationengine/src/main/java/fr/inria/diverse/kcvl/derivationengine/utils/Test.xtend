@@ -63,8 +63,10 @@ class Test extends FMLTest
 			val imply = (e as OCLConstraint).expression.head as OperationCallExp
 			val lhs = imply.argument.get(0) as VSpecRef
 			val rhs = imply.argument.get(1) as VSpecRef
-			constraintsBuilder.append('''«lhs.VSpec.name» -> «rhs.VSpec.name» ;''')
-			constraintsBuilder.append("\n")
+			if (lhs.VSpec != null && rhs.VSpec != null) {
+				constraintsBuilder.append('''«lhs.VSpec.name» -> «rhs.VSpec.name» ;''')
+				constraintsBuilder.append("\n")
+			}
 		]
 
 		val fmlString = '''
@@ -91,6 +93,7 @@ class Test extends FMLTest
 						val choice = p as Choice
 						confCopy.packageElement += CvlFactory::eINSTANCE.createChoiceResolutuion => [
 							resolvedChoice = choice
+							resolvedVSpec = choice
 							decision = names.contains(choice.name)
 						]
 					}
