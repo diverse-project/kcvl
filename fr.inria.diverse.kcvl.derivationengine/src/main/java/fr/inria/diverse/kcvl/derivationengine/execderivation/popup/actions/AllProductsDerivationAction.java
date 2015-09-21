@@ -85,19 +85,17 @@ public class AllProductsDerivationAction implements IObjectActionDelegate {
                 // Call Selection
                 new Job("Console cvl derivation") {
     				public IStatus run(IProgressMonitor pm) {
-    					Test t = new Test();
-    					List<URI> allUris = t.test(file);
-    					ExecDerivation exec = new ExecDerivation();
-System.out.println("nb="+allUris.size());
-    					for (int i = 0; i < allUris.size(); i++) {
-    						System.out.println("Will derive " + allUris.get(i));
-    						exec.callProductDerivation(allUris.get(i));
-    						System.out.println("Done " + i);
-    					}
-					
     					try {
+							Test t = new Test();
+							List<URI> allUris = t.test(file);
+							ExecDerivation exec = new ExecDerivation();
+							for (int i = 0; i < allUris.size(); i++) {
+								exec.callProductDerivation(allUris.get(i));
+							}
+
+
 							((IFile)object).getParent().refreshLocal(1,pm);
-						} catch (CoreException e) {
+						} catch (Exception e) {
 							e.printStackTrace();
 						}
 

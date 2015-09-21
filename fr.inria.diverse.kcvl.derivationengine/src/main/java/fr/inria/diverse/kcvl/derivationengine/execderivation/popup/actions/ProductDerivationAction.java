@@ -82,15 +82,11 @@ public class ProductDerivationAction implements IObjectActionDelegate {
                 // Call Selection
                 new Job("Console cvl derivation") {
     				public IStatus run(IProgressMonitor pm) {
-    					
-    					ExecDerivation exec = new ExecDerivation();
-    						
-						exec.callProductDerivation(file);
-							
-					
     					try {
+    						ExecDerivation exec = new ExecDerivation();
+    						exec.callProductDerivation(file);
 							((IFile)object).getParent().refreshLocal(1,pm);
-						} catch (CoreException e) {
+						} catch (Exception e) {
 							e.printStackTrace();
 						}
 

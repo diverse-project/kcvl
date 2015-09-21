@@ -172,7 +172,7 @@ public class ExecDerivation implements PatternIntegration {
 				}
 			});
 			
-			return ;
+			throw new IllegalStateException("No sirius session");
 		}
 
 		Resource pattern_res = null;
