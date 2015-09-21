@@ -149,6 +149,21 @@ public class ExecDerivation implements PatternIntegration {
 			}
 		}
 
+		if (file.toString().endsWith("cvl")) {
+			try {
+				Session sess = SessionManager.INSTANCE.getSessions().iterator().next() ;
+
+				AddSemanticResourceCommand addCommandToSession = new AddSemanticResourceCommand(
+						sess, file, null);
+				sess.getTransactionalEditingDomain().getCommandStack()
+				        .execute(addCommandToSession);
+				System.out.println(file +  " added to " + sess);
+			} catch (Exception e) {
+				System.out.println("We got something there");
+				e.printStackTrace() ;
+			}
+		}
+
 		for (Session s : SessionManager.INSTANCE.getSessions()) {
 			for (Resource r : s.getSemanticResources()) {
 				if (file.toString().equals(r.getURI().toString())) {
