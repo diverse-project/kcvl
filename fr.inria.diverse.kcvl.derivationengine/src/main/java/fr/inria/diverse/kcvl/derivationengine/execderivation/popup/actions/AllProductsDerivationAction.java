@@ -22,9 +22,13 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.tools.api.command.semantic.RemoveSemanticResourceCommand;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
@@ -85,6 +89,22 @@ public class AllProductsDerivationAction implements IObjectActionDelegate {
                 // Call Selection
                 new Job("Console cvl derivation") {
     				public IStatus run(IProgressMonitor pm) {
+    					for (Session s : SessionManager.INSTANCE.getSessions()) {
+    						for (Resource r : s.getSemanticResources()) {
+    							String ext = "kcvl";
+    							if (ext.equals(r.getURI().fileExtension())) {
+    								RemoveSemanticResourceCommand removeCommandFromSession = new RemoveSemanticResourceCommand(
+    										s, r, true, null);
+    								s.getTransactionalEditingDomain().getCommandStack()
+    								        .execute(removeCommandFromSession);
+    							}
+    						}
+    					}
+    					for (Session s : SessionManager.INSTANCE.getSessions()) {
+    						for (Resource r : s.getSemanticResources()) {
+    							System.out.println(r.getURI() + " BEFOREIN " + s);
+    						}
+    					}
     					try {
 							Test t = new Test();
 							List<URI> allUris = t.test(file);

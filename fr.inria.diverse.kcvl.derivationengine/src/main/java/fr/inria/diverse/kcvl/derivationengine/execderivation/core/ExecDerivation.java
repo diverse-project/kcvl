@@ -37,7 +37,6 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.diffmerge.patterns.core.CorePatternsPlugin;
 import org.eclipse.emf.diffmerge.patterns.core.api.IPattern;
@@ -75,6 +74,7 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
+import org.eclipse.sirius.tools.api.command.semantic.RemoveSemanticResourceCommand;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DView;
 import org.eclipse.swt.SWT;
@@ -137,18 +137,17 @@ public class ExecDerivation implements PatternIntegration {
 				newRes.getContents().addAll(oldRes.getContents()) ;
 				newRes.save(null) ;
 				file = newUri ;
-
-				Session sess = SessionManager.INSTANCE.getSessions().iterator().next() ;
-
-				AddSemanticResourceCommand addCommandToSession = new AddSemanticResourceCommand(
-						sess, file, null);
-				sess.getTransactionalEditingDomain().getCommandStack()
-				        .execute(addCommandToSession);
+//
+//				Session sess = SessionManager.INSTANCE.getSessions().iterator().next() ;
+//
+//				AddSemanticResourceCommand addCommandToSession = new AddSemanticResourceCommand(
+//						sess, file, null);
+//				sess.getTransactionalEditingDomain().getCommandStack()
+//				        .execute(addCommandToSession);
 			} catch (Exception e) {
 				e.printStackTrace() ;
 			}
 		}
-
 		if (file.toString().endsWith("cvl")) {
 			try {
 				Session sess = SessionManager.INSTANCE.getSessions().iterator().next() ;
