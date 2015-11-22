@@ -100,14 +100,10 @@ public class AllProductsDerivationAction implements IObjectActionDelegate {
     							}
     						}
     					}
-    					for (Session s : SessionManager.INSTANCE.getSessions()) {
-    						for (Resource r : s.getSemanticResources()) {
-    							System.out.println(r.getURI() + " BEFOREIN " + s);
-    						}
-    					}
     					try {
 							Test t = new Test();
 							List<URI> allUris = t.test(file);
+							System.out.println("Will derive " + allUris.size() + " products.");
 							ExecDerivation exec = new ExecDerivation();
 							for (int i = 0; i < allUris.size(); i++) {
 								exec.callProductDerivation(allUris.get(i));
