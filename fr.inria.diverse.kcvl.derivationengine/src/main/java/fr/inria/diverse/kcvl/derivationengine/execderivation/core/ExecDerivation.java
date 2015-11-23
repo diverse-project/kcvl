@@ -311,12 +311,11 @@ public class ExecDerivation implements PatternIntegration {
 				// Save model
 				for (Resource res1 : v.getDomainResources()) {
 					if (res1 != null && !res1.getURI().toString().endsWith(".patterns")) {
-						URI newuri = res1.getURI();
-						newuri = newuri.trimFileExtension();
-						newuri = URI.createURI(newuri.toString() + "_new_"+((VPackage) resolvedModelRes.getContents().get(0)).getName());
-						System.err.println("newuri " + newuri);
+//						newuri = newuri.trimFileExtension();
+						URI newuri = URI.createURI(res1.getURI().trimSegments(1) + "/umloutput/" + ((VPackage) resolvedModelRes.getContents().get(0)).getName());
 						newuri = newuri.appendFileExtension(res1.getURI()
 								.fileExtension());
+						System.err.println("newuri " + newuri);
 						Resource copy = domain.getResourceSet().createResource(
 								newuri);
 						EcoreUtil.Copier copier = new EcoreUtil.Copier();

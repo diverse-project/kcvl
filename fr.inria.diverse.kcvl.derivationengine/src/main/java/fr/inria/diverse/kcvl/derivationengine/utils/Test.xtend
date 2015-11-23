@@ -1,26 +1,21 @@
 package fr.inria.diverse.kcvl.derivationengine.utils
 
-import org.eclipse.emf.ecore.EPackage
-import org.eclipse.emf.ecore.util.EcoreUtil
-import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
-import org.eclipse.emf.common.util.URI
-import org.omg.CVLMetamodelMaster.cvl.VPackage
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
-import org.omg.CVLMetamodelMaster.cvl.CvlPackage
-import org.omg.CVLMetamodelMaster.cvl.CvlFactory
-import fr.varymde.cvl.vary.CVL2Familiar
 import fr.familiar.test.FMLTest
+import fr.familiar.variable.SetVariable
+import fr.varymde.cvl.vary.CVL2Familiar
+import java.util.List
+import java.util.Collections
+import org.eclipse.emf.common.util.URI
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import org.eclipse.emf.ecore.util.EcoreUtil
 import org.omg.CVLMetamodelMaster.cvl.Choice
 import org.omg.CVLMetamodelMaster.cvl.ChoiceResolutuion
+import org.omg.CVLMetamodelMaster.cvl.CvlFactory
 import org.omg.CVLMetamodelMaster.cvl.OCLConstraint
-import org.omg.CVLMetamodelMaster.cvl.OperationCallExp
 import org.omg.CVLMetamodelMaster.cvl.Operation
+import org.omg.CVLMetamodelMaster.cvl.OperationCallExp
+import org.omg.CVLMetamodelMaster.cvl.VPackage
 import org.omg.CVLMetamodelMaster.cvl.VSpecRef
-import fr.familiar.variable.SetVariable
-import java.util.Collections
-import com.google.common.collect.Sets
-import java.util.List
 
 class Test extends FMLTest
 {
@@ -79,11 +74,10 @@ class Test extends FMLTest
 		fm1.configs.forEach[c, i |
 			if (c instanceof SetVariable) {
 				val names = (c as SetVariable).names.toList
-				val copy = EcoreUtil::copy(orig) as VPackage => [
-					name = "Variant_" + i
-				]
+				val copy = EcoreUtil::copy(orig) as VPackage
 				val vamCopy = copy.packageElement.get(0) as VPackage
 				val confCopy = copy.packageElement.get(2) as VPackage
+
 				confCopy.packageElement.clear
 
 				val iterator = vamCopy.eAllContents
@@ -98,8 +92,11 @@ class Test extends FMLTest
 						]
 					}
 				}
-				
-				val copyUri = URI::createURI(uri.trimSegments(1) + "/output/Variant_"+i.toString+".cvl")
+
+				val configName = confCopy.normalizedFilename
+				copy.name = configName
+
+				val copyUri = URI::createURI(uri.trimSegments(1) + "/output/"+configName+".cvl")
 				val resCopy = rs.createResource(copyUri)
 				resCopy.contents += copy
 				resCopy.save(null)
@@ -110,5 +107,28 @@ class Test extends FMLTest
 
 		super.tearDown
 		return uris
+	}
+
+	def String normalizedFilename(VPackage config) {
+		val features =
+			config.packageElement
+			.filter(typeof(ChoiceResolutuion))
+			.filter[decision == true]
+			.map[
+				resolvedVSpec.name
+			]
+			.toList
+
+		Collections::sort(features)
+		val sb = new StringBuilder
+
+		features.forEach[f |
+			f.toCharArray.filter[Character::isUpperCase(it)].forEach[c |
+				sb.append(c)
+			]
+			sb.append("1")
+		]
+
+		return sb.toString
 	}
 }
