@@ -99,7 +99,7 @@ class Test extends FMLTest
 					}
 				}
 				
-				val copyUri = URI::createURI("platform:/resource/MLX_brakepedal/output/Variant_"+i.toString+".cvl")
+				val copyUri = URI::createURI(uri.trimSegments(1) + "/output/Variant_"+i.toString+".cvl")
 				val resCopy = rs.createResource(copyUri)
 				resCopy.contents += copy
 				resCopy.save(null)
