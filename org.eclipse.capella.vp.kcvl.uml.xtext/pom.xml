@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<relativePath>../pom.xml</relativePath>
+		<groupId>org.eclipse.capella.vp.kcvl</groupId>
+		<artifactId>org.eclipse.capella.vp.kcvl.parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>org.eclipse.capella.vp.kcvl.uml.xtext</artifactId>
+	<packaging>eclipse-plugin</packaging>
+
+	<name>Resource description provider for UML</name>
+
+</project>
+

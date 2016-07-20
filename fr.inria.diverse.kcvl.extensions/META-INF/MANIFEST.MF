@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: fr.inria.diverse.kcvl.extensions
-Bundle-SymbolicName: fr.inria.diverse.kcvl.extensions
-Bundle-Version: 0.1.0.qualifier
-Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.10.0"
-Export-Package: fr.inria.diverse.kcvl.extensions

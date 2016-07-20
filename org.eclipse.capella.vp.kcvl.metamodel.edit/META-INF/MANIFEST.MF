@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.eclipse.capella.vp.kcvl.metamodel.edit
+Bundle-SymbolicName: org.eclipse.capella.vp.kcvl.metamodel.edit;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: org.omg.cvl.provider.CVLMetamodelEditPlugin$Implementation
+Bundle-Vendor: INRIA
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.omg.cvl.provider
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.capella.vp.kcvl.metamodel;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport
+Bundle-ActivationPolicy: lazy

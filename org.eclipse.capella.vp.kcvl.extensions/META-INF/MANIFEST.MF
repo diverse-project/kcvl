@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: fr.inria.diverse.kcvl.extensions
+Bundle-SymbolicName: org.eclipse.capella.vp.kcvl.extensions
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.emf.ecore
+Export-Package: fr.inria.diverse.kcvl.extensions

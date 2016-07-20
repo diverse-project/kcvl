@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.inria.diverse.kcvl.metamodel/src/main/java"
+    editDirectory="/fr.inria.diverse.kcvl.metamodel.edit/src/main/java" editorDirectory="/fr.inria.diverse.kcvl.metamodel.editor/src/main/java"
+    modelPluginID="fr.inria.diverse.kcvl.metamodel" modelName="CVLMetamodel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>CVLMetamodel.ecore</foreignModel>
+  <genPackages prefix="Cvl" basePackage="org.omg" disposableProviderFactory="true"
+      ecorePackage="CVLMetamodel.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="CVLMetamodel.ecore#//PrimitiveTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//PrimitiveTypeEnum/String"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//PrimitiveTypeEnum/Boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//PrimitiveTypeEnum/Integer"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//PrimitiveTypeEnum/Real"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//PrimitiveTypeEnum/UnlimitedNatural"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="CVLMetamodel.ecore#//Operation">
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/logNot"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/logAnd"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/logOr"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/logImplies"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/logXor"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/logIff"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/arithPlus"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/arithMinus"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/arithNeg"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/arithMult"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/arithDev"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/strConc"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/eq"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/lte"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/gte"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/lt"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/gt"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/isDefined"/>
+      <genEnumLiterals ecoreEnumLiteral="CVLMetamodel.ecore#//Operation/isUndefined"/>
+    </genEnums>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//Choice">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//Choice/defaultResolution"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//Choice/isImpliedByParent"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="CVLMetamodel.ecore#//VSpec">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VSpec/groupMultiplicity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//VSpec/resolutionTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VSpec/ownedVSpecDerivation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VSpec/child"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="CVLMetamodel.ecore#//VPackageable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//VPackageable/name"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//MultiplicityInterval">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//MultiplicityInterval/upper"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//MultiplicityInterval/lower"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//VSpecDerivation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VSpecDerivation/derivedVSpec"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//VClassifier">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VClassifier/instanceMultiplicity"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="CVLMetamodel.ecore#//VSpecResolution">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VSpecResolution/resolvedVSpec"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VSpecResolution/child"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//ChoiceResolutuion">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ChoiceResolutuion/resolvedChoice"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//ChoiceResolutuion/decision"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//VInstance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VInstance/type"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="CVLMetamodel.ecore#//VariationPoint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VariationPoint/bindingVspec"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VariationPoint/precedenceConstraint"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//FragmentSubstitution">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//FragmentSubstitution/boundaryElementBinding"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//FragmentSubstitution/placement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//FragmentSubstitution/multi"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//FragmentSubstitution/replacement"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="CVLMetamodel.ecore#//ChoiceVariationPoint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ChoiceVariationPoint/bindingChoice"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//ChoiceVariationPoint/mappingExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//ChoiceVariationPoint/expression"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="CVLMetamodel.ecore#//RepeatableVariationPoint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//RepeatableVariationPoint/bindingClassifier"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="CVLMetamodel.ecore#//BoundaryElementBinding"/>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//PlacementFragment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//PlacementFragment/placementBoundaryElement"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="CVLMetamodel.ecore#//PlacementBoundaryElement"/>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//ReplacementFragmentType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ReplacementFragmentType/replacementBoundaryElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ReplacementFragmentType/placementFragment"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="CVLMetamodel.ecore#//Variabletype"/>
+    <genClasses image="false" ecoreClass="CVLMetamodel.ecore#//ReplacementBoundaryElement"/>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//ObjectSubstitution">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ObjectSubstitution/placementObject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ObjectSubstitution/replacementObject"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//ObjectHandle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//ObjectHandle/MOFRef"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//BaseModelHandle">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//BaseModelHandle/reference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//BaseModelHandle/referenceString"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="CVLMetamodel.ecore#//Existence"/>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//Variable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//Variable/replacementFragmentTypesubsetstype"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//Variable/defaulValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//Variable/type"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="CVLMetamodel.ecore#//ValueSpecification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ValueSpecification/type"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//VariableValueAssignment">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VariableValueAssignment/resolvedVariable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VariableValueAssignment/value"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//PrimitveType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//PrimitveType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//ObjectType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//ObjectType/metaClass"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//VInterface">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VInterface/member"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VInterface/ownedConstraint"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VInterface/super"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//Constraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//Constraint/context"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//SlotAssignment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//SlotAssignment/slotIdentifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//SlotAssignment/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//SlotAssignment/SlotOwner"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//FixedSlotValueAssignment"/>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//FixedObjectSubstitution"/>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//ObjectExistence">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ObjectExistence/optionalObject"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//LinkAssignment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//LinkAssignment/link"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//LinkAssignment/linkEndIdentifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//LinkAssignment/newEnd"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//LinkHandle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//LinkHandle/MOFRef"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//ConfigurableUnit">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ConfigurableUnit/ownedVSpec"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ConfigurableUnit/ownedVariationPoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ConfigurableUnit/ownedConstraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ConfigurableUnit/configurableContainerObject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ConfigurableUnit/ownedVSpecResolution"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ConfigurableUnit/unitInterface"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//CompositeVariationPoint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//CompositeVariationPoint/bindingCVSpec"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//CompositeVariationPoint/children"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//CVSpec">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//CVSpec/extension"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//VConfiguration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VConfiguration/member"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//VConfiguration/isPartial"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VConfiguration/super"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VConfiguration/resolvedVIRef"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//VSpec2VSpecMapping">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VSpec2VSpecMapping/derivingConstraint"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//OpaqueConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//OpaqueConstraint/constraint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//OpaqueConstraint/constraintLanguage"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//LinkExistence">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//LinkExistence/optionalLink"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//OpaqueVariationPoint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//OpaqueVariationPoint/placeHolder"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//OpaqueVariationPoint/sourceObject"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//OpaqueVariationPoint/type"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//OVPType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//OVPType/spec"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//OVPSemanticSpec">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//OVPSemanticSpec/modelTransformation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//OVPSemanticSpec/transfromationLanguage"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//ObjectSpecification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ObjectSpecification/object"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//ReplacementFragmentSpecification"/>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//VPackage">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VPackage/packageElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VPackage/imports"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//ToBinding">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ToBinding/toPlacement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ToBinding/toReplacement"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//ToPlacement">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ToPlacement/toReplacement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//ToPlacement/propertyName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ToPlacement/insideBoundaryElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ToPlacement/outsideBoundaryElement"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//ToReplacement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ToReplacement/insideBoundaryElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ToReplacement/toPlacement"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//FromBinding">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//FromBinding/fromPlacement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//FromBinding/fromReplacement"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//FromPlacement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//FromPlacement/fromReplacement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//FromPlacement/outsideBoundaryElement"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//FromReplacement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//FromReplacement/propertyName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//FromReplacement/insideBoundaryElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//FromReplacement/outsideBoundaryElement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//FromReplacement/fromPlacement"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//VSpecRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VSpecRef/vSpec"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//OCLExpression"/>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//VSpecToConfigMapping">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VSpecToConfigMapping/thenConfiguration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VSpecToConfigMapping/ifConstraint"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="CVLMetamodel.ecore#//ParametricVariationPoint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ParametricVariationPoint/bindingVariable"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//SlotValueExistence">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//SlotValueExistence/slotIdentifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//SlotValueExistence/slotOwner"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//ParametricLinkAssignment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//ParametricLinkAssignment/linkEndIdentifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ParametricLinkAssignment/link"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//ParametricObjectSubstitution">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ParametricObjectSubstitution/placementObject"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//ParametricSlotAssignmet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//ParametricSlotAssignmet/slotIdentifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ParametricSlotAssignmet/slotOwner"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//ChoiceDerivation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ChoiceDerivation/derivingConstraint"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//VariableDerivation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//VariableDerivation/derivingExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//CVSpecDerivation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//CVSpecDerivation/memberDerivation"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//ConfigurableUnitUsage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ConfigurableUnitUsage/usedUnit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//ConfigurableUnitUsage/usageReference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//ConfigurableUnitUsage/linkEndIdentifier"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//PrimitiveValueSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//PrimitiveValueSpecification/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//PrimitiveValueSpecification/value"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//OCLConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//OCLConstraint/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//OperationCallExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//OperationCallExp/argument"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//OperationCallExp/operation"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//BooleanLiteralExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//BooleanLiteralExp/bool"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//StringLiteralExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//StringLiteralExp/string"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//NumericLiteralExp"/>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//IntegerLiteralExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//IntegerLiteralExp/integer"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//UnlimitedLiteralExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//UnlimitedLiteralExp/unlimited"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//RealLiteralExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//RealLiteralExp/real"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//PatternIntegration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//PatternIntegration/multi"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//PatternIntegration/substitutes"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//PatternFusion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//PatternFusion/multi"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//PatternFusion/substitutes"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//StructuralOrganisationalPattern">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//StructuralOrganisationalPattern/multi"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CVLMetamodel.ecore#//StructuralOrganisationalPattern/substitutes"/>
+    </genClasses>
+    <genClasses ecoreClass="CVLMetamodel.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CVLMetamodel.ecore#//Import/importURI"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

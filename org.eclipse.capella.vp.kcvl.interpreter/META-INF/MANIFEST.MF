@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Interpreter
+Bundle-SymbolicName: org.eclipse.capella.vp.kcvl.interpreter
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore,
+ org.eclipse.xtend.lib,
+ com.google.guava,
+ org.eclipse.capella.vp.kcvl.metamodel,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.xtext,
+ org.eclipse.uml2.uml,
+ org.codehaus.groovy,
+ org.eclipse.capella.vp.kcvl.fd2assets,
+ org.eclipse.ui,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.capella.vp.kcvl.cvlmappingvaribilitychoice,
+ org.eclipse.capella.vp.kcvl.extensions
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: fr.inria.diverse.kcvl.interpreter
+

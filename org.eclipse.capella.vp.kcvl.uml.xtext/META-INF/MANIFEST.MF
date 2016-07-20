@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.eclipse.capella.vp.kcvl.uml.xtext
+Bundle-SymbolicName: org.eclipse.capella.vp.kcvl.uml.xtext
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.xtext;bundle-version="2.3.1"
+Export-Package: org.eclipse.capella.vp.kcvl.uml.xtext

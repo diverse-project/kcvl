@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<relativePath>../pom.xml</relativePath>
+		<groupId>org.eclipse.capella.vp.kcvl</groupId>
+		<artifactId>org.eclipse.capella.vp.kcvl.parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+
+	<artifactId>org.eclipse.capella.vp.kcvl.derivationengine</artifactId>
+	<packaging>eclipse-plugin</packaging>
+	<name>KCVL Derivation Engine Plugin</name>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<overWriteIfNewer>true</overWriteIfNewer>
+							<outputDirectory>${project.basedir}/lib</outputDirectory>
+							<markersDirectory>${project.basedir}/lib</markersDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.5</version>
+				<executions>
+					<execution>
+						<id>clean-dependencies</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+						<configuration>
+							<filesets>
+								<fileset>
+									<directory>lib</directory>
+									<includes>
+										<include>**/*</include>
+									</includes>
+								</fileset>
+							</filesets>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project> 
+

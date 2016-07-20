@@ -1,0 +1,299 @@
+/**
+ */
+package org.omg.cvl.impl;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import org.omg.cvl.CvlPackage;
+import org.omg.cvl.ObjectSubstitution;
+import org.omg.cvl.RepeatableVariationPoint;
+import org.omg.cvl.StructuralOrganisationalPattern;
+import org.omg.cvl.VClassifier;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Structural Organisational Pattern</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.omg.cvl.impl.StructuralOrganisationalPatternImpl#getBindingClassifier <em>Binding Classifier</em>}</li>
+ *   <li>{@link org.omg.cvl.impl.StructuralOrganisationalPatternImpl#isMulti <em>Multi</em>}</li>
+ *   <li>{@link org.omg.cvl.impl.StructuralOrganisationalPatternImpl#getSubstitutes <em>Substitutes</em>}</li>
+ * </ul>
+ *
+ * @generated
+ */
+public class StructuralOrganisationalPatternImpl extends ChoiceVariationPointImpl implements StructuralOrganisationalPattern {
+	/**
+	 * The cached value of the '{@link #getBindingClassifier() <em>Binding Classifier</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBindingClassifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected VClassifier bindingClassifier;
+
+	/**
+	 * The default value of the '{@link #isMulti() <em>Multi</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMulti()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean MULTI_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isMulti() <em>Multi</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMulti()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean multi = MULTI_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSubstitutes() <em>Substitutes</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubstitutes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ObjectSubstitution> substitutes;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StructuralOrganisationalPatternImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return CvlPackage.Literals.STRUCTURAL_ORGANISATIONAL_PATTERN;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VClassifier getBindingClassifier() {
+		if (bindingClassifier != null && bindingClassifier.eIsProxy()) {
+			InternalEObject oldBindingClassifier = (InternalEObject)bindingClassifier;
+			bindingClassifier = (VClassifier)eResolveProxy(oldBindingClassifier);
+			if (bindingClassifier != oldBindingClassifier) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN__BINDING_CLASSIFIER, oldBindingClassifier, bindingClassifier));
+			}
+		}
+		return bindingClassifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VClassifier basicGetBindingClassifier() {
+		return bindingClassifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBindingClassifier(VClassifier newBindingClassifier) {
+		VClassifier oldBindingClassifier = bindingClassifier;
+		bindingClassifier = newBindingClassifier;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN__BINDING_CLASSIFIER, oldBindingClassifier, bindingClassifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isMulti() {
+		return multi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMulti(boolean newMulti) {
+		boolean oldMulti = multi;
+		multi = newMulti;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN__MULTI, oldMulti, multi));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ObjectSubstitution> getSubstitutes() {
+		if (substitutes == null) {
+			substitutes = new EObjectResolvingEList<ObjectSubstitution>(ObjectSubstitution.class, this, CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN__SUBSTITUTES);
+		}
+		return substitutes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN__BINDING_CLASSIFIER:
+				if (resolve) return getBindingClassifier();
+				return basicGetBindingClassifier();
+			case CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN__MULTI:
+				return isMulti();
+			case CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN__SUBSTITUTES:
+				return getSubstitutes();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN__BINDING_CLASSIFIER:
+				setBindingClassifier((VClassifier)newValue);
+				return;
+			case CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN__MULTI:
+				setMulti((Boolean)newValue);
+				return;
+			case CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN__SUBSTITUTES:
+				getSubstitutes().clear();
+				getSubstitutes().addAll((Collection<? extends ObjectSubstitution>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN__BINDING_CLASSIFIER:
+				setBindingClassifier((VClassifier)null);
+				return;
+			case CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN__MULTI:
+				setMulti(MULTI_EDEFAULT);
+				return;
+			case CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN__SUBSTITUTES:
+				getSubstitutes().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN__BINDING_CLASSIFIER:
+				return bindingClassifier != null;
+			case CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN__MULTI:
+				return multi != MULTI_EDEFAULT;
+			case CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN__SUBSTITUTES:
+				return substitutes != null && !substitutes.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == RepeatableVariationPoint.class) {
+			switch (derivedFeatureID) {
+				case CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN__BINDING_CLASSIFIER: return CvlPackage.REPEATABLE_VARIATION_POINT__BINDING_CLASSIFIER;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == RepeatableVariationPoint.class) {
+			switch (baseFeatureID) {
+				case CvlPackage.REPEATABLE_VARIATION_POINT__BINDING_CLASSIFIER: return CvlPackage.STRUCTURAL_ORGANISATIONAL_PATTERN__BINDING_CLASSIFIER;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (multi: ");
+		result.append(multi);
+		result.append(')');
+		return result.toString();
+	}
+
+} //StructuralOrganisationalPatternImpl

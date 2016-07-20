@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="org.eclipse.capella.vp.kcvl.target" sequenceNumber="9">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.jdt.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.pde.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.draw2d.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.sdk.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.xpand" version="0.0.0"/>
+<unit id="org.eclipse.xtend" version="0.0.0"/>
+<unit id="org.eclipse.xtend.typesystem.emf" version="0.0.0"/>
+<repository location="http://download.eclipse.org/releases/mars/201506241002/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.mwe2.launcher.feature.group" version="0.0.0"/>
+<repository location="http://download.eclipse.org/modeling/emft/mwe/updates/releases/2.8.1/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.xtext.sdk.feature.group" version="0.0.0"/>
+<repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.10.0/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.codehaus.groovy24.feature.feature.group" version="2.9.2.xx-201607121857-e45"/>
+<unit id="org.codehaus.groovy.eclipse.feature.feature.group" version="2.9.2.xx-201607121857-e45"/>
+<repository location="http://dist.springsource.org/snapshot/GRECLIPSE/e4.5/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.epsilon.eunit.dt.emf.feature.feature.group" version="1.3.0.201602270002"/>
+<unit id="org.eclipse.epsilon.core.feature.feature.group" version="1.3.0.201602270002"/>
+<unit id="org.eclipse.epsilon.evl.emf.validation.feature.feature.group" version="1.3.0.201602270002"/>
+<unit id="org.eclipse.epsilon.ewl.gmf.feature.feature.group" version="1.3.0.201602270002"/>
+<unit id="org.eclipse.epsilon.ewl.emf.feature.feature.group" version="1.3.0.201602270002"/>
+<unit id="org.eclipse.epsilon.emf.feature.feature.group" version="1.3.0.201602270002"/>
+<unit id="org.eclipse.epsilon.eugenia.feature.feature.group" version="1.3.0.201602270002"/>
+<unit id="org.eclipse.epsilon.core.dt.feature.feature.group" version="1.3.0.201602270002"/>
+<unit id="org.eclipse.epsilon.emf.dt.feature.feature.group" version="1.3.0.201602270002"/>
+<unit id="org.eclipse.epsilon.emc.graphml.feature.feature.group" version="1.3.0.201602270002"/>
+<repository location="http://download.eclipse.org/epsilon/updates/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.ecoretools.registration.feature.feature.group" version="0.1.2.201603070919"/>
+<repository location="https://ci.inria.fr/diverse-commons/job/diverse-studio_composite_updatesite/lastSuccessfulBuild/artifact/composite_updatesite/diverse.composite.updatesite/update/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.ocl.all.sdk.feature.group" version="5.1.0.v20160118-1848"/>
+<unit id="org.eclipse.papyrus.sdk.feature.feature.group" version="1.1.4.201602101200"/>
+<unit id="org.eclipse.emf.compare.uml2.feature.group" version="3.1.1.201509120604"/>
+<unit id="org.eclipse.uml2.sdk.feature.group" version="5.1.2.v20160201-0816"/>
+<repository location="http://download.eclipse.org/releases/mars"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.sirius.samples.feature.group" version="3.1.5.201604151508"/>
+<unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group" version="3.1.5.201604151508"/>
+<unit id="org.eclipse.sirius.runtime.ide.eef.feature.group" version="3.1.5.201604151508"/>
+<unit id="org.eclipse.sirius.runtime.ocl.feature.group" version="3.1.5.201604151508"/>
+<unit id="org.eclipse.sirius.doc.feature.feature.group" version="3.1.5.201604151508"/>
+<unit id="org.eclipse.sirius.runtime.aql.feature.group" version="3.1.5.201604151508"/>
+<unit id="org.eclipse.sirius.specifier.ide.ui.aql.feature.group" version="3.1.5.201604151508"/>
+<unit id="org.eclipse.sirius.specifier.ide.ui.feature.group" version="3.1.5.201604151508"/>
+<unit id="org.eclipse.sirius.runtime.feature.group" version="3.1.5.201604151508"/>
+<unit id="org.eclipse.sirius.runtime.ide.xtext.feature.group" version="3.1.5.201604151508"/>
+<unit id="org.eclipse.sirius.runtime.acceleo.feature.group" version="3.1.5.201604151508"/>
+<unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="3.1.5.201604151508"/>
+<unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group" version="3.1.5.201604151508"/>
+<repository location="http://download.eclipse.org/sirius/updates/releases/3.1.5/mars/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.diffmerge.sdk.feature.feature.group" version="0.7.0.v20160627-1327"/>
+<repository location="http://ftp.gnome.org/mirror/eclipse.org/diffmerge/releases/0.7.0/emf-diffmerge-site/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.diffmerge.patterns.sdk.feature.feature.group" version="0.7.0.v20160627-1503"/>
+<unit id="org.eclipse.emf.diffmerge.patterns.sirius.sdk.feature.feature.group" version="0.7.0.v20160627-1503"/>
+<repository location="http://ftp.gnome.org/mirror/eclipse.org/diffmerge/releases/0.7.0/edm-patterns-site/"/>
+</location>
+</locations>
+</target>

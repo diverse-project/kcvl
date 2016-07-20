@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.eclipse.capella.vp.kcvl.uml.xtext.ui
+Bundle-SymbolicName: org.eclipse.capella.vp.kcvl.uml.xtext.ui;singleton=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.apache.log4j,
+ com.google.inject,
+ org.eclipse.xtext.ui,
+ org.eclipse.capella.vp.kcvl.uml.xtext,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.ui.ide,
+ org.eclipse.ui.ide.application
+Bundle-Activator: org.eclipse.capella.vp.kcvl.uml.xtext.ui.Activator
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.uml2.uml.editor.presentation
