@@ -290,8 +290,126 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-	
+	<repository>
+			<id>groovy</id>
+			<url>http://dist.springsource.org/snapshot/GRECLIPSE/e4.5/</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	<repository>
+			<id>epsilon</id>
+			<url>http://download.eclipse.org/epsilon/updates/</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	<repository>
+			<id>emft</id>
+			<url>http://download.eclipse.org/modeling/emft/mwe/updates/releases/2.8.1/</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	<repository>
+			<id>xtext</id>
+			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.10.0/</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	<repository>
+			<id>mars</id>
+			<url>http://download.eclipse.org/releases/mars</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	<repository>
+			<id>mars1</id>
+			<url>http://download.eclipse.org/releases/mars/201506241002/</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+	<repository>
+			<id>sirius</id>
+			<url>http://download.eclipse.org/sirius/updates/releases/3.1.5/mars/</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+	<repository>
+			<id>diffmerge</id>
+			<url>http://ftp.gnome.org/mirror/eclipse.org/diffmerge/releases/0.7.0/edm-patterns-site/</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	<repository>
+			<id>capella</id>
+			<url>https://hudson.polarsys.org/capella/job/capella-studio-v1.0.x/337/artifact/result/publish/studio/site.p2/</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+	<repository>
+			<id>diverse</id>
+			<url>https://ci.inria.fr/diverse-commons/job/diverse-studio_composite_updatesite/lastSuccessfulBuild/artifact/composite_updatesite/diverse.composite.updatesite/update/</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+
+
+
 	</repositories>
+
+
 	<pluginRepositories>
 		<pluginRepository>
 			<id>codehaus-snapshots</id>

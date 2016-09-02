@@ -15,7 +15,7 @@ import org.eclipse.xtext.scoping.impl.SimpleLocalScopeProvider
 class KCVLRuntimeModule extends AbstractKCVLRuntimeModule {
 	
 	override def bindIDerivedStateComputer()
-	{
+	{ 
 		return typeof(KCvlPostProcessor)
 	} 
 	

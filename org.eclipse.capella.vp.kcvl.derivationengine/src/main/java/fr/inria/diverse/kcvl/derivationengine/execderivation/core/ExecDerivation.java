@@ -312,7 +312,7 @@ public class ExecDerivation implements PatternIntegration {
 				for (Resource res1 : v.getDomainResources()) {
 					if (res1 != null && !res1.getURI().toString().endsWith(".patterns")) {
 //						newuri = newuri.trimFileExtension();
-						URI newuri = URI.createURI(res1.getURI().trimSegments(1) + "/umloutput/" + ((VPackage) resolvedModelRes.getContents().get(0)).getName());
+						URI newuri = URI.createURI(res1.getURI().trimSegments(1) + "/output/" + ((VPackage) resolvedModelRes.getContents().get(0)).getName());
 						newuri = newuri.appendFileExtension(res1.getURI()
 								.fileExtension());
 						System.err.println("newuri " + newuri);
